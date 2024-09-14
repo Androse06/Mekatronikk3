@@ -31,12 +31,12 @@ def generate_launch_description():
         #output    = 'screen'
     )
 
-    propulsion_node = Node(
-        package    = "ngc_propulsion_sim", 
-        executable = "ngc_propulsion_sim",
-        name       = 'ngc_propulsion_sim',
-        output     = 'screen'
-    )
+    # propulsion_node = Node(
+    #     package    = "ngc_propulsion_sim", 
+    #     executable = "ngc_propulsion_sim",
+    #     name       = 'ngc_propulsion_sim',
+    #     output     = 'screen'
+    # )
     
     gnss_node = Node(
         package    = "ngc_sensor_sims", 
