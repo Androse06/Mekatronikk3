@@ -57,7 +57,7 @@ class Kontroller(Node):
         # Sett inn kode her 
 
         # #TEST FRA GITHUB- Oskar_Fjør
-        self.tau_pub = self.create_publisher(Tau, "tau_propulsion", default_qos_profile)
+        self.tau_pub = self.create_publisher(Tau, "tau_propultion", default_qos_profile)
         
         # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
         self.eta          = np.zeros(6)
@@ -73,7 +73,7 @@ class Kontroller(Node):
         # Her må du starte kontrolløkken
 
         #TEST FRA GITHUB- Oskar_Fjør
-        self.timer = self.create_timer(self.step_size, self.step_control)
+        self.timer = self.create_timer(self.sep_size, self.step_control)
 
         self.get_logger().info("Kontroller-node er initialisert.")
 
@@ -119,74 +119,82 @@ class Kontroller(Node):
         # Foreløpig brukes en enkel PD-kontroll (Propositional-Derivative) som eksempel
 
         ################## PID Heading #####################
-
         # Beregn avvik (feil) mellom settpunkt og faktisk verdi for både posisjon (eta) og hastighet (nu)
         e_psi     = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
         e_psi_dot = self.nu_setpoint[5] - self.nu[5]
 
-        # Verdier fra control_config.yaml
-        dt          = self.step_size
-        w_0         = self.control_config['heading_control']['omega']
-        z           = self.control_config['heading_control']['zeta']
-        ki_scale    = self.control_config['heading_control']['ki_scale']
-        ki_sat      = self.control_config['heading_control']['ki_saturation_limit']
-        N_rr        = self.control_config['heading_control']['N_rr']
-        x_lin       = self.control_config['heading_control']['linearization_point']
+        dt = self.step_size
 
-        # Verdier fra vessel_config.yaml
-        m           = self.vessel_config['vessel']['mass']
+        self.k_i_psi = self.k_p_psi / (10 + e_psi**2)
 
-        # Verdier fra simulator_config.yaml
-        #rho         = self.simulation_config['physical_parameters']['rho_water']
+        # ANTI WINDUP: Preventing the integral windup for heading control
+        E_psi = 0.8  # Anti-windup threshold for heading
+        if self.qi_psi < E_psi and e_psi > 0:
+            q_dot_psi = self.k_i_psi * e_psi
+        elif self.qi_psi > -E_psi and e_psi < 0:
+            q_dot_psi = self.k_i_psi * e_psi
+        else:
+            q_dot_psi = 0
+
+        # Update the integral state for heading
+        self.qi_psi += q_dot_psi * dt
+
+        # ERROR CLAMP for heading control
+        if e_psi > 1:
+            e_psi = 1
+        elif e_psi < -1:
+            e_psi = -1
+
+        # Calculate PID output for heading (yaw control)
+        tau_N = self.k_p_psi * e_psi + self.k_d_psi * e_psi_dot + self.qi_psi
+
+        # PID OUTPUT CLAMP for heading
+        if tau_N > 1:
+            tau_N = 1
+        elif tau_N < -1:
+            tau_N = -1
 
         # Kode for headingkontroller
-        d_star      = N_rr * x_lin
-        k_p_psi     = m * w_0**2
-        k_d_psi     = 2 * z * w_0 * m - d_star
-        k_i_psi     = k_p_psi / (ki_scale + np.rad2deg(e_psi)**2)
 
-        # # Middlertidig saturation, anti windup 
-        # E           = 0.8
-        # if self.qi_psi < E and e_psi > 0:
-        #     q_dot = k_i_psi * e_psi
-        # elif self.qi_psi > -E and e_psi < 0:
-        #     q_dot = self.k_i * e_psi
-        # else:
-        #     q_dot = 0
-
-        # self.qi_psi += q_dot * dt
-
-        # # Midlertig error clamp
-        # if e_psi > 1:
-        #     e_psi = 1
-        # elif e_psi < -1:
-        #     e_psi =-1
-
-        self.qi_psi += dt * mu.saturate(e_psi, -np.deg2rad(ki_sat), np.deg2rad(ki_sat))
-
-        tau_N = k_p_psi * e_psi + k_i_psi * self.qi_psi + k_d_psi * e_psi_dot
-
-        # # Midlertidig PID clamp
-        # if tau_N > 1:
-        #     tau_N = 1
-        # elif tau_N < -1:
-        #     tau_N = -1
+        #tau_N = 0.0
 
         ################## PI Fart #####################
-
         e_u = self.nu_setpoint[0] - self.nu[0]
 
-        # Verdier fra control_config.yaml
-        k_p         = self.control_config['speed_control']['K_p']
-        ki_scale_u    = self.control_config['speed_control']['ki_scale']
-        ki_sat_u    = self.control_config['speed_control']['ki_saturation_limit']
-        X_uu        = self.control_config['speed_control']['X_uu']
-
         # Kode for fartskontroller
-        ki_u        = k_p / (ki_scale_u + e_u**2)
-        self.qi_u  += dt * mu.saturate(e_u, -ki_sat_u, ki_sat_u)
 
-        tau_X       = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + k_p * e_u + self.qi_u * ki_u
+
+        # GAIN ADJUSTMENT for surge velocity
+        self.k_i_u = self.k_p_u / (10 + e_u**2)
+
+        # ANTI WINDUP for surge velocity
+        E_u = 0.8  # Anti-windup threshold for surge
+        if self.qi_u < E_u and e_u > 0:
+            q_dot_u = self.k_i_u * e_u
+        elif self.qi_u > -E_u and e_u < 0:
+            q_dot_u = self.k_i_u * e_u
+        else:
+            q_dot_u = 0
+
+        # Update the integral state for surge velocity
+        self.qi_u += q_dot_u * dt
+
+        # ERROR CLAMP for surge velocity control
+        if e_u > 1:
+            e_u = 1
+        elif e_u < -1:
+            e_u = -1
+
+        # Calculate PI output for surge velocity (thrust control)
+        tau_X = self.k_p_u * e_u + self.qi_u
+
+        # PID OUTPUT CLAMP for surge velocity
+        if tau_X > 1:
+            tau_X = 1
+        elif tau_X < -1:
+            tau_X = -1
+
+        #tau_X = 0.0
 
         # Opprett en Tau-melding for å sende de beregnede kreftene
         tau_message = Tau()
