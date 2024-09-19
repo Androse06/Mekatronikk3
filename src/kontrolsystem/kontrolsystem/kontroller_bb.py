@@ -44,14 +44,10 @@ class Kontroller(Node):
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
         # Setter opp abonnenter for å lytte på data fra simulatoren (eta og nu) og settpunkter (eta_setpoint, nu_setpoint)
-        self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
-        self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
-        self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
-        self.nu_sub                 = self.create_subscription(Nu,'nu_sim', self.nu_callback, default_qos_profile)
-        self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
+        # Sett inn kode her 
         
         # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)
-        self.tau_pub                = self.create_publisher(Tau, 'tau_propulsion', default_qos_profile)
+        # Sett inn kode her 
         
         # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
         self.eta          = np.zeros(6)
@@ -64,7 +60,7 @@ class Kontroller(Node):
         self.qi_u   = 0.0
 
         # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
-        self.timer = self.create_timer(self.step_size, self.step_control)
+        # Her må du starte kontrolløkken
 
         self.get_logger().info("Kontroller-node er initialisert.")
 
@@ -114,51 +110,16 @@ class Kontroller(Node):
         e_psi     = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
         e_psi_dot = self.nu_setpoint[5] - self.nu[5]
 
+        # Kode for headingkontroller
 
-        # Heading config
-        omega                   = self.control_config['heading_control']['omega']
-        zeta                    = self.control_config['heading_control']['zeta']
-        ki_scale                = self.control_config['heading_control']['ki_scale']
-        ki_sat_limit            = self.control_config['heading_control']['ki_saturation_limit']
-        N_rr                    = self.control_config['heading_control']['N_rr']            # 
-        linerearization_point   = self.control_config['heading_control']['linearization_point']
-        dt                      = self.step_size
-
-        # Vessel config
-        mass                    = self.vessel_config['vessel']['mass']
-
-        d_star                  = N_rr * linerearization_point
-
-        kp_psi                  = mass * omega ** 2
-        kd_psi                  = 2 * zeta * omega * mass - d_star
-        ki_psi                  = kp_psi / (ki_scale + np.rad2deg(e_psi) ** 2)
-
-        self.qi_psi += dt * mu.saturate(e_psi, -np.deg2rad(ki_sat_limit), np.deg2rad(ki_sat_limit))
-
-
-        # PID Led
-        P                       = kp_psi * e_psi
-        I                       = ki_psi * self.qi_psi
-        D                       = kd_psi * e_psi_dot
-
-        # Heading kontroller
-        tau_N                   = P + I + D
+        tau_N = 0.0
 
         ################## PI Fart #####################
         e_u = self.nu_setpoint[0] - self.nu[0]
 
-        kp_u                    = self.control_config['speed_control']['K_p']
-        ki_scale_u              = self.control_config['speed_control']['ki_scale']
-        ki_sat_limit_u          = self.control_config['speed_control']['ki_saturation_limit']
-        X_uu                    = self.control_config['speed_control']['X_uu']
-
-        # Beregning af Ki_u
-        ki_u                    = kp_u / (ki_scale_u + e_u ** 2)
-        self.qi_u               += dt * mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u)   
-
         # Kode for fartskontroller
 
-        tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + kp_u * e_u + self.qi_u * ki_u
+        tau_X = 0.0
 
         # Opprett en Tau-melding for å sende de beregnede kreftene
         tau_message = Tau()

@@ -84,6 +84,13 @@ def generate_launch_description():
         output     = 'screen'
     )
 
+    kontroller_node = Node(
+        package     = 'kontrolsystem',
+        executable  = 'kontroller',
+        name        = 'kontroller',
+        output      = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 3.0, actions=[plotjuggler_node])
 
     ld = LaunchDescription() 
@@ -97,5 +104,6 @@ def generate_launch_description():
     ld.add_action(hmi_node_yaml_editor)
     ld.add_action(hmi_node_autopilot)
     ld.add_action(delayed_plotjuggler)
+    ld.add_action(kontroller_node)
 
     return ld
