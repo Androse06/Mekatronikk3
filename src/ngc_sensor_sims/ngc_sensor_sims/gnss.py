@@ -123,7 +123,7 @@ class GNSSSimulator(Node):
             self.sock.sendto(gga_message.encode(), (self.udp_ip, self.udp_port))
             self.sock.sendto(vtg_message.encode(), (self.udp_ip, self.udp_port))
 
-            # Make a message
+            # Make a message GNSS type
             meas = GNSS()
             meas.lat = noisy_lat
             meas.lon = noisy_lon
