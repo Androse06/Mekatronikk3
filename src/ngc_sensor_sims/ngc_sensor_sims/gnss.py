@@ -123,9 +123,10 @@ class GNSSSimulator(Node):
             self.sock.sendto(gga_message.encode(), (self.udp_ip, self.udp_port))
             self.sock.sendto(vtg_message.encode(), (self.udp_ip, self.udp_port))
 
-            meas              = GNSS() 
-            meas.lat          = noisy_lat
-            meas.lon          = noisy_lon
+            # Make a message
+            meas = GNSS()
+            meas.lat = noisy_lat
+            meas.lon = noisy_lon
             meas.valid_signal = True
             self.gnss_pub.publish(meas)
 
