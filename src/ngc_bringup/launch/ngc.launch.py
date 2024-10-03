@@ -74,7 +74,6 @@ def generate_launch_description():
         package     = "plotjuggler", 
         executable  = "plotjuggler",
         arguments   = ["--layout",  plotjuggler_config] 
-        
     )
 
     hmi_node_yaml_editor = Node(
@@ -84,11 +83,19 @@ def generate_launch_description():
         output      = 'screen'
     )
 
-    # Ny PID kontroller
+    # PID kontroller
     kontroller = Node(
         package     = "kontrollsystem",
         executable  = "kontroller",
         name        = "kontroller",
+        output      = 'screen'
+    )
+
+    # Estimator node
+    estimator = Node(
+        package     = "kontrollsystem",
+        executable  = "estimator",
+        name        = "estimator",
         output      = 'screen'
     )
 
@@ -104,8 +111,10 @@ def generate_launch_description():
     #ld.add_action(hmi_node)
     ld.add_action(hmi_node_yaml_editor)
     ld.add_action(hmi_node_autopilot)
-    ld.add_action(kontroller)
     ld.add_action(delayed_plotjuggler)
+
+    ld.add_action(kontroller)
+    ld.add_action(estimator)
 
 
     return ld

@@ -48,9 +48,9 @@ class Kontroller(Node):
 
         # #TEST FRA GITHUB- Oskar_Fjør
         self.eta_setpoint_sub   = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
-        self.eta_sub            = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
+        self.eta_sub            = self.create_subscription(Eta, 'eta_hat', self.eta_callback, default_qos_profile)
         self.nu_setpoint_sub    = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
-        self.nu_sub             = self.create_subscription(Nu, 'nu_sim', self.nu_callback, default_qos_profile)
+        self.nu_sub             = self.create_subscription(Nu, 'nu_hat', self.nu_callback, default_qos_profile)
         self.reload_config_sub  = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         
         # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)

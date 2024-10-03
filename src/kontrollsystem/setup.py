@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'kontroller = kontrollsystem.kontroller:main',
+            'estimator = kontrollsystem.estimator:main',
         ],
     },
 )
