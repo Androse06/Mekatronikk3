@@ -1,3 +1,2 @@
 # Mekatronikk3
-Eksamens oppgåve i mekkatronikk 3
-Felles arbeidsområde
+Andreas gamle PID regulator kode
