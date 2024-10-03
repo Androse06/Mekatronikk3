@@ -44,6 +44,8 @@ class Kontroller(Node):
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
         # Setter opp abonnenter for å lytte på data fra simulatoren (eta og nu) og settpunkter (eta_setpoint, nu_setpoint)
+        self.eta_hat_sub            = self.create_subscription(Eta, 'eta_hat', self.eta_hat_callback, default_qos_profile)
+        self.nu_hat_sub             = self.create_subscription(Nu, 'nu_hat', self.nu_hat_callback, default_qos_profile)
         self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
         self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
@@ -51,13 +53,15 @@ class Kontroller(Node):
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         
         # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)
-        self.tau_pub                = self.create_publisher(Tau, 'tau_propulsion', default_qos_profile)
+        self.tau_pub                = self.create_publisher(Tau, 'tau_control', default_qos_profile)
         
         # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
         self.eta          = np.zeros(6)
         self.nu           = np.zeros(6)
         self.eta_setpoint = np.zeros(6)
         self.nu_setpoint  = np.zeros(6)
+        self.eta_hat      = np.zeros(6)
+        self.nu_hat       = np.zeros(6)
 
         # Integraltilstander i PID kontroll
         self.qi_psi = 0.0
@@ -103,6 +107,14 @@ class Kontroller(Node):
         # Mottar settpunktdata for hastigheter
         self.nu_setpoint = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
+    # Callback funktion til Eta estimation
+    def eta_hat_callback(self, msg: Eta):
+        self.eta_hat = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+    
+    # Callback funktion til Nu estimation
+    def nu_hat_callback(self, msg: Nu):
+        self.nu_hat = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
+
     # Funksjon som kjøres på hver simuleringstidssteg og implementerer kontrollalgoritmen
     def step_control(self):
         
@@ -111,8 +123,8 @@ class Kontroller(Node):
 
         ################## PID Heading #####################
         # Beregn avvik (feil) mellom settpunkt og faktisk verdi for både posisjon (eta) og hastighet (nu)
-        e_psi     = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
-        e_psi_dot = self.nu_setpoint[5] - self.nu[5]
+        e_psi     = mu.mapToPiPi(self.eta_setpoint[5] - self.eta_hat[5])
+        e_psi_dot = self.nu_setpoint[5] - self.nu_hat[5]
 
 
         # Heading config
@@ -144,7 +156,6 @@ class Kontroller(Node):
         # Heading kontroller
         tau_N                   = P + I + D
 
-        ################## PI Fart #####################
         e_u = self.nu_setpoint[0] - self.nu[0]
 
         kp_u                    = self.control_config['speed_control']['K_p']

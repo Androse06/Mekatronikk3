@@ -184,18 +184,18 @@ class Estimator(Node):
             eta_hat_message = Eta()
             eta_hat_message.lat = float(self.lat_hat)
             eta_hat_message.lon = float(self.lon_hat)
-            eta_hat_message.z = 0.0
-            eta_hat_message.phi = 0.0
-            eta_hat_message.theta = 0.0
+            eta_hat_message.z = float(0)
+            eta_hat_message.phi = float(0)
+            eta_hat_message.theta = float(0)
             eta_hat_message.psi = float(self.eta_hat[2])
             
             # Nu_hat beskeder
             nu_hat_message = Nu()
             nu_hat_message.u = float(self.nu_hat[0])
             nu_hat_message.v = float(self.nu_hat[1])
-            nu_hat_message.w = 0.0
-            nu_hat_message.p = 0.0
-            nu_hat_message.q = 0.0
+            nu_hat_message.w = float(0)
+            nu_hat_message.p = float(0)
+            nu_hat_message.q = float(0)
             nu_hat_message.r = float(self.nu_hat[2])
 
             self.eta_hat_pub.publish(eta_hat_message)
