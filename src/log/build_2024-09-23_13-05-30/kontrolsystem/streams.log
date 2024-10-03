@@ -1,0 +1,25 @@
+[6.036s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data
+[7.556s] running egg_info
+[7.655s] writing ../build/kontrolsystem/kontrolsystem.egg-info/PKG-INFO
+[7.658s] writing dependency_links to ../build/kontrolsystem/kontrolsystem.egg-info/dependency_links.txt
+[7.713s] writing entry points to ../build/kontrolsystem/kontrolsystem.egg-info/entry_points.txt
+[7.725s] writing requirements to ../build/kontrolsystem/kontrolsystem.egg-info/requires.txt
+[7.732s] writing top-level names to ../build/kontrolsystem/kontrolsystem.egg-info/top_level.txt
+[7.974s] reading manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[8.042s] writing manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[8.053s] running build
+[8.058s] running build_py
+[8.063s] copying kontrolsystem/estimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[8.094s] running install
+[8.120s] running install_lib
+[8.203s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/estimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[8.232s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/estimator.py to estimator.cpython-312.pyc
+[8.248s] running install_data
+[8.260s] running install_egg_info
+[8.420s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info' (and everything under it)
+[8.421s] Copying ../build/kontrolsystem/kontrolsystem.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info
+[8.553s] running install_scripts
+[9.631s] Installing estimator script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem
+[9.657s] Installing kontroller script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem
+[9.660s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log'
+[9.874s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data

@@ -1,0 +1,3 @@
+[console_scripts]
+estimator = kontrolsystem.estimator:main
+kontroller = kontrolsystem.kontroller:main

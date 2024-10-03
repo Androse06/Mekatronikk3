@@ -1,0 +1,40 @@
+[3.967s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data
+[5.384s] running egg_info
+[5.387s] creating ../build/kontrolsystem/kontrolsystem.egg-info
+[5.460s] writing ../build/kontrolsystem/kontrolsystem.egg-info/PKG-INFO
+[5.470s] writing dependency_links to ../build/kontrolsystem/kontrolsystem.egg-info/dependency_links.txt
+[5.479s] writing entry points to ../build/kontrolsystem/kontrolsystem.egg-info/entry_points.txt
+[5.483s] writing requirements to ../build/kontrolsystem/kontrolsystem.egg-info/requires.txt
+[5.490s] writing top-level names to ../build/kontrolsystem/kontrolsystem.egg-info/top_level.txt
+[5.497s] writing manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[5.734s] reading manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[5.744s] writing manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[5.748s] running build
+[5.752s] running build_py
+[5.753s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build
+[5.753s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib
+[5.758s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[5.760s] copying kontrolsystem/kontroller_bb.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[5.761s] copying kontrolsystem/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[5.766s] copying kontrolsystem/kontroller.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[5.772s] running install
+[5.799s] running install_lib
+[5.861s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[5.871s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/kontroller_bb.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[5.876s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[5.885s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/kontroller.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[5.887s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/kontroller_bb.py to kontroller_bb.cpython-312.pyc
+[5.911s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/__init__.py to __init__.cpython-312.pyc
+[5.921s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/kontroller.py to kontroller.cpython-312.pyc
+[5.923s] running install_data
+[5.926s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/ament_index
+[5.936s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/ament_index/resource_index
+[5.939s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/ament_index/resource_index/packages
+[5.940s] copying resource/kontrolsystem -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/ament_index/resource_index/packages
+[5.966s] copying package.xml -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem
+[5.968s] running install_egg_info
+[6.077s] Copying ../build/kontrolsystem/kontrolsystem.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info
+[6.140s] running install_scripts
+[6.712s] Installing kontroller script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem
+[6.720s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log'
+[6.938s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data

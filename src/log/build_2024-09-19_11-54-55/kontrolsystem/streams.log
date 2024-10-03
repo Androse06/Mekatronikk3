@@ -1,0 +1,27 @@
+[8.282s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data
+[11.080s] running egg_info
+[11.305s] writing ../build/kontrolsystem/kontrolsystem.egg-info/PKG-INFO
+[11.317s] writing dependency_links to ../build/kontrolsystem/kontrolsystem.egg-info/dependency_links.txt
+[11.319s] writing entry points to ../build/kontrolsystem/kontrolsystem.egg-info/entry_points.txt
+[11.322s] writing requirements to ../build/kontrolsystem/kontrolsystem.egg-info/requires.txt
+[11.325s] writing top-level names to ../build/kontrolsystem/kontrolsystem.egg-info/top_level.txt
+[11.755s] reading manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[11.775s] writing manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'
+[11.779s] running build
+[11.782s] running build_py
+[11.785s] copying kontrolsystem/esimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[11.791s] copying kontrolsystem/kontroller.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem
+[11.804s] running install
+[11.837s] running install_lib
+[11.998s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/esimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[12.021s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/kontroller.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem
+[12.036s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/esimator.py to esimator.cpython-312.pyc
+[12.058s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/kontroller.py to kontroller.cpython-312.pyc
+[12.086s] running install_data
+[12.096s] running install_egg_info
+[12.252s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info' (and everything under it)
+[12.271s] Copying ../build/kontrolsystem/kontrolsystem.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info
+[12.426s] running install_scripts
+[13.905s] Installing kontroller script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem
+[13.991s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log'
+[14.165s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data

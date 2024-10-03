@@ -1,0 +1,33 @@
+{
+  "package_name": "ngc_interfaces",
+  "output_dir": "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_typesupport_fastrtps_c/ngc_interfaces",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource",
+  "idl_tuples": [
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Eta.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Nu.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/NuDot.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Tau.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Wind.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/ThrusterSignals.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/GNSS.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/HeadingDevice.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_typesupport_fastrtps_c/__init__.py",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/idl__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/idl__type_support_c.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/msg__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/msg__type_support_c.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/Eta.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/Nu.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/NuDot.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/Tau.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/Wind.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/ThrusterSignals.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/GNSS.idl",
+    "/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces/msg/HeadingDevice.idl"
+  ]
+}

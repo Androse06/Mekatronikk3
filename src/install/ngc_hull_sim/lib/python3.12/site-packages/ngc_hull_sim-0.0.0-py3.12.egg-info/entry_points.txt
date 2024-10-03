@@ -1,0 +1,2 @@
+[console_scripts]
+simulate = ngc_hull_sim.ngc_hull_sim:main

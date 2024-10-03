@@ -1,0 +1,21 @@
+[2.257s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[2.698s] running egg_info
+[2.733s] writing ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/PKG-INFO
+[2.736s] writing dependency_links to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/dependency_links.txt
+[2.742s] writing entry points to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/entry_points.txt
+[2.743s] writing requirements to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/requires.txt
+[2.743s] writing top-level names to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/top_level.txt
+[2.850s] reading manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'
+[2.851s] writing manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'
+[2.852s] running build
+[2.853s] running build_py
+[2.858s] running install
+[2.867s] running install_lib
+[2.914s] running install_data
+[2.916s] running install_egg_info
+[2.964s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info' (and everything under it)
+[2.972s] Copying ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info
+[3.005s] running install_scripts
+[3.285s] Installing ngc_propulsion_sim script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/ngc_propulsion_sim
+[3.291s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log'
+[3.351s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data

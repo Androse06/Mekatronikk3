@@ -1,0 +1,453 @@
+[0.252s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.252s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7914082f6b40>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7914082f6ba0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7914082f6ba0>>)
+[0.301s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.302s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.302s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.302s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.302s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.303s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/alfred/shared_mac/MEPA2001_2024/src'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extensions ['ignore', 'ignore_ament_install']
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extension 'ignore'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extension 'ignore_ament_install'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extensions ['colcon_pkg']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extension 'colcon_pkg'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extension 'colcon_meta'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extensions ['ros']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(kontrolsystem) by extension 'ros'
+[0.345s] DEBUG:colcon.colcon_core.package_identification:Package 'kontrolsystem' with type 'ros.ament_python' and name 'kontrolsystem'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ignore'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ignore_ament_install'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['colcon_pkg']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'colcon_pkg'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['colcon_meta']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'colcon_meta'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['ros']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ros'
+[0.352s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_bringup' with type 'ros.ament_cmake' and name 'ngc_bringup'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['ignore', 'ignore_ament_install']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ignore'
+[0.355s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ignore_ament_install'
+[0.355s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['colcon_pkg']
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'colcon_pkg'
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['colcon_meta']
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'colcon_meta'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['ros']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ros'
+[0.359s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_hmi' with type 'ros.ament_python' and name 'ngc_hmi'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ignore'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ignore_ament_install'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['colcon_pkg']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'colcon_pkg'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['colcon_meta']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'colcon_meta'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['ros']
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ros'
+[0.366s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_hull_sim' with type 'ros.ament_python' and name 'ngc_hull_sim'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ignore'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ignore_ament_install'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['colcon_pkg']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'colcon_pkg'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['colcon_meta']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'colcon_meta'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['ros']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ros'
+[0.371s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_interfaces' with type 'ros.ament_cmake' and name 'ngc_interfaces'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ignore'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ignore_ament_install'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['colcon_pkg']
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'colcon_pkg'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['colcon_meta']
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'colcon_meta'
+[0.374s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['ros']
+[0.375s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ros'
+[0.377s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_propulsion_sim' with type 'ros.ament_python' and name 'ngc_propulsion_sim'
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['ignore', 'ignore_ament_install']
+[0.378s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ignore'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ignore_ament_install'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['colcon_pkg']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'colcon_pkg'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['colcon_meta']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'colcon_meta'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['ros']
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ros'
+[0.382s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_sensor_sims' with type 'ros.ament_python' and name 'ngc_sensor_sims'
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['ignore', 'ignore_ament_install']
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ignore'
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ignore_ament_install'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['colcon_pkg']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'colcon_pkg'
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['colcon_meta']
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'colcon_meta'
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['ros']
+[0.386s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ros'
+[0.388s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_utils' with type 'ros.ament_python' and name 'ngc_utils'
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.430s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_args' from command line to 'None'
+[0.430s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_target' from command line to 'None'
+[0.430s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.430s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_clean_cache' from command line to 'False'
+[0.430s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_clean_first' from command line to 'False'
+[0.431s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'cmake_force_configure' from command line to 'False'
+[0.431s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'ament_cmake_args' from command line to 'None'
+[0.431s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'catkin_cmake_args' from command line to 'None'
+[0.431s] Level 5:colcon.colcon_core.verb:set package 'kontrolsystem' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.431s] DEBUG:colcon.colcon_core.verb:Building package 'kontrolsystem' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem', 'symlink_install': False, 'test_result_base': None}
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_args' from command line to 'None'
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_target' from command line to 'None'
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.432s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.433s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.433s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.433s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.433s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.433s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.433s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.434s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.435s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.435s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_args' from command line to 'None'
+[0.435s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_target' from command line to 'None'
+[0.435s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_clean_cache' from command line to 'False'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_clean_first' from command line to 'False'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_force_configure' from command line to 'False'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'ament_cmake_args' from command line to 'None'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'catkin_cmake_args' from command line to 'None'
+[0.436s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.436s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_sensor_sims' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims', 'symlink_install': False, 'test_result_base': None}
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_args' from command line to 'None'
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_target' from command line to 'None'
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_clean_cache' from command line to 'False'
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_clean_first' from command line to 'False'
+[0.437s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_force_configure' from command line to 'False'
+[0.438s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'ament_cmake_args' from command line to 'None'
+[0.438s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'catkin_cmake_args' from command line to 'None'
+[0.438s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.438s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_utils' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils', 'symlink_install': False, 'test_result_base': None}
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_args' from command line to 'None'
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_target' from command line to 'None'
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_clean_cache' from command line to 'False'
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_clean_first' from command line to 'False'
+[0.439s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_force_configure' from command line to 'False'
+[0.440s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'ament_cmake_args' from command line to 'None'
+[0.440s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'catkin_cmake_args' from command line to 'None'
+[0.440s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.440s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_hmi' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi', 'symlink_install': False, 'test_result_base': None}
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_args' from command line to 'None'
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_target' from command line to 'None'
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.441s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.442s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.442s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.442s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.442s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_hull_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim', 'symlink_install': False, 'test_result_base': None}
+[0.442s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_target' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.444s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_propulsion_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim', 'merge_install': False, 'path': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim', 'symlink_install': False, 'test_result_base': None}
+[0.444s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.446s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.446s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_interfaces' with build type 'ament_cmake'
+[0.446s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_interfaces'
+[0.469s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.472s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.531s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_bringup' with build type 'ament_cmake'
+[0.532s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_bringup'
+[0.532s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.570s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils' with build type 'ament_python'
+[0.572s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_utils', 'ament_prefix_path')
+[0.574s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/hook/ament_prefix_path.dsv'
+[0.625s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/hook/ament_prefix_path.sh'
+[0.628s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.692s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem' with build type 'ament_python'
+[0.694s] Level 1:colcon.colcon_core.shell:create_environment_hook('kontrolsystem', 'ament_prefix_path')
+[0.695s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/hook/ament_prefix_path.dsv'
+[0.702s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/hook/ament_prefix_path.sh'
+[0.707s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.799s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces -- -j4 -l4
+[0.843s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[2.017s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils'
+[2.018s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.287s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem'
+[3.290s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.379s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[3.701s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup
+[3.897s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_bringup)
+[3.908s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup
+[3.974s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup' for CMake module files
+[3.986s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup' for CMake config files
+[3.993s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_bringup', 'cmake_prefix_path')
+[3.996s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.dsv'
+[4.002s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.sh'
+[4.007s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/bin'
+[4.009s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/lib/pkgconfig/ngc_bringup.pc'
+[4.012s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/lib/python3.12/site-packages'
+[4.017s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/bin'
+[4.020s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.dsv'
+[4.032s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.sh'
+[4.055s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.bash'
+[4.065s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.zsh'
+[4.078s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/colcon-core/packages/ngc_bringup)
+[4.298s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_bringup)
+[4.299s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup' for CMake module files
+[4.330s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup' for CMake config files
+[4.340s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_bringup', 'cmake_prefix_path')
+[4.343s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.dsv'
+[4.349s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.sh'
+[4.359s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/bin'
+[4.360s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/lib/pkgconfig/ngc_bringup.pc'
+[4.364s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/lib/python3.12/site-packages'
+[4.386s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/bin'
+[4.389s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.dsv'
+[4.394s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.sh'
+[4.398s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.bash'
+[4.403s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.zsh'
+[4.414s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/colcon-core/packages/ngc_bringup)
+[4.424s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims' with build type 'ament_python'
+[4.427s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_sensor_sims', 'ament_prefix_path')
+[4.430s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/ament_prefix_path.dsv'
+[4.443s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/ament_prefix_path.sh'
+[4.456s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.873s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims'
+[6.875s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.885s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[8.983s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data
+[10.977s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[13.779s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils' for CMake module files
+[13.797s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[13.850s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils' for CMake config files
+[13.879s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib'
+[13.882s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/bin'
+[13.883s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/pkgconfig/ngc_utils.pc'
+[13.885s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages'
+[13.887s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_utils', 'pythonpath')
+[13.890s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/hook/pythonpath.dsv'
+[13.918s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/hook/pythonpath.sh'
+[13.931s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/bin'
+[13.939s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_utils)
+[13.944s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/package.dsv'
+[13.964s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/package.sh'
+[13.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/package.bash'
+[13.973s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/ngc_utils/package.zsh'
+[13.981s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/share/colcon-core/packages/ngc_utils)
+[14.860s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem' for CMake module files
+[14.862s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/kontrolsystem build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log --single-version-externally-managed install_data
+[14.879s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem' for CMake config files
+[14.962s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib'
+[14.963s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/bin'
+[14.964s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/pkgconfig/kontrolsystem.pc'
+[14.968s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages'
+[14.969s] Level 1:colcon.colcon_core.shell:create_environment_hook('kontrolsystem', 'pythonpath')
+[14.970s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/hook/pythonpath.dsv'
+[14.978s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/hook/pythonpath.sh'
+[14.983s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/bin'
+[14.984s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(kontrolsystem)
+[14.986s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/package.dsv'
+[14.993s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/package.sh'
+[15.002s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/package.bash'
+[15.008s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/kontrolsystem/package.zsh'
+[15.023s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/share/colcon-core/packages/kontrolsystem)
+[15.546s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims' for CMake module files
+[15.554s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[15.581s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims' for CMake config files
+[15.608s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib'
+[15.610s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/bin'
+[15.611s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/pkgconfig/ngc_sensor_sims.pc'
+[15.614s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages'
+[15.615s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_sensor_sims', 'pythonpath')
+[15.616s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/pythonpath.dsv'
+[15.618s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/pythonpath.sh'
+[15.622s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/bin'
+[15.623s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_sensor_sims)
+[15.623s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.dsv'
+[15.625s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.sh'
+[15.628s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.bash'
+[15.629s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.zsh'
+[15.631s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/colcon-core/packages/ngc_sensor_sims)
+[59.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces -- -j4 -l4
+[60.702s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces
+[63.674s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_interfaces)
+[63.675s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces' for CMake module files
+[63.676s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces
+[63.698s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces' for CMake config files
+[63.733s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'cmake_prefix_path')
+[63.735s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.dsv'
+[63.739s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.sh'
+[63.745s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib'
+[63.749s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'ld_library_path_lib')
+[63.750s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.dsv'
+[63.755s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.sh'
+[63.761s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/bin'
+[63.762s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/pkgconfig/ngc_interfaces.pc'
+[63.764s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages'
+[63.766s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'pythonpath')
+[63.767s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.dsv'
+[63.773s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.sh'
+[63.776s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/bin'
+[63.777s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv'
+[63.779s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.sh'
+[63.782s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.bash'
+[63.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.zsh'
+[63.786s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/colcon-core/packages/ngc_interfaces)
+[65.706s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_interfaces)
+[65.706s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces' for CMake module files
+[65.722s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces' for CMake config files
+[65.735s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'cmake_prefix_path')
+[65.736s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.dsv'
+[65.738s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.sh'
+[65.741s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib'
+[65.743s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'ld_library_path_lib')
+[65.744s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.dsv'
+[65.749s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.sh'
+[65.753s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/bin'
+[65.754s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/pkgconfig/ngc_interfaces.pc'
+[65.759s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages'
+[65.762s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'pythonpath')
+[65.764s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.dsv'
+[65.771s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.sh'
+[65.778s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/bin'
+[65.781s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv'
+[65.787s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.sh'
+[65.794s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.bash'
+[65.798s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.zsh'
+[65.802s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/colcon-core/packages/ngc_interfaces)
+[65.804s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi' with build type 'ament_python'
+[65.804s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hmi', 'ament_prefix_path')
+[65.805s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/hook/ament_prefix_path.dsv'
+[65.808s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/hook/ament_prefix_path.sh'
+[65.810s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[65.912s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim' with build type 'ament_python'
+[65.913s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hull_sim', 'ament_prefix_path')
+[65.913s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/ament_prefix_path.dsv'
+[65.916s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/ament_prefix_path.sh'
+[65.919s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[65.984s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim' with build type 'ament_python'
+[65.985s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_propulsion_sim', 'ament_prefix_path')
+[65.988s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/ament_prefix_path.dsv'
+[65.993s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/ament_prefix_path.sh'
+[66.009s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[67.130s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi'
+[67.132s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[67.931s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim'
+[67.932s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[68.663s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim'
+[68.665s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[71.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[71.587s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[71.702s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[74.607s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim' for CMake module files
+[74.608s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[74.612s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim' for CMake config files
+[74.626s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib'
+[74.627s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/bin'
+[74.628s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/pkgconfig/ngc_hull_sim.pc'
+[74.630s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages'
+[74.632s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hull_sim', 'pythonpath')
+[74.633s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/pythonpath.dsv'
+[74.637s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/pythonpath.sh'
+[74.648s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/bin'
+[74.652s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_hull_sim)
+[74.660s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/package.dsv'
+[74.673s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/package.sh'
+[74.687s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/package.bash'
+[74.692s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim/package.zsh'
+[74.695s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/colcon-core/packages/ngc_hull_sim)
+[74.805s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi' for CMake module files
+[74.806s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[74.812s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi' for CMake config files
+[74.834s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib'
+[74.836s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/bin'
+[74.837s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/pkgconfig/ngc_hmi.pc'
+[74.838s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages'
+[74.839s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hmi', 'pythonpath')
+[74.840s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/hook/pythonpath.dsv'
+[74.843s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/hook/pythonpath.sh'
+[74.848s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/bin'
+[74.852s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_hmi)
+[74.854s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/package.dsv'
+[74.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/package.sh'
+[74.882s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/package.bash'
+[74.886s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/ngc_hmi/package.zsh'
+[74.888s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/share/colcon-core/packages/ngc_hmi)
+[75.017s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim' for CMake module files
+[75.023s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[75.032s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim' for CMake config files
+[75.056s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib'
+[75.059s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/bin'
+[75.060s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/pkgconfig/ngc_propulsion_sim.pc'
+[75.063s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages'
+[75.065s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_propulsion_sim', 'pythonpath')
+[75.067s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/pythonpath.dsv'
+[75.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/pythonpath.sh'
+[75.080s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/bin'
+[75.081s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_propulsion_sim)
+[75.096s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.dsv'
+[75.097s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.sh'
+[75.099s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.bash'
+[75.101s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.zsh'
+[75.106s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/share/colcon-core/packages/ngc_propulsion_sim)
+[75.110s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[75.113s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[75.116s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[75.118s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[75.182s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[75.183s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[75.183s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[75.277s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[75.279s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/MEPA2001_2024/src/install/local_setup.sh'
+[75.281s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/alfred/shared_mac/MEPA2001_2024/src/install/_local_setup_util_sh.py'
+[75.285s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/MEPA2001_2024/src/install/setup.sh'
+[75.300s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/MEPA2001_2024/src/install/local_setup.bash'
+[75.303s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/MEPA2001_2024/src/install/setup.bash'
+[75.316s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/MEPA2001_2024/src/install/local_setup.zsh'
+[75.319s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/MEPA2001_2024/src/install/setup.zsh'

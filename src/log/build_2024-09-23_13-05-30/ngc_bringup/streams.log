@@ -1,0 +1,30 @@
+[0.183s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[2.730s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[3.194s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup
+[3.236s] -- Install configuration: ""
+[3.254s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch
+[3.256s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+[3.263s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config
+[3.273s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+[3.276s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+[3.283s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+[3.286s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+[3.307s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+[3.309s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+[3.315s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+[3.320s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+[3.322s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+[3.326s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+[3.327s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+[3.328s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+[3.332s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+[3.333s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+[3.338s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+[3.340s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+[3.341s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+[3.344s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.dsv
+[3.354s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+[3.356s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+[3.372s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+[3.382s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.xml
+[3.393s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup

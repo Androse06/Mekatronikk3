@@ -1,0 +1,43 @@
+running egg_info
+creating ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info
+writing ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/PKG-INFO
+writing dependency_links to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/dependency_links.txt
+writing entry points to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/entry_points.txt
+writing requirements to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/requires.txt
+writing top-level names to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/top_level.txt
+writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+reading manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build
+creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib
+creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+copying ngc_sensor_sims/gnss.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+copying ngc_sensor_sims/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+copying ngc_sensor_sims/anemometer.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+copying ngc_sensor_sims/compass.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+running install
+running install_lib
+creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/gnss.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/anemometer.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/compass.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/gnss.py to gnss.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/anemometer.py to anemometer.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/compass.py to compass.cpython-312.pyc
+running install_data
+creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ament_index
+creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ament_index/resource_index
+creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ament_index/resource_index/packages
+copying resource/ngc_sensor_sims -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ament_index/resource_index/packages
+copying package.xml -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/share/ngc_sensor_sims
+running install_egg_info
+Copying ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info
+running install_scripts
+Installing anemometer script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+Installing compass script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+Installing gnss script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log'

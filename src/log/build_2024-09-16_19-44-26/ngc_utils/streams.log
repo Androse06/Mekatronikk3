@@ -1,0 +1,19 @@
+[2.944s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[3.855s] running egg_info
+[3.926s] writing ../build/ngc_utils/ngc_utils.egg-info/PKG-INFO
+[3.927s] writing dependency_links to ../build/ngc_utils/ngc_utils.egg-info/dependency_links.txt
+[3.929s] writing requirements to ../build/ngc_utils/ngc_utils.egg-info/requires.txt
+[3.932s] writing top-level names to ../build/ngc_utils/ngc_utils.egg-info/top_level.txt
+[4.042s] reading manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+[4.053s] writing manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+[4.056s] running build
+[4.057s] running build_py
+[4.070s] running install
+[4.083s] running install_lib
+[4.169s] running install_data
+[4.170s] running install_egg_info
+[4.225s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info' (and everything under it)
+[4.230s] Copying ../build/ngc_utils/ngc_utils.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info
+[4.268s] running install_scripts
+[4.578s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log'
+[4.617s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log --single-version-externally-managed install_data

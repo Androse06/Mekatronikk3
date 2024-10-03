@@ -1,0 +1,23 @@
+[2.752s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[3.514s] running egg_info
+[3.554s] writing ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/PKG-INFO
+[3.556s] writing dependency_links to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/dependency_links.txt
+[3.559s] writing entry points to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/entry_points.txt
+[3.560s] writing requirements to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/requires.txt
+[3.562s] writing top-level names to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/top_level.txt
+[3.673s] reading manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+[3.679s] writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+[3.683s] running build
+[3.684s] running build_py
+[3.687s] running install
+[3.701s] running install_lib
+[3.754s] running install_data
+[3.755s] running install_egg_info
+[3.796s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info' (and everything under it)
+[3.807s] Copying ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info
+[3.852s] running install_scripts
+[4.248s] Installing anemometer script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[4.250s] Installing compass script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[4.252s] Installing gnss script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[4.255s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log'
+[5.356s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data

@@ -1,0 +1,37 @@
+[2.030s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[2.502s] running egg_info
+[2.503s] creating ../build/ngc_hull_sim/ngc_hull_sim.egg-info
+[2.540s] writing ../build/ngc_hull_sim/ngc_hull_sim.egg-info/PKG-INFO
+[2.544s] writing dependency_links to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/dependency_links.txt
+[2.545s] writing entry points to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/entry_points.txt
+[2.547s] writing requirements to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/requires.txt
+[2.548s] writing top-level names to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/top_level.txt
+[2.549s] writing manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.634s] reading manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.638s] writing manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.639s] running build
+[2.641s] running build_py
+[2.642s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build
+[2.644s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib
+[2.645s] creating /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.646s] copying ngc_hull_sim/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.647s] copying ngc_hull_sim/ngc_hull_sim.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.652s] running install
+[2.662s] running install_lib
+[2.713s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.715s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib/ngc_hull_sim/__init__.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.723s] copying /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build/lib/ngc_hull_sim/ngc_hull_sim.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.731s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim/__init__.py to __init__.cpython-312.pyc
+[2.741s] byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim/ngc_hull_sim.py to ngc_hull_sim.cpython-312.pyc
+[2.743s] running install_data
+[2.744s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ament_index
+[2.745s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ament_index/resource_index
+[2.746s] creating /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ament_index/resource_index/packages
+[2.747s] copying resource/ngc_hull_sim -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ament_index/resource_index/packages
+[2.748s] copying package.xml -> /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/share/ngc_hull_sim
+[2.753s] running install_egg_info
+[2.788s] Copying ../build/ngc_hull_sim/ngc_hull_sim.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim-0.0.0-py3.12.egg-info
+[2.826s] running install_scripts
+[3.070s] Installing simulate script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/ngc_hull_sim
+[3.073s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log'
+[3.132s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data

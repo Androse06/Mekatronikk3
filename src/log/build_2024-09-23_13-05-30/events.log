@@ -1,0 +1,758 @@
+[0.000000] (-) TimerEvent: {}
+[0.000349] (kontrolsystem) JobQueued: {'identifier': 'kontrolsystem', 'dependencies': OrderedDict()}
+[0.000510] (ngc_bringup) JobQueued: {'identifier': 'ngc_bringup', 'dependencies': OrderedDict()}
+[0.000656] (ngc_interfaces) JobQueued: {'identifier': 'ngc_interfaces', 'dependencies': OrderedDict()}
+[0.000798] (ngc_sensor_sims) JobQueued: {'identifier': 'ngc_sensor_sims', 'dependencies': OrderedDict()}
+[0.000940] (ngc_utils) JobQueued: {'identifier': 'ngc_utils', 'dependencies': OrderedDict()}
+[0.001082] (ngc_hmi) JobQueued: {'identifier': 'ngc_hmi', 'dependencies': OrderedDict({'ngc_interfaces': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces'})}
+[0.001228] (ngc_hull_sim) JobQueued: {'identifier': 'ngc_hull_sim', 'dependencies': OrderedDict({'ngc_interfaces': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces', 'ngc_utils': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils'})}
+[0.001374] (ngc_propulsion_sim) JobQueued: {'identifier': 'ngc_propulsion_sim', 'dependencies': OrderedDict({'ngc_bringup': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup', 'ngc_interfaces': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces'})}
+[0.001521] (ngc_interfaces) JobStarted: {'identifier': 'ngc_interfaces'}
+[0.051008] (ngc_bringup) JobStarted: {'identifier': 'ngc_bringup'}
+[0.084849] (ngc_utils) JobStarted: {'identifier': 'ngc_utils'}
+[0.097957] (-) TimerEvent: {}
+[0.113471] (kontrolsystem) JobStarted: {'identifier': 'kontrolsystem'}
+[0.162261] (ngc_interfaces) JobProgress: {'identifier': 'ngc_interfaces', 'progress': 'cmake'}
+[0.168790] (ngc_interfaces) JobProgress: {'identifier': 'ngc_interfaces', 'progress': 'build'}
+[0.172292] (ngc_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.207615] (-) TimerEvent: {}
+[0.208410] (ngc_bringup) JobProgress: {'identifier': 'ngc_bringup', 'progress': 'cmake'}
+[0.208782] (ngc_bringup) JobProgress: {'identifier': 'ngc_bringup', 'progress': 'build'}
+[0.209099] (ngc_bringup) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', '--', '-j4', '-l4'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.321871] (-) TimerEvent: {}
+[0.444060] (-) TimerEvent: {}
+[0.547175] (-) TimerEvent: {}
+[0.656193] (-) TimerEvent: {}
+[0.756960] (-) TimerEvent: {}
+[0.859972] (-) TimerEvent: {}
+[0.962918] (-) TimerEvent: {}
+[1.067826] (-) TimerEvent: {}
+[1.169813] (-) TimerEvent: {}
+[1.274387] (-) TimerEvent: {}
+[1.387502] (-) TimerEvent: {}
+[1.478755] (ngc_interfaces) StdoutLine: {'line': b'[  1%] Built target ngc_interfaces__rosidl_generator_type_description\n'}
+[1.497767] (-) TimerEvent: {}
+[1.499462] (ngc_interfaces) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_ngc_interfaces\n'}
+[1.525694] (ngc_interfaces) StdoutLine: {'line': b'[ 26%] Built target ngc_interfaces__rosidl_generator_c\n'}
+[1.626333] (-) TimerEvent: {}
+[1.747160] (-) TimerEvent: {}
+[1.854970] (-) TimerEvent: {}
+[1.955962] (-) TimerEvent: {}
+[2.060214] (-) TimerEvent: {}
+[2.165062] (-) TimerEvent: {}
+[2.268058] (-) TimerEvent: {}
+[2.375743] (-) TimerEvent: {}
+[2.449830] (ngc_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[2.475966] (-) TimerEvent: {}
+[2.539880] (ngc_interfaces) StdoutLine: {'line': b'writing ngc_interfaces.egg-info/PKG-INFO\n'}
+[2.546522] (ngc_interfaces) StdoutLine: {'line': b'writing dependency_links to ngc_interfaces.egg-info/dependency_links.txt\n'}
+[2.561048] (ngc_interfaces) StdoutLine: {'line': b'writing top-level names to ngc_interfaces.egg-info/top_level.txt\n'}
+[2.580454] (-) TimerEvent: {}
+[2.702985] (-) TimerEvent: {}
+[2.781051] (ngc_bringup) CommandEnded: {'returncode': 0}
+[2.807300] (-) TimerEvent: {}
+[2.890635] (ngc_interfaces) StdoutLine: {'line': b"reading manifest file 'ngc_interfaces.egg-info/SOURCES.txt'\n"}
+[2.906095] (ngc_interfaces) StdoutLine: {'line': b"writing manifest file 'ngc_interfaces.egg-info/SOURCES.txt'\n"}
+[2.908049] (-) TimerEvent: {}
+[3.050941] (-) TimerEvent: {}
+[3.137176] (ngc_interfaces) StdoutLine: {'line': b'[ 26%] Built target ament_cmake_python_build_ngc_interfaces_egg\n'}
+[3.154395] (-) TimerEvent: {}
+[3.191233] (ngc_bringup) JobProgress: {'identifier': 'ngc_bringup', 'progress': 'install'}
+[3.243710] (ngc_bringup) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.255166] (-) TimerEvent: {}
+[3.286339] (ngc_bringup) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.298557] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch\n'}
+[3.306398] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py\n'}
+[3.310293] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config\n'}
+[3.316107] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml\n'}
+[3.325145] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/layout.yaml\n'}
+[3.328476] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml\n'}
+[3.335674] (ngc_bringup) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml\n'}
+[3.355900] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml\n'}
+[3.358169] (-) TimerEvent: {}
+[3.359144] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml\n'}
+[3.364170] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml\n'}
+[3.368055] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup\n'}
+[3.371309] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup\n'}
+[3.373252] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh\n'}
+[3.377127] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv\n'}
+[3.378475] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.sh\n'}
+[3.380745] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.dsv\n'}
+[3.383420] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.bash\n'}
+[3.384142] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.sh\n'}
+[3.389968] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.zsh\n'}
+[3.391208] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.dsv\n'}
+[3.392188] (ngc_interfaces) StdoutLine: {'line': b'[ 35%] Built target ngc_interfaces__rosidl_typesupport_introspection_c\n'}
+[3.393715] (ngc_bringup) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.dsv\n'}
+[3.400825] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup\n'}
+[3.406061] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake\n'}
+[3.408541] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake\n'}
+[3.424016] (ngc_bringup) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.xml\n'}
+[3.443829] (ngc_bringup) CommandEnded: {'returncode': 0}
+[3.465844] (-) TimerEvent: {}
+[3.588904] (-) TimerEvent: {}
+[3.693835] (-) TimerEvent: {}
+[3.798183] (-) TimerEvent: {}
+[3.877173] (ngc_interfaces) StdoutLine: {'line': b'[ 45%] Built target ngc_interfaces__rosidl_typesupport_c\n'}
+[3.904094] (-) TimerEvent: {}
+[3.999991] (ngc_bringup) JobEnded: {'identifier': 'ngc_bringup', 'rc': 0}
+[4.014588] (-) TimerEvent: {}
+[4.016781] (ngc_sensor_sims) JobStarted: {'identifier': 'ngc_sensor_sims'}
+[4.125335] (-) TimerEvent: {}
+[4.234267] (-) TimerEvent: {}
+[4.345168] (-) TimerEvent: {}
+[4.485241] (-) TimerEvent: {}
+[4.545704] (ngc_interfaces) StdoutLine: {'line': b'[ 55%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[4.597870] (-) TimerEvent: {}
+[4.699365] (-) TimerEvent: {}
+[4.804570] (-) TimerEvent: {}
+[4.853436] (ngc_interfaces) StdoutLine: {'line': b'[ 55%] Built target ngc_interfaces__cpp\n'}
+[4.904977] (-) TimerEvent: {}
+[5.024833] (-) TimerEvent: {}
+[5.160952] (-) TimerEvent: {}
+[5.175102] (ngc_interfaces) StdoutLine: {'line': b'[ 64%] Built target ngc_interfaces__rosidl_typesupport_cpp\n'}
+[5.261085] (-) TimerEvent: {}
+[5.385403] (-) TimerEvent: {}
+[5.494949] (-) TimerEvent: {}
+[5.571667] (ngc_interfaces) StdoutLine: {'line': b'[ 74%] Built target ngc_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[5.596864] (-) TimerEvent: {}
+[5.716474] (-) TimerEvent: {}
+[5.835033] (-) TimerEvent: {}
+[5.906241] (ngc_interfaces) StdoutLine: {'line': b'[ 84%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[5.935320] (-) TimerEvent: {}
+[6.041208] (-) TimerEvent: {}
+[6.129101] (kontrolsystem) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/kontrolsystem', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/kontrolsystem', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[6.151129] (-) TimerEvent: {}
+[6.151568] (ngc_interfaces) StdoutLine: {'line': b'[ 84%] Built target ngc_interfaces\n'}
+[6.254937] (-) TimerEvent: {}
+[6.359604] (ngc_interfaces) StdoutLine: {'line': b'[ 85%] Built target ngc_interfaces__py\n'}
+[6.363838] (-) TimerEvent: {}
+[6.476278] (-) TimerEvent: {}
+[6.527755] (ngc_utils) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/ngc_utils', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_utils', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[6.577017] (-) TimerEvent: {}
+[6.672517] (ngc_interfaces) StdoutLine: {'line': b'[ 94%] Built target ngc_interfaces__rosidl_generator_py\n'}
+[6.685054] (-) TimerEvent: {}
+[6.805146] (-) TimerEvent: {}
+[6.812120] (ngc_interfaces) StdoutLine: {'line': b'[ 96%] Built target ngc_interfaces_s__rosidl_typesupport_fastrtps_c\n'}
+[6.906154] (-) TimerEvent: {}
+[7.014014] (ngc_interfaces) StdoutLine: {'line': b'[ 98%] Built target ngc_interfaces_s__rosidl_typesupport_c\n'}
+[7.030602] (-) TimerEvent: {}
+[7.155725] (-) TimerEvent: {}
+[7.261131] (-) TimerEvent: {}
+[7.298627] (ngc_interfaces) StdoutLine: {'line': b'[100%] Built target ngc_interfaces_s__rosidl_typesupport_introspection_c\n'}
+[7.361570] (-) TimerEvent: {}
+[7.464831] (-) TimerEvent: {}
+[7.516138] (ngc_interfaces) CommandEnded: {'returncode': 0}
+[7.565432] (-) TimerEvent: {}
+[7.667913] (kontrolsystem) StdoutLine: {'line': b'running egg_info\n'}
+[7.669995] (-) TimerEvent: {}
+[7.764983] (kontrolsystem) StdoutLine: {'line': b'writing ../build/kontrolsystem/kontrolsystem.egg-info/PKG-INFO\n'}
+[7.769234] (kontrolsystem) StdoutLine: {'line': b'writing dependency_links to ../build/kontrolsystem/kontrolsystem.egg-info/dependency_links.txt\n'}
+[7.793541] (-) TimerEvent: {}
+[7.798368] (kontrolsystem) StdoutLine: {'line': b'writing entry points to ../build/kontrolsystem/kontrolsystem.egg-info/entry_points.txt\n'}
+[7.828536] (kontrolsystem) StdoutLine: {'line': b'writing requirements to ../build/kontrolsystem/kontrolsystem.egg-info/requires.txt\n'}
+[7.839652] (kontrolsystem) StdoutLine: {'line': b'writing top-level names to ../build/kontrolsystem/kontrolsystem.egg-info/top_level.txt\n'}
+[7.894290] (-) TimerEvent: {}
+[7.999097] (ngc_utils) StdoutLine: {'line': b'running egg_info\n'}
+[8.001359] (-) TimerEvent: {}
+[8.083685] (kontrolsystem) StdoutLine: {'line': b"reading manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'\n"}
+[8.109065] (-) TimerEvent: {}
+[8.151580] (ngc_utils) StdoutLine: {'line': b'writing ../build/ngc_utils/ngc_utils.egg-info/PKG-INFO\n'}
+[8.153486] (ngc_utils) StdoutLine: {'line': b'writing dependency_links to ../build/ngc_utils/ngc_utils.egg-info/dependency_links.txt\n'}
+[8.154869] (kontrolsystem) StdoutLine: {'line': b"writing manifest file '../build/kontrolsystem/kontrolsystem.egg-info/SOURCES.txt'\n"}
+[8.165379] (kontrolsystem) StdoutLine: {'line': b'running build\n'}
+[8.167672] (kontrolsystem) StdoutLine: {'line': b'running build_py\n'}
+[8.175016] (ngc_utils) StdoutLine: {'line': b'writing requirements to ../build/ngc_utils/ngc_utils.egg-info/requires.txt\n'}
+[8.175604] (ngc_utils) StdoutLine: {'line': b'writing top-level names to ../build/ngc_utils/ngc_utils.egg-info/top_level.txt\n'}
+[8.176355] (kontrolsystem) StdoutLine: {'line': b'copying kontrolsystem/estimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem\n'}
+[8.206736] (kontrolsystem) StdoutLine: {'line': b'running install\n'}
+[8.228900] (-) TimerEvent: {}
+[8.233169] (kontrolsystem) StdoutLine: {'line': b'running install_lib\n'}
+[8.314070] (kontrolsystem) StdoutLine: {'line': b'copying /home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/build/lib/kontrolsystem/estimator.py -> /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem\n'}
+[8.337820] (kontrolsystem) StdoutLine: {'line': b'byte-compiling /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/estimator.py to estimator.cpython-312.pyc\n'}
+[8.346349] (-) TimerEvent: {}
+[8.361493] (kontrolsystem) StdoutLine: {'line': b'running install_data\n'}
+[8.368586] (kontrolsystem) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.375941] (ngc_utils) StdoutLine: {'line': b"reading manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'\n"}
+[8.397296] (ngc_utils) StdoutLine: {'line': b"writing manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'\n"}
+[8.400539] (ngc_utils) StdoutLine: {'line': b'running build\n'}
+[8.405087] (ngc_utils) StdoutLine: {'line': b'running build_py\n'}
+[8.444027] (ngc_utils) StdoutLine: {'line': b'running install\n'}
+[8.457735] (-) TimerEvent: {}
+[8.464976] (ngc_utils) StdoutLine: {'line': b'running install_lib\n'}
+[8.524038] (kontrolsystem) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[8.534365] (kontrolsystem) StdoutLine: {'line': b'Copying ../build/kontrolsystem/kontrolsystem.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem-0.0.0-py3.12.egg-info\n'}
+[8.559207] (-) TimerEvent: {}
+[8.565622] (ngc_utils) StdoutLine: {'line': b'running install_data\n'}
+[8.570012] (ngc_utils) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.664125] (kontrolsystem) StdoutLine: {'line': b'running install_scripts\n'}
+[8.674126] (-) TimerEvent: {}
+[8.719912] (ngc_utils) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[8.729186] (ngc_utils) StdoutLine: {'line': b'Copying ../build/ngc_utils/ngc_utils.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info\n'}
+[8.775089] (-) TimerEvent: {}
+[8.815017] (ngc_utils) StdoutLine: {'line': b'running install_scripts\n'}
+[8.900410] (-) TimerEvent: {}
+[9.005784] (-) TimerEvent: {}
+[9.055330] (ngc_sensor_sims) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/ngc_sensor_sims', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_sensor_sims', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[9.108264] (-) TimerEvent: {}
+[9.224244] (-) TimerEvent: {}
+[9.325342] (-) TimerEvent: {}
+[9.435002] (-) TimerEvent: {}
+[9.548723] (-) TimerEvent: {}
+[9.585818] (ngc_utils) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_utils/install.log'\n"}
+[9.657049] (-) TimerEvent: {}
+[9.733317] (kontrolsystem) StdoutLine: {'line': b'Installing estimator script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem\n'}
+[9.762713] (kontrolsystem) StdoutLine: {'line': b'Installing kontroller script to /home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/kontrolsystem\n'}
+[9.771247] (-) TimerEvent: {}
+[9.772053] (kontrolsystem) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/kontrolsystem/install.log'\n"}
+[9.840435] (ngc_utils) CommandEnded: {'returncode': 0}
+[9.876865] (-) TimerEvent: {}
+[9.952542] (ngc_utils) JobEnded: {'identifier': 'ngc_utils', 'rc': 0}
+[9.984045] (-) TimerEvent: {}
+[9.986446] (kontrolsystem) CommandEnded: {'returncode': 0}
+[10.092862] (-) TimerEvent: {}
+[10.097569] (kontrolsystem) JobEnded: {'identifier': 'kontrolsystem', 'rc': 0}
+[10.198127] (-) TimerEvent: {}
+[10.314986] (-) TimerEvent: {}
+[10.423792] (-) TimerEvent: {}
+[10.528183] (-) TimerEvent: {}
+[10.637379] (-) TimerEvent: {}
+[10.749871] (-) TimerEvent: {}
+[10.856539] (-) TimerEvent: {}
+[10.935312] (ngc_interfaces) JobProgress: {'identifier': 'ngc_interfaces', 'progress': 'install'}
+[10.954673] (ngc_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[10.958443] (-) TimerEvent: {}
+[11.024423] (ngc_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.027099] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/rosidl_interfaces/ngc_interfaces\n'}
+[11.029815] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.json\n'}
+[11.074249] (-) TimerEvent: {}
+[11.107608] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.json\n'}
+[11.113509] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.json\n'}
+[11.126564] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.json\n'}
+[11.142173] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.json\n'}
+[11.147189] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.json\n'}
+[11.150211] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.json\n'}
+[11.152134] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.json\n'}
+[11.153718] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[11.156836] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[11.174526] (-) TimerEvent: {}
+[11.175116] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.h\n'}
+[11.217576] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[11.228195] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.h\n'}
+[11.241128] (ngc_sensor_sims) StdoutLine: {'line': b'running egg_info\n'}
+[11.244497] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.h\n'}
+[11.246449] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.h\n'}
+[11.250847] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[11.254647] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.c\n'}
+[11.257536] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.h\n'}
+[11.262362] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.c\n'}
+[11.265406] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.h\n'}
+[11.266963] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__description.c\n'}
+[11.274552] (-) TimerEvent: {}
+[11.286438] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.h\n'}
+[11.296558] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.h\n'}
+[11.301872] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__description.c\n'}
+[11.311924] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.h\n'}
+[11.316670] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c\n'}
+[11.318764] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.c\n'}
+[11.323221] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.h\n'}
+[11.326395] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.h\n'}
+[11.329713] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c\n'}
+[11.335422] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.h\n'}
+[11.337217] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.h\n'}
+[11.338268] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.c\n'}
+[11.342289] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.h\n'}
+[11.344620] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.h\n'}
+[11.346693] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.h\n'}
+[11.352012] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.h\n'}
+[11.378351] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.h\n'}
+[11.379762] (-) TimerEvent: {}
+[11.380116] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.h\n'}
+[11.381230] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.h\n'}
+[11.391481] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.h\n'}
+[11.407871] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.h\n'}
+[11.425794] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c\n'}
+[11.428195] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.h\n'}
+[11.430207] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.h\n'}
+[11.433818] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c\n'}
+[11.457796] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__description.c\n'}
+[11.465769] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.h\n'}
+[11.467548] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__description.c\n'}
+[11.471352] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.h\n'}
+[11.473876] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c\n'}
+[11.478974] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.c\n'}
+[11.481055] (-) TimerEvent: {}
+[11.482214] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.c\n'}
+[11.485946] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c\n'}
+[11.493399] (ngc_sensor_sims) StdoutLine: {'line': b'writing ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/PKG-INFO\n'}
+[11.497769] (ngc_sensor_sims) StdoutLine: {'line': b'writing dependency_links to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/dependency_links.txt\n'}
+[11.502187] (ngc_sensor_sims) StdoutLine: {'line': b'writing entry points to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/entry_points.txt\n'}
+[11.503691] (ngc_sensor_sims) StdoutLine: {'line': b'writing requirements to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/requires.txt\n'}
+[11.507450] (ngc_sensor_sims) StdoutLine: {'line': b'writing top-level names to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/top_level.txt\n'}
+[11.543222] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__description.c\n'}
+[11.548124] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__description.c\n'}
+[11.550274] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__description.c\n'}
+[11.581290] (-) TimerEvent: {}
+[11.582425] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.h\n'}
+[11.597792] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c\n'}
+[11.653155] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.c\n'}
+[11.656978] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.c\n'}
+[11.659153] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__description.c\n'}
+[11.665448] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c\n'}
+[11.672336] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.h\n'}
+[11.674274] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.h\n'}
+[11.677929] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.h\n'}
+[11.704386] (-) TimerEvent: {}
+[11.704966] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.h\n'}
+[11.705564] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.h\n'}
+[11.706197] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.sh\n'}
+[11.706845] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.dsv\n'}
+[11.722853] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so\n'}
+[11.760647] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[11.775132] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[11.777965] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[11.795315] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_c.h\n'}
+[11.801685] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_c.h\n'}
+[11.803462] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_c.h\n'}
+[11.805425] (-) TimerEvent: {}
+[11.815569] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_c.h\n'}
+[11.818831] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_c.h\n'}
+[11.821652] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_c.h\n'}
+[11.824336] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_c.h\n'}
+[11.827306] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_c.h\n'}
+[11.828640] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[11.850211] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[11.884432] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[11.895566] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[11.896660] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[11.897540] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_c.h\n'}
+[11.906513] (-) TimerEvent: {}
+[11.906789] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_c.h\n'}
+[11.916275] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c\n'}
+[11.921126] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_c.h\n'}
+[11.923537] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c\n'}
+[11.924564] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_c.h\n'}
+[11.926814] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_c.h\n'}
+[11.928773] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c\n'}
+[11.930226] (ngc_sensor_sims) StdoutLine: {'line': b"reading manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'\n"}
+[11.938457] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c\n'}
+[11.952401] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_c.h\n'}
+[11.954212] (ngc_sensor_sims) StdoutLine: {'line': b"writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'\n"}
+[11.955602] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c\n'}
+[11.956705] (ngc_sensor_sims) StdoutLine: {'line': b'running build\n'}
+[11.957771] (ngc_sensor_sims) StdoutLine: {'line': b'running build_py\n'}
+[11.969184] (ngc_sensor_sims) StdoutLine: {'line': b'running install\n'}
+[11.984854] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c\n'}
+[12.005664] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_c.h\n'}
+[12.006891] (-) TimerEvent: {}
+[12.007458] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c\n'}
+[12.033277] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_c.h\n'}
+[12.036319] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c\n'}
+[12.045280] (ngc_sensor_sims) StdoutLine: {'line': b'running install_lib\n'}
+[12.049723] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[12.065782] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[12.107728] (-) TimerEvent: {}
+[12.108471] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so\n'}
+[12.152357] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[12.156727] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[12.161600] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.hpp\n'}
+[12.164935] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.hpp\n'}
+[12.176829] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.hpp\n'}
+[12.178468] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.hpp\n'}
+[12.180482] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.hpp\n'}
+[12.181465] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[12.183079] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__builder.hpp\n'}
+[12.186409] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.hpp\n'}
+[12.188956] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.hpp\n'}
+[12.190790] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__traits.hpp\n'}
+[12.191980] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.hpp\n'}
+[12.204663] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.hpp\n'}
+[12.205604] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.hpp\n'}
+[12.241871] (-) TimerEvent: {}
+[12.254177] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.hpp\n'}
+[12.260085] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.hpp\n'}
+[12.263056] (ngc_sensor_sims) StdoutLine: {'line': b'running install_data\n'}
+[12.264509] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.hpp\n'}
+[12.265985] (ngc_sensor_sims) StdoutLine: {'line': b'running install_egg_info\n'}
+[12.267281] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__traits.hpp\n'}
+[12.268454] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__builder.hpp\n'}
+[12.271289] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.hpp\n'}
+[12.273029] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.hpp\n'}
+[12.279317] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__traits.hpp\n'}
+[12.281976] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__builder.hpp\n'}
+[12.286075] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__builder.hpp\n'}
+[12.287593] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__traits.hpp\n'}
+[12.289190] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__traits.hpp\n'}
+[12.290611] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__builder.hpp\n'}
+[12.291558] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__builder.hpp\n'}
+[12.292556] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.hpp\n'}
+[12.293345] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.hpp\n'}
+[12.296026] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__builder.hpp\n'}
+[12.297513] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__traits.hpp\n'}
+[12.298759] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.hpp\n'}
+[12.300419] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__traits.hpp\n'}
+[12.301132] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__traits.hpp\n'}
+[12.302360] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.hpp\n'}
+[12.302934] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.hpp\n'}
+[12.303505] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__builder.hpp\n'}
+[12.304287] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.hpp\n'}
+[12.308199] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[12.309976] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.hpp\n'}
+[12.321005] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.hpp\n'}
+[12.321947] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.hpp\n'}
+[12.322638] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[12.323306] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[12.327000] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[12.328317] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[12.329187] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.329948] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.330567] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.331288] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.337723] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.342501] (-) TimerEvent: {}
+[12.343043] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.344175] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/dds_fastrtps\n'}
+[12.344749] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.345282] (ngc_sensor_sims) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[12.345873] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[12.351171] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[12.368894] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces\n'}
+[12.370865] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg\n'}
+[12.373059] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail\n'}
+[12.374445] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.394599] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.cpp\n'}
+[12.401175] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.406085] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.411316] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.412522] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.419381] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.cpp\n'}
+[12.430246] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.431183] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.cpp\n'}
+[12.432381] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.cpp\n'}
+[12.432789] (ngc_sensor_sims) StdoutLine: {'line': b'Copying ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info\n'}
+[12.438355] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.cpp\n'}
+[12.445046] (-) TimerEvent: {}
+[12.451655] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.452597] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.cpp\n'}
+[12.458076] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.cpp\n'}
+[12.460255] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp\n'}
+[12.468518] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_cpp.hpp\n'}
+[12.471116] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[12.472676] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so\n'}
+[12.477076] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.sh\n'}
+[12.481961] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.dsv\n'}
+[12.491227] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info\n'}
+[12.494165] (ngc_sensor_sims) StdoutLine: {'line': b'running install_scripts\n'}
+[12.495598] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[12.497459] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[12.509896] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[12.518069] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[12.521236] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces\n'}
+[12.522550] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[12.539443] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg\n'}
+[12.545626] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device_s.c\n'}
+[12.548042] (-) TimerEvent: {}
+[12.549233] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals_s.c\n'}
+[12.555660] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind_s.c\n'}
+[12.567716] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_s.c\n'}
+[12.569640] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py\n'}
+[12.571696] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py\n'}
+[12.574792] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot_s.c\n'}
+[12.579930] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py\n'}
+[12.584054] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py\n'}
+[12.586996] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta_s.c\n'}
+[12.591355] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py\n'}
+[12.600383] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device.py\n'}
+[12.603918] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py\n'}
+[12.606391] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss_s.c\n'}
+[12.620832] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau_s.c\n'}
+[12.635251] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py\n'}
+[12.640784] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss.py\n'}
+[12.643815] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/__init__.py\n'}
+[12.652000] (-) TimerEvent: {}
+[12.655794] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[12.659743] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so\n'}
+[12.663317] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[12.677809] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[12.694987] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[12.760064] (-) TimerEvent: {}
+[12.863823] (-) TimerEvent: {}
+[12.933045] (ngc_interfaces) StdoutLine: {'line': b"Listing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces'...\n"}
+[12.946620] (ngc_interfaces) StdoutLine: {'line': b"Listing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg'...\n"}
+[12.964225] (-) TimerEvent: {}
+[13.032650] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[13.064725] (-) TimerEvent: {}
+[13.157273] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[13.174946] (-) TimerEvent: {}
+[13.263302] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so\n'}
+[13.275079] (-) TimerEvent: {}
+[13.384639] (-) TimerEvent: {}
+[13.392979] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so\n'}
+[13.401580] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.idl\n'}
+[13.403564] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.idl\n'}
+[13.405900] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.idl\n'}
+[13.411646] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.idl\n'}
+[13.447072] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.idl\n'}
+[13.448338] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.idl\n'}
+[13.449422] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.idl\n'}
+[13.459932] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.idl\n'}
+[13.463696] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.msg\n'}
+[13.471193] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.msg\n'}
+[13.473454] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.msg\n'}
+[13.475742] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.msg\n'}
+[13.476747] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.msg\n'}
+[13.479279] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.msg\n'}
+[13.483066] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.msg\n'}
+[13.484116] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.msg\n'}
+[13.484961] (-) TimerEvent: {}
+[13.522714] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/package_run_dependencies/ngc_interfaces\n'}
+[13.528697] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/parent_prefix_path/ngc_interfaces\n'}
+[13.531281] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.sh\n'}
+[13.533453] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.dsv\n'}
+[13.546727] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.sh\n'}
+[13.567191] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.dsv\n'}
+[13.575189] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.bash\n'}
+[13.580399] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.sh\n'}
+[13.584357] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.zsh\n'}
+[13.596242] (-) TimerEvent: {}
+[13.597416] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.dsv\n'}
+[13.599612] (ngc_interfaces) StdoutLine: {'line': b'-- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv\n'}
+[13.627814] (ngc_sensor_sims) StdoutLine: {'line': b'Installing anemometer script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims\n'}
+[13.640408] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/packages/ngc_interfaces\n'}
+[13.643412] (ngc_sensor_sims) StdoutLine: {'line': b'Installing compass script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims\n'}
+[13.649192] (ngc_sensor_sims) StdoutLine: {'line': b'Installing gnss script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/ngc_sensor_sims\n'}
+[13.651842] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport.cmake\n'}
+[13.663921] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[13.675809] (ngc_sensor_sims) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_sensor_sims/install.log'\n"}
+[13.694739] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[13.697858] (-) TimerEvent: {}
+[13.698652] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[13.703193] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[13.708154] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[13.721856] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[13.730259] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[13.737296] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cppExport.cmake\n'}
+[13.739430] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[13.741518] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[13.744489] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[13.764836] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[13.769063] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[13.776366] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[13.794427] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport.cmake\n'}
+[13.797028] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[13.801664] (-) TimerEvent: {}
+[13.803645] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[13.819186] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[13.821826] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[13.829578] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[13.831464] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[13.842949] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[13.845154] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[13.852110] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig.cmake\n'}
+[13.857534] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig-version.cmake\n'}
+[13.860499] (ngc_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.xml\n'}
+[13.895342] (ngc_interfaces) CommandEnded: {'returncode': 0}
+[13.906459] (-) TimerEvent: {}
+[14.016938] (-) TimerEvent: {}
+[14.128167] (-) TimerEvent: {}
+[14.235535] (-) TimerEvent: {}
+[14.325872] (ngc_sensor_sims) CommandEnded: {'returncode': 0}
+[14.340169] (-) TimerEvent: {}
+[14.452433] (-) TimerEvent: {}
+[14.499515] (ngc_sensor_sims) JobEnded: {'identifier': 'ngc_sensor_sims', 'rc': 0}
+[14.554936] (-) TimerEvent: {}
+[14.664136] (-) TimerEvent: {}
+[14.766162] (-) TimerEvent: {}
+[14.874515] (-) TimerEvent: {}
+[14.977797] (-) TimerEvent: {}
+[15.086010] (-) TimerEvent: {}
+[15.187765] (-) TimerEvent: {}
+[15.292593] (-) TimerEvent: {}
+[15.405986] (-) TimerEvent: {}
+[15.510976] (-) TimerEvent: {}
+[15.618785] (-) TimerEvent: {}
+[15.721111] (-) TimerEvent: {}
+[15.823566] (-) TimerEvent: {}
+[15.930938] (-) TimerEvent: {}
+[16.034592] (-) TimerEvent: {}
+[16.145309] (-) TimerEvent: {}
+[16.252138] (-) TimerEvent: {}
+[16.354253] (-) TimerEvent: {}
+[16.454811] (-) TimerEvent: {}
+[16.556231] (-) TimerEvent: {}
+[16.658501] (-) TimerEvent: {}
+[16.760115] (-) TimerEvent: {}
+[16.864979] (-) TimerEvent: {}
+[16.918898] (ngc_interfaces) JobEnded: {'identifier': 'ngc_interfaces', 'rc': 0}
+[16.945234] (ngc_hmi) JobStarted: {'identifier': 'ngc_hmi'}
+[17.019893] (-) TimerEvent: {}
+[17.049866] (ngc_hull_sim) JobStarted: {'identifier': 'ngc_hull_sim'}
+[17.121086] (-) TimerEvent: {}
+[17.122249] (ngc_propulsion_sim) JobStarted: {'identifier': 'ngc_propulsion_sim'}
+[17.221288] (-) TimerEvent: {}
+[17.323959] (-) TimerEvent: {}
+[17.424906] (-) TimerEvent: {}
+[17.529221] (-) TimerEvent: {}
+[17.634071] (-) TimerEvent: {}
+[17.768729] (-) TimerEvent: {}
+[17.889651] (-) TimerEvent: {}
+[17.994774] (-) TimerEvent: {}
+[18.095943] (-) TimerEvent: {}
+[18.197422] (-) TimerEvent: {}
+[18.323947] (-) TimerEvent: {}
+[18.434405] (-) TimerEvent: {}
+[18.543244] (-) TimerEvent: {}
+[18.652377] (-) TimerEvent: {}
+[18.776343] (-) TimerEvent: {}
+[18.883889] (-) TimerEvent: {}
+[18.997639] (-) TimerEvent: {}
+[19.102166] (-) TimerEvent: {}
+[19.203508] (-) TimerEvent: {}
+[19.305905] (-) TimerEvent: {}
+[19.408417] (-) TimerEvent: {}
+[19.514582] (-) TimerEvent: {}
+[19.628454] (-) TimerEvent: {}
+[19.744000] (-) TimerEvent: {}
+[19.845469] (-) TimerEvent: {}
+[19.965337] (-) TimerEvent: {}
+[20.094566] (-) TimerEvent: {}
+[20.213934] (-) TimerEvent: {}
+[20.327507] (-) TimerEvent: {}
+[20.440259] (-) TimerEvent: {}
+[20.547855] (-) TimerEvent: {}
+[20.654332] (-) TimerEvent: {}
+[20.764824] (-) TimerEvent: {}
+[20.870844] (-) TimerEvent: {}
+[21.018365] (-) TimerEvent: {}
+[21.124143] (-) TimerEvent: {}
+[21.243562] (-) TimerEvent: {}
+[21.354635] (-) TimerEvent: {}
+[21.487857] (-) TimerEvent: {}
+[21.603810] (-) TimerEvent: {}
+[21.715027] (-) TimerEvent: {}
+[21.837307] (-) TimerEvent: {}
+[21.954715] (-) TimerEvent: {}
+[22.071729] (-) TimerEvent: {}
+[22.179787] (-) TimerEvent: {}
+[22.284021] (-) TimerEvent: {}
+[22.388019] (-) TimerEvent: {}
+[22.506532] (-) TimerEvent: {}
+[22.634345] (-) TimerEvent: {}
+[22.737229] (-) TimerEvent: {}
+[22.842885] (-) TimerEvent: {}
+[22.953391] (-) TimerEvent: {}
+[23.064519] (-) TimerEvent: {}
+[23.198767] (-) TimerEvent: {}
+[23.303336] (-) TimerEvent: {}
+[23.414006] (-) TimerEvent: {}
+[23.521538] (-) TimerEvent: {}
+[23.634020] (-) TimerEvent: {}
+[23.750291] (-) TimerEvent: {}
+[23.856327] (-) TimerEvent: {}
+[23.963962] (-) TimerEvent: {}
+[24.091165] (-) TimerEvent: {}
+[24.194942] (-) TimerEvent: {}
+[24.236769] (ngc_propulsion_sim) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/ngc_propulsion_sim', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_propulsion_sim', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[24.269149] (ngc_hmi) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/ngc_hmi', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[24.302557] (-) TimerEvent: {}
+[24.413436] (-) TimerEvent: {}
+[24.517281] (-) TimerEvent: {}
+[24.631790] (-) TimerEvent: {}
+[24.696560] (ngc_hull_sim) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/ngc_hull_sim', 'build', '--build-base', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/build', 'install', '--record', '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hull_sim', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'alfred', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/alfred', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '2147', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'alfred', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'alfred', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/alfred-VirtualBox:@/tmp/.ICE-unix/2147,unix/alfred-VirtualBox:/tmp/.ICE-unix/2147', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3dc3b92b_a8d4_46f0_8d12_0f66d28bd3d9', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'da_DK.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.Q0LRU2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '1', 'AMENT_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=1ec5996b972e23ff01b04b6866f13e9f', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[24.752986] (-) TimerEvent: {}
+[24.861117] (-) TimerEvent: {}
+[24.963431] (-) TimerEvent: {}
+[25.071634] (-) TimerEvent: {}
+[25.173245] (-) TimerEvent: {}
+[25.280017] (-) TimerEvent: {}
+[25.392909] (-) TimerEvent: {}
+[25.450527] (ngc_propulsion_sim) StdoutLine: {'line': b'running egg_info\n'}
+[25.496066] (-) TimerEvent: {}
+[25.511002] (ngc_propulsion_sim) StdoutLine: {'line': b'writing ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/PKG-INFO\n'}
+[25.517931] (ngc_propulsion_sim) StdoutLine: {'line': b'writing dependency_links to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/dependency_links.txt\n'}
+[25.519809] (ngc_propulsion_sim) StdoutLine: {'line': b'writing entry points to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/entry_points.txt\n'}
+[25.522391] (ngc_propulsion_sim) StdoutLine: {'line': b'writing requirements to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/requires.txt\n'}
+[25.525077] (ngc_propulsion_sim) StdoutLine: {'line': b'writing top-level names to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/top_level.txt\n'}
+[25.607226] (-) TimerEvent: {}
+[25.711966] (ngc_propulsion_sim) StdoutLine: {'line': b"reading manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'\n"}
+[25.715708] (-) TimerEvent: {}
+[25.729813] (ngc_propulsion_sim) StdoutLine: {'line': b"writing manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'\n"}
+[25.731090] (ngc_propulsion_sim) StdoutLine: {'line': b'running build\n'}
+[25.733830] (ngc_propulsion_sim) StdoutLine: {'line': b'running build_py\n'}
+[25.741980] (ngc_propulsion_sim) StdoutLine: {'line': b'running install\n'}
+[25.752974] (ngc_propulsion_sim) StdoutLine: {'line': b'running install_lib\n'}
+[25.768825] (ngc_hmi) StdoutLine: {'line': b'running egg_info\n'}
+[25.817189] (-) TimerEvent: {}
+[25.871325] (ngc_propulsion_sim) StdoutLine: {'line': b'running install_data\n'}
+[25.877043] (ngc_propulsion_sim) StdoutLine: {'line': b'running install_egg_info\n'}
+[25.878078] (ngc_hmi) StdoutLine: {'line': b'writing ../build/ngc_hmi/ngc_hmi.egg-info/PKG-INFO\n'}
+[25.879030] (ngc_hmi) StdoutLine: {'line': b'writing dependency_links to ../build/ngc_hmi/ngc_hmi.egg-info/dependency_links.txt\n'}
+[25.898268] (ngc_hmi) StdoutLine: {'line': b'writing entry points to ../build/ngc_hmi/ngc_hmi.egg-info/entry_points.txt\n'}
+[25.899303] (ngc_hmi) StdoutLine: {'line': b'writing requirements to ../build/ngc_hmi/ngc_hmi.egg-info/requires.txt\n'}
+[25.907647] (ngc_hmi) StdoutLine: {'line': b'writing top-level names to ../build/ngc_hmi/ngc_hmi.egg-info/top_level.txt\n'}
+[25.924008] (-) TimerEvent: {}
+[25.979077] (ngc_propulsion_sim) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[25.995881] (ngc_propulsion_sim) StdoutLine: {'line': b'Copying ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info\n'}
+[25.999881] (ngc_hull_sim) StdoutLine: {'line': b'running egg_info\n'}
+[26.024011] (-) TimerEvent: {}
+[26.100622] (ngc_hull_sim) StdoutLine: {'line': b'writing ../build/ngc_hull_sim/ngc_hull_sim.egg-info/PKG-INFO\n'}
+[26.110601] (ngc_hull_sim) StdoutLine: {'line': b'writing dependency_links to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/dependency_links.txt\n'}
+[26.112482] (ngc_hull_sim) StdoutLine: {'line': b'writing entry points to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/entry_points.txt\n'}
+[26.121927] (ngc_hull_sim) StdoutLine: {'line': b'writing requirements to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/requires.txt\n'}
+[26.122795] (ngc_hull_sim) StdoutLine: {'line': b'writing top-level names to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/top_level.txt\n'}
+[26.123938] (ngc_propulsion_sim) StdoutLine: {'line': b'running install_scripts\n'}
+[26.125071] (-) TimerEvent: {}
+[26.152778] (ngc_hmi) StdoutLine: {'line': b"reading manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'\n"}
+[26.171233] (ngc_hmi) StdoutLine: {'line': b"writing manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'\n"}
+[26.192823] (ngc_hmi) StdoutLine: {'line': b'running build\n'}
+[26.204815] (ngc_hmi) StdoutLine: {'line': b'running build_py\n'}
+[26.205291] (ngc_hmi) StdoutLine: {'line': b'running install\n'}
+[26.233735] (-) TimerEvent: {}
+[26.234499] (ngc_hmi) StdoutLine: {'line': b'running install_lib\n'}
+[26.334233] (-) TimerEvent: {}
+[26.448909] (-) TimerEvent: {}
+[26.493403] (ngc_hull_sim) StdoutLine: {'line': b"reading manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'\n"}
+[26.524573] (ngc_hull_sim) StdoutLine: {'line': b"writing manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'\n"}
+[26.526113] (ngc_hull_sim) StdoutLine: {'line': b'running build\n'}
+[26.535664] (ngc_hull_sim) StdoutLine: {'line': b'running build_py\n'}
+[26.538022] (ngc_hull_sim) StdoutLine: {'line': b'running install\n'}
+[26.541369] (ngc_hmi) StdoutLine: {'line': b'running install_data\n'}
+[26.543602] (ngc_hmi) StdoutLine: {'line': b'running install_egg_info\n'}
+[26.548132] (ngc_hull_sim) StdoutLine: {'line': b'running install_lib\n'}
+[26.552710] (-) TimerEvent: {}
+[26.607755] (ngc_hull_sim) StdoutLine: {'line': b'running install_data\n'}
+[26.611826] (ngc_hull_sim) StdoutLine: {'line': b'running install_egg_info\n'}
+[26.653307] (-) TimerEvent: {}
+[26.659361] (ngc_hull_sim) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[26.662328] (ngc_hmi) StdoutLine: {'line': b"removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[26.667846] (ngc_hull_sim) StdoutLine: {'line': b'Copying ../build/ngc_hull_sim/ngc_hull_sim.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim-0.0.0-py3.12.egg-info\n'}
+[26.676998] (ngc_hmi) StdoutLine: {'line': b'Copying ../build/ngc_hmi/ngc_hmi.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info\n'}
+[26.714552] (ngc_hull_sim) StdoutLine: {'line': b'running install_scripts\n'}
+[26.756018] (-) TimerEvent: {}
+[26.810156] (ngc_hmi) StdoutLine: {'line': b'running install_scripts\n'}
+[26.864471] (-) TimerEvent: {}
+[26.970627] (-) TimerEvent: {}
+[27.071697] (-) TimerEvent: {}
+[27.110548] (ngc_propulsion_sim) StdoutLine: {'line': b'Installing ngc_propulsion_sim script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/ngc_propulsion_sim\n'}
+[27.143256] (ngc_propulsion_sim) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_propulsion_sim/install.log'\n"}
+[27.184954] (-) TimerEvent: {}
+[27.264692] (ngc_propulsion_sim) CommandEnded: {'returncode': 0}
+[27.287173] (-) TimerEvent: {}
+[27.350748] (ngc_hull_sim) StdoutLine: {'line': b'Installing simulate script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/ngc_hull_sim\n'}
+[27.372962] (ngc_propulsion_sim) JobEnded: {'identifier': 'ngc_propulsion_sim', 'rc': 0}
+[27.396322] (-) TimerEvent: {}
+[27.396630] (ngc_hull_sim) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hull_sim/install.log'\n"}
+[27.474805] (ngc_hmi) StdoutLine: {'line': b'Installing ngc_hmi script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi\n'}
+[27.478461] (ngc_hmi) StdoutLine: {'line': b'Installing ngc_hmi_autopilot script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi\n'}
+[27.483290] (ngc_hmi) StdoutLine: {'line': b'Installing ngc_hmi_yaml_editor script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi\n'}
+[27.510008] (-) TimerEvent: {}
+[27.515921] (ngc_hmi) StdoutLine: {'line': b"writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log'\n"}
+[27.541547] (ngc_hull_sim) CommandEnded: {'returncode': 0}
+[27.616079] (-) TimerEvent: {}
+[27.719249] (-) TimerEvent: {}
+[27.722527] (ngc_hull_sim) JobEnded: {'identifier': 'ngc_hull_sim', 'rc': 0}
+[27.791091] (ngc_hmi) CommandEnded: {'returncode': 0}
+[27.834483] (-) TimerEvent: {}
+[27.939251] (-) TimerEvent: {}
+[27.983930] (ngc_hmi) JobEnded: {'identifier': 'ngc_hmi', 'rc': 0}
+[28.027801] (-) EventReactorShutdown: {}

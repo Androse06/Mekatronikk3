@@ -1,0 +1,262 @@
+[0.134s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces -- -j4 -l4
+[0.913s] [  1%] Built target ngc_interfaces__rosidl_generator_type_description
+[0.918s] [  2%] Built target ngc_interfaces__cpp
+[0.919s] [  3%] Built target ament_cmake_python_copy_ngc_interfaces
+[0.920s] [ 26%] Built target ngc_interfaces__rosidl_generator_c
+[0.922s] [ 45%] Built target ngc_interfaces__rosidl_typesupport_c
+[0.922s] [ 45%] Built target ngc_interfaces__rosidl_typesupport_introspection_c
+[0.924s] [ 54%] Built target ngc_interfaces__rosidl_typesupport_cpp
+[0.992s] [ 73%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_cpp
+[0.993s] [ 73%] Built target ngc_interfaces__rosidl_typesupport_introspection_cpp
+[1.030s] [ 83%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_c
+[1.141s] [ 83%] Built target ngc_interfaces
+[1.232s] [ 84%] Built target ngc_interfaces__py
+[1.262s] running egg_info
+[1.305s] writing ngc_interfaces.egg-info/PKG-INFO
+[1.307s] writing dependency_links to ngc_interfaces.egg-info/dependency_links.txt
+[1.310s] writing top-level names to ngc_interfaces.egg-info/top_level.txt
+[1.316s] [ 92%] Built target ngc_interfaces__rosidl_generator_py
+[1.444s] [ 95%] Built target ngc_interfaces_s__rosidl_typesupport_c
+[1.459s] [ 97%] Built target ngc_interfaces_s__rosidl_typesupport_introspection_c
+[1.475s] [100%] Built target ngc_interfaces_s__rosidl_typesupport_fastrtps_c
+[1.494s] reading manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+[1.501s] writing manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+[1.566s] [100%] Built target ament_cmake_python_build_ngc_interfaces_egg
+[1.694s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces -- -j4 -l4
+[2.778s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces
+[2.817s] -- Install configuration: ""
+[2.827s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/rosidl_interfaces/ngc_interfaces
+[2.831s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.json
+[2.833s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.json
+[2.836s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.json
+[2.838s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.json
+[2.840s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.json
+[2.846s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.json
+[2.850s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[2.856s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[2.859s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.h
+[2.861s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_c__visibility_control.h
+[2.863s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.h
+[2.865s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[2.867s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.c
+[2.869s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.h
+[2.876s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.c
+[2.878s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.h
+[2.880s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__description.c
+[2.882s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.h
+[2.894s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__description.c
+[2.901s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.h
+[2.903s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.c
+[2.907s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.h
+[2.910s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+[2.918s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.h
+[2.926s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.c
+[2.931s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.h
+[2.933s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.h
+[2.935s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.h
+[2.936s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.h
+[2.938s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.h
+[2.940s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.h
+[2.942s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.h
+[2.943s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+[2.945s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.h
+[2.946s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.h
+[2.949s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+[2.953s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__description.c
+[2.955s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.h
+[2.957s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__description.c
+[2.959s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+[2.967s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.c
+[2.970s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__description.c
+[2.977s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__description.c
+[2.979s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.h
+[2.995s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+[3.008s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.c
+[3.015s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+[3.022s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.h
+[3.024s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.h
+[3.027s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.h
+[3.029s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.h
+[3.031s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.h
+[3.041s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.sh
+[3.043s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.dsv
+[3.068s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so
+[3.107s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[3.114s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[3.137s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[3.138s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_c.h
+[3.147s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_c.h
+[3.151s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_c.h
+[3.154s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_c.h
+[3.155s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_c.h
+[3.157s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_c.h
+[3.159s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.169s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so
+[3.188s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[3.194s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[3.203s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[3.209s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_c.h
+[3.212s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_c.h
+[3.216s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_c.h
+[3.218s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+[3.232s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_c.h
+[3.235s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+[3.244s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+[3.252s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+[3.260s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_c.h
+[3.261s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+[3.269s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_c.h
+[3.271s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+[3.298s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.333s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so
+[3.368s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so
+[3.409s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[3.410s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[3.418s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.hpp
+[3.420s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.hpp
+[3.423s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.hpp
+[3.424s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.hpp
+[3.427s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[3.432s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__builder.hpp
+[3.436s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.hpp
+[3.437s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.hpp
+[3.440s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__traits.hpp
+[3.442s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.hpp
+[3.444s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.hpp
+[3.446s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.hpp
+[3.448s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.hpp
+[3.451s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__traits.hpp
+[3.453s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__builder.hpp
+[3.457s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.hpp
+[3.458s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.hpp
+[3.460s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__traits.hpp
+[3.464s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__builder.hpp
+[3.468s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__builder.hpp
+[3.471s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__traits.hpp
+[3.474s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__builder.hpp
+[3.480s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.hpp
+[3.481s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.hpp
+[3.482s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__builder.hpp
+[3.483s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__traits.hpp
+[3.494s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__traits.hpp
+[3.519s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.hpp
+[3.520s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.hpp
+[3.521s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[3.522s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.hpp
+[3.525s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.hpp
+[3.528s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[3.529s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[3.530s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.531s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[3.532s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_cpp.hpp
+[3.536s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_cpp.hpp
+[3.537s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_cpp.hpp
+[3.538s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_cpp.hpp
+[3.541s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_cpp.hpp
+[3.542s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/dds_fastrtps
+[3.543s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_cpp.hpp
+[3.546s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[3.548s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[3.553s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[3.554s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[3.556s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_cpp.hpp
+[3.558s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_cpp.hpp
+[3.560s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_cpp.hpp
+[3.561s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_cpp.hpp
+[3.564s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.cpp
+[3.566s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_cpp.hpp
+[3.568s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.cpp
+[3.569s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.cpp
+[3.571s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.cpp
+[3.573s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.cpp
+[3.574s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp
+[3.575s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_cpp.hpp
+[3.595s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so
+[3.633s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so
+[3.662s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.sh
+[3.663s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.dsv
+[3.665s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info
+[3.669s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[3.677s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[3.694s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[3.716s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[3.731s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces
+[3.733s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[3.736s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg
+[3.740s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals_s.c
+[3.743s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind_s.c
+[3.746s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_s.c
+[3.749s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py
+[3.752s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py
+[3.754s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot_s.c
+[3.756s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py
+[3.758s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py
+[3.763s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta_s.c
+[3.765s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py
+[3.767s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py
+[3.769s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau_s.c
+[3.772s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py
+[3.774s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/__init__.py
+[3.775s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[3.778s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+[3.781s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[3.783s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+[3.784s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c
+[3.917s] Listing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces'...
+[3.918s] Listing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg'...
+[3.949s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[3.976s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+[4.023s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+[4.052s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so
+[4.068s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.idl
+[4.070s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.idl
+[4.071s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.idl
+[4.073s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.idl
+[4.075s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.idl
+[4.077s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.idl
+[4.078s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.msg
+[4.080s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.msg
+[4.082s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.msg
+[4.087s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.msg
+[4.089s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.msg
+[4.100s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.msg
+[4.102s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/package_run_dependencies/ngc_interfaces
+[4.105s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/parent_prefix_path/ngc_interfaces
+[4.106s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.sh
+[4.114s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.dsv
+[4.117s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.sh
+[4.121s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.dsv
+[4.123s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.bash
+[4.124s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.sh
+[4.126s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.zsh
+[4.129s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.dsv
+[4.131s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv
+[4.154s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ament_index/resource_index/packages/ngc_interfaces
+[4.159s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport.cmake
+[4.161s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport-noconfig.cmake
+[4.165s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[4.168s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.175s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[4.177s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.182s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport.cmake
+[4.184s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[4.187s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cppExport.cmake
+[4.190s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.191s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.199s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[4.203s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.214s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport.cmake
+[4.216s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[4.222s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport.cmake
+[4.223s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[4.224s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake-extras.cmake
+[4.225s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.228s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[4.229s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[4.231s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.234s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.236s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.239s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig.cmake
+[4.240s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig-version.cmake
+[4.242s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/share/ngc_interfaces/package.xml
+[4.249s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_interfaces

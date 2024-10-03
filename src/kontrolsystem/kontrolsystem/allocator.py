@@ -129,7 +129,7 @@ class Allocator(Node):
             self.K_1        = 1
             self.K_2        = 1
             
-            self.K_list     = np.array[self.K_1, self.K_2]
+            self.K_list     = np.array[self.K_1, self.K_1, self.K_2, self.K_2]
             self.K_matrix   = np.diag(self.K_list)
 
             ### Pseudoinverse ###

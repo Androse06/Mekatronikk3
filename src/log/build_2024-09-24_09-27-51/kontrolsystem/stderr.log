@@ -1,0 +1,5 @@
+  File "/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages/kontrolsystem/kontroller.py", line 161
+    …
+    ^
+SyntaxError: invalid character '…' (U+2026)
+

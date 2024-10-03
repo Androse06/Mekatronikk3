@@ -1,0 +1,9 @@
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/uninstall.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/ngc_bringup_uninstall.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/test.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/edit_cache.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/rebuild_cache.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/list_install_components.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/install.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/install/local.dir
+/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup/CMakeFiles/install/strip.dir

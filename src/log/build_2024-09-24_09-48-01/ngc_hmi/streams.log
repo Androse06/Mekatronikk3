@@ -1,0 +1,23 @@
+[5.272s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[6.800s] running egg_info
+[6.897s] writing ../build/ngc_hmi/ngc_hmi.egg-info/PKG-INFO
+[6.909s] writing dependency_links to ../build/ngc_hmi/ngc_hmi.egg-info/dependency_links.txt
+[6.910s] writing entry points to ../build/ngc_hmi/ngc_hmi.egg-info/entry_points.txt
+[6.911s] writing requirements to ../build/ngc_hmi/ngc_hmi.egg-info/requires.txt
+[6.914s] writing top-level names to ../build/ngc_hmi/ngc_hmi.egg-info/top_level.txt
+[7.167s] reading manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[7.192s] writing manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[7.200s] running build
+[7.248s] running build_py
+[7.250s] running install
+[7.287s] running install_lib
+[7.424s] running install_data
+[7.426s] running install_egg_info
+[7.656s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info' (and everything under it)
+[7.662s] Copying ../build/ngc_hmi/ngc_hmi.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info
+[7.759s] running install_scripts
+[8.784s] Installing ngc_hmi script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.818s] Installing ngc_hmi_autopilot script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.820s] Installing ngc_hmi_yaml_editor script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.856s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log'
+[8.960s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data

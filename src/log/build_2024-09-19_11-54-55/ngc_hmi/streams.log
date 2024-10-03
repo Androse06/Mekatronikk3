@@ -1,0 +1,23 @@
+[5.775s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[7.137s] running egg_info
+[7.241s] writing ../build/ngc_hmi/ngc_hmi.egg-info/PKG-INFO
+[7.243s] writing dependency_links to ../build/ngc_hmi/ngc_hmi.egg-info/dependency_links.txt
+[7.245s] writing entry points to ../build/ngc_hmi/ngc_hmi.egg-info/entry_points.txt
+[7.246s] writing requirements to ../build/ngc_hmi/ngc_hmi.egg-info/requires.txt
+[7.248s] writing top-level names to ../build/ngc_hmi/ngc_hmi.egg-info/top_level.txt
+[7.501s] reading manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[7.514s] writing manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[7.517s] running build
+[7.518s] running build_py
+[7.524s] running install
+[7.569s] running install_lib
+[7.715s] running install_data
+[7.717s] running install_egg_info
+[7.872s] removing '/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info' (and everything under it)
+[7.881s] Copying ../build/ngc_hmi/ngc_hmi.egg-info to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info
+[7.937s] running install_scripts
+[8.869s] Installing ngc_hmi script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.874s] Installing ngc_hmi_autopilot script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.878s] Installing ngc_hmi_yaml_editor script to /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/ngc_hmi
+[8.882s] writing list of installed files to '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log'
+[8.996s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/ngc_hmi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_hmi/install.log --single-version-externally-managed install_data

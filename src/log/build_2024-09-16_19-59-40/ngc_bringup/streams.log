@@ -1,0 +1,30 @@
+[0.121s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[0.907s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup -- -j4 -l4
+[1.693s] Invoking command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup
+[1.728s] -- Install configuration: ""
+[1.730s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch
+[1.731s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+[1.739s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config
+[1.740s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+[1.743s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+[1.743s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+[1.745s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+[1.748s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+[1.749s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+[1.751s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+[1.754s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+[1.756s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+[1.758s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+[1.759s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+[1.760s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+[1.769s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+[1.773s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+[1.775s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+[1.777s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+[1.779s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+[1.781s] -- Installing: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.dsv
+[1.798s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+[1.800s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+[1.801s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+[1.803s] -- Up-to-date: /home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_bringup/share/ngc_bringup/package.xml
+[1.812s] Invoked command in '/home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hull_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_utils:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_sensor_sims:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/MEPA2001_2024/src/install/ngc_hmi:/home/alfred/shared_mac/MEPA2001_2024/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/MEPA2001_2024/src/build/ngc_bringup
