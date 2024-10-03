@@ -216,3 +216,5 @@ def main(args=None):
 # Starter hovedfunksjonen hvis denne filen kjøres som et skript
 if __name__ == '__main__':
     main()
+
+    ### GIT TEST CODE ###
