@@ -1,4 +1,3 @@
-# Importerer nødvendige biblioteker og moduler for ROS2
 import rclpy
 from rclpy.node import Node
 import numpy as np
@@ -12,39 +11,30 @@ import time
 import ngc_utils.math_utils as mu
 from std_msgs.msg import String
 
-# Klassen Kontroller definerer en ROS2-node
 class Kontroller(Node):
-    # Initialiserer kontrolleren og setter opp abonnementer og publiseringer
     def __init__(self):
-        # Kaller på superklassen Node for å initialisere noden med navnet "kontroller"
         super().__init__('kontroller')
         
-        # Deklarerer og laster konfigurasjonsparametere fra YAML-filer
         self.declare_parameter('yaml_package_name', 'ngc_bringup')
         self.declare_parameter('vessel_config_file', 'config/vessel_config.yaml')
         self.declare_parameter('simulation_config_file', 'config/simulator_config.yaml')
         self.declare_parameter('control_config_file', 'config/control_config.yaml')
 
-        # Henter konfigurasjonsfilenes stier ved hjelp av pakkenavnet
         yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
         yaml_package_path        = get_package_share_directory(yaml_package_name)
         vessel_config_path       = os.path.join(yaml_package_path, self.get_parameter('vessel_config_file').get_parameter_value().string_value)
         simulation_config_path   = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
 
-        # Laster YAML-konfigurasjonsfiler som inneholder informasjon om fartøyet og simuleringen
         self.vessel_config     = self.load_yaml_file(vessel_config_path)
         self.simulation_config = self.load_yaml_file(simulation_config_path)
         self.control_config    = self.load_yaml_file(self.control_config_path)
 
-        # Initialiserer fartøymodellen basert på konfigurasjonen
         self.vessel_model = VesselModel(self.vessel_config)
         
-        # Henter simulasjonens tidssteg fra konfigurasjonsfilen
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        # Setter opp abonnenter for å lytte på data fra simulatoren (eta og nu) og settpunkter (eta_setpoint, nu_setpoint)
-        # Sett inn kode her 
+        #### SUB ####
         self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
         #self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
@@ -56,65 +46,49 @@ class Kontroller(Node):
         self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub             = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
 
-        # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)
-        # Sett inn kode her 
+        #### PUB ####
         self.tau_pub = self.create_publisher(Tau, "tau_control", default_qos_profile)
 
-        # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
+
+        #### Variabler ####
+
         self.eta          = np.zeros(6)
         self.nu           = np.zeros(6)
         self.eta_setpoint = np.zeros(6)
         self.nu_setpoint  = np.zeros(6)
 
-        self.max_surge = 0.0
-        self.max_yaw = 0.0
+        self.max_surge    = 0.0
+        self.max_yaw      = 0.0
         
-        # Integraltilstander i PID kontroll
-        self.qi_psi = 0.0
-        self.qi_u   = 0.0
+        self.qi_psi       = 0.0
+        self.qi_u         = 0.0
 
-        # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
-        # Her må du starte kontrolløkken
+        ####################
+
         self.timer = self.create_timer(self.step_size, self.step_control)
 
         self.get_logger().info("Kontroller-node er initialisert.")
 
-
         self.debug = False
 
-    # Funksjon for å laste inn YAML-konfigurasjonsfiler
     def load_yaml_file(self, file_path):
-        
         with open(file_path, 'r') as file:
             return yaml.safe_load(file)
 
     def reload_configs_callback(self, msg: String):
-
         self.control_config = self.load_yaml_file(self.control_config_path)
         self.get_logger().info("Kontroller-node har lastet in config!")
 
-    # Callback-funksjon for å motta eta_sim-data fra simulatoren
     def eta_callback(self, msg: Eta):
-        
-        # Mottar posisjons- og orienteringsdata fra simulatoren
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
 
-    # Callback-funksjon for å motta nu_sim-data fra simulatoren
     def nu_callback(self, msg: Nu):
-        
-        # Mottar hastighetsdata fra simulatoren
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
-    # Callback-funksjon for å motta eta_setpoint-data (settpunkt for posisjon og orientering)
     def eta_setpoint_callback(self, msg: Eta):
-        
-        # Mottar settpunktdata for posisjon og orientering
         self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
 
-    # Callback-funksjon for å motta nu_setpoint-data (settpunkt for hastighet)
     def nu_setpoint_callback(self, msg: Nu):
-       
-        # Mottar settpunktdata for hastigheter
         self.nu_setpoint = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
     def max_tau_callback(self, msg: Tau):
@@ -122,14 +96,9 @@ class Kontroller(Node):
         self.max_yaw = msg.yaw_n
 
 
-    # Funksjon som kjøres på hver simuleringstidssteg og implementerer kontrollalgoritmen
     def step_control(self):
         
-        # Denne funksjonen vil inneholde kontrolllogikk for å beregne de nødvendige kreftene (tau)
-        # Foreløpig brukes en enkel PD-kontroll (Propositional-Derivative) som eksempel
-
         ################## PID Heading #####################
-        # Beregn avvik (feil) mellom settpunkt og faktisk verdi for både posisjon (eta) og hastighet (nu)
         e_psi       = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
         e_psi_dot   = self.nu_setpoint[5] - self.nu[5]
 
@@ -148,7 +117,7 @@ class Kontroller(Node):
 
         sat_e_psi = mu.saturate(e_psi, -np.deg2rad(ki_limit), np.deg2rad(ki_limit))
 
-        if (self.qi_psi >= eps_psi * self.max_yaw) and (sat_e_psi > 0) or (self.qi_psi <= eps_psi * self.max_yaw) and (sat_e_psi < 0):
+        if (self.qi_psi >= eps_psi * self.max_yaw) and (sat_e_psi > 0) or (self.qi_psi <= - eps_psi * self.max_yaw) and (sat_e_psi < 0):
             pass
         else:
             self.qi_psi += dt * sat_e_psi
@@ -159,6 +128,7 @@ class Kontroller(Node):
 
         tau_N       = P_ledd + I_ledd + D_ledd
         sat_tau_N   = mu.saturate(tau_N, -eps_psi * self.max_yaw, eps_psi * self.max_yaw)
+
         ################## PI Fart #####################
         e_u         = self.nu_setpoint[0] - self.nu[0]
 
@@ -172,15 +142,15 @@ class Kontroller(Node):
 
         sat_e_u = mu.saturate(e_u, -ki_limit_u, ki_limit_u)
 
-        if (self.qi_u >= eps_u * self.max_surge) and (sat_e_u > 0) or (self.qi_u <= eps_u * self.max_surge) and (sat_e_u < 0):
+        if (self.qi_u >= eps_u * self.max_surge) and (sat_e_u > 0) or (self.qi_u <= - eps_u * self.max_surge) and (sat_e_u < 0):
             pass
         else:
-            self.qi_u   += dt * sat_e_u
+            self.qi_u += dt * sat_e_u
 
         tau_X       = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + kp_u * e_u + self.qi_u * ki_u
         sat_tau_X   = mu.saturate(tau_X, - eps_u * self.max_surge, eps_u * self.max_surge)
         
-        # Opprett en Tau-melding for å sende de beregnede kreftene
+        ################## Publiser kontrollkrefter #####################
 
         tau_message         = Tau()
         tau_message.surge_x = sat_tau_X
@@ -190,9 +160,10 @@ class Kontroller(Node):
         tau_message.pitch_m = 0.0
         tau_message.yaw_n   = sat_tau_N
 
-        # Publiser kontrollkreftene på tau_propulsion-topic
         self.tau_pub.publish(tau_message)
 
+
+        ################## Debugging #####################
         if self.debug == True:
 
             self.get_logger().info(f'tau_message: {tau_message}')
@@ -209,22 +180,15 @@ class Kontroller(Node):
             self.get_logger().info(f'Eta: {self.eta[5]}')
             self.get_logger().info(f'Nu: {self.nu[0]}')
 
-
-
-# Hovedfunksjonen som starter ROS2-noden
 def main(args=None):
-    # Initialiserer ROS2-kommunikasjon
     rclpy.init(args=args)
     node = Kontroller()
     
-    # Kjører noden til den stoppes
     rclpy.spin(node)
     
-    # Når noden avsluttes, frigjør ressurser
     node.destroy_node()
     rclpy.shutdown()
 
-# Starter hovedfunksjonen hvis denne filen kjøres som et skript
 if __name__ == '__main__':
     main()
 

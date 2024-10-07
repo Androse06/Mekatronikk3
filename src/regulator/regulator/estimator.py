@@ -1,4 +1,3 @@
-# Importerer nødvendige biblioteker og moduler for ROS2
 import rclpy
 from rclpy.node import Node
 import numpy as np
@@ -15,53 +14,39 @@ import ngc_utils.geo_utils as geo
 
 
 class Estimator(Node):
-    # Initialiserer kontrolleren og setter opp abonnementer og publiseringer
     def __init__(self):
         super().__init__('estimator')
         
-        # Deklarerer og laster konfigurasjonsparametere fra YAML-filer
         self.declare_parameter('yaml_package_name', 'ngc_bringup')
         self.declare_parameter('vessel_config_file', 'config/vessel_config.yaml')
         self.declare_parameter('simulation_config_file', 'config/simulator_config.yaml')
         self.declare_parameter('control_config_file', 'config/control_config.yaml')
 
-        # Henter konfigurasjonsfilenes stier ved hjelp av pakkenavnet
         yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
         yaml_package_path        = get_package_share_directory(yaml_package_name)
         vessel_config_path       = os.path.join(yaml_package_path, self.get_parameter('vessel_config_file').get_parameter_value().string_value)
         simulation_config_path   = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
 
-        # Laster YAML-konfigurasjonsfiler som inneholder informasjon om fartøyet og simuleringen
         self.vessel_config     = self.load_yaml_file(vessel_config_path)
         self.simulation_config = self.load_yaml_file(simulation_config_path)
         self.control_config    = self.load_yaml_file(self.control_config_path)
 
-        # Initialiserer fartøymodellen basert på konfigurasjonen
         self.vessel_model = VesselModel(self.vessel_config)
         
-        # Henter simulasjonens tidssteg fra konfigurasjonsfilen
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        # Setter opp abonnenter for å lytte på data fra simulatoren (eta og nu) og settpunkter (eta_setpoint, nu_setpoint)
-        # Sett inn kode her 
-        
+        #### SUB ####
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         self.gnss_sub               = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)
         self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
         self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
 
+        #### PUB ####
         self.eta_hat_pub            = self.create_publisher(Eta, "eta_hat", default_qos_profile)
         self.nu_hat_pub             = self.create_publisher(Nu, "nu_hat", default_qos_profile)
 
-        # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
-        self.eta          = np.zeros(6)
-        self.nu           = np.zeros(6)
-        self.eta_setpoint = np.zeros(6)
-        self.nu_setpoint  = np.zeros(6)
-        
-        #######################
-
+        #### Variabler ####
         self.heading_measured   = None
         self.rot                = None
         self.lat_measured       = 0
@@ -87,18 +72,15 @@ class Estimator(Node):
 
         self.get_logger().info("Estimator-node er initialisert.")
 
-
         self.debug = False
 
 
-    # Funksjon for å laste inn YAML-konfigurasjonsfiler
+
     def load_yaml_file(self, file_path):
-        
         with open(file_path, 'r') as file:
             return yaml.safe_load(file)
 
     def reload_configs_callback(self, msg: String):
-
         self.control_config = self.load_yaml_file(self.control_config_path)
 
     def gnss_callback(self, msg: GNSS):
@@ -122,7 +104,6 @@ class Estimator(Node):
 
     def tau_callback(self, msg: Tau):
         self.tau = np.array([msg.surge_x, msg.sway_y, msg.yaw_n])
-
 
 
     def step_estimator(self):
@@ -173,6 +154,8 @@ class Estimator(Node):
 
                 self.lat_hat, self.lon_hat = geo.add_distance_to_lat_lon(self.lat_hat, self.lon_hat, self.eta_hat[0], self.eta_hat[1])
 
+
+                ###### PUBLISH ######
                 eta_hat_message = Eta()
                 eta_hat_message.lat = float(self.lat_hat)
                 eta_hat_message.lon = float(self.lon_hat)
@@ -192,6 +175,8 @@ class Estimator(Node):
                 self.eta_hat_pub.publish(eta_hat_message)
                 self.nu_hat_pub.publish(nu_hat_message)
 
+
+                ####### DEBUG ########
                 if self.debug == True:
 
                     self.get_logger().info(f"eta_hat_message: {eta_hat_message}")
