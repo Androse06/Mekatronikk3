@@ -23,7 +23,6 @@ class Allokering(Node):
         simulation_config_path      = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.propulsion_config_path = os.path.join(yaml_package_path, self.get_parameter('propulsion_config_file').get_parameter_value().string_value)
 
-        self.vessel_config          = self.load_yaml_file(vessel_config_path)
         self.simulation_config      = self.load_yaml_file(simulation_config_path)
         self.propuslion_config      = self.load_yaml_file(self.propulsion_config_path)
         
