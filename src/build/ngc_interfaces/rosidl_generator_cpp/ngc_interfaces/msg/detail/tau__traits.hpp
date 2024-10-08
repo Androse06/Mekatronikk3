@@ -35,6 +35,13 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
+  // member: surge_y
+  {
+    out << "surge_y: ";
+    rosidl_generator_traits::value_to_yaml(msg.surge_y, out);
+    out << ", ";
+  }
+
   // member: sway_y
   {
     out << "sway_y: ";
@@ -82,6 +89,16 @@ inline void to_block_style_yaml(
     }
     out << "surge_x: ";
     rosidl_generator_traits::value_to_yaml(msg.surge_x, out);
+    out << "\n";
+  }
+
+  // member: surge_y
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "surge_y: ";
+    rosidl_generator_traits::value_to_yaml(msg.surge_y, out);
     out << "\n";
   }
 

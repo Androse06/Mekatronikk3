@@ -31,7 +31,7 @@ void ngc_interfaces__msg__Tau__rosidl_typesupport_introspection_c__Tau_fini_func
   ngc_interfaces__msg__Tau__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember ngc_interfaces__msg__Tau__rosidl_typesupport_introspection_c__Tau_message_member_array[6] = {
+static rosidl_typesupport_introspection_c__MessageMember ngc_interfaces__msg__Tau__rosidl_typesupport_introspection_c__Tau_message_member_array[7] = {
   {
     "surge_x",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
@@ -42,6 +42,24 @@ static rosidl_typesupport_introspection_c__MessageMember ngc_interfaces__msg__Ta
     0,  // array size
     false,  // is upper bound
     offsetof(ngc_interfaces__msg__Tau, surge_x),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "surge_y",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ngc_interfaces__msg__Tau, surge_y),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -145,7 +163,7 @@ static rosidl_typesupport_introspection_c__MessageMember ngc_interfaces__msg__Ta
 static const rosidl_typesupport_introspection_c__MessageMembers ngc_interfaces__msg__Tau__rosidl_typesupport_introspection_c__Tau_message_members = {
   "ngc_interfaces__msg",  // message namespace
   "Tau",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(ngc_interfaces__msg__Tau),
   false,  // has_any_key_member_
   ngc_interfaces__msg__Tau__rosidl_typesupport_introspection_c__Tau_message_member_array,  // message members

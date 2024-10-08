@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "ngc_interfaces/msg/detail/eta__functions.h"
-#include "ngc_interfaces/msg/detail/eta__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "ngc_interfaces/msg/detail/eta__type_support.h"
 #include "ngc_interfaces/msg/detail/eta__struct.h"
+#include "ngc_interfaces/msg/detail/eta__functions.h"
 
 #ifdef __cplusplus
 extern "C"

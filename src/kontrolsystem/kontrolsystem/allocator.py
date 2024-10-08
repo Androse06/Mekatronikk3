@@ -184,7 +184,7 @@ class allocator(Node):
             # Create and publish the tau_max message
             tau_max_msg = Tau()
             tau_max_msg.surge_x = tau_control_max[0]
-            #tau_max_msg.surge_y = 0.0
+            tau_max_msg.surge_y = 0.0
             tau_max_msg.yaw_n = tau_control_max[1]
             
             # Publish tau_max

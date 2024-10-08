@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "ngc_interfaces/msg/detail/tau__functions.h"
-#include "ngc_interfaces/msg/detail/tau__type_support.h"
-#include "rosidl_typesupport_interface/macros.h"
 #include "ngc_interfaces/msg/detail/tau__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "ngc_interfaces/msg/detail/tau__type_support.h"
+#include "ngc_interfaces/msg/detail/tau__functions.h"
 
 #ifdef __cplusplus
 extern "C"

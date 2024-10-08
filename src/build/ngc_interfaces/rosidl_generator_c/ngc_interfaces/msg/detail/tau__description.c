@@ -11,10 +11,10 @@ ngc_interfaces__msg__Tau__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x8c, 0xe4, 0x9e, 0x8a, 0x5d, 0xa2, 0x10, 0xad,
-      0x35, 0xd7, 0x29, 0x5a, 0xef, 0x47, 0x34, 0xc8,
-      0xc0, 0x99, 0xf9, 0xc6, 0xb7, 0x4e, 0x8a, 0xdc,
-      0xee, 0xb2, 0xb6, 0xd4, 0xbf, 0xc8, 0xdb, 0xd7,
+      0xe1, 0x02, 0x12, 0x05, 0xf4, 0x7f, 0x49, 0xa0,
+      0x13, 0x23, 0xd8, 0x82, 0x74, 0x3b, 0xec, 0x37,
+      0x20, 0x3b, 0xe0, 0x1f, 0xff, 0xfb, 0xac, 0xf5,
+      0x16, 0x71, 0xc8, 0x41, 0x4d, 0x76, 0x64, 0xb3,
     }};
   return &hash;
 }
@@ -32,6 +32,7 @@ static char ngc_interfaces__msg__Tau__TYPE_NAME[] = "ngc_interfaces/msg/Tau";
 
 // Define type names, field names, and default values
 static char ngc_interfaces__msg__Tau__FIELD_NAME__surge_x[] = "surge_x";
+static char ngc_interfaces__msg__Tau__FIELD_NAME__surge_y[] = "surge_y";
 static char ngc_interfaces__msg__Tau__FIELD_NAME__sway_y[] = "sway_y";
 static char ngc_interfaces__msg__Tau__FIELD_NAME__heave_z[] = "heave_z";
 static char ngc_interfaces__msg__Tau__FIELD_NAME__roll_k[] = "roll_k";
@@ -41,6 +42,16 @@ static char ngc_interfaces__msg__Tau__FIELD_NAME__yaw_n[] = "yaw_n";
 static rosidl_runtime_c__type_description__Field ngc_interfaces__msg__Tau__FIELDS[] = {
   {
     {ngc_interfaces__msg__Tau__FIELD_NAME__surge_x, 7, 7},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT,
+      0,
+      0,
+      {NULL, 0, 0},
+    },
+    {NULL, 0, 0},
+  },
+  {
+    {ngc_interfaces__msg__Tau__FIELD_NAME__surge_y, 7, 7},
     {
       rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_FLOAT,
       0,
@@ -110,7 +121,7 @@ ngc_interfaces__msg__Tau__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {ngc_interfaces__msg__Tau__TYPE_NAME, 22, 22},
-      {ngc_interfaces__msg__Tau__FIELDS, 6, 6},
+      {ngc_interfaces__msg__Tau__FIELDS, 7, 7},
     },
     {NULL, 0, 0},
   };
@@ -123,6 +134,7 @@ ngc_interfaces__msg__Tau__get_type_description(
 static char toplevel_type_raw_source[] =
   "#Forces and moments in according with SNAME notation\n"
   "float32 surge_x\n"
+  "float32 surge_y\n"
   "float32 sway_y\n"
   "float32 heave_z\n"
   "float32 roll_k\n"
@@ -141,7 +153,7 @@ ngc_interfaces__msg__Tau__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {ngc_interfaces__msg__Tau__TYPE_NAME, 22, 22},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 144, 144},
+    {toplevel_type_raw_source, 160, 160},
   };
   return &source;
 }

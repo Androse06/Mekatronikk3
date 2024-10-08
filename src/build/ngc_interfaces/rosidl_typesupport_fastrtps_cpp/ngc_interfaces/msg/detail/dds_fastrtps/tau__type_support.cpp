@@ -39,6 +39,9 @@ cdr_serialize(
   // Member: surge_x
   cdr << ros_message.surge_x;
 
+  // Member: surge_y
+  cdr << ros_message.surge_y;
+
   // Member: sway_y
   cdr << ros_message.sway_y;
 
@@ -65,6 +68,9 @@ cdr_deserialize(
 {
   // Member: surge_x
   cdr >> ros_message.surge_x;
+
+  // Member: surge_y
+  cdr >> ros_message.surge_y;
 
   // Member: sway_y
   cdr >> ros_message.sway_y;
@@ -101,6 +107,13 @@ get_serialized_size(
   // Member: surge_x
   {
     size_t item_size = sizeof(ros_message.surge_x);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: surge_y
+  {
+    size_t item_size = sizeof(ros_message.surge_y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -170,6 +183,13 @@ max_serialized_size_Tau(
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
+  // Member: surge_y
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
   // Member: sway_y
   {
     size_t array_size = 1;
@@ -231,6 +251,9 @@ cdr_serialize_key(
   // Member: surge_x
   cdr << ros_message.surge_x;
 
+  // Member: surge_y
+  cdr << ros_message.surge_y;
+
   // Member: sway_y
   cdr << ros_message.sway_y;
 
@@ -265,6 +288,13 @@ get_serialized_size_key(
   // Member: surge_x
   {
     size_t item_size = sizeof(ros_message.surge_x);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: surge_y
+  {
+    size_t item_size = sizeof(ros_message.surge_y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -327,6 +357,14 @@ max_serialized_size_key_Tau(
   is_plain = true;
 
   // Member: surge_x
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: surge_y
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint32_t);

@@ -18,6 +18,7 @@ ngc_interfaces__msg__Tau__init(ngc_interfaces__msg__Tau * msg)
     return false;
   }
   // surge_x
+  // surge_y
   // sway_y
   // heave_z
   // roll_k
@@ -33,6 +34,7 @@ ngc_interfaces__msg__Tau__fini(ngc_interfaces__msg__Tau * msg)
     return;
   }
   // surge_x
+  // surge_y
   // sway_y
   // heave_z
   // roll_k
@@ -48,6 +50,10 @@ ngc_interfaces__msg__Tau__are_equal(const ngc_interfaces__msg__Tau * lhs, const 
   }
   // surge_x
   if (lhs->surge_x != rhs->surge_x) {
+    return false;
+  }
+  // surge_y
+  if (lhs->surge_y != rhs->surge_y) {
     return false;
   }
   // sway_y
@@ -83,6 +89,8 @@ ngc_interfaces__msg__Tau__copy(
   }
   // surge_x
   output->surge_x = input->surge_x;
+  // surge_y
+  output->surge_y = input->surge_y;
   // sway_y
   output->sway_y = input->sway_y;
   // heave_z

@@ -42,6 +42,7 @@ struct Tau_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->surge_x = 0.0f;
+      this->surge_y = 0.0f;
       this->sway_y = 0.0f;
       this->heave_z = 0.0f;
       this->roll_k = 0.0f;
@@ -57,6 +58,7 @@ struct Tau_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->surge_x = 0.0f;
+      this->surge_y = 0.0f;
       this->sway_y = 0.0f;
       this->heave_z = 0.0f;
       this->roll_k = 0.0f;
@@ -69,6 +71,9 @@ struct Tau_
   using _surge_x_type =
     float;
   _surge_x_type surge_x;
+  using _surge_y_type =
+    float;
+  _surge_y_type surge_y;
   using _sway_y_type =
     float;
   _sway_y_type sway_y;
@@ -90,6 +95,12 @@ struct Tau_
     const float & _arg)
   {
     this->surge_x = _arg;
+    return *this;
+  }
+  Type & set__surge_y(
+    const float & _arg)
+  {
+    this->surge_y = _arg;
     return *this;
   }
   Type & set__sway_y(
@@ -166,6 +177,9 @@ struct Tau_
   bool operator==(const Tau_ & other) const
   {
     if (this->surge_x != other.surge_x) {
+      return false;
+    }
+    if (this->surge_y != other.surge_y) {
       return false;
     }
     if (this->sway_y != other.sway_y) {

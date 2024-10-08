@@ -51,7 +51,7 @@ class Kontroller(Node):
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
         #self.nu_sub                 = self.create_subscription(Nu,'nu_sim', self.nu_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
-        #self.tau_max_sub            = self.create_subscription(Tau, 'tau_max', self.tau_max_callback, default_qos_profile)
+        self.tau_max_sub            = self.create_subscription(Tau, 'tau_max', self.tau_max_callback, default_qos_profile)
         
         # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)
         #self.tau_pub               = self.create_publisher(Tau,'tau_propulsion', default_qos_profile)
@@ -70,9 +70,9 @@ class Kontroller(Node):
         self.qi_u   = 0.0
 
         # Initialiserer max thrust og max moment
-        self.max_thrust_frem    = 0
+        self.max_surge    = 0
         self.max_thrust_tilbage = 0
-        self.max_moment         = 0
+        self.max_yaw         = 0
 
         # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
         self.timer = self.create_timer(self.step_size, self.step_control)
@@ -124,9 +124,8 @@ class Kontroller(Node):
     
     # Callback funktion til Max thrust og moment
     def tau_max_callback(self,msg: Tau):
-        self.max_thrust_frem    = msg.surge_x
-        self.max_thrust_tilbage = msg.sway_y
-        self.max_moment         = msg.yaw_n
+        self.max_surge    = msg.surge_x
+        self.max_yaw      = msg.yaw_n
 
     # Funksjon som kjøres på hver simuleringstidssteg og implementerer kontrollalgoritmen
     def step_control(self):
@@ -160,22 +159,14 @@ class Kontroller(Node):
         ki_psi                  = kp_psi / (ki_scale + np.rad2deg(e_psi) ** 2)
 
 
-        # Integral wind-up heading
-        #self.qi_psi += dt * mu.saturate(e_psi, -np.deg2rad(ki_sat_limit), np.deg2rad(ki_sat_limit))
         # Your integral windup handling for heading
 
-        if e_psi > 1:
-            self.sat_e_psi = 1
-        elif e_psi < -1:
-            self.sat_e_psi = -1
-        else:
-            self.sat_e_psi = e_psi
+        sat_e_psi               = mu.saturate(e_psi,-np.deg2rad(ki_sat_limit), np.deg2rad(ki_sat_limit))
 
-        if ((self.qi_psi > self.heading_eps * self.max_moment) and (e_psi > 0)) or ((self.qi_psi < -self.heading_eps * self.max_moment) and (e_psi < 0)):
-            self.qi_psi += 0
+        if (self.qi_psi >= self.heading_eps * self.max_yaw) and (sat_e_psi > 0) or (self.qi_psi <= self.heading_eps * self.max_yaw) and (sat_e_psi < 0):
+            pass
         else:
-            self.qi_psi += self.step_size * ki_psi * self.sat_e_psi
-
+            self.qi_psi += dt * sat_e_psi
 
         # PID Led
         P                       = kp_psi * e_psi
@@ -184,6 +175,7 @@ class Kontroller(Node):
 
         # Heading kontroller
         tau_N                   = P + I + D
+        sat_tau_N               = mu.saturate(tau_N, -self.heading_eps * self.max_yaw, self.heading_eps * self.max_yaw)
 
 
         ################## PI Fart #####################
@@ -197,33 +189,27 @@ class Kontroller(Node):
 
         # Beregning af Ki_u
         ki_u                    = kp_u / (ki_scale_u + e_u ** 2)
-        self.qi_u               += dt * mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u)  
+        #self.qi_u              += dt * mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u)  
+        sat_e_u                 = mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u) 
 
-        # Your integral windup handling for speed
-        #if e_u > 1:
-        #    self.sat_e_u = 1
-        #elif e_u < -1:
-        #    self.sat_e_u = -1
-        #else:
-        #    self.sat_e_u = e_u
-
-        #if ((self.qi_u > self.speed_eps * self.max_thrust_frem) and (e_u > 0)) or ((self.qi_u < -self.speed_eps * self.max_thrust_tilbage) and (e_u < 0)):
-        #    self.qi_u += 0
-        #else:
-        #    self.qi_u += self.step_size * ki_u * self.sat_e_u 
+        if (self.qi_u >= self.speed_eps * self.max_surge) and (sat_e_u > 0) or (self.qi_u <= self.speed_eps * self.max_surge) and (sat_e_u < 0):
+            pass
+        else:
+            self.qi_u += dt * sat_e_u
 
         # Kode for fartskontroller
 
-        tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + kp_u * e_u + self.qi_u * ki_u
+        tau_X                   = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + kp_u * e_u + self.qi_u * ki_u
+        sat_tau_X               = mu.saturate(tau_X, -self.speed_eps * self.max_surge, self.speed_eps * self.max_surge)
 
         # Opprett en Tau-melding for å sende de beregnede kreftene
         tau_message = Tau()
-        tau_message.surge_x = tau_X
+        tau_message.surge_x = sat_tau_X
         tau_message.sway_y  = 0.0
         tau_message.heave_z = 0.0
         tau_message.roll_k  = 0.0
         tau_message.pitch_m = 0.0
-        tau_message.yaw_n   = tau_N
+        tau_message.yaw_n   = sat_tau_N
 
         # Publiser kontrollkreftene på tau_propulsion-topic
         self.tau_control_pub.publish(tau_message)

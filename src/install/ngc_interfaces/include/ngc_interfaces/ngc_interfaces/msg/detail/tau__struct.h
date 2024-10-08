@@ -26,6 +26,7 @@ extern "C"
 typedef struct ngc_interfaces__msg__Tau
 {
   float surge_x;
+  float surge_y;
   float sway_y;
   float heave_z;
   float roll_k;

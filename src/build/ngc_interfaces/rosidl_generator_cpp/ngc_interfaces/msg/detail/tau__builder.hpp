@@ -104,16 +104,32 @@ private:
   ::ngc_interfaces::msg::Tau msg_;
 };
 
+class Init_Tau_surge_y
+{
+public:
+  explicit Init_Tau_surge_y(::ngc_interfaces::msg::Tau & msg)
+  : msg_(msg)
+  {}
+  Init_Tau_sway_y surge_y(::ngc_interfaces::msg::Tau::_surge_y_type arg)
+  {
+    msg_.surge_y = std::move(arg);
+    return Init_Tau_sway_y(msg_);
+  }
+
+private:
+  ::ngc_interfaces::msg::Tau msg_;
+};
+
 class Init_Tau_surge_x
 {
 public:
   Init_Tau_surge_x()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_Tau_sway_y surge_x(::ngc_interfaces::msg::Tau::_surge_x_type arg)
+  Init_Tau_surge_y surge_x(::ngc_interfaces::msg::Tau::_surge_x_type arg)
   {
     msg_.surge_x = std::move(arg);
-    return Init_Tau_sway_y(msg_);
+    return Init_Tau_surge_y(msg_);
   }
 
 private:

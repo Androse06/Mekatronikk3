@@ -65,6 +65,7 @@ class Tau(metaclass=Metaclass_Tau):
 
     __slots__ = [
         '_surge_x',
+        '_surge_y',
         '_sway_y',
         '_heave_z',
         '_roll_k',
@@ -75,6 +76,7 @@ class Tau(metaclass=Metaclass_Tau):
 
     _fields_and_field_types = {
         'surge_x': 'float',
+        'surge_y': 'float',
         'sway_y': 'float',
         'heave_z': 'float',
         'roll_k': 'float',
@@ -85,6 +87,7 @@ class Tau(metaclass=Metaclass_Tau):
     # This attribute is used to store an rosidl_parser.definition variable
     # related to the data type of each of the components the message.
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
@@ -103,6 +106,7 @@ class Tau(metaclass=Metaclass_Tau):
                 'Invalid arguments passed to constructor: %s' % \
                 ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.surge_x = kwargs.get('surge_x', float())
+        self.surge_y = kwargs.get('surge_y', float())
         self.sway_y = kwargs.get('sway_y', float())
         self.heave_z = kwargs.get('heave_z', float())
         self.roll_k = kwargs.get('roll_k', float())
@@ -141,6 +145,8 @@ class Tau(metaclass=Metaclass_Tau):
             return False
         if self.surge_x != other.surge_x:
             return False
+        if self.surge_y != other.surge_y:
+            return False
         if self.sway_y != other.sway_y:
             return False
         if self.heave_z != other.heave_z:
@@ -172,6 +178,21 @@ class Tau(metaclass=Metaclass_Tau):
             assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
                 "The 'surge_x' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
         self._surge_x = value
+
+    @builtins.property
+    def surge_y(self):
+        """Message field 'surge_y'."""
+        return self._surge_y
+
+    @surge_y.setter
+    def surge_y(self, value):
+        if self._check_fields:
+            assert \
+                isinstance(value, float), \
+                "The 'surge_y' field must be of type 'float'"
+            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
+                "The 'surge_y' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
+        self._surge_y = value
 
     @builtins.property
     def sway_y(self):

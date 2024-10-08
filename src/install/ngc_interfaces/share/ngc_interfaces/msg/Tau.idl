@@ -10,6 +10,8 @@ module ngc_interfaces {
     struct Tau {
       float surge_x;
 
+      float surge_y;
+
       float sway_y;
 
       float heave_z;

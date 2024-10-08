@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "ngc_interfaces/msg/detail/nu__type_support.h"
-#include "ngc_interfaces/msg/detail/nu__struct.h"
-#include "rosidl_typesupport_interface/macros.h"
 #include "ngc_interfaces/msg/detail/nu__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "ngc_interfaces/msg/detail/nu__struct.h"
+#include "ngc_interfaces/msg/detail/nu__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

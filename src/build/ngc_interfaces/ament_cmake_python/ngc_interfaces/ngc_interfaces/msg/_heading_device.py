@@ -67,6 +67,7 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
         '_heading',
         '_rot',
         '_valid_signal',
+        '_id',
         '_check_fields',
     ]
 
@@ -74,6 +75,7 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
         'heading': 'float',
         'rot': 'float',
         'valid_signal': 'boolean',
+        'id': 'int32',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
@@ -82,6 +84,7 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int32'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -96,6 +99,7 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
         self.heading = kwargs.get('heading', float())
         self.rot = kwargs.get('rot', float())
         self.valid_signal = kwargs.get('valid_signal', bool())
+        self.id = kwargs.get('id', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -132,6 +136,8 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
         if self.rot != other.rot:
             return False
         if self.valid_signal != other.valid_signal:
+            return False
+        if self.id != other.id:
             return False
         return True
 
@@ -182,3 +188,18 @@ class HeadingDevice(metaclass=Metaclass_HeadingDevice):
                 isinstance(value, bool), \
                 "The 'valid_signal' field must be of type 'bool'"
         self._valid_signal = value
+
+    @builtins.property  # noqa: A003
+    def id(self):  # noqa: A003
+        """Message field 'id'."""
+        return self._id
+
+    @id.setter  # noqa: A003
+    def id(self, value):  # noqa: A003
+        if self._check_fields:
+            assert \
+                isinstance(value, int), \
+                "The 'id' field must be of type 'int'"
+            assert value >= -2147483648 and value < 2147483648, \
+                "The 'id' field must be an integer in [-2147483648, 2147483647]"
+        self._id = value

@@ -53,6 +53,11 @@ bool cdr_serialize_ngc_interfaces__msg__Tau(
     cdr << ros_message->surge_x;
   }
 
+  // Field name: surge_y
+  {
+    cdr << ros_message->surge_y;
+  }
+
   // Field name: sway_y
   {
     cdr << ros_message->sway_y;
@@ -89,6 +94,11 @@ bool cdr_deserialize_ngc_interfaces__msg__Tau(
   // Field name: surge_x
   {
     cdr >> ros_message->surge_x;
+  }
+
+  // Field name: surge_y
+  {
+    cdr >> ros_message->surge_y;
   }
 
   // Field name: sway_y
@@ -137,6 +147,13 @@ size_t get_serialized_size_ngc_interfaces__msg__Tau(
   // Field name: surge_x
   {
     size_t item_size = sizeof(ros_message->surge_x);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: surge_y
+  {
+    size_t item_size = sizeof(ros_message->surge_y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -199,6 +216,14 @@ size_t max_serialized_size_ngc_interfaces__msg__Tau(
   is_plain = true;
 
   // Field name: surge_x
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Field name: surge_y
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint32_t);
@@ -272,6 +297,11 @@ bool cdr_serialize_key_ngc_interfaces__msg__Tau(
     cdr << ros_message->surge_x;
   }
 
+  // Field name: surge_y
+  {
+    cdr << ros_message->surge_y;
+  }
+
   // Field name: sway_y
   {
     cdr << ros_message->sway_y;
@@ -318,6 +348,13 @@ size_t get_serialized_size_key_ngc_interfaces__msg__Tau(
   // Field name: surge_x
   {
     size_t item_size = sizeof(ros_message->surge_x);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: surge_y
+  {
+    size_t item_size = sizeof(ros_message->surge_y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -378,6 +415,14 @@ size_t max_serialized_size_key_ngc_interfaces__msg__Tau(
   full_bounded = true;
   is_plain = true;
   // Field name: surge_x
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Field name: surge_y
   {
     size_t array_size = 1;
     last_member_size = array_size * sizeof(uint32_t);

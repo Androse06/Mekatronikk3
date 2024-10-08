@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "ngc_interfaces/msg/detail/thruster_signals__type_support.h"
-#include "ngc_interfaces/msg/detail/thruster_signals__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "ngc_interfaces/msg/detail/thruster_signals__type_support.h"
 #include "ngc_interfaces/msg/detail/thruster_signals__struct.h"
+#include "ngc_interfaces/msg/detail/thruster_signals__functions.h"
 
 #ifdef __cplusplus
 extern "C"

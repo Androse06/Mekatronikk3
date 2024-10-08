@@ -59,6 +59,15 @@ bool ngc_interfaces__msg__tau__convert_from_py(PyObject * _pymsg, void * _ros_me
     ros_message->surge_x = (float)PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // surge_y
+    PyObject * field = PyObject_GetAttrString(_pymsg, "surge_y");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->surge_y = (float)PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
   {  // sway_y
     PyObject * field = PyObject_GetAttrString(_pymsg, "sway_y");
     if (!field) {
@@ -131,6 +140,17 @@ PyObject * ngc_interfaces__msg__tau__convert_to_py(void * raw_ros_message)
     field = PyFloat_FromDouble(ros_message->surge_x);
     {
       int rc = PyObject_SetAttrString(_pymessage, "surge_x", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // surge_y
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->surge_y);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "surge_y", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
