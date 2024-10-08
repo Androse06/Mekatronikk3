@@ -63,6 +63,11 @@ bool cdr_serialize_ngc_interfaces__msg__HeadingDevice(
     cdr << (ros_message->valid_signal ? true : false);
   }
 
+  // Field name: id
+  {
+    cdr << ros_message->id;
+  }
+
   return true;
 }
 
@@ -86,6 +91,11 @@ bool cdr_deserialize_ngc_interfaces__msg__HeadingDevice(
     uint8_t tmp;
     cdr >> tmp;
     ros_message->valid_signal = tmp ? true : false;
+  }
+
+  // Field name: id
+  {
+    cdr >> ros_message->id;
   }
 
   return true;
@@ -123,6 +133,13 @@ size_t get_serialized_size_ngc_interfaces__msg__HeadingDevice(
   // Field name: valid_signal
   {
     size_t item_size = sizeof(ros_message->valid_signal);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: id
+  {
+    size_t item_size = sizeof(ros_message->id);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -172,6 +189,14 @@ size_t max_serialized_size_ngc_interfaces__msg__HeadingDevice(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
+  // Field name: id
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -181,7 +206,7 @@ size_t max_serialized_size_ngc_interfaces__msg__HeadingDevice(
     using DataType = ngc_interfaces__msg__HeadingDevice;
     is_plain =
       (
-      offsetof(DataType, valid_signal) +
+      offsetof(DataType, id) +
       last_member_size
       ) == ret_val;
   }
@@ -206,6 +231,11 @@ bool cdr_serialize_key_ngc_interfaces__msg__HeadingDevice(
   // Field name: valid_signal
   {
     cdr << (ros_message->valid_signal ? true : false);
+  }
+
+  // Field name: id
+  {
+    cdr << ros_message->id;
   }
 
   return true;
@@ -243,6 +273,13 @@ size_t get_serialized_size_key_ngc_interfaces__msg__HeadingDevice(
   // Field name: valid_signal
   {
     size_t item_size = sizeof(ros_message->valid_signal);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: id
+  {
+    size_t item_size = sizeof(ros_message->id);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -290,6 +327,14 @@ size_t max_serialized_size_key_ngc_interfaces__msg__HeadingDevice(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
+  // Field name: id
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -298,7 +343,7 @@ size_t max_serialized_size_key_ngc_interfaces__msg__HeadingDevice(
     using DataType = ngc_interfaces__msg__HeadingDevice;
     is_plain =
       (
-      offsetof(DataType, valid_signal) +
+      offsetof(DataType, id) +
       last_member_size
       ) == ret_val;
   }

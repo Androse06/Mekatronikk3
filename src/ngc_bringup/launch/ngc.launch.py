@@ -98,6 +98,14 @@ def generate_launch_description():
         output     = 'screen'
     )
 
+    allocator_node = Node(
+        package    = 'kontrolsystem',
+        executable = 'allocator',
+        name       = 'allocator',
+        output     = 'screen'
+
+    )
+
     delayed_plotjuggler= TimerAction(period= 3.0, actions=[plotjuggler_node])
 
     ld = LaunchDescription() 
@@ -113,5 +121,6 @@ def generate_launch_description():
     ld.add_action(delayed_plotjuggler)
     ld.add_action(kontroller_node)
     ld.add_action(estimator_node)
+    ld.add_action(allocator_node)
 
     return ld

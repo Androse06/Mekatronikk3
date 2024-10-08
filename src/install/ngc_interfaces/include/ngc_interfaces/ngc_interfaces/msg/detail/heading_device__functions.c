@@ -20,6 +20,7 @@ ngc_interfaces__msg__HeadingDevice__init(ngc_interfaces__msg__HeadingDevice * ms
   // heading
   // rot
   // valid_signal
+  // id
   return true;
 }
 
@@ -32,6 +33,7 @@ ngc_interfaces__msg__HeadingDevice__fini(ngc_interfaces__msg__HeadingDevice * ms
   // heading
   // rot
   // valid_signal
+  // id
 }
 
 bool
@@ -52,6 +54,10 @@ ngc_interfaces__msg__HeadingDevice__are_equal(const ngc_interfaces__msg__Heading
   if (lhs->valid_signal != rhs->valid_signal) {
     return false;
   }
+  // id
+  if (lhs->id != rhs->id) {
+    return false;
+  }
   return true;
 }
 
@@ -69,6 +75,8 @@ ngc_interfaces__msg__HeadingDevice__copy(
   output->rot = input->rot;
   // valid_signal
   output->valid_signal = input->valid_signal;
+  // id
+  output->id = input->id;
   return true;
 }
 

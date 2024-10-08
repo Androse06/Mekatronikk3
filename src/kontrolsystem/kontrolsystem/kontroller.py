@@ -47,14 +47,15 @@ class Kontroller(Node):
         self.eta_hat_sub            = self.create_subscription(Eta, 'eta_hat', self.eta_hat_callback, default_qos_profile)
         self.nu_hat_sub             = self.create_subscription(Nu, 'nu_hat', self.nu_hat_callback, default_qos_profile)
         self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
-        self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
+        #self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
-        self.nu_sub                 = self.create_subscription(Nu,'nu_sim', self.nu_callback, default_qos_profile)
+        #self.nu_sub                 = self.create_subscription(Nu,'nu_sim', self.nu_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
-        self.tau_max_sub            = self.create_subscription(Tau, 'tau_max', self.tau_max_callback, default_qos_profile)
+        #self.tau_max_sub            = self.create_subscription(Tau, 'tau_max', self.tau_max_callback, default_qos_profile)
         
         # Setter opp en publisher for å publisere kontrollsignalene (tau_propulsion)
-        self.tau_pub                = self.create_publisher(Tau, 'tau_control', default_qos_profile)
+        #self.tau_pub               = self.create_publisher(Tau,'tau_propulsion', default_qos_profile)
+        self.tau_control_pub                = self.create_publisher(Tau, 'tau_control', default_qos_profile)
         
         # Initialiserer variabler for å lagre data fra simulatoren og settpunkter
         self.eta          = np.zeros(6)
@@ -196,20 +197,20 @@ class Kontroller(Node):
 
         # Beregning af Ki_u
         ki_u                    = kp_u / (ki_scale_u + e_u ** 2)
-        #self.qi_u               += dt * mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u)  
+        self.qi_u               += dt * mu.saturate(e_u, -ki_sat_limit_u, ki_sat_limit_u)  
 
         # Your integral windup handling for speed
-        if e_u > 1:
-            self.sat_e_u = 1
-        elif e_u < -1:
-            self.sat_e_u = -1
-        else:
-            self.sat_e_u = e_u
+        #if e_u > 1:
+        #    self.sat_e_u = 1
+        #elif e_u < -1:
+        #    self.sat_e_u = -1
+        #else:
+        #    self.sat_e_u = e_u
 
-        if ((self.qi_u > self.speed_eps * self.max_thrust_frem) and (e_u > 0)) or ((self.qi_u < -self.speed_eps * self.max_thrust_tilbage) and (e_u < 0)):
-            self.qi_u += 0
-        else:
-            self.qi_u += self.step_size * ki_u * self.sat_e_u 
+        #if ((self.qi_u > self.speed_eps * self.max_thrust_frem) and (e_u > 0)) or ((self.qi_u < -self.speed_eps * self.max_thrust_tilbage) and (e_u < 0)):
+        #    self.qi_u += 0
+        #else:
+        #    self.qi_u += self.step_size * ki_u * self.sat_e_u 
 
         # Kode for fartskontroller
 
@@ -225,7 +226,7 @@ class Kontroller(Node):
         tau_message.yaw_n   = tau_N
 
         # Publiser kontrollkreftene på tau_propulsion-topic
-        self.tau_pub.publish(tau_message)
+        self.tau_control_pub.publish(tau_message)
         #self.get_logger().info("Kontrollkrefter publisert på tau_propulsion.")
 
 # Hovedfunksjonen som starter ROS2-noden

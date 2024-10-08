@@ -4,10 +4,10 @@
 
 #include <string.h>
 
+#include "ngc_interfaces/msg/detail/heading_device__functions.h"
 #include "ngc_interfaces/msg/detail/heading_device__struct.h"
 #include "ngc_interfaces/msg/detail/heading_device__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
-#include "ngc_interfaces/msg/detail/heading_device__functions.h"
 
 #ifdef __cplusplus
 extern "C"

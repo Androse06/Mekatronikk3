@@ -17,6 +17,8 @@ module ngc_interfaces {
       float rot;
 
       boolean valid_signal;
+
+      int32 id;
     };
   };
 };

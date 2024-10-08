@@ -32,6 +32,16 @@
             "nested_type_name": ""
           },
           "default_value": ""
+        },
+        {
+          "name": "id",
+          "type": {
+            "type_id": 6,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
         }
       ]
     },
@@ -40,7 +50,7 @@
   "type_hashes": [
     {
       "type_name": "ngc_interfaces/msg/HeadingDevice",
-      "hash_string": "RIHS01_74e735ad254df2633d02aad1f9dfe29bc671d5655747638af477c855608376bf"
+      "hash_string": "RIHS01_0e8357b1de55cfca51276b36b92c2474155e61cb18990386913b9be6b3213c9d"
     }
   ]
 }

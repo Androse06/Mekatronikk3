@@ -1,3 +1,4 @@
 [console_scripts]
+allocator = kontrolsystem.allocator:main
 estimator = kontrolsystem.estimator:main
 kontroller = kontrolsystem.kontroller:main

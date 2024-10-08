@@ -47,33 +47,37 @@ class Estimator(Node):
         # Setter opp abonnenter for sensor data for heading og gnss (position)
         self.heading_measurement    = self.create_subscription(HeadingDevice, 'heading_measurement', self.head_measurement_callback, default_qos_profile)
         self.gnss_measurement       = self.create_subscription(GNSS, 'gnss_measurement', self.gnss_measurement_callback, default_qos_profile)
-        self.tau_sub                = self.create_subscription(Tau, 'tau_propulsion',self.tau_propulsion_callback, default_qos_profile)
+        #self.tau_sub               = self.create_subscription(Tau, 'tau_propulsion',self.tau_propulsion_callback, default_qos_profile)
+        self.tau_sub                = self.create_subscription(Tau, 'tau_max',self.tau_propulsion_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         
         # Setter opp en publisher der sender de estimerede værdier for eta og nu som kontrolleren skal bruge
         self.eta_hat_pub            = self.create_publisher(Eta, 'eta_hat', default_qos_profile)
         self.nu_hat_pub             = self.create_publisher(Nu, 'nu_hat', default_qos_profile)
+
+        # Initialiserer hastighedsvektor og positionsvektor
+        self.tau_propulsion         = np.zeros(3)
+        self.bias                   = np.zeros(3)
+        self.eta_hat                = np.zeros(3)
+        self.nu_hat                 = np.zeros(3)
         
         
         # Initialiserer variabler for å lagre data
-        self.heading_measurement    = 0
-        self.gnss_measurement       = np.zeros(3)
-        self.tau_propulsion         = np.zeros(6)
-
-        #Initialiserer lat/lon
-        self.lat_hat                = 0
-        self.lon_hat                = 0
         self.pos_meas_init          = False
         self.heading_meas_init      = False
+        self.lat_hat                = 0
+        self.lon_hat                = 0
+
+       
+
         self.lat_measured           = 0
         self.lon_measured           = 0
+        self.gnss_valid             = False
+        self.heading_measurement    = 0
+        self.rot_measured           = 0
+        self.heading_valid          = False
 
-        self.bias                   = 0
-
-        # Initialiserer hastighedsvektor og positionsvektor
-        self.eta_hat                = np.zeros(3)
-        self.nu_hat                 = np.zeros(3)
-
+        self.id                     = False
 
         # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
         self.timer = self.create_timer(self.step_size, self.step_estimator)
@@ -100,10 +104,9 @@ class Estimator(Node):
         
         # Henter ind data fra GNSS
 
-        if self.pos_meas_init == False:
+        if self.pos_meas_init == False and msg.valid_signal == True:
             self.lat_hat =  msg.lat
             self.lon_hat = msg.lon
-            self.gnss_valid = msg.valid_signal
             self.pos_meas_init = True
 
     # Callback-funksjon for at modtage heading data fra sensor
@@ -111,12 +114,13 @@ class Estimator(Node):
         
         # Modtager data fra heading sensor
         self.heading_measurement = msg.heading
-        self.heading_valid = msg.valid_signal
+        self.rot_measured        = msg.rot
+        self.heading_valid       = msg.valid_signal
+        self.id                  = msg.id
 
-        if self.heading_meas_init == False:
-            self.eta_hat[0] =   msg.heading
-            self.eta_hat[1] =   msg.rot
-            self.heading_valid = msg.valid_signal
+        if self.heading_meas_init == False and msg.valid_signal == True:
+            self.eta_hat[2]      = mu.mapToPiPi(msg.heading)
+            self.nu_hat[2]       = msg.rot
             self.heading_meas_init = True
 
     # Callback-funktion for at modtage tau-propul data fra kontroller
@@ -135,9 +139,11 @@ class Estimator(Node):
             if self.gnss_valid:
                 # Rekner om fra lat/lon til avstand i meter i NED koordinatsystem for bruk i estimatoren
                 eta_tilde[0], eta_tilde[1] = geo.calculate_distance_north_east(self.lat_hat, self.lon_hat, self.lat_measured, self.lon_measured)
+                self.gnss_valid = False
             
             if self.heading_valid:
                 eta_tilde[2] = mu.mapToPiPi(self.heading_measurement - self.eta_hat[2])
+                self.heading_valid = False
 
         
             # Input fra yaml fil i hnul
@@ -159,6 +165,7 @@ class Estimator(Node):
 
             # Omregn hastigheter til kroppsnatursystem
             R                   = mu.RotationMatrix(0,0,self.eta_hat[2])
+
             M_inv               = np.linalg.inv(np.diag([self.vessel_model.M[0][0], self.vessel_model.M[1][1], self.vessel_model.M[5][5]]))
             bias                = Q @ R.T @ self.bias
             drag                = np.zeros(3)
@@ -177,6 +184,8 @@ class Estimator(Node):
             # Passe på at headingtilstanden er var innenfor +/- 180 grader
             self.eta_hat[2] = mu.mapToPiPi(self.eta_hat[2])
 
+            inj = L2 @ R.T @ eta_tilde
+
             # Legg estimert forflyttning i meter til Lat/Lon estimatet vårt
             self.lat_hat, self.lon_hat = geo.add_distance_to_lat_lon(self.lat_hat, self.lon_hat, self.eta_hat[0], self.eta_hat[1])
 
@@ -184,8 +193,8 @@ class Estimator(Node):
             eta_hat_message = Eta()
             eta_hat_message.lat = float(self.lat_hat)
             eta_hat_message.lon = float(self.lon_hat)
-            eta_hat_message.z = float(0)
-            eta_hat_message.phi = float(0)
+            eta_hat_message.z = float(inj[2])
+            eta_hat_message.phi = float(eta_tilde[2])
             eta_hat_message.theta = float(0)
             eta_hat_message.psi = float(self.eta_hat[2])
             

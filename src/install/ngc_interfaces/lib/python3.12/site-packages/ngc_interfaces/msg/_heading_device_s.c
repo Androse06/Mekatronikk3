@@ -77,6 +77,15 @@ bool ngc_interfaces__msg__heading_device__convert_from_py(PyObject * _pymsg, voi
     ros_message->valid_signal = (Py_True == field);
     Py_DECREF(field);
   }
+  {  // id
+    PyObject * field = PyObject_GetAttrString(_pymsg, "id");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->id = (int32_t)PyLong_AsLong(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -126,6 +135,17 @@ PyObject * ngc_interfaces__msg__heading_device__convert_to_py(void * raw_ros_mes
     field = PyBool_FromLong(ros_message->valid_signal ? 1 : 0);
     {
       int rc = PyObject_SetAttrString(_pymessage, "valid_signal", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // id
+    PyObject * field = NULL;
+    field = PyLong_FromLong(ros_message->id);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "id", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

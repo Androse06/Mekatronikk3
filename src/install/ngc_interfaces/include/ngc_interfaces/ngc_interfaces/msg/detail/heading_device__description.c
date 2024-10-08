@@ -11,10 +11,10 @@ ngc_interfaces__msg__HeadingDevice__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x74, 0xe7, 0x35, 0xad, 0x25, 0x4d, 0xf2, 0x63,
-      0x3d, 0x02, 0xaa, 0xd1, 0xf9, 0xdf, 0xe2, 0x9b,
-      0xc6, 0x71, 0xd5, 0x65, 0x57, 0x47, 0x63, 0x8a,
-      0xf4, 0x77, 0xc8, 0x55, 0x60, 0x83, 0x76, 0xbf,
+      0x0e, 0x83, 0x57, 0xb1, 0xde, 0x55, 0xcf, 0xca,
+      0x51, 0x27, 0x6b, 0x36, 0xb9, 0x2c, 0x24, 0x74,
+      0x15, 0x5e, 0x61, 0xcb, 0x18, 0x99, 0x03, 0x86,
+      0x91, 0x3b, 0x9b, 0xe6, 0xb3, 0x21, 0x3c, 0x9d,
     }};
   return &hash;
 }
@@ -34,6 +34,7 @@ static char ngc_interfaces__msg__HeadingDevice__TYPE_NAME[] = "ngc_interfaces/ms
 static char ngc_interfaces__msg__HeadingDevice__FIELD_NAME__heading[] = "heading";
 static char ngc_interfaces__msg__HeadingDevice__FIELD_NAME__rot[] = "rot";
 static char ngc_interfaces__msg__HeadingDevice__FIELD_NAME__valid_signal[] = "valid_signal";
+static char ngc_interfaces__msg__HeadingDevice__FIELD_NAME__id[] = "id";
 
 static rosidl_runtime_c__type_description__Field ngc_interfaces__msg__HeadingDevice__FIELDS[] = {
   {
@@ -66,6 +67,16 @@ static rosidl_runtime_c__type_description__Field ngc_interfaces__msg__HeadingDev
     },
     {NULL, 0, 0},
   },
+  {
+    {ngc_interfaces__msg__HeadingDevice__FIELD_NAME__id, 2, 2},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_INT32,
+      0,
+      0,
+      {NULL, 0, 0},
+    },
+    {NULL, 0, 0},
+  },
 };
 
 const rosidl_runtime_c__type_description__TypeDescription *
@@ -77,7 +88,7 @@ ngc_interfaces__msg__HeadingDevice__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {ngc_interfaces__msg__HeadingDevice__TYPE_NAME, 32, 32},
-      {ngc_interfaces__msg__HeadingDevice__FIELDS, 3, 3},
+      {ngc_interfaces__msg__HeadingDevice__FIELDS, 4, 4},
     },
     {NULL, 0, 0},
   };
@@ -91,7 +102,8 @@ static char toplevel_type_raw_source[] =
   "# A heading device (gyro, gnss, compass) output \n"
   "float32 heading             # in radians \n"
   "float32 rot                 # in radians pr. sec\n"
-  "bool    valid_signal";
+  "bool    valid_signal\n"
+  "int32   id";
 
 static char msg_encoding[] = "msg";
 
@@ -105,7 +117,7 @@ ngc_interfaces__msg__HeadingDevice__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {ngc_interfaces__msg__HeadingDevice__TYPE_NAME, 32, 32},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 160, 160},
+    {toplevel_type_raw_source, 171, 171},
   };
   return &source;
 }

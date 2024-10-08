@@ -30,6 +30,7 @@ typedef struct ngc_interfaces__msg__HeadingDevice
   /// in radians pr. sec
   float rot;
   bool valid_signal;
+  int32_t id;
 } ngc_interfaces__msg__HeadingDevice;
 
 // Struct for a sequence of ngc_interfaces__msg__HeadingDevice.

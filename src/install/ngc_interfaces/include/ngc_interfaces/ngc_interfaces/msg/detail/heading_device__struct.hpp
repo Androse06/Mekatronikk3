@@ -44,6 +44,7 @@ struct HeadingDevice_
       this->heading = 0.0f;
       this->rot = 0.0f;
       this->valid_signal = false;
+      this->id = 0l;
     }
   }
 
@@ -56,6 +57,7 @@ struct HeadingDevice_
       this->heading = 0.0f;
       this->rot = 0.0f;
       this->valid_signal = false;
+      this->id = 0l;
     }
   }
 
@@ -69,6 +71,9 @@ struct HeadingDevice_
   using _valid_signal_type =
     bool;
   _valid_signal_type valid_signal;
+  using _id_type =
+    int32_t;
+  _id_type id;
 
   // setters for named parameter idiom
   Type & set__heading(
@@ -87,6 +92,12 @@ struct HeadingDevice_
     const bool & _arg)
   {
     this->valid_signal = _arg;
+    return *this;
+  }
+  Type & set__id(
+    const int32_t & _arg)
+  {
+    this->id = _arg;
     return *this;
   }
 
@@ -139,6 +150,9 @@ struct HeadingDevice_
       return false;
     }
     if (this->valid_signal != other.valid_signal) {
+      return false;
+    }
+    if (this->id != other.id) {
       return false;
     }
     return true;

@@ -5,9 +5,9 @@
 #include <string.h>
 
 #include "ngc_interfaces/msg/detail/wind__struct.h"
-#include "ngc_interfaces/msg/detail/wind__functions.h"
 #include "ngc_interfaces/msg/detail/wind__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "ngc_interfaces/msg/detail/wind__functions.h"
 
 #ifdef __cplusplus
 extern "C"

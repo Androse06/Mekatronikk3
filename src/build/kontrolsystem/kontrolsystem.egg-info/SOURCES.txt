@@ -9,6 +9,7 @@ setup.py
 ../build/kontrolsystem/kontrolsystem.egg-info/top_level.txt
 ../build/kontrolsystem/kontrolsystem.egg-info/zip-safe
 kontrolsystem/__init__.py
+kontrolsystem/allocator.py
 kontrolsystem/estimator.py
 kontrolsystem/kontroller.py
 kontrolsystem/kontroller_bb.py

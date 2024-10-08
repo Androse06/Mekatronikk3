@@ -24,16 +24,32 @@ namespace msg
 namespace builder
 {
 
+class Init_HeadingDevice_id
+{
+public:
+  explicit Init_HeadingDevice_id(::ngc_interfaces::msg::HeadingDevice & msg)
+  : msg_(msg)
+  {}
+  ::ngc_interfaces::msg::HeadingDevice id(::ngc_interfaces::msg::HeadingDevice::_id_type arg)
+  {
+    msg_.id = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ngc_interfaces::msg::HeadingDevice msg_;
+};
+
 class Init_HeadingDevice_valid_signal
 {
 public:
   explicit Init_HeadingDevice_valid_signal(::ngc_interfaces::msg::HeadingDevice & msg)
   : msg_(msg)
   {}
-  ::ngc_interfaces::msg::HeadingDevice valid_signal(::ngc_interfaces::msg::HeadingDevice::_valid_signal_type arg)
+  Init_HeadingDevice_id valid_signal(::ngc_interfaces::msg::HeadingDevice::_valid_signal_type arg)
   {
     msg_.valid_signal = std::move(arg);
-    return std::move(msg_);
+    return Init_HeadingDevice_id(msg_);
   }
 
 private:
