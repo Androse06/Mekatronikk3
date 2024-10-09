@@ -9,6 +9,9 @@ Testing av HMI med PyQt Designer
  -Installer PyQt Designer:
  pip install pyqt6-tools
 
+-Installer PyQt WebEngine:
+pip install PyQtWebEngine
+
  -Finn designer lokasjon:
  Eksempel "C:\Users\<YourUsername>\AppData\Local\Programs\Python\Python<version>\Lib\site-packages\pyqt5_tools\Qt\bin"
 
@@ -21,3 +24,8 @@ designer.exe
 
 Single line:
 cd C:\Users\<YourUsername>\AppData\Local\Programs\Python\Python<version>\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe
+
+
+##### Main Code #####
+installer folium
+pip install PySide6 PyQtWebEngine folium
