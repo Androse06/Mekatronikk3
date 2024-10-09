@@ -41,15 +41,15 @@ class DashboardDemo(QMainWindow):
 
     # Update the horizontal slider label
     def update_horizontal_slider(self, value):
-        self.ui.HorisontalLabel1.setText(f'Horizontal Slider: {value}')
+        self.ui.HorisontalLabel1.setText(f'H1: {value}')
 
     # Update the first vertical slider label
     def update_vertical_slider1(self, value):
-        self.ui.VerticalSliderLabel1.setText(f'Vertical Slider 1: {value}')
+        self.ui.VerticalSliderLabel1.setText(f'V1: {value}')
 
     # Update the second vertical slider label
     def update_vertical_slider2(self, value):
-        self.ui.VerticalSlideLabel2.setText(f'Vertical Slider 2: {value}')
+        self.ui.VerticalSlideLabel2.setText(f'V2: {value}')
 
 if __name__ == '__main__':
     app = QApplication([])
