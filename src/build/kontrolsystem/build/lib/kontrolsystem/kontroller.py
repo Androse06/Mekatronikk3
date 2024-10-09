@@ -76,6 +76,7 @@ class Kontroller(Node):
 
         # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
         self.timer = self.create_timer(self.step_size, self.step_control)
+        self.last_print_time = time.time()  # Store the initial time
 
         self.get_logger().info("Kontroller-node er initialisert.")
 
@@ -202,14 +203,21 @@ class Kontroller(Node):
         tau_X                   = X_uu * abs(self.nu_setpoint[0]) * self.nu[0] + kp_u * e_u + self.qi_u * ki_u
         sat_tau_X               = mu.saturate(tau_X, -self.speed_eps * self.max_surge, self.speed_eps * self.max_surge)
 
+        
+        current_time = time.time()
+        if current_time - self.last_print_time >= 1.0:
+                self.get_logger().info(f"Controller: Tau_X {tau_X}")
+                self.get_logger().info(f"Controller: yaw_N {tau_N}")
+                self.last_print_time = current_time  # Reset the timer
+
         # Opprett en Tau-melding for å sende de beregnede kreftene
         tau_message = Tau()
-        tau_message.surge_x = sat_tau_X
+        tau_message.surge_x = tau_X
         tau_message.sway_y  = 0.0
         tau_message.heave_z = 0.0
         tau_message.roll_k  = 0.0
         tau_message.pitch_m = 0.0
-        tau_message.yaw_n   = sat_tau_N
+        tau_message.yaw_n   = tau_N
 
         # Publiser kontrollkreftene på tau_propulsion-topic
         self.tau_control_pub.publish(tau_message)

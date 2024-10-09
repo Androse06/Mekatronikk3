@@ -65,6 +65,7 @@ class allocator(Node):
 
         # Starter kontroll-løkken som kjører med samme tidssteg som simulatoren
         self.timer = self.create_timer(self.step_size, self.step_allocator)
+        self.last_print_time = time.time()  # Store the initial time
 
         # Initialiserer thruster parametre
         self.diameter_1     = self.propulsion_config['main_propulsion_1']['propeller']['diameter']
@@ -103,7 +104,7 @@ class allocator(Node):
 
     # Funksjon som kjøres på hver simuleringstidssteg
     def step_allocator(self):
-
+        
             # Calculate maximum thrust for each thruster using RPM
             
             #def calculate_max_thrust(Kt0, diameter, rps_max, rps_min):
@@ -117,7 +118,7 @@ class allocator(Node):
                 [1,1], # X - direction
                 [-self.y_position_1, -self.y_position_2], # Moment
                      ])
-
+            
             thrust_matrix_product = self.thrust_matrix @ self.thrust_matrix.T
             
             # K Faktor
@@ -130,9 +131,13 @@ class allocator(Node):
             ### Inverse ###
             thrust_matrix_product_inv = np.linalg.inv(thrust_matrix_product)
 
+            
+
             ### Pseudoinverse ###
 
             self.thrust_matrix_pseudo_inv = self.thrust_matrix.T @ thrust_matrix_product_inv
+
+            
 
             ### Calculate thruster force ###
 
@@ -156,6 +161,20 @@ class allocator(Node):
             ### RPS Saturate ###
             self.rps[0] = mu.saturate(self.rps[0], self.rps_min, self.rps_max)
             self.rps[1] = mu.saturate(self.rps[1], self.rps_min, self.rps_max)
+
+            current_time = time.time()
+        
+            # Check if 1 second has passed
+            if current_time - self.last_print_time >= 1.0:
+                self.get_logger().info(f"Tau surge x: {self.tau_control[0]}")  # LOG PRINT
+                self.get_logger().info(f"Tau yaw N {self.tau_control[1]}") # LOG PRINT
+                self.get_logger().info(f"Thrust matrix {self.thrust_matrix}") # LOG PRINT
+                self.get_logger().info(f"thrust matrix product {thrust_matrix_product}") # LOG PRINT
+                self.get_logger().info(f"thurst_matrix_product inv {thrust_matrix_product_inv}") # LOG PRINT
+                self.get_logger().info(f"Thrust matrix pseudo inv {self.thrust_matrix_pseudo_inv}") # LOG PRINT
+                self.get_logger().info(f"u_1x {self.u_1x}") # LOG PRINT
+                self.get_logger().info(f"u_2x {self.u_2x}") # LOG PRINT
+                self.last_print_time = current_time  # Reset the timer
                         
 
             # Messages to publish
