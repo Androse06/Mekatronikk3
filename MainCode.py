@@ -13,7 +13,7 @@ class DashboardDemo(QMainWindow):
         self.ui.setupUi(self)
 
         # Replace the placeholder QWidget with QWebEngineView for displaying the map
-        self.webview = QWebEngineView(self.ui.centralwidget)
+        self.webview = QWebEngineView(self.ui.mapPlaceholder)
         self.webview.setGeometry(QRect(330, 140, 361, 281))  # Recreate the geometry of the placeholder
 
         # Enable JavaScript and adjust security settings
