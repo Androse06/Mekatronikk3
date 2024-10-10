@@ -4,7 +4,7 @@
   <title>Boat Tracker</title>
   <meta charset="utf-8" />
   <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' qrc: data: blob: filesystem:; script-src 'self' 'unsafe-inline' 'unsafe-eval' qrc: data: blob: filesystem:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: filesystem: https:; connect-src 'self' qrc: data: blob: filesystem:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: qrc: https:;">
   <style>
     html, body, #map {
       height: 100%;
@@ -13,47 +13,47 @@
     }
   </style>
   <!-- Include Leaflet CSS -->
-  <link rel="stylesheet" href="libs/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <!-- Include Leaflet JavaScript -->
-  <script src="libs/leaflet.js"></script>
-  <!-- Include Leaflet Extra Markers CSS -->
-  <link rel="stylesheet" href="libs/leaflet.extra-markers.min.css" />
-  <!-- Include Leaflet Extra Markers JavaScript -->
-  <script src="libs/leaflet.extra-markers.min.js"></script>
-  <!-- Include Font Awesome CSS -->
-  <link rel="stylesheet" href="libs/fontawesome.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <!-- Include QWebChannel JavaScript -->
-  <script src="libs/qwebchannel.js"></script>
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
 </head>
 <body>
   <div id="map"></div>
   <script>
+    var map, boatMarker;
+
     document.addEventListener("DOMContentLoaded", function() {
-      // Initialize the map
-      var map = L.map('map').setView([59.91, 10.75], 12);
+      // Initialize the map centered on the initial boat position
+      var initialLat = 59.91;
+      var initialLng = 10.75;
+      map = L.map('map', {
+        center: [initialLat, initialLng],
+        zoom: 12,
+        zoomControl: false,
+        attributionControl: false
+      });
 
       // Add OpenStreetMap base layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © OpenStreetMap contributors',
         maxZoom: 19
       }).addTo(map);
 
       // Add OpenSeaMap layer
       L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: 'Sea data © OpenSeaMap contributors'
+        maxZoom: 19
       }).addTo(map);
 
-      // Create a boat icon using Leaflet Extra Markers with Font Awesome
-      var boatIcon = L.ExtraMarkers.icon({
-        icon: 'fa-ship',
-        markerColor: 'blue',
-        shape: 'circle',
-        prefix: 'fa'
+      // Create a boat icon
+      var boatIcon = L.icon({
+        iconUrl: 'Boatsymbol.png',  // Replace with your icon URL or local path
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
       });
 
-      // Add a marker for the boat
-      var boatMarker = L.marker([59.91, 10.75], { icon: boatIcon }).addTo(map);
+      // Add a marker for the boat at the initial position
+      boatMarker = L.marker([initialLat, initialLng], { icon: boatIcon }).addTo(map);
 
       // Set up QWebChannel communication
       new QWebChannel(qt.webChannelTransport, function(channel) {
@@ -63,78 +63,7 @@
       // Function to update boat position from Python
       window.updateBoatPosition = function(lat, lng) {
         boatMarker.setLatLng([lat, lng]);
-        map.panTo([lat, lng]);
-      };
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Boat Tracker</title>
-  <meta charset="utf-8" />
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' qrc: data: blob: filesystem:; script-src 'self' 'unsafe-inline' 'unsafe-eval' qrc: data: blob: filesystem:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: filesystem: https:; connect-src 'self' qrc: data: blob: filesystem:;">
-  <style>
-    html, body, #map {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-  <!-- Include Leaflet CSS -->
-  <link rel="stylesheet" href="libs/leaflet.css" />
-  <!-- Include Leaflet JavaScript -->
-  <script src="libs/leaflet.js"></script>
-  <!-- Include Leaflet Extra Markers CSS -->
-  <link rel="stylesheet" href="libs/leaflet.extra-markers.min.css" />
-  <!-- Include Leaflet Extra Markers JavaScript -->
-  <script src="libs/leaflet.extra-markers.min.js"></script>
-  <!-- Include Font Awesome CSS -->
-  <link rel="stylesheet" href="libs/fontawesome.css" />
-  <!-- Include QWebChannel JavaScript -->
-  <script src="libs/qwebchannel.js"></script>
-</head>
-<body>
-  <div id="map"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Initialize the map
-      var map = L.map('map').setView([59.91, 10.75], 12);
-
-      // Add OpenStreetMap base layer
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © OpenStreetMap contributors',
-        maxZoom: 19
-      }).addTo(map);
-
-      // Add OpenSeaMap layer
-      L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: 'Sea data © OpenSeaMap contributors'
-      }).addTo(map);
-
-      // Create a boat icon using Leaflet Extra Markers with Font Awesome
-      var boatIcon = L.ExtraMarkers.icon({
-        icon: 'fa-ship',
-        markerColor: 'blue',
-        shape: 'circle',
-        prefix: 'fa'
-      });
-
-      // Add a marker for the boat
-      var boatMarker = L.marker([59.91, 10.75], { icon: boatIcon }).addTo(map);
-
-      // Set up QWebChannel communication
-      new QWebChannel(qt.webChannelTransport, function(channel) {
-        window.bridge = channel.objects.bridge;
-      });
-
-      // Function to update boat position from Python
-      window.updateBoatPosition = function(lat, lng) {
-        boatMarker.setLatLng([lat, lng]);
-        map.panTo([lat, lng]);
+        map.setView([lat, lng]);
       };
     });
   </script>
