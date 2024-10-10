@@ -1,0 +1,13 @@
+{
+  "package_name": "ngc_interfaces",
+  "non_idl_tuples": [
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/Eta.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/Nu.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/NuDot.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/Tau.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/Wind.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/ThrusterSignals.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/GNSS.msg",
+    "/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces:msg/HeadingDevice.msg"
+  ]
+}

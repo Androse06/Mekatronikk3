@@ -1,0 +1,37 @@
+[1.921s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[2.363s] running egg_info
+[2.364s] creating ../build/ngc_hull_sim/ngc_hull_sim.egg-info
+[2.393s] writing ../build/ngc_hull_sim/ngc_hull_sim.egg-info/PKG-INFO
+[2.395s] writing dependency_links to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/dependency_links.txt
+[2.395s] writing entry points to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/entry_points.txt
+[2.396s] writing requirements to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/requires.txt
+[2.397s] writing top-level names to ../build/ngc_hull_sim/ngc_hull_sim.egg-info/top_level.txt
+[2.398s] writing manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.469s] reading manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.473s] writing manifest file '../build/ngc_hull_sim/ngc_hull_sim.egg-info/SOURCES.txt'
+[2.475s] running build
+[2.476s] running build_py
+[2.477s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build
+[2.478s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib
+[2.479s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.481s] copying ngc_hull_sim/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.482s] copying ngc_hull_sim/ngc_hull_sim.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib/ngc_hull_sim
+[2.488s] running install
+[2.501s] running install_lib
+[2.544s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.548s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib/ngc_hull_sim/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.555s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build/lib/ngc_hull_sim/ngc_hull_sim.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim
+[2.564s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim/__init__.py to __init__.cpython-312.pyc
+[2.570s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim/ngc_hull_sim.py to ngc_hull_sim.cpython-312.pyc
+[2.580s] running install_data
+[2.583s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ament_index
+[2.585s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ament_index/resource_index
+[2.587s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ament_index/resource_index/packages
+[2.588s] copying resource/ngc_hull_sim -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ament_index/resource_index/packages
+[2.591s] copying package.xml -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim
+[2.595s] running install_egg_info
+[2.632s] Copying ../build/ngc_hull_sim/ngc_hull_sim.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages/ngc_hull_sim-0.0.0-py3.12.egg-info
+[2.662s] running install_scripts
+[2.952s] Installing simulate script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/ngc_hull_sim
+[2.958s] writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/install.log'
+[3.013s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data

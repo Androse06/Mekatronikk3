@@ -1,0 +1,45 @@
+[2.071s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[2.541s] running egg_info
+[2.542s] creating ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info
+[2.587s] writing ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/PKG-INFO
+[2.589s] writing dependency_links to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/dependency_links.txt
+[2.590s] writing entry points to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/entry_points.txt
+[2.592s] writing requirements to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/requires.txt
+[2.593s] writing top-level names to ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/top_level.txt
+[2.594s] writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+[2.661s] reading manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+[2.665s] writing manifest file '../build/ngc_sensor_sims/ngc_sensor_sims.egg-info/SOURCES.txt'
+[2.666s] running build
+[2.667s] running build_py
+[2.671s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build
+[2.673s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib
+[2.678s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+[2.679s] copying ngc_sensor_sims/gnss.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+[2.683s] copying ngc_sensor_sims/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+[2.685s] copying ngc_sensor_sims/anemometer.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+[2.689s] copying ngc_sensor_sims/compass.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims
+[2.697s] running install
+[2.704s] running install_lib
+[2.737s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+[2.738s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/gnss.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+[2.742s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+[2.745s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/anemometer.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+[2.749s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build/lib/ngc_sensor_sims/compass.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims
+[2.753s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/gnss.py to gnss.cpython-312.pyc
+[2.758s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/__init__.py to __init__.cpython-312.pyc
+[2.760s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/anemometer.py to anemometer.cpython-312.pyc
+[2.766s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims/compass.py to compass.cpython-312.pyc
+[2.768s] running install_data
+[2.770s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ament_index
+[2.774s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ament_index/resource_index
+[2.776s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ament_index/resource_index/packages
+[2.776s] copying resource/ngc_sensor_sims -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ament_index/resource_index/packages
+[2.779s] copying package.xml -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims
+[2.783s] running install_egg_info
+[2.818s] Copying ../build/ngc_sensor_sims/ngc_sensor_sims.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages/ngc_sensor_sims-0.0.0-py3.12.egg-info
+[2.845s] running install_scripts
+[3.116s] Installing anemometer script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[3.118s] Installing compass script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[3.120s] Installing gnss script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/ngc_sensor_sims
+[3.123s] writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/install.log'
+[3.172s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data

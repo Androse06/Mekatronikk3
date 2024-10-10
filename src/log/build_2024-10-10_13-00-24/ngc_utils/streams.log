@@ -1,0 +1,79 @@
+[2.523s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[3.232s] running egg_info
+[3.235s] creating ../build/ngc_utils/ngc_utils.egg-info
+[3.284s] writing ../build/ngc_utils/ngc_utils.egg-info/PKG-INFO
+[3.286s] writing dependency_links to ../build/ngc_utils/ngc_utils.egg-info/dependency_links.txt
+[3.290s] writing requirements to ../build/ngc_utils/ngc_utils.egg-info/requires.txt
+[3.296s] writing top-level names to ../build/ngc_utils/ngc_utils.egg-info/top_level.txt
+[3.299s] writing manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+[3.451s] reading manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+[3.460s] writing manifest file '../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+[3.462s] running build
+[3.464s] running build_py
+[3.465s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build
+[3.467s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib
+[3.469s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.470s] copying ngc_utils/math_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.471s] copying ngc_utils/geo_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.478s] copying ngc_utils/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.479s] copying ngc_utils/thruster_objects_loader.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.481s] copying ngc_utils/propulsion_model.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.488s] copying ngc_utils/qos_profiles.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.513s] copying ngc_utils/vessel_model.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.520s] copying ngc_utils/nmea_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils
+[3.526s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.528s] copying ngc_utils/thruster_models/propeller_base.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.532s] copying ngc_utils/thruster_models/azimuth_thruster.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.535s] copying ngc_utils/thruster_models/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.540s] copying ngc_utils/thruster_models/propeller_rudder_unit.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.545s] copying ngc_utils/thruster_models/tunnel_thruster.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.549s] copying ngc_utils/thruster_models/thrusters_base.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.553s] copying ngc_utils/thruster_models/fixed_pitch_propeller.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.557s] copying ngc_utils/thruster_models/controllable_pitch_propeller.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models
+[3.565s] running install
+[3.585s] running install_lib
+[3.638s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.643s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/math_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.644s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/geo_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.650s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.655s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_objects_loader.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.665s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/propulsion_model.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.668s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/qos_profiles.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.672s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/vessel_model.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.675s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/nmea_utils.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+[3.679s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.680s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/propeller_base.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.684s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/azimuth_thruster.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.688s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.693s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/propeller_rudder_unit.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.700s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/tunnel_thruster.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.703s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/thrusters_base.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.711s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/fixed_pitch_propeller.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.716s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build/lib/ngc_utils/thruster_models/controllable_pitch_propeller.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+[3.734s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/math_utils.py to math_utils.cpython-312.pyc
+[3.743s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/geo_utils.py to geo_utils.cpython-312.pyc
+[3.746s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/__init__.py to __init__.cpython-312.pyc
+[3.751s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_objects_loader.py to thruster_objects_loader.cpython-312.pyc
+[3.753s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/propulsion_model.py to propulsion_model.cpython-312.pyc
+[3.763s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/qos_profiles.py to qos_profiles.cpython-312.pyc
+[3.778s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/vessel_model.py to vessel_model.cpython-312.pyc
+[3.811s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/nmea_utils.py to nmea_utils.cpython-312.pyc
+[3.836s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/propeller_base.py to propeller_base.cpython-312.pyc
+[3.857s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/azimuth_thruster.py to azimuth_thruster.cpython-312.pyc
+[3.865s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/__init__.py to __init__.cpython-312.pyc
+[3.877s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/propeller_rudder_unit.py to propeller_rudder_unit.cpython-312.pyc
+[3.886s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/tunnel_thruster.py to tunnel_thruster.cpython-312.pyc
+[3.888s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/thrusters_base.py to thrusters_base.cpython-312.pyc
+[3.893s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/fixed_pitch_propeller.py to fixed_pitch_propeller.cpython-312.pyc
+[3.902s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/controllable_pitch_propeller.py to controllable_pitch_propeller.cpython-312.pyc
+[3.921s] running install_data
+[3.926s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ament_index
+[3.928s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ament_index/resource_index
+[3.930s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ament_index/resource_index/packages
+[3.951s] copying resource/ngc_utils -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ament_index/resource_index/packages
+[3.964s] copying package.xml -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils
+[3.968s] running install_egg_info
+[4.113s] Copying ../build/ngc_utils/ngc_utils.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info
+[4.152s] running install_scripts
+[4.570s] writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/install.log'
+[4.948s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/install.log --single-version-externally-managed install_data

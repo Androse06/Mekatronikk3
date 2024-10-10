@@ -1,0 +1,53 @@
+[0.095s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/alfred/shared_mac/Mekatronikk3/src/ngc_bringup -DCMAKE_INSTALL_PREFIX=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup
+[0.675s] -- The C compiler identification is GNU 13.2.0
+[0.676s] -- The CXX compiler identification is GNU 13.2.0
+[0.677s] -- Detecting C compiler ABI info
+[0.874s] -- Detecting C compiler ABI info - done
+[0.929s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.930s] -- Detecting C compile features
+[0.931s] -- Detecting C compile features - done
+[0.959s] -- Detecting CXX compiler ABI info
+[1.318s] -- Detecting CXX compiler ABI info - done
+[1.368s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.369s] -- Detecting CXX compile features
+[1.371s] -- Detecting CXX compile features - done
+[1.413s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.863s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.083s] -- Configuring done (3.0s)
+[3.188s] -- Generating done (0.1s)
+[3.241s] -- Build files have been written to: /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup
+[3.271s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/alfred/shared_mac/Mekatronikk3/src/ngc_bringup -DCMAKE_INSTALL_PREFIX=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup
+[3.281s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[3.350s] gmake: Advarsel: Filen "Makefile" har modifikationstidspunkt 17 s i fremtiden
+[3.517s] gmake[1]: Advarsel: Filen "CMakeFiles/Makefile2" har modifikationstidspunkt 17 s i fremtiden
+[3.519s] gmake[1]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[3.580s] gmake: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[3.592s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[3.755s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup
+[3.779s] -- Install configuration: ""
+[3.782s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/launch
+[3.789s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+[3.795s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config
+[3.796s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+[3.802s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+[3.814s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+[3.821s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+[3.829s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+[3.836s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+[3.847s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+[3.858s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+[3.873s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+[3.883s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+[3.888s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+[3.900s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+[3.910s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+[3.942s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+[3.959s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+[3.970s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+[3.978s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+[3.980s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.dsv
+[3.983s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+[3.989s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+[3.994s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+[4.001s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.xml
+[4.017s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup

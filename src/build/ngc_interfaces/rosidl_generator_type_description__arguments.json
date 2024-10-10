@@ -1,0 +1,14 @@
+{
+  "package_name": "ngc_interfaces",
+  "output_dir": "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_generator_type_description/ngc_interfaces",
+  "idl_tuples": [
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Eta.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Nu.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/NuDot.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Tau.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/Wind.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/ThrusterSignals.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/GNSS.idl",
+    "/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces/rosidl_adapter/ngc_interfaces:msg/HeadingDevice.idl"
+  ]
+}

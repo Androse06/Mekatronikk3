@@ -1,0 +1,43 @@
+running egg_info
+creating ../build/regulator/regulator.egg-info
+writing ../build/regulator/regulator.egg-info/PKG-INFO
+writing dependency_links to ../build/regulator/regulator.egg-info/dependency_links.txt
+writing entry points to ../build/regulator/regulator.egg-info/entry_points.txt
+writing requirements to ../build/regulator/regulator.egg-info/requires.txt
+writing top-level names to ../build/regulator/regulator.egg-info/top_level.txt
+writing manifest file '../build/regulator/regulator.egg-info/SOURCES.txt'
+reading manifest file '../build/regulator/regulator.egg-info/SOURCES.txt'
+writing manifest file '../build/regulator/regulator.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build
+creating /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib
+creating /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator
+copying regulator/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator
+copying regulator/allokering.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator
+copying regulator/kontroller.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator
+copying regulator/estimator.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator
+running install
+running install_lib
+creating /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator
+copying /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator
+copying /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator/allokering.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator
+copying /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator/kontroller.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator
+copying /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build/lib/regulator/estimator.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator
+byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator/allokering.py to allokering.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator/kontroller.py to kontroller.cpython-312.pyc
+byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator/estimator.py to estimator.cpython-312.pyc
+running install_data
+creating /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/ament_index
+creating /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/ament_index/resource_index
+creating /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/ament_index/resource_index/packages
+copying resource/regulator -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/ament_index/resource_index/packages
+copying package.xml -> /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator
+running install_egg_info
+Copying ../build/regulator/regulator.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages/regulator-0.0.0-py3.12.egg-info
+running install_scripts
+Installing allokering script to /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/regulator
+Installing estimator script to /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/regulator
+Installing kontroller script to /home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/regulator
+writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/regulator/install.log'

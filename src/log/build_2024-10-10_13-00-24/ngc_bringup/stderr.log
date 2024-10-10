@@ -1,0 +1,4 @@
+gmake: Advarsel: Filen "Makefile" har modifikationstidspunkt 17 s i fremtiden
+gmake[1]: Advarsel: Filen "CMakeFiles/Makefile2" har modifikationstidspunkt 17 s i fremtiden
+gmake[1]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+gmake: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.

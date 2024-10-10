@@ -1,0 +1,48 @@
+[2.004s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[2.448s] running egg_info
+[2.456s] creating ../build/ngc_hmi/ngc_hmi.egg-info
+[2.480s] writing ../build/ngc_hmi/ngc_hmi.egg-info/PKG-INFO
+[2.483s] writing dependency_links to ../build/ngc_hmi/ngc_hmi.egg-info/dependency_links.txt
+[2.484s] writing entry points to ../build/ngc_hmi/ngc_hmi.egg-info/entry_points.txt
+[2.485s] writing requirements to ../build/ngc_hmi/ngc_hmi.egg-info/requires.txt
+[2.486s] writing top-level names to ../build/ngc_hmi/ngc_hmi.egg-info/top_level.txt
+[2.487s] writing manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[2.586s] reading manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[2.594s] writing manifest file '../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+[2.597s] running build
+[2.599s] running build_py
+[2.600s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build
+[2.604s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib
+[2.606s] creating /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.608s] copying ngc_hmi/custom_slider_widget.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.610s] copying ngc_hmi/ngc_hmi_yaml_editor.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.622s] copying ngc_hmi/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.625s] copying ngc_hmi/ngc_hmi_autopilot.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.626s] copying ngc_hmi/ngc_hmi_main.py -> /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi
+[2.628s] running install
+[2.640s] running install_lib
+[2.689s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.690s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi/custom_slider_widget.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.695s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_yaml_editor.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.698s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi/__init__.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.701s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_autopilot.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.704s] copying /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_main.py -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+[2.709s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/custom_slider_widget.py to custom_slider_widget.cpython-312.pyc
+[2.716s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_yaml_editor.py to ngc_hmi_yaml_editor.cpython-312.pyc
+[2.722s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/__init__.py to __init__.cpython-312.pyc
+[2.725s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_autopilot.py to ngc_hmi_autopilot.cpython-312.pyc
+[2.731s] byte-compiling /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_main.py to ngc_hmi_main.cpython-312.pyc
+[2.736s] running install_data
+[2.737s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ament_index
+[2.738s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ament_index/resource_index
+[2.738s] creating /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ament_index/resource_index/packages
+[2.740s] copying resource/ngc_hmi -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ament_index/resource_index/packages
+[2.743s] copying package.xml -> /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi
+[2.747s] running install_egg_info
+[2.790s] Copying ../build/ngc_hmi/ngc_hmi.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info
+[2.816s] running install_scripts
+[3.104s] Installing ngc_hmi script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/ngc_hmi
+[3.106s] Installing ngc_hmi_autopilot script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/ngc_hmi
+[3.108s] Installing ngc_hmi_yaml_editor script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/ngc_hmi
+[3.111s] writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/install.log'
+[3.180s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/kontrolsystem/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/install.log --single-version-externally-managed install_data

@@ -1,0 +1,2 @@
+[console_scripts]
+ngc_propulsion_sim = ngc_propulsion_sim.ngc_propulsion_sim:main
