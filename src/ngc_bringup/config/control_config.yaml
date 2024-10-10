@@ -9,7 +9,7 @@ heading_control:
   
 speed_control:
   K_p: 1
-  ki_scale: 5
+  ki_scale: 2
   ki_saturation_limit: 1.25  #m/s
   X_uu: 100
   eps: 0.8 # % av max surge
