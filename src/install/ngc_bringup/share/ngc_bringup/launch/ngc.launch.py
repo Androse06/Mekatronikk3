@@ -20,7 +20,7 @@ def generate_launch_description():
     plotjuggler_config = os.path.join(
         get_package_share_directory('ngc_bringup'),
         'config',
-        'PlotJuggler_layout.xml'
+        'PlotJuggler_layout_Otter.xml'
     )
 
     

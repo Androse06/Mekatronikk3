@@ -1,0 +1,440 @@
+[  1%] Built target ngc_interfaces__rosidl_generator_type_description
+[  1%] Built target ament_cmake_python_copy_ngc_interfaces
+[  1%] Built target ngc_interfaces__cpp
+running egg_info
+writing ngc_interfaces.egg-info/PKG-INFO
+writing dependency_links to ngc_interfaces.egg-info/dependency_links.txt
+writing top-level names to ngc_interfaces.egg-info/top_level.txt
+reading manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/compiler_depend.make" har modifikationstidspunkt 17 s i fremtiden
+[  2%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__functions.c.o[0m
+[  3%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__description.c.o[0m
+[  4%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__type_support.c.o[0m
+[  4%] Built target ament_cmake_python_build_ngc_interfaces_egg
+[  5%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__description.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__functions.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__type_support.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__description.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__type_support.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__functions.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__description.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__type_support.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__description.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__functions.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__type_support.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__description.c.o[0m
+[ 18%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__functions.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__type_support.c.o[0m
+[ 20%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__description.c.o[0m
+[ 21%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__functions.c.o[0m
+[ 22%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__type_support.c.o[0m
+[ 23%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__description.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__functions.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__type_support.c.o[0m
+[ 25%] [32m[1mLinking C shared library libngc_interfaces__rosidl_generator_c.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 26%] Built target ngc_interfaces__rosidl_generator_c
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 27%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/eta__type_support.cpp.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 29%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/eta__type_support.c.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/nu__type_support.cpp.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/compiler_depend.make" har modifikationstidspunkt 17 s i fremtiden
+[ 30%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/eta__type_support.cpp.o[0m
+[ 31%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/nu__type_support.c.o[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/nu_dot__type_support.cpp.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 33%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/nu_dot__type_support.c.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/eta__type_support_c.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/tau__type_support.cpp.o[0m
+[ 36%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/tau__type_support.c.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/wind__type_support.cpp.o[0m
+[ 38%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/wind__type_support.c.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/thruster_signals__type_support.cpp.o[0m
+[ 40%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/thruster_signals__type_support.c.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/gnss__type_support.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/nu__type_support.cpp.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/gnss__type_support.c.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/heading_device__type_support.cpp.o[0m
+[ 45%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_c.so[0m
+[ 46%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/heading_device__type_support.c.o[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 47%] [32m[1mLinking C shared library libngc_interfaces__rosidl_typesupport_introspection_c.so[0m
+[ 48%] Built target ngc_interfaces__rosidl_typesupport_c
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 48%] Built target ngc_interfaces__rosidl_typesupport_introspection_c
+[ 49%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/nu__type_support_c.cpp.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 50%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/nu_dot__type_support.cpp.o[0m
+[ 51%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/eta__type_support.cpp.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 52%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/eta__type_support.cpp.o[0m
+[ 53%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/nu_dot__type_support_c.cpp.o[0m
+[ 53%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/tau__type_support.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/nu__type_support.cpp.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/nu__type_support.cpp.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/wind__type_support.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/tau__type_support_c.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/nu_dot__type_support.cpp.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/thruster_signals__type_support.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/nu_dot__type_support.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/tau__type_support.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/wind__type_support_c.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/gnss__type_support.cpp.o[0m
+[ 64%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/wind__type_support.cpp.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/tau__type_support.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/heading_device__type_support.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/thruster_signals__type_support_c.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp.o[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/wind__type_support.cpp.o[0m
+[ 70%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_cpp.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 71%] Built target ngc_interfaces__rosidl_typesupport_cpp
+[ 72%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/gnss__type_support_c.cpp.o[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/heading_device__type_support_c.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/gnss__type_support.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/thruster_signals__type_support.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/gnss__type_support.cpp.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/heading_device__type_support.cpp.o[0m
+[ 78%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 79%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_c
+[ 80%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/heading_device__type_support.cpp.o[0m
+[ 81%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 82%] Built target ngc_interfaces__rosidl_typesupport_introspection_cpp
+[ 83%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 84%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_cpp
+[ 84%] Built target ngc_interfaces
+[ 85%] Built target ngc_interfaces__py
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 86%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_eta_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_nu_s.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_tau_s.c.o[0m
+[ 89%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_nu_dot_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_wind_s.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_thruster_signals_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_gnss_s.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_heading_device_s.c.o[0m
+[ 94%] [32m[1mLinking C shared library libngc_interfaces__rosidl_generator_py.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[ 94%] Built target ngc_interfaces__rosidl_generator_py
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces_s__rosidl_typesupport_introspection_c.dir/compiler_depend.make" har modifikationstidspunkt 18 s i fremtiden
+[ 95%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+gmake[2]: Advarsel: Filen "CMakeFiles/ngc_interfaces_s__rosidl_typesupport_c.dir/compiler_depend.make" har modifikationstidspunkt 19 s i fremtiden
+[ 96%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 97%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[ 98%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[100%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[100%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so[0m
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+gmake[2]: advarsel: Der blev registreret en uoverensstemmelse i urets tid. Din kompilering kan være ufuldstændig.
+[100%] Built target ngc_interfaces_s__rosidl_typesupport_introspection_c
+[100%] Built target ngc_interfaces_s__rosidl_typesupport_fastrtps_c
+[100%] Built target ngc_interfaces_s__rosidl_typesupport_c
+-- Install configuration: ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ament_index/resource_index/rosidl_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.json
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.json
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__description.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.sh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.dsv
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_c.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.hpp
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__traits.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__builder.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.hpp
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/dds_fastrtps
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.cpp
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.sh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.dsv
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau_s.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss.py
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/__init__.py
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c
+Listing '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces'...
+Listing '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py'...
+Compiling '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py'...
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so" to ""
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so" to ""
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.idl
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.msg
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ament_index/resource_index/package_run_dependencies/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ament_index/resource_index/parent_prefix_path/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.sh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.sh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/environment/path.dsv
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.bash
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.sh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.zsh
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/local_setup.dsv
+-- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ament_index/resource_index/packages/ngc_interfaces
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport-noconfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig-version.cmake
+-- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.xml

@@ -1,0 +1,21 @@
+[2.133s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[2.606s] running egg_info
+[2.632s] writing ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/PKG-INFO
+[2.634s] writing dependency_links to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/dependency_links.txt
+[2.636s] writing entry points to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/entry_points.txt
+[2.637s] writing requirements to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/requires.txt
+[2.640s] writing top-level names to ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/top_level.txt
+[2.711s] reading manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'
+[2.717s] writing manifest file '../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info/SOURCES.txt'
+[2.718s] running build
+[2.719s] running build_py
+[2.721s] running install
+[2.733s] running install_lib
+[2.768s] running install_data
+[2.770s] running install_egg_info
+[2.813s] removing '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info' (and everything under it)
+[2.821s] Copying ../build/ngc_propulsion_sim/ngc_propulsion_sim.egg-info to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages/ngc_propulsion_sim-0.0.0-py3.12.egg-info
+[2.846s] running install_scripts
+[3.151s] Installing ngc_propulsion_sim script to /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/ngc_propulsion_sim
+[3.160s] writing list of installed files to '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/install.log'
+[3.243s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data

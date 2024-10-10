@@ -1,0 +1,30 @@
+[0.085s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[0.817s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[1.617s] Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup
+[1.654s] -- Install configuration: ""
+[1.658s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/launch
+[1.660s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+[1.665s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config
+[1.671s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+[1.672s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+[1.673s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+[1.674s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+[1.675s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+[1.678s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+[1.684s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+[1.686s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+[1.695s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+[1.699s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+[1.708s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+[1.716s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+[1.719s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+[1.721s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+[1.723s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+[1.731s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+[1.736s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+[1.745s] -- Installing: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.dsv
+[1.757s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+[1.762s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+[1.766s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+[1.774s] -- Up-to-date: /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.xml
+[1.786s] Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup

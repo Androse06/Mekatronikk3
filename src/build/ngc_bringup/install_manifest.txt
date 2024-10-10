@@ -6,6 +6,7 @@
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout_Otter.xml
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
 /home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh

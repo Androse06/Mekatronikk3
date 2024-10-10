@@ -1,0 +1,453 @@
+[0.120s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.120s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x720c130faf30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x720c130faed0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x720c130faed0>>)
+[0.160s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.161s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.161s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.161s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.161s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.162s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/alfred/shared_mac/Mekatronikk3/src'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.163s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.164s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_bringup) by extension 'ros'
+[0.204s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_bringup' with type 'ros.ament_cmake' and name 'ngc_bringup'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ignore'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ignore_ament_install'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['colcon_pkg']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'colcon_pkg'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['colcon_meta']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'colcon_meta'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extensions ['ros']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hmi) by extension 'ros'
+[0.208s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_hmi' with type 'ros.ament_python' and name 'ngc_hmi'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ignore'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ignore_ament_install'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_hull_sim) by extension 'ros'
+[0.212s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_hull_sim' with type 'ros.ament_python' and name 'ngc_hull_sim'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'colcon_pkg'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['colcon_meta']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'colcon_meta'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_interfaces) by extension 'ros'
+[0.216s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_interfaces' with type 'ros.ament_cmake' and name 'ngc_interfaces'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'colcon_pkg'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['colcon_meta']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'colcon_meta'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extensions ['ros']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_propulsion_sim) by extension 'ros'
+[0.219s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_propulsion_sim' with type 'ros.ament_python' and name 'ngc_propulsion_sim'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ignore_ament_install'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['colcon_pkg']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'colcon_pkg'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['colcon_meta']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'colcon_meta'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_sensor_sims) by extension 'ros'
+[0.223s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_sensor_sims' with type 'ros.ament_python' and name 'ngc_sensor_sims'
+[0.223s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['ignore', 'ignore_ament_install']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ignore'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ignore_ament_install'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['colcon_pkg']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'colcon_pkg'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['colcon_meta']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'colcon_meta'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extensions ['ros']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(ngc_utils) by extension 'ros'
+[0.226s] DEBUG:colcon.colcon_core.package_identification:Package 'ngc_utils' with type 'ros.ament_python' and name 'ngc_utils'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extensions ['ignore', 'ignore_ament_install']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extension 'ignore'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extension 'ignore_ament_install'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extensions ['colcon_pkg']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(regulator) by extension 'ros'
+[0.229s] DEBUG:colcon.colcon_core.package_identification:Package 'regulator' with type 'ros.ament_python' and name 'regulator'
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.230s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.256s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_args' from command line to 'None'
+[0.256s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_target' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.257s] Level 5:colcon.colcon_core.verb:set package 'ngc_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.258s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.258s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.258s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.258s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.258s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'ngc_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.259s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_args' from command line to 'None'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_target' from command line to 'None'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_clean_cache' from command line to 'False'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_clean_first' from command line to 'False'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'cmake_force_configure' from command line to 'False'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'ament_cmake_args' from command line to 'None'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'catkin_cmake_args' from command line to 'None'
+[0.260s] Level 5:colcon.colcon_core.verb:set package 'ngc_sensor_sims' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.261s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_sensor_sims' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims', 'symlink_install': False, 'test_result_base': None}
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_args' from command line to 'None'
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_target' from command line to 'None'
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_clean_cache' from command line to 'False'
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_clean_first' from command line to 'False'
+[0.261s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'cmake_force_configure' from command line to 'False'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'ament_cmake_args' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'catkin_cmake_args' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'ngc_utils' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.262s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_utils' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils', 'symlink_install': False, 'test_result_base': None}
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_args' from command line to 'None'
+[0.262s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_target' from command line to 'None'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_clean_first' from command line to 'False'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'cmake_force_configure' from command line to 'False'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'ament_cmake_args' from command line to 'None'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.263s] Level 5:colcon.colcon_core.verb:set package 'regulator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.264s] DEBUG:colcon.colcon_core.verb:Building package 'regulator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/regulator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/regulator', 'symlink_install': False, 'test_result_base': None}
+[0.264s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_args' from command line to 'None'
+[0.264s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_target' from command line to 'None'
+[0.264s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.264s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_clean_cache' from command line to 'False'
+[0.264s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_clean_first' from command line to 'False'
+[0.265s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'cmake_force_configure' from command line to 'False'
+[0.265s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'ament_cmake_args' from command line to 'None'
+[0.265s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'catkin_cmake_args' from command line to 'None'
+[0.265s] Level 5:colcon.colcon_core.verb:set package 'ngc_hmi' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.265s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_hmi' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi', 'symlink_install': False, 'test_result_base': None}
+[0.265s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_args' from command line to 'None'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_target' from command line to 'None'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.266s] Level 5:colcon.colcon_core.verb:set package 'ngc_hull_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.266s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_hull_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim', 'symlink_install': False, 'test_result_base': None}
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_args' from command line to 'None'
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_target' from command line to 'None'
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.267s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.268s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.268s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.268s] Level 5:colcon.colcon_core.verb:set package 'ngc_propulsion_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.268s] DEBUG:colcon.colcon_core.verb:Building package 'ngc_propulsion_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim', 'merge_install': False, 'path': '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim', 'symlink_install': False, 'test_result_base': None}
+[0.269s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.270s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.271s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces' with build type 'ament_cmake'
+[0.271s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_interfaces'
+[0.275s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.276s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.306s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_bringup' with build type 'ament_cmake'
+[0.306s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_bringup'
+[0.307s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.333s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils' with build type 'ament_python'
+[0.334s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_utils', 'ament_prefix_path')
+[0.336s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/hook/ament_prefix_path.dsv'
+[0.341s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/hook/ament_prefix_path.sh'
+[0.345s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.363s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims' with build type 'ament_python'
+[0.364s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_sensor_sims', 'ament_prefix_path')
+[0.365s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/ament_prefix_path.dsv'
+[0.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/ament_prefix_path.sh'
+[0.369s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.427s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces -- -j4 -l4
+[0.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[1.587s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils'
+[1.587s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.170s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims'
+[3.171s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.210s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup -- -j4 -l4
+[3.522s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup
+[3.677s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_bringup)
+[3.679s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_bringup
+[3.684s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup' for CMake module files
+[3.702s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup' for CMake config files
+[3.705s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_bringup', 'cmake_prefix_path')
+[3.706s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.dsv'
+[3.708s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.sh'
+[3.711s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/bin'
+[3.712s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/lib/pkgconfig/ngc_bringup.pc'
+[3.712s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/lib/python3.12/site-packages'
+[3.713s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/bin'
+[3.714s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.dsv'
+[3.716s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.sh'
+[3.718s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.bash'
+[3.720s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.zsh'
+[3.722s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/colcon-core/packages/ngc_bringup)
+[3.813s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces -- -j4 -l4
+[3.883s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_bringup)
+[3.884s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup' for CMake module files
+[3.901s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup' for CMake config files
+[3.912s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_bringup', 'cmake_prefix_path')
+[3.913s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.dsv'
+[3.918s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/hook/cmake_prefix_path.sh'
+[3.925s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/bin'
+[3.926s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/lib/pkgconfig/ngc_bringup.pc'
+[3.928s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/lib/python3.12/site-packages'
+[3.930s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/bin'
+[3.932s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.dsv'
+[3.936s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.sh'
+[3.941s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.bash'
+[3.944s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/ngc_bringup/package.zsh'
+[3.948s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup/share/colcon-core/packages/ngc_bringup)
+[3.952s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/regulator' with build type 'ament_python'
+[3.953s] Level 1:colcon.colcon_core.shell:create_environment_hook('regulator', 'ament_prefix_path')
+[3.954s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/hook/ament_prefix_path.dsv'
+[3.961s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/hook/ament_prefix_path.sh'
+[3.965s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.647s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/regulator'
+[4.648s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.995s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[5.175s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces
+[5.312s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[6.464s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_interfaces)
+[6.470s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces' for CMake module files
+[6.475s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_interfaces
+[6.511s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces' for CMake config files
+[6.568s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'cmake_prefix_path')
+[6.570s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.dsv'
+[6.575s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.sh'
+[6.583s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib'
+[6.585s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'ld_library_path_lib')
+[6.586s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.dsv'
+[6.590s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.sh'
+[6.593s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/bin'
+[6.595s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/pkgconfig/ngc_interfaces.pc'
+[6.596s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages'
+[6.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'pythonpath')
+[6.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.dsv'
+[6.602s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.sh'
+[6.605s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/bin'
+[6.606s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv'
+[6.608s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.sh'
+[6.609s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.bash'
+[6.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.zsh'
+[6.614s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/colcon-core/packages/ngc_interfaces)
+[6.631s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/regulator': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/regulator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/regulator build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/install.log --single-version-externally-managed install_data
+[6.907s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims' for CMake module files
+[6.909s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_sensor_sims' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_sensor_sims build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_sensor_sims/install.log --single-version-externally-managed install_data
+[6.921s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims' for CMake config files
+[6.945s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib'
+[6.946s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/bin'
+[6.946s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/pkgconfig/ngc_sensor_sims.pc'
+[6.947s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages'
+[6.947s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_sensor_sims', 'pythonpath')
+[6.948s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/pythonpath.dsv'
+[6.951s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/hook/pythonpath.sh'
+[6.954s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/bin'
+[6.954s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_sensor_sims)
+[6.955s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.dsv'
+[6.957s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.sh'
+[6.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.bash'
+[6.971s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/ngc_sensor_sims/package.zsh'
+[6.972s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/share/colcon-core/packages/ngc_sensor_sims)
+[7.498s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils' for CMake module files
+[7.500s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_utils' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_utils build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_utils/install.log --single-version-externally-managed install_data
+[7.503s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils' for CMake config files
+[7.516s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib'
+[7.518s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/bin'
+[7.518s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/pkgconfig/ngc_utils.pc'
+[7.519s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages'
+[7.519s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_utils', 'pythonpath')
+[7.520s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/hook/pythonpath.dsv'
+[7.523s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/hook/pythonpath.sh'
+[7.526s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/bin'
+[7.527s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_utils)
+[7.527s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/package.dsv'
+[7.529s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/package.sh'
+[7.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/package.bash'
+[7.533s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/ngc_utils/package.zsh'
+[7.534s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/share/colcon-core/packages/ngc_utils)
+[7.632s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_interfaces)
+[7.633s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces' for CMake module files
+[7.648s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces' for CMake config files
+[7.659s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'cmake_prefix_path')
+[7.659s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.dsv'
+[7.660s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/cmake_prefix_path.sh'
+[7.663s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib'
+[7.663s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'ld_library_path_lib')
+[7.664s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.dsv'
+[7.665s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/ld_library_path_lib.sh'
+[7.666s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/bin'
+[7.667s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/pkgconfig/ngc_interfaces.pc'
+[7.667s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages'
+[7.668s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_interfaces', 'pythonpath')
+[7.668s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.dsv'
+[7.669s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/hook/pythonpath.sh'
+[7.671s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/bin'
+[7.672s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.dsv'
+[7.674s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.sh'
+[7.676s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.bash'
+[7.677s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/ngc_interfaces/package.zsh'
+[7.679s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/share/colcon-core/packages/ngc_interfaces)
+[7.681s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi' with build type 'ament_python'
+[7.681s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hmi', 'ament_prefix_path')
+[7.682s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/hook/ament_prefix_path.dsv'
+[7.685s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/hook/ament_prefix_path.sh'
+[7.688s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.715s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim' with build type 'ament_python'
+[7.716s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hull_sim', 'ament_prefix_path')
+[7.717s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/ament_prefix_path.dsv'
+[7.722s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/ament_prefix_path.sh'
+[7.727s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.770s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim' with build type 'ament_python'
+[7.771s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_propulsion_sim', 'ament_prefix_path')
+[7.773s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/ament_prefix_path.dsv'
+[7.784s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/ament_prefix_path.sh'
+[7.786s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.182s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi'
+[8.183s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.557s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim'
+[8.558s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.899s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim'
+[8.900s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[8.919s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator' for CMake module files
+[8.921s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/regulator' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/regulator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/regulator build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/regulator/install.log --single-version-externally-managed install_data
+[8.925s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator' for CMake config files
+[8.936s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib'
+[8.937s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/bin'
+[8.937s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/pkgconfig/regulator.pc'
+[8.938s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages'
+[8.938s] Level 1:colcon.colcon_core.shell:create_environment_hook('regulator', 'pythonpath')
+[8.939s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/hook/pythonpath.dsv'
+[8.941s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/hook/pythonpath.sh'
+[8.942s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/bin'
+[8.943s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(regulator)
+[8.943s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/package.dsv'
+[8.947s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/package.sh'
+[8.948s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/package.bash'
+[8.950s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/regulator/package.zsh'
+[8.951s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/share/colcon-core/packages/regulator)
+[10.226s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[10.296s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[10.339s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[11.523s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi' for CMake module files
+[11.527s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hmi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hmi build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hmi/install.log --single-version-externally-managed install_data
+[11.530s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi' for CMake config files
+[11.540s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib'
+[11.541s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/bin'
+[11.541s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/pkgconfig/ngc_hmi.pc'
+[11.542s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages'
+[11.542s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hmi', 'pythonpath')
+[11.542s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/hook/pythonpath.dsv'
+[11.544s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/hook/pythonpath.sh'
+[11.546s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/bin'
+[11.546s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_hmi)
+[11.547s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/package.dsv'
+[11.548s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/package.sh'
+[11.550s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/package.bash'
+[11.552s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/ngc_hmi/package.zsh'
+[11.553s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/share/colcon-core/packages/ngc_hmi)
+[11.596s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim' for CMake module files
+[11.600s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_hull_sim' returned '0': AMENT_PREFIX_PATH=/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_bringup:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_hull_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_hull_sim/install.log --single-version-externally-managed install_data
+[11.608s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim' for CMake config files
+[11.620s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib'
+[11.621s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/bin'
+[11.621s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/pkgconfig/ngc_hull_sim.pc'
+[11.622s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages'
+[11.622s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_hull_sim', 'pythonpath')
+[11.623s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/pythonpath.dsv'
+[11.624s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/hook/pythonpath.sh'
+[11.626s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/bin'
+[11.627s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_hull_sim)
+[11.627s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/package.dsv'
+[11.629s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/package.sh'
+[11.631s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/package.bash'
+[11.632s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/ngc_hull_sim/package.zsh'
+[11.634s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/share/colcon-core/packages/ngc_hull_sim)
+[11.640s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim' for CMake module files
+[11.641s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/alfred/shared_mac/Mekatronikk3/src/ngc_propulsion_sim' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_interfaces/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/regulator/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hull_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_utils/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_sensor_sims/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages:/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_hmi/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/ngc_propulsion_sim build --build-base /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/build install --record /home/alfred/shared_mac/Mekatronikk3/src/build/ngc_propulsion_sim/install.log --single-version-externally-managed install_data
+[11.647s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim' for CMake config files
+[11.663s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib'
+[11.665s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/bin'
+[11.666s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/pkgconfig/ngc_propulsion_sim.pc'
+[11.667s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/lib/python3.12/site-packages'
+[11.667s] Level 1:colcon.colcon_core.shell:create_environment_hook('ngc_propulsion_sim', 'pythonpath')
+[11.667s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/pythonpath.dsv'
+[11.677s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/hook/pythonpath.sh'
+[11.680s] Level 1:colcon.colcon_core.environment:checking '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/bin'
+[11.680s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ngc_propulsion_sim)
+[11.681s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.dsv'
+[11.683s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.sh'
+[11.684s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.bash'
+[11.685s] INFO:colcon.colcon_core.shell:Creating package script '/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/ngc_propulsion_sim/package.zsh'
+[11.686s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/alfred/shared_mac/Mekatronikk3/src/install/ngc_propulsion_sim/share/colcon-core/packages/ngc_propulsion_sim)
+[11.690s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[11.691s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[11.691s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[11.691s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[11.732s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[11.732s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[11.733s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[11.789s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[11.790s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/Mekatronikk3/src/install/local_setup.sh'
+[11.793s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/alfred/shared_mac/Mekatronikk3/src/install/_local_setup_util_sh.py'
+[11.798s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/Mekatronikk3/src/install/setup.sh'
+[11.834s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/Mekatronikk3/src/install/local_setup.bash'
+[11.837s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/Mekatronikk3/src/install/setup.bash'
+[11.866s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/alfred/shared_mac/Mekatronikk3/src/install/local_setup.zsh'
+[11.869s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/alfred/shared_mac/Mekatronikk3/src/install/setup.zsh'
