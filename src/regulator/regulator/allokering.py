@@ -134,7 +134,7 @@ class Allokering(Node):
 
         self.thruster1_pub.publish(thruster1_message)
         self.thruster2_pub.publish(thruster2_message)
-        self.tau_max_pub.publish(tau_max_message)
+        #self.tau_max_pub.publish(tau_max_message)
 
 
         ########### DEBUGGING ###########

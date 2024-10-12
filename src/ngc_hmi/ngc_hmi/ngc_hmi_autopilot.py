@@ -43,7 +43,7 @@ class AutopilotHMI(Node):
         self.add_wheel_layout('Heading', 0, 360, '°', self.update_heading_setpoint)
 
         # Surge speed setpoint with finer granularity in knots
-        self.add_slider_layout('Surge Speed', 0, 10, 'knots', self.update_surge_setpoint, resolution=0.1)
+        self.add_slider_layout('Surge Speed', 0, 6, 'knots', self.update_surge_setpoint, resolution=0.1)
 
 
         ##### Knapper: HMI #####
