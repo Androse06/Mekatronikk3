@@ -64,7 +64,7 @@ class WaypointNode(Node):
                     longitude = point.longitude
                     coordinates.append((latitude, longitude))
 
-                    self.get_logger().info("****************************Route konvertert til csv*****************************************")
+                    self.get_logger().info("*************************** gpx indexing pass *****************************************")
 
                     self.repeat_check = True
                     
