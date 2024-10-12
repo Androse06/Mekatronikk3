@@ -106,6 +106,13 @@ def generate_launch_description():
         output      = 'screen'
     )
 
+    waypoint = Node(
+        package     = "regulator",
+        executable  = "waypoint",
+        name        = 'waypoint',
+        output      = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
     delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
     delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
@@ -125,5 +132,5 @@ def generate_launch_description():
     ld.add_action(delayed_kontroller)
     ld.add_action(delayed_estimator)
     ld.add_action(delayed_allokering)
-
+    ld.add_action(waypoint)
     return ld
