@@ -206,7 +206,7 @@ def main(args=None):
     rclpy.spin(node)
     
     # Når noden avsluttes, frigjør ressurser
-    node.destroy_node()
+    node.destroy_nrotode()
     rclpy.shutdown()
 
 # Starter hovedfunksjonen hvis denne filen kjøres som et skript

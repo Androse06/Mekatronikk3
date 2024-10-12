@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import Eta, Nu
+from ngc_interfaces.msg import Eta, Nu, Mode
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -26,6 +26,9 @@ class AutopilotHMI(Node):
         self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
 
+        #### System mode publisher ####
+        self.mode_publisher = self.create_publisher(Mode, 'mode', default_qos_profile)
+
         # Initialize the UI
         self.init_ui()
 
@@ -41,6 +44,33 @@ class AutopilotHMI(Node):
         # Surge speed setpoint with finer granularity in knots
         self.add_slider_layout('Surge Speed', 0, 10, 'knots', self.update_surge_setpoint, resolution=0.1)
 
+
+        ##### Knapper: HMI #####
+
+        button_layout = QHBoxLayout()
+
+        self.standby_button = QPushButton('Standby')
+        self.standby_button.clicked.connect(self.set_standby_mode)
+        button_layout.addWidget(self.standby_button)
+
+        self.position_button = QPushButton('Position')
+        self.position_button.clicked.connect(self.set_position_mode)
+        button_layout.addWidget(self.position_button)
+
+        self.sail_button = QPushButton('Sail')
+        self.sail_button.clicked.connect(self.set_sail_mode)
+        button_layout.addWidget(self.sail_button)
+
+        self.track_button = QPushButton('Track')
+        self.track_button.clicked.connect(self.set_track_mode)
+        button_layout.addWidget(self.track_button)
+
+
+        self.layout.addLayout(button_layout)
+
+        ########################################
+        
+        
         self.window.setLayout(self.layout)
         self.window.show()
 
@@ -48,6 +78,48 @@ class AutopilotHMI(Node):
         self.timer = QTimer()
         self.timer.timeout.connect(self.ros_spin_and_publish_setpoints)
         self.timer.start(100)  # 100 ms interval (10 Hz)
+
+
+    ####### Knapper: funksjon #######
+
+    def set_standby_mode(self):
+        mode_message = Mode()
+        mode_message.standby = True
+        mode_message.position = False
+        mode_message.sail = False
+        mode_message.track = False
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('Standby mode activated')
+
+    def set_position_mode(self):
+        mode_message = Mode()
+        mode_message.standby = False
+        mode_message.position = True
+        mode_message.sail = False
+        mode_message.track = False
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('Position mode activated')
+
+    def set_sail_mode(self):
+        mode_message = Mode()
+        mode_message.standby = False
+        mode_message.position = False
+        mode_message.sail = True
+        mode_message.track = False
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('Sail mode activated')
+
+    def set_track_mode(self):
+        mode_message = Mode()
+        mode_message.standby = False
+        mode_message.position = False
+        mode_message.sail = False
+        mode_message.track = True
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('Track mode activated')
+
+    ########################################
+
 
     def ros_spin_and_publish_setpoints(self):
         # Spin ROS 2 callbacks to handle incoming messages
