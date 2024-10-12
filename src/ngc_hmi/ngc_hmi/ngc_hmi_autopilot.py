@@ -17,6 +17,7 @@ class AutopilotHMI(Node):
         # Initialize setpoints
         self.heading_setpoint = 0.5  # Initial heading setpoint
         self.surge_setpoint   = 0.0  # Initial surge speed setpoint in knots
+        self.mode_label = 'init'
 
         # Subscribers to eta_sim and nu_sim
         self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
@@ -48,6 +49,8 @@ class AutopilotHMI(Node):
         ##### Knapper: HMI #####
 
         button_layout = QHBoxLayout()
+        
+        self.label = QLabel(f'Mode: {self.mode_label}')
 
         self.standby_button = QPushButton('Standby')
         self.standby_button.clicked.connect(self.set_standby_mode)
@@ -65,7 +68,7 @@ class AutopilotHMI(Node):
         self.track_button.clicked.connect(self.set_track_mode)
         button_layout.addWidget(self.track_button)
 
-
+        self.layout.addWidget(self.label)
         self.layout.addLayout(button_layout)
 
         ########################################
@@ -90,6 +93,8 @@ class AutopilotHMI(Node):
         mode_message.track = False
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Standby mode activated')
+        self.mode_label = 'Standby'
+        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_position_mode(self):
         mode_message = Mode()
@@ -99,6 +104,8 @@ class AutopilotHMI(Node):
         mode_message.track = False
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Position mode activated')
+        self.mode_label = 'Position'
+        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_sail_mode(self):
         mode_message = Mode()
@@ -108,6 +115,8 @@ class AutopilotHMI(Node):
         mode_message.track = False
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Sail mode activated')
+        self.mode_label = 'Sail'
+        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_track_mode(self):
         mode_message = Mode()
@@ -117,6 +126,8 @@ class AutopilotHMI(Node):
         mode_message.track = True
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Track mode activated')
+        self.mode_label = 'Track'
+        self.label.setText(f'Mode: {self.mode_label}')
 
     ########################################
 
