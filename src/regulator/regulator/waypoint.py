@@ -12,15 +12,16 @@ class WaypointNode(Node):
 
 
         self.step_size = 0.1
+
         self.mode_sub       = self.create_subscription(Mode, 'mode', self.mode_callback, default_qos_profile) # Bool for Standby, position, sail, track. Jeg lagde en ny .msg i ngc_interfaces.
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile) # Nåværende posisjon fra estimator som kan brukes til å velge når waypoint er nådd og man må bytte til neste.
 
         self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_waypoint_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
 
-        self.standby = False
-        self.position = False
-        self.sail = False
-        self.track = False
+        self.standby    = False
+        self.position   = False
+        self.sail       = False
+        self.track      = False
         
         self.pass_counter = 0
 
@@ -34,10 +35,10 @@ class WaypointNode(Node):
 
 
     def mode_callback(self, msg: Mode): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-        self.standby = msg.standby
-        self.position = msg.position
-        self.sail = msg.sail
-        self.track = msg.track
+        self.standby    = msg.standby
+        self.position   = msg.position
+        self.sail       = msg.sail
+        self.track      = msg.track
 
         if self.standby or self.sail or self.position:
             self.repeat_check = False

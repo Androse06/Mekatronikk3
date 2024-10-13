@@ -152,7 +152,6 @@ class Kontroller(Node):
             self.get_logger().info(f'error psi: {e_psi}')
             self.get_logger().info(f'error u: {e_u}')
             self.get_logger().info(f'yaw: {tau_N}')
-            self.get_logger().info(f'surge: {sat_tau_X}')
             self.get_logger().info(f'qi psi: {self.qi_psi}')
             self.get_logger().info(f'qi u: {self.qi_u}')
             self.get_logger().info(f'Eta: {self.eta[5]}')
