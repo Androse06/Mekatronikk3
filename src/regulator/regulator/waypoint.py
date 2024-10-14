@@ -20,6 +20,7 @@ class WaypointNode(Node):
         self.position   = False
         self.sail       = False
         self.track      = False
+        self.load_route = False
         
         self.pass_counter = 0
 
@@ -33,12 +34,13 @@ class WaypointNode(Node):
 
 
     def mode_callback(self, msg: Mode): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-        self.standby    = msg.standby
-        self.position   = msg.position
-        self.sail       = msg.sail
-        self.track      = msg.track
+        self.standby        = msg.standby
+        self.position       = msg.position
+        self.sail           = msg.sail
+        self.track          = msg.track
+        self.load_route     = msg.route
 
-        if self.standby or self.sail or self.position:
+        if msg.route:
             self.repeat_check = False
             self.pass_counter = 0
 
@@ -52,7 +54,7 @@ class WaypointNode(Node):
         
         with open('/home/adolf-fick/Documents/waypoints/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
             gpx = gpxpy.parse(gpx_file)
-    
+
         for route in gpx.routes:
             for point in route.points:
                 latitude = point.latitude
@@ -61,8 +63,10 @@ class WaypointNode(Node):
                 if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
                     self.get_logger().info("*************************** gpx indexing pass *****************************************")
                     self.pass_counter += 1
-                self.repeat_check = True
-                
+        
+        self.repeat_check   = True
+        self.load_route     = False
+
         return coordinates
 
 
@@ -71,7 +75,7 @@ class WaypointNode(Node):
         if self.standby or self.sail:
             return
         
-        if self.track and not self.repeat_check:
+        if self.load_route and not self.repeat_check:
 
             coordinates = self.gpx_parsing()
             

@@ -48,6 +48,12 @@ class AutopilotHMI(Node):
 
         ##### Knapper: HMI #####
 
+        gpx_recall_button = QHBoxLayout()
+
+        self.reload_button = QPushButton('load route')
+        self.reload_button.clicked.connect(self.parse_gpx_file)
+        gpx_recall_button.addWidget(self.reload_button)
+
         button_layout = QHBoxLayout()
         
         self.label = QLabel(f'Mode: {self.mode_label}')
@@ -68,6 +74,7 @@ class AutopilotHMI(Node):
         self.track_button.clicked.connect(self.set_track_mode)
         button_layout.addWidget(self.track_button)
 
+        self.layout.addLayout(gpx_recall_button)
         self.layout.addWidget(self.label)
         self.layout.addLayout(button_layout)
 
@@ -84,6 +91,12 @@ class AutopilotHMI(Node):
 
 
     ####### Knapper: funksjon #######
+
+    def parse_gpx_file(self):
+        mode_message = Mode()
+        mode_message.route = True
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('gpx reload')
 
     def set_standby_mode(self):
         mode_message = Mode()
