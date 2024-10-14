@@ -75,7 +75,7 @@ class WaypointNode(Node):
         return coordinates
 
 
-    def meter_p_coordinate(self, lat, lon, v_north, v_east):
+    def meter_p_coordinate(self, lat, lon, v_north, v_east): # koordinatene er gitt i grader, v_north og v_east er gitt i meter. denne brukes til å kunne plusse a_merket på wp1 for å finne posisjon_merket.
         R_earth = 6371000 # meter
         meter_per_degree_lat = 2 * np.pi * R_earth / 360
 
@@ -95,73 +95,76 @@ class WaypointNode(Node):
             return
         
         if self.load_route and not self.repeat_check: # .gpx parsing løkke
-
             self.coordinates = self.gpx_parsing()
-            
             if self.debug:
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
-        if self.track:
+        if self.track: # step funksjonen til waypoint regulering.
 
-            if len(self.coordinates) == 0:
+            if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
                 self.get_logger().info('No waypoints loaded')
                 self.track = False
                 self.coordinates = []
                 return
 
-            waypoint = self.coordinates[self.i]
+            waypoint = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet.
 
             if self.i + 1 < len(self.coordinates):
                 waypoint_next = self.coordinates[self.i + 1]
             else:
-                self.get_logger().info('Last waypoint reached')
+                self.get_logger().info('Last waypoint reached') # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.track = False
                 return
 
-            delta = 10
+            delta = 10 # radiusen som båten svinger inn mot linjen
 
             if self.debug:
                 self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
 
+            ### waypoint 1 ###
             lat_wp1 = waypoint[0]
             lon_wp1 = waypoint[1]
 
+            ### waypoint 2 ###
             lat_wp2 = waypoint_next[0]
             lon_wp2 = waypoint_next[1]
 
+            ### båtens posisjon ###
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
-
             pos = np.array([lat_hat, lon_hat])
 
+            ### avstanden mellom wayoint 1 og 2 ###
             a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
+
+            ### avstanden mellom waypoint 1 og båt ###
             b_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat) # avstand i meter
 
-            a_vec_m = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
+            a_vec_m = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec) # a_merket
 
-            pos_m = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
+            pos_m = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1]) # p_merket
 
-            d_vec = geo.calculate_distance_north_east(pos[0], pos[1], pos_m[0], pos_m[1])
+            d_vec = geo.calculate_distance_north_east(pos[0], pos[1], pos_m[0], pos_m[1]) # d_vektor; vektor mellom båt og p_merket
 
-            d = np.sqrt(d_vec[0]**2 + d_vec[1]**2)
+            d = np.sqrt(d_vec[0]**2 + d_vec[1]**2) # magnituden til d_vektor
 
-            if d_vec[0] < 0:
+            if d_vec[0] < 0: # jalla balla bing bong justering av fortegn på d
                 d = -d
 
-            psi_L = np.arctan(d/delta)
+            psi_L = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
 
-            psi_east = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1)
+            psi_east = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1) # vinkelen til linjen med øst=0deg
             
-            psi_T = 1/2 * np.pi - psi_east
+            psi_T = 1/2 * np.pi - psi_east # vinkelen til linjen med nord=0deg
             
             if psi_T < 0:
                 psi_T += 2 * np.pi
 
-            psi_d = psi_T - psi_L
+            psi_d = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
             p_distance = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
-            if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 10:
+            if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
                 self.i += 1
 
             eta_message = Eta()
@@ -169,6 +172,7 @@ class WaypointNode(Node):
             self.eta_setppoint_pub.publish(eta_message)
 
             if self.debug:
+                self.get_logger().info(f'båt til wp avstand: {p_distance}')
                 self.get_logger().info(f'a merket: {a_vec_m}')
                 self.get_logger().info(f'pos_m: {pos_m}')
                 self.get_logger().info(f'd vec: {d_vec}')
@@ -191,17 +195,14 @@ if __name__ == 'main':
 
 
 '''
-TANKER:
 
--   Nåværende funker eta PID'en med å hente inn grader fra hmi_autopilot og konvertere til radianer, så mappper den til -pi til pi og dataene settes i psi og sendes. 
-    Her har vi koordinater. Vi må finne en måte å konvertere forskjellen til koordinatene eta_hat og setpoint til grader for å kunne sende til regulatoren.
-    
--   Når 'track' mode er satt bør kontroller bytte om til å høre på 'eta_waypoint_setpoint' topic og bruke disse koordinatene til å regulere.
-    Her bør setpointet på førte waypoint publiseres fram til eta_hat sier at båten er innenfor en viss radius av waypointet.
-    så bør den bytte til neste waypoint og så videre.
+NOTATER:
 
 -   Som rutedata fungerer nå må man tegne ut er rute i OpenCPN og eksportere som .gpx fil. Denne filen må så legges i en mappe som kan nås av noden og indekes med gpxpy. 
     Når regulatoren mottar 'track' signal over mode topic, så skal den hente ut koordinatene fra .gpx filen og sende til regulatoren. 
-    Det virker som det skal være mulig å streame dataene fra OpenCPN direkte til ROS, men jeg klarte ikke å finne ut av hvordan det må settes opp.
+    Det skal være mulig å streame dataene fra OpenCPN direkte til ROS, og bør utforskes.
+
+-   (12.10.24 - oskar) Track mode fungerer nå, men variablen 'd' (avstanden fra båt til linje) har ikke fortegn. 
+    Jeg har laget en if løkke som justerer fortegnet hvis den ser at båten har forbipasert linjen, men den feiler igjen når den må begynne å kjøre vestover.
 
 '''
