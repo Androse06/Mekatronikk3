@@ -6,6 +6,7 @@ from PySide6.QtGui import QWindow
 import time
 import os
 
+
 class MainApp(QMainWindow):
     def __init__(self):
         super(MainApp, self).__init__()
@@ -20,10 +21,14 @@ class MainApp(QMainWindow):
         self.container.setLayout(layout)
 
         # Launch OpenCPN
-        self.process = subprocess.Popen(["opencpn"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        try:
+            self.process = subprocess.Popen(["opencpn"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        except FileNotFoundError:
+            print("OpenCPN not found. Please ensure OpenCPN is installed and in your PATH.")
+            self.process = None
+            return
 
-        # Wait a bit for OpenCPN to launch and get the window ID
-        time.sleep(5)  # Adjust this time if OpenCPN takes longer to start
+        # Poll for OpenCPN window ID
         window_id = self.get_window_id()
 
         if window_id:
@@ -31,17 +36,20 @@ class MainApp(QMainWindow):
             # Embed the OpenCPN window into the PyQt application
             self.embed_opencpn(window_id)
         else:
-            print("Failed to get OpenCPN window ID")
+            print("Failed to get OpenCPN window ID. Is OpenCPN running?")
 
-    def get_window_id(self):
-        # Use `xdotool` to get the OpenCPN window ID
-        try:
-            result = subprocess.run(["xdotool", "search", "--name", "OpenCPN"], stdout=subprocess.PIPE)
-            window_id = result.stdout.decode().strip()
-            return window_id if window_id else None
-        except Exception as e:
-            print(f"Error fetching OpenCPN window ID: {e}")
-            return None
+    def get_window_id(self, max_retries=10, wait_time=1):
+        # Use `xdotool` to get the OpenCPN window ID with retries
+        for _ in range(max_retries):
+            try:
+                result = subprocess.run(["xdotool", "search", "--name", "OpenCPN"], stdout=subprocess.PIPE)
+                window_id = result.stdout.decode().strip()
+                if window_id:
+                    return window_id
+            except Exception as e:
+                print(f"Error fetching OpenCPN window ID: {e}")
+            time.sleep(wait_time)  # Wait and retry
+        return None
 
     def embed_opencpn(self, window_id):
         # Create a QWindow from the OpenCPN window ID
@@ -60,11 +68,13 @@ class MainApp(QMainWindow):
             print(f"Error embedding OpenCPN window: {e}")
 
     def closeEvent(self, event):
-        # Make sure to terminate OpenCPN when the application is closed
-        try:
-            self.process.terminate()
-        except Exception as e:
-            print(f"Error terminating OpenCPN process: {e}")
+        # Ensure OpenCPN is terminated when the application is closed
+        if self.process:
+            try:
+                self.process.terminate()
+                self.process.wait()  # Wait for OpenCPN to exit cleanly
+            except Exception as e:
+                print(f"Error terminating OpenCPN process: {e}")
         event.accept()
 
 
