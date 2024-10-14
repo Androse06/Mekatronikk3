@@ -9,8 +9,6 @@ class WaypointNode(Node):
     def __init__(self):
         super().__init__('waypoint')
 
-
-
         self.step_size = 0.1
 
         self.mode_sub       = self.create_subscription(Mode, 'mode', self.mode_callback, default_qos_profile) # Bool for Standby, position, sail, track. Jeg lagde en ny .msg i ngc_interfaces.
@@ -48,6 +46,24 @@ class WaypointNode(Node):
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
 
+    def gpx_parsing(self):
+
+        coordinates = []
+        
+        with open('/home/adolf-fick/Documents/waypoints/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
+            gpx = gpxpy.parse(gpx_file)
+    
+        for route in gpx.routes:
+            for point in route.points:
+                latitude = point.latitude
+                longitude = point.longitude
+                coordinates.append((latitude, longitude))
+                if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
+                    self.get_logger().info("*************************** gpx indexing pass *****************************************")
+                    self.pass_counter += 1
+                self.repeat_check = True
+                
+        return coordinates
 
 
     def step_waypoint(self):
@@ -56,24 +72,14 @@ class WaypointNode(Node):
             return
         
         if self.track and not self.repeat_check:
-            with open('/home/adolf-fick/Documents/waypoints/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
-                gpx = gpxpy.parse(gpx_file)
-            
-            coordinates = []
 
-            for route in gpx.routes:
-                for point in route.points:
-                    latitude = point.latitude
-                    longitude = point.longitude
-                    coordinates.append((latitude, longitude))
-                    if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
-                        self.get_logger().info("*************************** gpx indexing pass *****************************************")
-                        self.pass_counter += 1
-                    self.repeat_check = True
+            coordinates = self.gpx_parsing()
             
             if self.debug:
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {coordinates}')
+
+            
 
 
 def main(args=None):
