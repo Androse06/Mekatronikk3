@@ -4,7 +4,7 @@ import gpxpy
 from ngc_interfaces.msg import Waypoint, Route, Mode, Eta
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
-
+import ngc_utils.geo_utils as geo
 class WaypointNode(Node):
     def __init__(self):
         super().__init__('waypoint')
@@ -22,7 +22,11 @@ class WaypointNode(Node):
         self.track      = False
         self.load_route = False
         
+        self.coordinates = []
+
         self.pass_counter = 0
+
+        self.i = 0
 
         self.repeat_check = False # Brukes for å unngå å indekse gpx filen flere ganger enn nødvendig. Første pass når track mode settes skal waypoints hentes ut fra den spesifiserte filen.
 
@@ -61,13 +65,28 @@ class WaypointNode(Node):
                 longitude = point.longitude
                 coordinates.append((latitude, longitude))
                 if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
-                    self.get_logger().info("*************************** gpx indexing pass *****************************************")
+                    #self.get_logger().info('gpx indexing pass')
                     self.pass_counter += 1
         
         self.repeat_check   = True
         self.load_route     = False
+        self.i = 0
 
         return coordinates
+
+
+    def meter_p_coordinate(self, lat, lon, v_north, v_east):
+        R_earth = 6371000 # meter
+        meter_per_degree_lat = 2 * np.pi * R_earth / 360
+
+        d_lat = v_north / meter_per_degree_lat
+        lat_new = lat + d_lat
+
+        meter_per_degree_lon = meter_per_degree_lat * np.cos(np.deg2rad(lat))
+        d_lon = v_east / meter_per_degree_lon
+        lon_new = lon + d_lon
+
+        return lat_new, lon_new
 
 
     def step_waypoint(self):
@@ -75,15 +94,89 @@ class WaypointNode(Node):
         if self.standby or self.sail:
             return
         
-        if self.load_route and not self.repeat_check:
+        if self.load_route and not self.repeat_check: # .gpx parsing løkke
 
-            coordinates = self.gpx_parsing()
+            self.coordinates = self.gpx_parsing()
             
             if self.debug:
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
-                self.get_logger().info(f'Coordinates: {coordinates}')
+                self.get_logger().info(f'Coordinates: {self.coordinates}')
 
+        if self.track:
+
+            if len(self.coordinates) == 0:
+                self.get_logger().info('No waypoints loaded')
+                self.track = False
+                self.coordinates = []
+                return
+
+            waypoint = self.coordinates[self.i]
+
+            if self.i + 1 < len(self.coordinates):
+                waypoint_next = self.coordinates[self.i + 1]
+            else:
+                self.get_logger().info('Last waypoint reached')
+                self.track = False
+                return
+
+            delta = 10
+
+            if self.debug:
+                self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
+
+            lat_wp1 = waypoint[0]
+            lon_wp1 = waypoint[1]
+
+            lat_wp2 = waypoint_next[0]
+            lon_wp2 = waypoint_next[1]
+
+            lat_hat = self.eta[0]
+            lon_hat = self.eta[1]
+
+            pos = np.array([lat_hat, lon_hat])
+
+            a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
+            b_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat) # avstand i meter
+
+            a_vec_m = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
+
+            pos_m = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
+
+            d_vec = geo.calculate_distance_north_east(pos[0], pos[1], pos_m[0], pos_m[1])
+
+            d = np.sqrt(d_vec[0]**2 + d_vec[1]**2)
+
+            if d_vec[0] < 0:
+                d = -d
+
+            psi_L = np.arctan(d/delta)
+
+            psi_east = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1)
             
+            psi_T = 1/2 * np.pi - psi_east
+            
+            if psi_T < 0:
+                psi_T += 2 * np.pi
+
+            psi_d = psi_T - psi_L
+
+            p_distance = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
+            if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 10:
+                self.i += 1
+
+            eta_message = Eta()
+            eta_message.psi = psi_d
+            self.eta_setppoint_pub.publish(eta_message)
+
+            if self.debug:
+                self.get_logger().info(f'a merket: {a_vec_m}')
+                self.get_logger().info(f'pos_m: {pos_m}')
+                self.get_logger().info(f'd vec: {d_vec}')
+                self.get_logger().info(f'd: {d}')
+                self.get_logger().info(f'psi_L: {np.rad2deg(psi_L)}')
+                self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
+                self.get_logger().info(f'psi_T: {np.rad2deg(psi_T)}')
+                self.get_logger().info(f'psi_east: {np.rad2deg(psi_east)}')
 
 
 def main(args=None):

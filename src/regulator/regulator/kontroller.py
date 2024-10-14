@@ -3,7 +3,7 @@ from rclpy.node import Node
 import numpy as np
 import os
 import yaml
-from ngc_interfaces.msg import Eta, Nu, Tau
+from ngc_interfaces.msg import Eta, Nu, Tau, Mode
 from ament_index_python.packages import get_package_share_directory
 from ngc_utils.vessel_model import VesselModel
 from ngc_utils.qos_profiles import default_qos_profile
@@ -40,10 +40,10 @@ class Kontroller(Node):
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
         #self.nu_sub                 = self.create_subscription(Nu, 'nu_sim', self.nu_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
-
+        self.mode_sub               = self.create_subscription(Mode, 'mode', self.mode_callback, default_qos_profile)
         self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub             = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
-
+        self.eta_waypoint_sub       = self.create_subscription(Eta, "eta_waypoint_setpoint", self.eta_waypoint_callback, default_qos_profile)
         #### PUB ####
         self.tau_pub = self.create_publisher(Tau, "tau_control", default_qos_profile)
 
@@ -59,6 +59,11 @@ class Kontroller(Node):
         self.qi_u         = 0.0
 
         self.estimator_ready = False
+
+        self.standby    = False
+        self.position   = False 
+        self.sail       = False
+        self.track      = False
 
         ####################
 
@@ -80,14 +85,29 @@ class Kontroller(Node):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         self.estimator_ready = True
 
+    def eta_waypoint_callback(self, msg: Eta):
+        if self.track:
+            self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+        else:
+            return
+
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
     def eta_setpoint_callback(self, msg: Eta):
-        self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
-
+        if not self.track:
+            self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+        else:
+            return
+        
     def nu_setpoint_callback(self, msg: Nu):
         self.nu_setpoint = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
+
+    def mode_callback(self, msg: Mode): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
+        self.standby        = msg.standby
+        self.position       = msg.position
+        self.sail           = msg.sail
+        self.track          = msg.track
 
 
     def step_control(self):
