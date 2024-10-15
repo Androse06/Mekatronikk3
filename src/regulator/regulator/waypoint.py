@@ -24,6 +24,9 @@ class WaypointNode(Node):
         
         self.coordinates = []
 
+        self.lat_init = 0.0
+        self.lon_init = 0.0
+        
         self.pass_counter = 0
 
         self.i = 0
@@ -44,6 +47,8 @@ class WaypointNode(Node):
         self.track          = msg.track
         self.load_route     = msg.route
 
+        self.i = 0
+
         if msg.route:
             self.repeat_check = False
             self.pass_counter = 0
@@ -54,8 +59,10 @@ class WaypointNode(Node):
 
     def gpx_parsing(self):
 
-        coordinates = []
+        coordinates = [] 
         
+        coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
+
         with open('/home/adolf-fick/Documents/waypoints/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
             gpx = gpxpy.parse(gpx_file)
 
@@ -100,6 +107,7 @@ class WaypointNode(Node):
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
+############################################################################################################
         if self.track: # step funksjonen til waypoint regulering.
 
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
@@ -108,7 +116,7 @@ class WaypointNode(Node):
                 self.coordinates = []
                 return
 
-            waypoint = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet.
+            waypoint = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
 
             if self.i + 1 < len(self.coordinates):
                 waypoint_next = self.coordinates[self.i + 1]
@@ -117,7 +125,7 @@ class WaypointNode(Node):
                 self.track = False
                 return
 
-            delta = 10 # radiusen som båten svinger inn mot linjen
+            delta = 20 # radiusen som båten svinger inn mot linjen
 
             if self.debug:
                 self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
@@ -133,7 +141,6 @@ class WaypointNode(Node):
             ### båtens posisjon ###
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
-            pos = np.array([lat_hat, lon_hat])
 
             ### avstanden mellom wayoint 1 og 2 ###
             a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
@@ -145,12 +152,11 @@ class WaypointNode(Node):
 
             pos_m = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1]) # p_merket
 
-            d_vec = geo.calculate_distance_north_east(pos[0], pos[1], pos_m[0], pos_m[1]) # d_vektor; vektor mellom båt og p_merket
+            d_vec = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1]) # d_vektor; vektor mellom båt og p_merket
 
-            d = np.sqrt(d_vec[0]**2 + d_vec[1]**2) # magnituden til d_vektor
+            d_vec_pass_check = - np.cross(a_vec, d_vec) # kryssprodukt mellom a og d for å se om båten har passert linjen
 
-            if d_vec[0] < 0: # jalla balla bing bong justering av fortegn på d
-                d = -d
+            d = np.sign(d_vec_pass_check) * np.sqrt(d_vec[0]**2 + d_vec[1]**2) # magnituden til d_vektor
 
             psi_L = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
 
@@ -164,24 +170,41 @@ class WaypointNode(Node):
             psi_d = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
             p_distance = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
+
             if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
                 self.i += 1
+                self.wp_0_pass = False
+
+            if self.i == len(self.coordinates) - 1:
+                self.track = False
+                self.i = 0
+                self.get_logger().info('Last waypoint reached')
+                self.position = True
 
             eta_message = Eta()
             eta_message.psi = psi_d
             self.eta_setppoint_pub.publish(eta_message)
 
             if self.debug:
+                if d_vec_pass_check < 0:
+                    self.get_logger().info('Pass: True')
+                elif d_vec_pass_check > 0:
+                    self.get_logger().info('Pass: False')
+                
+                self.get_logger().info(f'wp nr: {self.i + 1}')
                 self.get_logger().info(f'båt til wp avstand: {p_distance}')
-                self.get_logger().info(f'a merket: {a_vec_m}')
-                self.get_logger().info(f'pos_m: {pos_m}')
-                self.get_logger().info(f'd vec: {d_vec}')
-                self.get_logger().info(f'd: {d}')
-                self.get_logger().info(f'psi_L: {np.rad2deg(psi_L)}')
+                self.get_logger().info(f'a merket; avstand fra wp1 til p_merket: {a_vec_m}')
+                self.get_logger().info(f'pos_merket: {pos_m}')
+                self.get_logger().info(f'd; avstand fra båt til linje: {d}')
+                self.get_logger().info(f'psi_L; angrepsvinkel til båt: {np.rad2deg(psi_L)}')
+                self.get_logger().info(f'psi_T; waypoint linje sin vinkel: {np.rad2deg(psi_T)}')
                 self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
-                self.get_logger().info(f'psi_T: {np.rad2deg(psi_T)}')
-                self.get_logger().info(f'psi_east: {np.rad2deg(psi_east)}')
 
+############################################################################################################
+
+        if self.position:
+            self.get_logger().info('Position mode not implemented yet')
+            self.position = False
 
 def main(args=None):
     rclpy.init(args=args)
