@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'EngineeringDashboardYuffzI.ui'
+## Form generated from reading UI file 'EngineeringDashboardaCAiPc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -25,12 +25,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1049, 656)
+        MainWindow.resize(1029, 737)
         MainWindow.setAnimated(True)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout_5 = QGridLayout(self.centralwidget)
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_2 = QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.verticalLayout_10 = QVBoxLayout()
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.horizontalLayout_2 = QHBoxLayout()
@@ -176,8 +176,8 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_2)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.verticalLayout_8 = QVBoxLayout()
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_7 = QVBoxLayout()
@@ -246,7 +246,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addLayout(self.gridLayout_3)
 
 
-        self.horizontalLayout.addLayout(self.verticalLayout_8)
+        self.horizontalLayout_5.addLayout(self.verticalLayout_8)
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
@@ -254,6 +254,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.Sail_Throttle_Slider = QSlider(self.centralwidget)
         self.Sail_Throttle_Slider.setObjectName(u"Sail_Throttle_Slider")
+        self.Sail_Throttle_Slider.setMaximum(100)
         self.Sail_Throttle_Slider.setOrientation(Qt.Vertical)
 
         self.verticalLayout_5.addWidget(self.Sail_Throttle_Slider)
@@ -308,7 +309,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addLayout(self.verticalLayout_4, 1, 0, 1, 1)
 
 
-        self.horizontalLayout.addLayout(self.gridLayout)
+        self.horizontalLayout_5.addLayout(self.gridLayout)
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -329,6 +330,21 @@ class Ui_MainWindow(object):
         self.Dp_Status_Icon.setTextVisible(False)
 
         self.verticalLayout_3.addWidget(self.Dp_Status_Icon)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.Dp_Activate_Button = QPushButton(self.centralwidget)
+        self.Dp_Activate_Button.setObjectName(u"Dp_Activate_Button")
+
+        self.horizontalLayout.addWidget(self.Dp_Activate_Button)
+
+        self.Dp_Disable_Button = QPushButton(self.centralwidget)
+        self.Dp_Disable_Button.setObjectName(u"Dp_Disable_Button")
+
+        self.horizontalLayout.addWidget(self.Dp_Disable_Button)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
 
         self.Lat_Dp_Label = QLabel(self.centralwidget)
         self.Lat_Dp_Label.setObjectName(u"Lat_Dp_Label")
@@ -364,10 +380,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.Deviation_Dp_LCD)
 
 
-        self.horizontalLayout.addLayout(self.verticalLayout_3)
+        self.horizontalLayout_5.addLayout(self.verticalLayout_3)
 
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.Track_Label = QLabel(self.centralwidget)
@@ -388,16 +404,31 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.Track_Status_Icon)
 
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.Track_Activate_Button = QPushButton(self.centralwidget)
+        self.Track_Activate_Button.setObjectName(u"Track_Activate_Button")
+
+        self.horizontalLayout_3.addWidget(self.Track_Activate_Button)
+
+        self.Track_Disable_Button = QPushButton(self.centralwidget)
+        self.Track_Disable_Button.setObjectName(u"Track_Disable_Button")
+
+        self.horizontalLayout_3.addWidget(self.Track_Disable_Button)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
         self.Lat_Label_Track = QLabel(self.centralwidget)
         self.Lat_Label_Track.setObjectName(u"Lat_Label_Track")
         self.Lat_Label_Track.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.Lat_Label_Track)
 
-        self.Lat_Track_Input = QLineEdit(self.centralwidget)
-        self.Lat_Track_Input.setObjectName(u"Lat_Track_Input")
+        self.Lat_Input_Track = QLineEdit(self.centralwidget)
+        self.Lat_Input_Track.setObjectName(u"Lat_Input_Track")
 
-        self.verticalLayout.addWidget(self.Lat_Track_Input)
+        self.verticalLayout.addWidget(self.Lat_Input_Track)
 
         self.Lon_Label_Track = QLabel(self.centralwidget)
         self.Lon_Label_Track.setObjectName(u"Lon_Label_Track")
@@ -415,8 +446,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.Add_WayPoint_Button)
 
+        self.Clear_Waypoint_Button = QPushButton(self.centralwidget)
+        self.Clear_Waypoint_Button.setObjectName(u"Clear_Waypoint_Button")
 
-        self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.Clear_Waypoint_Button)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -432,23 +468,23 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.WayPoint_ListView)
 
 
-        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 1, 1, 1)
+        self.horizontalLayout_4.addLayout(self.verticalLayout_2)
 
 
-        self.horizontalLayout.addLayout(self.gridLayout_2)
+        self.horizontalLayout_5.addLayout(self.horizontalLayout_4)
 
 
-        self.verticalLayout_10.addLayout(self.horizontalLayout)
+        self.verticalLayout_10.addLayout(self.horizontalLayout_5)
 
-        self.verticalLayout_10.setStretch(0, 3)
+        self.verticalLayout_10.setStretch(0, 4)
         self.verticalLayout_10.setStretch(1, 1)
 
-        self.gridLayout_5.addLayout(self.verticalLayout_10, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout_10, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1049, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1029, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -482,14 +518,19 @@ class Ui_MainWindow(object):
         self.Enable_Sail_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Dp_Label.setText(QCoreApplication.translate("MainWindow", u"DP", None))
         self.Enable_Dp_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
+        self.Dp_Activate_Button.setText(QCoreApplication.translate("MainWindow", u"Activate", None))
+        self.Dp_Disable_Button.setText(QCoreApplication.translate("MainWindow", u"Disable", None))
         self.Lat_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"LAT", None))
         self.Lon_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"LON", None))
         self.Deviation_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"DEVIATION", None))
         self.Track_Label.setText(QCoreApplication.translate("MainWindow", u"TRACK", None))
         self.Enable_Track_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
+        self.Track_Activate_Button.setText(QCoreApplication.translate("MainWindow", u"Activate", None))
+        self.Track_Disable_Button.setText(QCoreApplication.translate("MainWindow", u"Disable", None))
         self.Lat_Label_Track.setText(QCoreApplication.translate("MainWindow", u"LAT", None))
         self.Lon_Label_Track.setText(QCoreApplication.translate("MainWindow", u"LON", None))
         self.Add_WayPoint_Button.setText(QCoreApplication.translate("MainWindow", u"Add waypoint", None))
+        self.Clear_Waypoint_Button.setText(QCoreApplication.translate("MainWindow", u"Clear waypoints", None))
         self.Waypoints_Label.setText(QCoreApplication.translate("MainWindow", u"Waypoints", None))
     # retranslateUi
 
