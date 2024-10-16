@@ -49,10 +49,9 @@ class EngineeringHMI(Node):
 
 
         # Connect sliders/dials to methods
-        #self.ui.Sail_Throttle_Slider.valueChanged.connect(self.update_sail_throttle)
-        self.ui.Sail_Throttle_Slider.sliderReleased.connect(self.update_sail_throttle)
+        self.ui.Sail_Throttle_Slider.valueChanged.connect(self.update_sail_throttle)
         self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
-        #self.ui.Sail_Heading_Dial.sliderReleased.connect(self.update_sail_heading)
+        
         
 
         # Connect buttons to methods
@@ -106,12 +105,13 @@ class EngineeringHMI(Node):
 
     # Method to handle sail heading dial value changes
     def update_sail_heading(self, value):
+        remapped_value = (value - 180) % 300
         hmi_message = HMI()
-        hmi_message.eta = float(value)
+        hmi_message.eta = float(remapped_value)
         self.hmi_publisher.publish(hmi_message)
 
         # Update the LCD display to show the current heading
-        self.ui.Sail_Heading_LCD.display(value)
+        self.ui.Sail_Heading_LCD.display(remapped_value)
 
     # Method to programmatically set the sail heading dial's value
     def set_sail_heading_value(self, value):
