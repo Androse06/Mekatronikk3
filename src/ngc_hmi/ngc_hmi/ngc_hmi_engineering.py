@@ -49,8 +49,10 @@ class EngineeringHMI(Node):
 
 
         # Connect sliders/dials to methods
-        self.ui.Sail_Throttle_Slider.valueChanged.connect(self.update_sail_throttle)
-        self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
+        #self.ui.Sail_Throttle_Slider.valueChanged.connect(self.update_sail_throttle)
+        self.ui.Sail_Throttle_Slider.sliderReleased.connect(self.update_sail_throttle)
+        #self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
+        self.ui.Sail_Heading_Dial.sliderReleased.connect(self.update_sail_heading)
         
 
         # Connect buttons to methods
@@ -100,8 +102,6 @@ class EngineeringHMI(Node):
     # Method to programmatically set the sail throttle slider's value
     def set_sail_throttle_value(self, value):
         self.ui.Sail_Throttle_Slider.setValue(value)
-        print(f"Sail Throttle Slider set to: {value}")
-
 
 
     # Method to handle sail heading dial value changes
@@ -111,12 +111,11 @@ class EngineeringHMI(Node):
         self.hmi_publisher.publish(hmi_message)
 
         # Update the LCD display to show the current heading
-        self.ui.Sail_Heading_LCD.display(self.sail_heading_value)
+        self.ui.Sail_Heading_LCD.display(value)
 
     # Method to programmatically set the sail heading dial's value
     def set_sail_heading_value(self, value):
         self.ui.Sail_Heading_Dial.setValue(value)
-        print(f"Sail Heading Dial set to: {value}")
 
 
 
@@ -138,12 +137,12 @@ class EngineeringHMI(Node):
     def retrieve_dp_input(self):
         self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
         self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
-        print(self.Dp_Lat_Input, self.Dp_Lon_Input)
+
 
     def retrieve_track_input(self):
         self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
         self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
-        print(self.Track_Lat_Input, self.Track_Lon_Input)
+
 
 
     # Method to handle the Enable Standby button click
@@ -216,7 +215,7 @@ def main(args=None):
     # Set up a QTimer to spin the ROS2 node and handle callbacks
     timer = QTimer()
     timer.timeout.connect(engineering_hmi.spin_ros)
-    timer.start(100)  # Call every 100 ms
+    timer.start(200)  # Call every 100 ms
 
     # Handle signal for graceful shutdown
     def signal_handler(sig, frame):
