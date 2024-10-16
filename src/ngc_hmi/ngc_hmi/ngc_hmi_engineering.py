@@ -51,8 +51,8 @@ class EngineeringHMI(Node):
         # Connect sliders/dials to methods
         #self.ui.Sail_Throttle_Slider.valueChanged.connect(self.update_sail_throttle)
         self.ui.Sail_Throttle_Slider.sliderReleased.connect(self.update_sail_throttle)
-        #self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
-        self.ui.Sail_Heading_Dial.sliderReleased.connect(self.update_sail_heading)
+        self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
+        #self.ui.Sail_Heading_Dial.sliderReleased.connect(self.update_sail_heading)
         
 
         # Connect buttons to methods
