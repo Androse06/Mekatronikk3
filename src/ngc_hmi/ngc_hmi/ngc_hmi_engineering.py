@@ -1,7 +1,7 @@
 ### Import for PyQt ###
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QStringListModel, QTimer
-from EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
+from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 
 ### Import for Ros ###
