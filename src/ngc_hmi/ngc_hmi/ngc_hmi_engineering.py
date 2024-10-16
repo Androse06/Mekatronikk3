@@ -91,7 +91,7 @@ class EngineeringHMI(Node):
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
         hmi_message = HMI()
-        hmi_message.nu = value
+        hmi_message.nu = float(value)
         self.hmi_publisher.publish(hmi_message)
 
         # Update the LCD display to show the current throttle
@@ -107,7 +107,7 @@ class EngineeringHMI(Node):
     # Method to handle sail heading dial value changes
     def update_sail_heading(self, value):
         hmi_message = HMI()
-        hmi_message.eta = value
+        hmi_message.eta = float(value)
         self.hmi_publisher.publish(hmi_message)
 
         # Update the LCD display to show the current heading
