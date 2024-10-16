@@ -73,7 +73,7 @@ def generate_launch_description():
 
     hmi_node_engineering = Node(
         package     = "ngc_hmi", 
-        executable  = "EngineeringDashboardMain",
+        executable  = "ngc_hmi_engineering",
         name        = 'hmi_engineering',
         output      = 'screen'
     )
