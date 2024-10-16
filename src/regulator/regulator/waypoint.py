@@ -94,9 +94,6 @@ class WaypointNode(Node):
         if self.mode == 0 or self.mode == 1:
             return
         
-
-
-############################################################################################################
         if self.mode == 3: # step funksjonen til waypoint regulering.
 
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
@@ -183,8 +180,6 @@ class WaypointNode(Node):
                 self.get_logger().info(f'psi_L; angrepsvinkel til båt: {np.rad2deg(psi_L)}')
                 self.get_logger().info(f'psi_T; waypoint linje sin vinkel: {np.rad2deg(psi_T)}')
                 self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
-
-############################################################################################################
 
         if self.mode == 2:
             self.get_logger().info('Position mode not implemented yet')
