@@ -71,6 +71,14 @@ def generate_launch_description():
         output     = 'screen'
     )
 
+    hmi_node_engineering = Node(
+        package     = "ngc_hmi", 
+        executable  = "EngineeringDashboardMain",
+        name        = 'hmi_engineering',
+        output      = 'screen'
+    )
+
+
     plotjuggler_node = Node(
         package    = "plotjuggler", 
         executable = "plotjuggler",
@@ -128,6 +136,7 @@ def generate_launch_description():
     #ld.add_action(hmi_node)
     ld.add_action(hmi_node_yaml_editor)
     ld.add_action(hmi_node_autopilot)
+    ld.add_action(hmi_node_engineering)
     ld.add_action(delayed_plotjuggler)
     ld.add_action(delayed_kontroller)
     ld.add_action(delayed_estimator)
