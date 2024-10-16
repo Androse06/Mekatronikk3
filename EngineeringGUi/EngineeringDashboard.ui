@@ -368,16 +368,9 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QPushButton" name="Dp_Activate_Button">
+             <widget class="QPushButton" name="Dp_Load_Button">
               <property name="text">
-               <string>Activate</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Dp_Disable_Button">
-              <property name="text">
-               <string>Disable</string>
+               <string>Load Position</string>
               </property>
              </widget>
             </item>
@@ -458,16 +451,9 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
-               <widget class="QPushButton" name="Track_Activate_Button">
+               <widget class="QPushButton" name="Track_Load_Button">
                 <property name="text">
-                 <string>Activate</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Track_Disable_Button">
-                <property name="text">
-                 <string>Disable</string>
+                 <string>Load Route</string>
                 </property>
                </widget>
               </item>

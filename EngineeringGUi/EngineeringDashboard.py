@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'EngineeringDashboardaCAiPc.ui'
+## Form generated from reading UI file 'EngineeringDashboardmiEmDB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -333,15 +333,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.Dp_Activate_Button = QPushButton(self.centralwidget)
-        self.Dp_Activate_Button.setObjectName(u"Dp_Activate_Button")
+        self.Dp_Load_Button = QPushButton(self.centralwidget)
+        self.Dp_Load_Button.setObjectName(u"Dp_Load_Button")
 
-        self.horizontalLayout.addWidget(self.Dp_Activate_Button)
-
-        self.Dp_Disable_Button = QPushButton(self.centralwidget)
-        self.Dp_Disable_Button.setObjectName(u"Dp_Disable_Button")
-
-        self.horizontalLayout.addWidget(self.Dp_Disable_Button)
+        self.horizontalLayout.addWidget(self.Dp_Load_Button)
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout)
@@ -406,15 +401,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.Track_Activate_Button = QPushButton(self.centralwidget)
-        self.Track_Activate_Button.setObjectName(u"Track_Activate_Button")
+        self.Track_Load_Button = QPushButton(self.centralwidget)
+        self.Track_Load_Button.setObjectName(u"Track_Load_Button")
 
-        self.horizontalLayout_3.addWidget(self.Track_Activate_Button)
-
-        self.Track_Disable_Button = QPushButton(self.centralwidget)
-        self.Track_Disable_Button.setObjectName(u"Track_Disable_Button")
-
-        self.horizontalLayout_3.addWidget(self.Track_Disable_Button)
+        self.horizontalLayout_3.addWidget(self.Track_Load_Button)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -518,15 +508,13 @@ class Ui_MainWindow(object):
         self.Enable_Sail_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Dp_Label.setText(QCoreApplication.translate("MainWindow", u"DP", None))
         self.Enable_Dp_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
-        self.Dp_Activate_Button.setText(QCoreApplication.translate("MainWindow", u"Activate", None))
-        self.Dp_Disable_Button.setText(QCoreApplication.translate("MainWindow", u"Disable", None))
+        self.Dp_Load_Button.setText(QCoreApplication.translate("MainWindow", u"Load Position", None))
         self.Lat_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"LAT", None))
         self.Lon_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"LON", None))
         self.Deviation_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"DEVIATION", None))
         self.Track_Label.setText(QCoreApplication.translate("MainWindow", u"TRACK", None))
         self.Enable_Track_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
-        self.Track_Activate_Button.setText(QCoreApplication.translate("MainWindow", u"Activate", None))
-        self.Track_Disable_Button.setText(QCoreApplication.translate("MainWindow", u"Disable", None))
+        self.Track_Load_Button.setText(QCoreApplication.translate("MainWindow", u"Load Route", None))
         self.Lat_Label_Track.setText(QCoreApplication.translate("MainWindow", u"LAT", None))
         self.Lon_Label_Track.setText(QCoreApplication.translate("MainWindow", u"LON", None))
         self.Add_WayPoint_Button.setText(QCoreApplication.translate("MainWindow", u"Add waypoint", None))
