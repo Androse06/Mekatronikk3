@@ -20,7 +20,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 "msg/HeadingDevice.msg"
 "msg/Route.msg"
 "msg/Waypoint.msg"
-"msg/Mode.msg"
+"msg/HMI.msg"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

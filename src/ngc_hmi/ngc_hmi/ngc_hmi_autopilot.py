@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import Eta, Nu, Mode
+from ngc_interfaces.msg import Eta, Nu, HMI
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -28,7 +28,7 @@ class AutopilotHMI(Node):
         self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
 
         #### System mode publisher ####
-        self.mode_publisher = self.create_publisher(Mode, 'mode', default_qos_profile)
+        self.mode_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
 
         # Initialize the UI
         self.init_ui()
@@ -93,50 +93,38 @@ class AutopilotHMI(Node):
     ####### Knapper: funksjon #######
 
     def parse_gpx_file(self):
-        mode_message = Mode()
+        mode_message = HMI()
         mode_message.route = True
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('gpx reload')
 
     def set_standby_mode(self):
-        mode_message = Mode()
-        mode_message.standby = True
-        mode_message.position = False
-        mode_message.sail = False
-        mode_message.track = False
+        mode_message = HMI()
+        mode_message.mode = 0
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Standby mode activated')
         self.mode_label = 'Standby'
         self.label.setText(f'Mode: {self.mode_label}')
 
-    def set_position_mode(self):
-        mode_message = Mode()
-        mode_message.standby = False
-        mode_message.position = True
-        mode_message.sail = False
-        mode_message.track = False
-        self.mode_publisher.publish(mode_message)
-        self.get_logger().info('Position mode activated')
-        self.mode_label = 'Position'
-        self.label.setText(f'Mode: {self.mode_label}')
-
     def set_sail_mode(self):
-        mode_message = Mode()
-        mode_message.standby = False
-        mode_message.position = False
-        mode_message.sail = True
-        mode_message.track = False
+        mode_message = HMI()
+        mode_message.mode = 1
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Sail mode activated')
         self.mode_label = 'Sail'
         self.label.setText(f'Mode: {self.mode_label}')
 
+    def set_position_mode(self):
+        mode_message = HMI()
+        mode_message.mode = 2
+        self.mode_publisher.publish(mode_message)
+        self.get_logger().info('Position mode activated')
+        self.mode_label = 'Position'
+        self.label.setText(f'Mode: {self.mode_label}')
+
     def set_track_mode(self):
-        mode_message = Mode()
-        mode_message.standby = False
-        mode_message.position = False
-        mode_message.sail = False
-        mode_message.track = True
+        mode_message = HMI()
+        mode_message.mode = 3
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Track mode activated')
         self.mode_label = 'Track'
