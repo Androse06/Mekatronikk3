@@ -53,16 +53,15 @@ class EngineeringHMI(Node):
         self.ui.Sail_Heading_Dial.valueChanged.connect(self.update_sail_heading)
         
 
-
         # Connect buttons to methods
         self.ui.Enable_Standby_Button.clicked.connect(self.enable_standby)
         self.ui.Enable_Sail_Button.clicked.connect(self.enable_sail)
         self.ui.Enable_Dp_Button.clicked.connect(self.enable_dp)
         self.ui.Enable_Track_Button.clicked.connect(self.enable_track)
-        self.ui.Dp_Load_Button.pressed.connect(self.load_dp)
-        self.ui.Dp_Load_Button.released.connect(self.disable_dp_load)
+
+        self.ui.Dp_Load_Button.clicked.connect(self.load_dp)
         self.ui.Track_Load_Button.pressed.connect(self.load_track)
-        self.ui.Track_Load_Button.released.connect(self.disable_track_load)
+       
         self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
        
         # Connect Inputs
@@ -91,18 +90,25 @@ class EngineeringHMI(Node):
 
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
-        self.sail_throttle_value = value
-      
-        self.ui.Sail_Throttle_LCD.display(self.sail_throttle_value)
+        hmi_message = HMI()
+        hmi_message.nu = value
+        self.hmi_publisher.publish(hmi_message)
+
+        # Update the LCD display to show the current throttle
+        self.ui.Sail_Throttle_LCD.display(value)
 
     # Method to programmatically set the sail throttle slider's value
     def set_sail_throttle_value(self, value):
         self.ui.Sail_Throttle_Slider.setValue(value)
         print(f"Sail Throttle Slider set to: {value}")
 
+
+
     # Method to handle sail heading dial value changes
     def update_sail_heading(self, value):
-        self.sail_heading_value = value
+        hmi_message = HMI()
+        hmi_message.eta = value
+        self.hmi_publisher.publish(hmi_message)
 
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(self.sail_heading_value)
@@ -111,6 +117,7 @@ class EngineeringHMI(Node):
     def set_sail_heading_value(self, value):
         self.ui.Sail_Heading_Dial.setValue(value)
         print(f"Sail Heading Dial set to: {value}")
+
 
 
     def set_Th1_Icon(self, value):
@@ -141,76 +148,58 @@ class EngineeringHMI(Node):
 
     # Method to handle the Enable Standby button click
     def enable_standby(self):
+        hmi_message = HMI()
+        hmi_message.mode = 0
+        self.hmi_publisher.publish(hmi_message)
 
-        mode_message = HMI()
-        mode_message.mode = 0
-        self.hmi_publisher.publish(mode_message)
-
-        self.Operating_Mode = 0
         self.ui.Standby_Status_Icon.setValue(int(100))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.Operating_Mode)
 
     # Method to handle the Enable Sail button click
     def enable_sail(self):
+        hmi_message = HMI()
+        hmi_message.mode = 1
+        self.hmi_publisher.publish(hmi_message)
 
-        mode_message = HMI()
-        mode_message.mode = 1
-        self.hmi_publisher.publish(mode_message)
-
-        self.Operating_Mode = 1
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(100))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.Operating_Mode)
 
     # Method to handle the Enable Dp button click
     def enable_dp(self):
+        hmi_message = HMI()
+        hmi_message.mode = 2
+        self.hmi_publisher.publish(hmi_message)
 
-        mode_message = HMI()
-        mode_message.mode = 2
-        self.hmi_publisher.publish(mode_message)
-
-        self.Operating_Mode = 2
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(100))
-        self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.Operating_Mode)
+        self.ui.Track_Status_Icon.setValue(int(0))  
     
     # Method to handle the Track Sail button click
     def enable_track(self):
-        self.Operating_Mode = 3
-
-        mode_message = HMI()
-        mode_message.mode = 3
-        self.hmi_publisher.publish(mode_message)
+        hmi_message = HMI()
+        hmi_message.mode = 3
+        self.hmi_publisher.publish(hmi_message)
 
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(100))
-        print(self.Operating_Mode)
 
     def load_dp(self):
-        self.dp_load = True
-        print(self.dp_load)  
-
-    def disable_dp_load(self):
-        self.dp_load = False
-        print(self.dp_load)      
+        hmi_message = HMI()
+        hmi_message.point = True
+        self.hmi_publisher.publish(hmi_message) 
 
     def load_track(self):
-        self.track_Load = True
-        print(self.track_Load)
+        hmi_message = HMI()
+        hmi_message.route = True
+        self.hmi_publisher.publish(hmi_message) 
         
-    def disable_track_load(self):
-        self.track_load = False
-        print(self.track_load)   
-       
     def spin_ros(self):
         rclpy.spin_once(self, timeout_sec=0.1)
     
