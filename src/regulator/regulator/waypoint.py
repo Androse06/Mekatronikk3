@@ -204,7 +204,6 @@ NOTATER:
     Når regulatoren mottar 'track' signal over mode topic, så skal den hente ut koordinatene fra .gpx filen og sende til regulatoren. 
     Det skal være mulig å streame dataene fra OpenCPN direkte til ROS, og bør utforskes.
 
--   (12.10.24 - oskar) Track mode fungerer nå, men variablen 'd' (avstanden fra båt til linje) har ikke fortegn. 
-    Jeg har laget en if løkke som justerer fortegnet hvis den ser at båten har forbipasert linjen, men den feiler igjen når den må begynne å kjøre vestover.
+-   (12.10.24 - oskar) Track mode fungerer nå, men hvis båten passerer waypointet uten å gå innenfor radiusen så vil den ikke gå tilbake til waypointet; den vil fortsette langs linjen uendelig.
 
 '''
