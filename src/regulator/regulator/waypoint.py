@@ -16,10 +16,7 @@ class WaypointNode(Node):
 
         self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_waypoint_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
 
-        self.standby        = False
-        self.position       = False
-        self.sail           = False
-        self.track          = False
+        self.mode           = 0
         self.load_route     = False
         self.load_waypoint  = False
         
@@ -29,8 +26,6 @@ class WaypointNode(Node):
 
         self.i = 0
 
-        self.repeat_check = False # Brukes for å unngå å indekse gpx filen flere ganger enn nødvendig. Første pass når track mode settes skal waypoints hentes ut fra den spesifiserte filen.
-
         self.timer = self.create_timer(self.step_size, self.step_waypoint)
 
         self.get_logger().info("Waypoint-node er initialisert.")
@@ -39,35 +34,19 @@ class WaypointNode(Node):
 
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-        if msg.mode == 0:
-            self.standby = True
-            self.position = False
-            self.sail = False
-            self.track = False
-        if msg.mode == 1:
-            self.standby = False
-            self.position = False
-            self.sail = True
-            self.track = False
-        if msg.mode == 2:
-            self.standby = False
-            self.position = True
-            self.sail = False
-            self.track = False
-        if msg.mode == 3:
-            self.standby = False
-            self.position = False
-            self.sail = False
-            self.track = True
 
+        self.mode = msg.mode
         self.load_route     = msg.route
         self.load_waypoint  = msg.point
 
         self.i = 0
 
-        if msg.route:
-            self.repeat_check = False
+        if msg.route: # .gpx parsing løkke
+            self.coordinates = self.gpx_parsing()
             self.pass_counter = 0
+            if self.debug:
+                self.get_logger().info(f'Waypoints: {self.pass_counter}')
+                self.get_logger().info(f'Coordinates: {self.coordinates}')
 
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
@@ -87,11 +66,10 @@ class WaypointNode(Node):
                 longitude = point.longitude
                 coordinates.append((latitude, longitude))
                 if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
-                    self.get_logger().info('gpx indexing pass')
+                    #self.get_logger().info('gpx indexing pass')
                     self.pass_counter += 1
         
-        self.repeat_check   = True
-        self.load_route     = False
+        self.load_route = False
         self.i = 0
 
         return coordinates
@@ -113,21 +91,17 @@ class WaypointNode(Node):
 
     def step_waypoint(self):
 
-        if self.standby or self.sail:
+        if self.mode == 0 or self.mode == 1:
             return
         
-        if self.load_route and not self.repeat_check: # .gpx parsing løkke
-            self.coordinates = self.gpx_parsing()
-            if self.debug:
-                self.get_logger().info(f'Waypoints: {self.pass_counter}')
-                self.get_logger().info(f'Coordinates: {self.coordinates}')
+
 
 ############################################################################################################
-        if self.track: # step funksjonen til waypoint regulering.
+        if self.mode == 3: # step funksjonen til waypoint regulering.
 
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
                 self.get_logger().info('No waypoints loaded')
-                self.track = False
+                self.mode = 0
                 self.coordinates = []
                 return
 
@@ -138,8 +112,7 @@ class WaypointNode(Node):
 
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
-                self.track = False
-                self.position = True
+                self.mode = 2
                 self.i = 0
                 return
 
@@ -191,7 +164,6 @@ class WaypointNode(Node):
 
             if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
                 self.i += 1
-                self.wp_0_pass = False
 
             eta_message = Eta()
             eta_message.psi = psi_d
@@ -214,9 +186,9 @@ class WaypointNode(Node):
 
 ############################################################################################################
 
-        if self.position:
+        if self.mode == 2:
             self.get_logger().info('Position mode not implemented yet')
-            self.position = False
+            self.mode = 0
 
 def main(args=None):
     rclpy.init(args=args)
