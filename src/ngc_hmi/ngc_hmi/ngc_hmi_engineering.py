@@ -19,7 +19,7 @@ import signal
 
 class EngineeringHMI(Node):
     def __init__(self):
-        super().__init__('ship_engineering_hmi')
+        super().__init__('ngc_engineering_hmi')
 
         #### System mode publisher ####
         self.hmi_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
