@@ -42,8 +42,29 @@ class CustomHmi:
         ##### ROS MILJØ #####
         self.shared_data = shared_data
        
-       
-     
+
+        """
+        # Subscribers to eta_sim and nu_sim
+        self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
+        self.create_subscription(Nu, 'nu_sim', self.update_nu_feedback, default_qos_profile)
+
+        # Publishers for eta_setpoint and nu_setpoint
+        self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+
+        #### System mode publisher ####
+        self.mode_publisher = self.create_publisher(Mode, 'mode', default_qos_profile)
+        self.Hmi_publsiher = self.create_publisher(Hmi, 'hmi', default_qos_profile)
+        
+
+    def update_eta_feedback(self, msg):
+        ##
+
+    def update_nu_feedback(self, msg):
+        ###
+
+    """
+    
 
 class MainWindow(QMainWindow):
     def __init__(self, shared_data):
