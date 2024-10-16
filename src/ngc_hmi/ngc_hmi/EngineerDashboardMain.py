@@ -14,10 +14,12 @@ import ngc_utils.math_utils as mu
 import signal
 
 
+###
+
+
 class EngineeringHMI(Node):
     def __init__(self):
         super().__init__('ship_engineering_hmi')
-
 
         #### System mode publisher ####
         self.hmi_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
@@ -27,24 +29,13 @@ class EngineeringHMI(Node):
 
     def init_ui(self):
 
-        # Create the application object
-        self.app = QApplication(sys.argv)
-
-        # Create an instance of the MainWindow and show it
-        window = MainWindow()
-        window.show()
-
-        # Start the application's event loop
-        sys.exit(app.exec())
-            
-        ##### PyQt Dashboard #####
-        self.shared_data = shared_data    
-
-        # Create an instance of the Ui_MainWindow
         self.ui = Ui_MainWindow()
 
-        # Set up the UI
-        self.ui.setupUi(self)
+        # Create an instance of the MainWindow and show it
+        self.window = QMainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
 
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
@@ -100,9 +91,9 @@ class EngineeringHMI(Node):
 
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
-        self.shared_data.sail_throttle_value = value
+        self.sail_throttle_value = value
       
-        self.ui.Sail_Throttle_LCD.display(self.shared_data.sail_throttle_value)
+        self.ui.Sail_Throttle_LCD.display(self.sail_throttle_value)
 
     # Method to programmatically set the sail throttle slider's value
     def set_sail_throttle_value(self, value):
@@ -111,10 +102,10 @@ class EngineeringHMI(Node):
 
     # Method to handle sail heading dial value changes
     def update_sail_heading(self, value):
-        self.shared_data.sail_heading_value = value
+        self.sail_heading_value = value
 
         # Update the LCD display to show the current heading
-        self.ui.Sail_Heading_LCD.display(self.shared_data.sail_heading_value)
+        self.ui.Sail_Heading_LCD.display(self.sail_heading_value)
 
     # Method to programmatically set the sail heading dial's value
     def set_sail_heading_value(self, value):
@@ -150,67 +141,92 @@ class EngineeringHMI(Node):
 
     # Method to handle the Enable Standby button click
     def enable_standby(self):
-        self.shared_data.Operating_Mode = 0
+
+        mode_message = HMI()
+        mode_message.mode = 0
+        self.hmi_publisher.publish(mode_message)
+
+        self.Operating_Mode = 0
         self.ui.Standby_Status_Icon.setValue(int(100))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.shared_data.Operating_Mode)
+        print(self.Operating_Mode)
 
     # Method to handle the Enable Sail button click
     def enable_sail(self):
-        self.shared_data.Operating_Mode = 1
+
+        mode_message = HMI()
+        mode_message.mode = 1
+        self.hmi_publisher.publish(mode_message)
+
+        self.Operating_Mode = 1
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(100))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.shared_data.Operating_Mode)
+        print(self.Operating_Mode)
 
     # Method to handle the Enable Dp button click
     def enable_dp(self):
-        self.shared_data.Operating_Mode = 2
+
+        mode_message = HMI()
+        mode_message.mode = 2
+        self.hmi_publisher.publish(mode_message)
+
+        self.Operating_Mode = 2
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(100))
         self.ui.Track_Status_Icon.setValue(int(0))
-        print(self.shared_data.Operating_Mode)
+        print(self.Operating_Mode)
     
     # Method to handle the Track Sail button click
     def enable_track(self):
-        self.shared_data.Operating_Mode = 3
+        self.Operating_Mode = 3
+
+        mode_message = HMI()
+        mode_message.mode = 3
+        self.hmi_publisher.publish(mode_message)
+
         self.ui.Standby_Status_Icon.setValue(int(0))
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(100))
-        print(self.shared_data.Operating_Mode)
+        print(self.Operating_Mode)
 
     def load_dp(self):
-        self.shared_data.dp_load = True
-        print(self.shared_data.dp_load)  
+        self.dp_load = True
+        print(self.dp_load)  
 
     def disable_dp_load(self):
-        self.shared_data.dp_load = False
-        print(self.shared_data.dp_load)      
+        self.dp_load = False
+        print(self.dp_load)      
 
     def load_track(self):
-        self.shared_data.track_Load = True
-        print(self.shared_data.track_Load)
+        self.track_Load = True
+        print(self.track_Load)
         
     def disable_track_load(self):
-        self.shared_data.track_load = False
-        print(self.shared_data.track_load)   
+        self.track_load = False
+        print(self.track_load)   
        
+    def spin_ros(self):
+        rclpy.spin_once(self, timeout_sec=0.1)
     
 
 def main(args=None):
     rclpy.init(args=args)
+
+    # Create the application object
+    app = QApplication(sys.argv)
 
     # Create the AutopilotHMI node
     engineering_hmi = EngineeringHMI()
 
     # Set up a QTimer to spin the ROS2 node and handle callbacks
     timer = QTimer()
-    timer.timeout.connect(lambda: rclpy.spin_once(engineering_hmi, timeout_sec=0.1))
+    timer.timeout.connect(engineering_hmi.spin_ros)
     timer.start(100)  # Call every 100 ms
 
     # Handle signal for graceful shutdown
@@ -218,12 +234,12 @@ def main(args=None):
         print("SIGINT received, shutting down...")
         engineering_hmi.destroy_node()
         rclpy.shutdown()
-        QApplication.quit()
+        app.quit()
 
     signal.signal(signal.SIGINT, signal_handler)
 
-    # Start the PyQt5 application event loop
-    sys.exit(engineering_hmi.app.exec_())
+    # Start the application event loop
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
