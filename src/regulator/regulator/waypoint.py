@@ -35,9 +35,9 @@ class WaypointNode(Node):
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
 
-        self.mode = msg.mode
-        self.load_route     = msg.route
-        self.load_waypoint  = msg.point
+        self.mode: int              = msg.mode # 0 = standby, 1 = position, 2 = sail, 3 = track
+        self.load_route: bool       = msg.route # for track
+        self.load_waypoint: bool    = msg.point # for position
 
         self.i = 0
 
