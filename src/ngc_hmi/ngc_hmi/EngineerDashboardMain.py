@@ -4,73 +4,39 @@ from PySide6.QtCore import QStringListModel, QTimer
 from EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 
-
-
-"""
-### Import for ros ###
-import signal
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QFormLayout, QHBoxLayout, QPushButton, QLabel, QSpacerItem, QSizePolicy, QLCDNumber, QDial, QSlider
-from PyQt5.QtCore import Qt, QTimer
-from PyQt5.QtGui import QFont
+### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import Eta, Nu, Mode
+from ngc_interfaces.msg import HMI
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
-"""
+import signal
 
 
-
-class SharedData:
+class EngineeringHMI(Node):
     def __init__(self):
-        self.Operating_Mode         = 0 # 0 = standby  1 = sail  2 = dp  3 = track
-        self.dp_load                = True
-        self.track_load             = True
-        self.sail_throttle_value    = 0
-        self.sail_heading_value     = 0
-        self.Global_Th1_Rps         = 0
-        self.Global_Th2_Rps         = 0
-        self.Global_Heading         = 0
-        self.Global_Speed           = 0
-        
+        super().__init__('ship_engineering_hmi')
 
-
-class CustomHmi:
-    def __init__(self, shared_data):
-            
-        ##### ROS MILJØ #####
-        self.shared_data = shared_data
-       
-
-        """
-        # Subscribers to eta_sim and nu_sim
-        self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
-        self.create_subscription(Nu, 'nu_sim', self.update_nu_feedback, default_qos_profile)
-
-        # Publishers for eta_setpoint and nu_setpoint
-        self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
-        self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
 
         #### System mode publisher ####
-        self.mode_publisher = self.create_publisher(Mode, 'mode', default_qos_profile)
-        self.Hmi_publsiher = self.create_publisher(Hmi, 'hmi', default_qos_profile)
-        
+        self.hmi_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
 
-    def update_eta_feedback(self, msg):
-        ##
+        # Initialize the UI
+        self.init_ui()
 
-    def update_nu_feedback(self, msg):
-        ###
+    def init_ui(self):
 
-    """
-    
+        # Create the application object
+        self.app = QApplication(sys.argv)
 
-class MainWindow(QMainWindow):
-    def __init__(self, shared_data):
-        super(MainWindow, self).__init__()
+        # Create an instance of the MainWindow and show it
+        window = MainWindow()
+        window.show()
 
-
+        # Start the application's event loop
+        sys.exit(app.exec())
+            
         ##### PyQt Dashboard #####
         self.shared_data = shared_data    
 
@@ -118,7 +84,6 @@ class MainWindow(QMainWindow):
         self.waypoint_model = QStringListModel()
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
-
 
 
 
@@ -234,21 +199,32 @@ class MainWindow(QMainWindow):
     def disable_track_load(self):
         self.shared_data.track_load = False
         print(self.shared_data.track_load)   
-    
        
     
 
-if __name__ == "__main__":
-    # Create the application object
-    shared_data = SharedData()
-    hmi_node = CustomHmi(shared_data)
-    
+def main(args=None):
+    rclpy.init(args=args)
 
-    app = QApplication(sys.argv)
+    # Create the AutopilotHMI node
+    engineering_hmi = EngineeringHMI()
 
-    # Create an instance of the MainWindow and show it
-    window = MainWindow(shared_data)
-    window.show()
+    # Set up a QTimer to spin the ROS2 node and handle callbacks
+    timer = QTimer()
+    timer.timeout.connect(lambda: rclpy.spin_once(engineering_hmi, timeout_sec=0.1))
+    timer.start(100)  # Call every 100 ms
 
-    # Start the application's event loop
-    sys.exit(app.exec())
+    # Handle signal for graceful shutdown
+    def signal_handler(sig, frame):
+        print("SIGINT received, shutting down...")
+        engineering_hmi.destroy_node()
+        rclpy.shutdown()
+        QApplication.quit()
+
+    signal.signal(signal.SIGINT, signal_handler)
+
+    # Start the PyQt5 application event loop
+    sys.exit(engineering_hmi.app.exec_())
+
+
+if __name__ == '__main__':
+    main()
