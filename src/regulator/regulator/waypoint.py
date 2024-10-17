@@ -5,6 +5,8 @@ from ngc_interfaces.msg import HMI, Eta, Nu
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
+import ngc_utils.math_utils as mu
+
 class WaypointNode(Node):
     def __init__(self):
         super().__init__('waypoint')
@@ -15,7 +17,8 @@ class WaypointNode(Node):
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
 
-        self.nu_setppoint_pub = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
+        self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
+        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
         self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
 
         self.mode           = 0
@@ -89,7 +92,29 @@ class WaypointNode(Node):
         self.i = 0
 
         return coordinates
+    
+    def eta_publisher(self, eta):
+        eta_msg = Eta()
+        eta_msg.psi = eta
+        self.eta_setppoint_pub.publish(eta_msg)
+        if self.debug:
+            self.get_logger().info(f'psi: {eta}')
 
+    def nu_publisher(self, nu):
+        nu_msg = Nu()
+        nu_msg.u = nu
+        self.nu_setppoint_pub.publish(nu_msg)
+        if self.debug:
+            self.get_logger().info(f'nu: {nu}')
+
+    def mode_publisher(self, mode):
+        mode_msg = HMI()
+        mode_msg.mode   = mode
+        mode_msg.route  = self.load_route
+        mode_msg.point  = self.load_waypoint
+        mode_msg.eta    = self.eta_psi
+        mode_msg.nu     = self.nu_u
+        self.mode_pub.publish(mode_msg)
 
     def meter_p_coordinate(self, lat, lon, v_north, v_east): # koordinatene er gitt i grader, v_north og v_east er gitt i meter. denne brukes til å kunne plusse a_merket på wp1 for å finne posisjon_merket.
         R_earth = 6371000 # meter
@@ -111,17 +136,11 @@ class WaypointNode(Node):
             return
 
         elif self.mode == 1:
-            eta_message = Eta()
-            eta_message.psi = self.eta_psi
-            self.eta_setppoint_pub.publish(eta_message)
+            eta = self.eta_psi
+            self.eta_publisher(eta)
 
-            nu_message = Nu()
-            nu_message.u = self.nu_u
-            self.nu_setppoint_pub.publish(nu_message)
-
-            if self.debug:
-                self.get_logger().info(f'psi: {self.eta_psi}')
-                self.get_logger().info(f'nu: {self.nu_u}')
+            nu = self.nu_u
+            self.nu_publisher(nu)
 
         
         elif self.mode == 2:
@@ -131,9 +150,10 @@ class WaypointNode(Node):
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
             else:
-                self.mode = 0
+                self.mode_publisher(0)
                 self.get_logger().info('waypoint mangler')
                 return
+            
             lat_set = setpoint[0]
             lon_set = setpoint[1]
             lat_hat = self.eta[0]
@@ -142,35 +162,30 @@ class WaypointNode(Node):
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
             error = np.sqrt(distance[0]**2 + distance[1]**2) - delta # 0 når båten ligger 5 meter unna wp
 
-            nu_setpoint = np.tanh(error/10) * 8
+            nu_setpoint = np.tanh(error/10) * 2
 
-            if nu_setpoint < 0:
-                nu_setpoint += 2*np.pi
-
-            nu_message = Nu()
-            nu_message.u = nu_setpoint
-            self.nu_setppoint_pub.publish(nu_message)
+            self.nu_publisher(nu_setpoint)
 
             ### psi ###s
 
-            psi_setpoint = np.arctan2(distance[1], distance[0])
+            psi_angle = np.arctan2(distance[1], distance[0])
 
-            psi_message = Eta()
-            psi_message.psi = psi_setpoint
-            self.eta_setppoint_pub.publish(psi_message)
+            psi_setpoint = mu.mapToPiPi(psi_angle)
+
+            self.eta_publisher(psi_setpoint)
 
             if self.debug:
                 self.get_logger().info(f'error: {error}')
                 self.get_logger().info(f'distance: {distance}')
                 self.get_logger().info(f'nu_setpoint: {nu_setpoint}')
-                self.get_logger().info(f'psi_setpoint: {np.rad2deg(psi_setpoint)}')
+                self.get_logger().info(f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}')
 
 
         elif self.mode == 3: # step funksjonen til waypoint regulering.
 
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
                 self.get_logger().info('No waypoints loaded')
-                self.mode = 0
+                self.mode_publisher(0)
                 self.coordinates = []
                 return
 
@@ -181,7 +196,7 @@ class WaypointNode(Node):
 
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
-                self.mode = 2
+                self.mode_publisher(2)
                 self.i = 0
                 return
 
@@ -234,19 +249,16 @@ class WaypointNode(Node):
             if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
                 self.i += 1
 
-            eta_message = Eta()
-            eta_message.psi = psi_d
-            self.eta_setppoint_pub.publish(eta_message)
+            self.eta_publisher(psi_d)
 
-            nu_message = Nu()
-            nu_message.u = self.nu_u
-            self.nu_setppoint_pub.publish(nu_message)
+            nu = self.nu_u
+            self.nu_publisher(nu)
 
             if self.debug:
                 if d_vec_pass_check < 0:
-                    self.get_logger().info('Pass: True')
+                    self.get_logger().info('Line pass: True')
                 elif d_vec_pass_check > 0:
-                    self.get_logger().info('Pass: False')
+                    self.get_logger().info('Line pass: False')
                 
                 self.get_logger().info(f'wp nr: {self.i + 1}')
                 self.get_logger().info(f'båt til wp avstand: {p_distance}')

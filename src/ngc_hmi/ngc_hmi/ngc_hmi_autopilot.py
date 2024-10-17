@@ -23,7 +23,7 @@ class AutopilotHMI(Node):
         # Subscribers to eta_sim and nu_sim
         self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
         self.create_subscription(Nu, 'nu_sim', self.update_nu_feedback, default_qos_profile)
-
+        self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
         # Publishers for eta_setpoint and nu_setpoint
         #self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         #self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
@@ -203,6 +203,22 @@ class AutopilotHMI(Node):
     def update_nu_feedback(self, msg):
         # Handle the incoming Nu message from nu_sim
         pass  # Visualization of the feedback can be added here
+
+    def hmi_callback(self, msg: HMI):
+        self.mode = msg.mode
+
+        if msg.mode == 0:
+            self.mode_label = 'Standby'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif msg.mode == 1:
+            self.mode_label = 'Sail'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif msg.mode == 2:
+            self.mode_label = 'Position'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif msg.mode == 3:
+            self.mode_label = 'Track'
+            self.label.setText(f'Mode: {self.mode_label}')
 
     def update_heading_setpoint(self, value):
         # Update the heading setpoint value
