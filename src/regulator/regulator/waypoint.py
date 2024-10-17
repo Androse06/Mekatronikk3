@@ -54,13 +54,18 @@ class WaypointNode(Node):
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
+        if not self.debug:
+            self.get_logger().info(f'callback - mode: {msg.mode}')
+            self.get_logger().info(f'callback - route: {msg.route}')
+            self.get_logger().info(f'callback - point: {msg.point}')
+            self.get_logger().info(f'callback - eta: {msg.eta}')
+            self.get_logger().info(f'callback - nu: {msg.nu}')
+            
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
 
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-
-
 
     def gpx_parsing(self):
 
@@ -123,8 +128,12 @@ class WaypointNode(Node):
             ### Nu ###
             delta = 5
 
-            setpoint = self.coordinates[-1]
-
+            if len(self.coordinates) > 0:
+                setpoint = self.coordinates[-1]
+            else:
+                self.mode = 0
+                self.get_logger().info('waypoint mangler')
+                return
             lat_set = setpoint[0]
             lon_set = setpoint[1]
             lat_hat = self.eta[0]
@@ -133,7 +142,10 @@ class WaypointNode(Node):
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
             error = np.sqrt(distance[0]**2 + distance[1]**2) - delta # 0 når båten ligger 5 meter unna wp
 
-            nu_setpoint = np.tanh(error/10) * 4
+            nu_setpoint = np.tanh(error/10) * 8
+
+            if nu_setpoint < 0:
+                nu_setpoint += 2*np.pi
 
             nu_message = Nu()
             nu_message.u = nu_setpoint
@@ -141,17 +153,17 @@ class WaypointNode(Node):
 
             ### psi ###s
 
-            psi_setpoint = np.arctan2(distance[0], distance[1])
+            psi_setpoint = np.arctan2(distance[1], distance[0])
 
             psi_message = Eta()
-            psi_message.psi = np.pi/2 - psi_setpoint
+            psi_message.psi = psi_setpoint
             self.eta_setppoint_pub.publish(psi_message)
 
             if self.debug:
                 self.get_logger().info(f'error: {error}')
                 self.get_logger().info(f'distance: {distance}')
                 self.get_logger().info(f'nu_setpoint: {nu_setpoint}')
-                self.get_logger().info(f'psi_setpoint: {np.rad2deg(np.pi/2 - psi_setpoint)}')
+                self.get_logger().info(f'psi_setpoint: {np.rad2deg(psi_setpoint)}')
 
 
         elif self.mode == 3: # step funksjonen til waypoint regulering.
