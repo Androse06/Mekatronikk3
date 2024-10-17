@@ -18,7 +18,7 @@ class AutopilotHMI(Node):
         self.heading_setpoint = 0.5  # Initial heading setpoint
         self.surge_setpoint   = 0.0  # Initial surge speed setpoint in knots
         self.mode_label = 'init'
-        self.mode_var = 0
+        self.mode = 0
 
         # Subscribers to eta_sim and nu_sim
         self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
@@ -100,37 +100,29 @@ class AutopilotHMI(Node):
         self.get_logger().info('gpx reload')
 
     def set_standby_mode(self):
-        mode_message = HMI()
-        mode_message.mode = 0
-        self.mode_var = 0
-        self.mode_publisher.publish(mode_message)
+        self.mode = 0
+        self.publish_setpoints()
         self.get_logger().info('Standby mode activated')
         self.mode_label = 'Standby'
         self.label.setText(f'Mode: {self.mode_label}')
 
     def set_sail_mode(self):
-        mode_message = HMI()
-        mode_message.mode = 1
-        self.mode_var = 1
-        self.mode_publisher.publish(mode_message)
+        self.mode = 1
+        self.publish_setpoints()
         self.get_logger().info('Sail mode activated')
         self.mode_label = 'Sail'
         self.label.setText(f'Mode: {self.mode_label}')
 
     def set_position_mode(self):
-        mode_message = HMI()
-        mode_message.mode = 2
-        self.mode_var = 2
-        self.mode_publisher.publish(mode_message)
+        self.mode = 2
+        self.publish_setpoints()
         self.get_logger().info('Position mode activated')
         self.mode_label = 'Position'
         self.label.setText(f'Mode: {self.mode_label}')
 
     def set_track_mode(self):
-        mode_message = HMI()
-        mode_message.mode = 3
-        self.mode_var = 3
-        self.mode_publisher.publish(mode_message)
+        self.mode = 3
+        self.publish_setpoints()
         self.get_logger().info('Track mode activated')
         self.mode_label = 'Track'
         self.label.setText(f'Mode: {self.mode_label}')
@@ -222,17 +214,13 @@ class AutopilotHMI(Node):
 
     def publish_setpoints(self):
         # Convert heading to radians and publish Eta setpoint
-        eta_msg = HMI()
-        eta_msg.mode = self.mode_var
-        eta_msg.eta = float(mu.mapToPiPi(np.deg2rad(self.heading_setpoint)))  # Convert degrees to radians and map 2 plus minus pi
-        self.mode_publisher.publish(eta_msg)
+        hmi_msg = HMI()
+        hmi_msg.mode = self.mode
+        hmi_msg.eta = float(mu.mapToPiPi(np.deg2rad(self.heading_setpoint)))  # Convert degrees to radians and map 2 plus minus pi
+        hmi_msg.nu = float(self.surge_setpoint) * 0.514444
+        self.mode_publisher.publish(hmi_msg)
 
-        # Convert surge speed from knots to meters per second (1 knot = 0.514444 m/s)
-        nu_msg = HMI()
-        nu_msg.mode = self.mode_var
-        nu_msg.nu = float(self.surge_setpoint) * 0.514444
-        self.mode_publisher.publish(nu_msg)
-
+    
 
 def main(args=None):
     rclpy.init(args=args)
