@@ -1,4 +1,0 @@
-[console_scripts]
-allokering = regulator.allokering:main
-estimator = regulator.estimator:main
-kontroller = regulator.kontroller:main

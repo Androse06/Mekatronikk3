@@ -1,4 +1,0 @@
-[console_scripts]
-anemometer = ngc_sensor_sims.anemometer:main
-compass = ngc_sensor_sims.compass:main
-gnss = ngc_sensor_sims.gnss:main

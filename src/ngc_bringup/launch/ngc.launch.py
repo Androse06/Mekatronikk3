@@ -20,7 +20,7 @@ def generate_launch_description():
     plotjuggler_config = os.path.join(
         get_package_share_directory('ngc_bringup'),
         'config',
-        'PlotJuggler_layout_Otter.xml'
+        'PlotJuggler_layout.xml'
     )
 
     
@@ -71,6 +71,14 @@ def generate_launch_description():
         output     = 'screen'
     )
 
+    hmi_node_engineering = Node(
+        package     = "ngc_hmi", 
+        executable  = "ngc_hmi_engineering",
+        name        = 'hmi_engineering',
+        output      = 'screen'
+    )
+
+
     plotjuggler_node = Node(
         package    = "plotjuggler", 
         executable = "plotjuggler",
@@ -106,6 +114,18 @@ def generate_launch_description():
         output      = 'screen'
     )
 
+    waypoint = Node(
+        package     = "regulator",
+        executable  = "waypoint",
+        name        = 'waypoint',
+        output      = 'screen'
+    )
+
+    opencpn_process = ExecuteProcess(
+        cmd = ['opencpn'],
+        output = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
     delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
     delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
@@ -121,9 +141,11 @@ def generate_launch_description():
     #ld.add_action(hmi_node)
     ld.add_action(hmi_node_yaml_editor)
     ld.add_action(hmi_node_autopilot)
+    #ld.add_action(hmi_node_engineering)
+    #ld.add_action(opencpn_process)
     ld.add_action(delayed_plotjuggler)
     ld.add_action(delayed_kontroller)
     ld.add_action(delayed_estimator)
     ld.add_action(delayed_allokering)
-
+    ld.add_action(waypoint)
     return ld

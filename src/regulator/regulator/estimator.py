@@ -88,7 +88,7 @@ class Estimator(Node):
         self.lon_measured   = msg.lon
         self.gnss_valid     = msg.valid_signal
 
-        if self.estimator_pos_initialized == False:
+        if self.estimator_pos_initialized == False and msg.valid_signal == True:
             self.estimator_pos_initialized = True
             self.lat_hat    = msg.lat
             self.lon_hat    = msg.lon
@@ -99,11 +99,13 @@ class Estimator(Node):
         self.rot                = msg.rot
         self.heading_valid      = msg.valid_signal
 
-        if self.estimator_hdg_initialized == False:
+        if self.estimator_hdg_initialized == False and msg.valid_signal == True:
             self.estimator_hdg_initialized = True
+            self.eta_hat[2] = mu.mapToPiPi(msg.heading)
+            self.nu_hat[2] = msg.rot
 
     def tau_callback(self, msg: Tau):
-        self.tau = np.array([msg.surge_x, msg.sway_y, msg.yaw_n])
+        self.tau = np.array([msg.surge_x, 0.0, msg.yaw_n])
 
 
     def step_estimator(self):
@@ -116,9 +118,11 @@ class Estimator(Node):
                 if self.gnss_valid == True:
 
                     eta_tilde[0], eta_tilde[1] = geo.calculate_distance_north_east(self.lat_hat, self.lon_hat, self.lat_measured, self.lon_measured)
+                    self.gnss_valid = False
 
                 if self.heading_valid == True:
                     eta_tilde[2] = mu.mapToPiPi(self.heading_measured - self.eta_hat[2])
+                    self.heading_valid = False
 
                 l1          = self.control_config['estimator']['L1']
                 omega_e     = self.control_config['estimator']['omega_e']
@@ -133,7 +137,7 @@ class Estimator(Node):
 
                 Q = np.diag([0.5 * self.vessel_model.dimensions['width'], self.vessel_model.dimensions['length'], 1])
 
-                self.bias += self.step_size * L3 @ self.bias
+                self.bias += self.step_size * L3 @ eta_tilde
 
                 R = mu.RotationMatrix(0,0,self.eta_hat[2])
 
@@ -152,6 +156,8 @@ class Estimator(Node):
 
                 self.eta_hat[2] = mu.mapToPiPi(self.eta_hat[2])
 
+                inj = L2 @ R.T @ eta_tilde
+
                 self.lat_hat, self.lon_hat = geo.add_distance_to_lat_lon(self.lat_hat, self.lon_hat, self.eta_hat[0], self.eta_hat[1])
 
 
@@ -159,8 +165,8 @@ class Estimator(Node):
                 eta_hat_message = Eta()
                 eta_hat_message.lat = float(self.lat_hat)
                 eta_hat_message.lon = float(self.lon_hat)
-                eta_hat_message.z = float(0)
-                eta_hat_message.phi = float(0)
+                eta_hat_message.z = float(inj[2])
+                eta_hat_message.phi = float(eta_tilde[2])
                 eta_hat_message.theta = float(0)
                 eta_hat_message.psi = float(self.eta_hat[2])
 
@@ -206,7 +212,7 @@ def main(args=None):
     rclpy.spin(node)
     
     # Når noden avsluttes, frigjør ressurser
-    node.destroy_node()
+    node.destroy_nrotode()
     rclpy.shutdown()
 
 # Starter hovedfunksjonen hvis denne filen kjøres som et skript
