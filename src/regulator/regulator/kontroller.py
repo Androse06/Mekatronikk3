@@ -43,7 +43,7 @@ class Kontroller(Node):
         self.mode_sub               = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub             = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
-        self.eta_waypoint_sub       = self.create_subscription(Eta, "eta_waypoint_setpoint", self.eta_waypoint_callback, default_qos_profile)
+
         #### PUB ####
         self.tau_pub = self.create_publisher(Tau, "tau_control", default_qos_profile)
 
@@ -60,10 +60,7 @@ class Kontroller(Node):
 
         self.estimator_ready = False
 
-        self.standby    = False
-        self.position   = False 
-        self.sail       = False
-        self.track      = False
+        self.mode: int = 0
 
         ####################
 
@@ -85,45 +82,17 @@ class Kontroller(Node):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         self.estimator_ready = True
 
-    def eta_waypoint_callback(self, msg: Eta):
-        if self.track:
-            self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
-        else:
-            return
-
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
     def eta_setpoint_callback(self, msg: Eta):
-        if not self.track:
-            self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
-        else:
-            return
+        self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         
     def nu_setpoint_callback(self, msg: Nu):
         self.nu_setpoint = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-        if msg.mode == 0:
-            self.standby = True
-            self.position = False
-            self.sail = False
-            self.track = False
-        if msg.mode == 1:
-            self.standby = False
-            self.position = False
-            self.sail = True
-            self.track = False
-        if msg.mode == 2:
-            self.standby = False
-            self.position = True
-            self.sail = False
-            self.track = False
-        if msg.mode == 3:
-            self.standby = False
-            self.position = False
-            self.sail = False
-            self.track = True
+        self.mode = msg.mode
 
 
     def step_control(self):

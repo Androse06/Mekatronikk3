@@ -18,14 +18,15 @@ class AutopilotHMI(Node):
         self.heading_setpoint = 0.5  # Initial heading setpoint
         self.surge_setpoint   = 0.0  # Initial surge speed setpoint in knots
         self.mode_label = 'init'
+        self.mode_var = 0
 
         # Subscribers to eta_sim and nu_sim
         self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
         self.create_subscription(Nu, 'nu_sim', self.update_nu_feedback, default_qos_profile)
 
         # Publishers for eta_setpoint and nu_setpoint
-        self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
-        self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+        #self.eta_publisher = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        #self.nu_publisher = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
 
         #### System mode publisher ####
         self.mode_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
@@ -101,6 +102,7 @@ class AutopilotHMI(Node):
     def set_standby_mode(self):
         mode_message = HMI()
         mode_message.mode = 0
+        self.mode_var = 0
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Standby mode activated')
         self.mode_label = 'Standby'
@@ -109,6 +111,7 @@ class AutopilotHMI(Node):
     def set_sail_mode(self):
         mode_message = HMI()
         mode_message.mode = 1
+        self.mode_var = 1
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Sail mode activated')
         self.mode_label = 'Sail'
@@ -117,6 +120,7 @@ class AutopilotHMI(Node):
     def set_position_mode(self):
         mode_message = HMI()
         mode_message.mode = 2
+        self.mode_var = 2
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Position mode activated')
         self.mode_label = 'Position'
@@ -125,6 +129,7 @@ class AutopilotHMI(Node):
     def set_track_mode(self):
         mode_message = HMI()
         mode_message.mode = 3
+        self.mode_var = 3
         self.mode_publisher.publish(mode_message)
         self.get_logger().info('Track mode activated')
         self.mode_label = 'Track'
@@ -217,14 +222,16 @@ class AutopilotHMI(Node):
 
     def publish_setpoints(self):
         # Convert heading to radians and publish Eta setpoint
-        eta_msg = Eta()
-        eta_msg.psi = float(mu.mapToPiPi(np.deg2rad(self.heading_setpoint)))  # Convert degrees to radians and map 2 plus minus pi
-        self.eta_publisher.publish(eta_msg)
+        eta_msg = HMI()
+        eta_msg.mode = self.mode_var
+        eta_msg.eta = float(mu.mapToPiPi(np.deg2rad(self.heading_setpoint)))  # Convert degrees to radians and map 2 plus minus pi
+        self.mode_publisher.publish(eta_msg)
 
         # Convert surge speed from knots to meters per second (1 knot = 0.514444 m/s)
-        nu_msg = Nu()
-        nu_msg.u = float(self.surge_setpoint) * 0.514444
-        self.nu_publisher.publish(nu_msg)
+        nu_msg = HMI()
+        nu_msg.mode = self.mode_var
+        nu_msg.nu = float(self.surge_setpoint) * 0.514444
+        self.mode_publisher.publish(nu_msg)
 
 
 def main(args=None):
