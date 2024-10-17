@@ -121,6 +121,11 @@ def generate_launch_description():
         output      = 'screen'
     )
 
+    opencpn_process = ExecuteProcess(
+        cmd = ['opencpn'],
+        output = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
     delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
     delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
@@ -137,6 +142,7 @@ def generate_launch_description():
     ld.add_action(hmi_node_yaml_editor)
     ld.add_action(hmi_node_autopilot)
     ld.add_action(hmi_node_engineering)
+    ld.add_action(opencpn_process)
     ld.add_action(delayed_plotjuggler)
     ld.add_action(delayed_kontroller)
     ld.add_action(delayed_estimator)
