@@ -14,9 +14,6 @@ import ngc_utils.math_utils as mu
 import signal
 
 
-###
-
-
 class EngineeringHMI(Node):
     def __init__(self):
         super().__init__('ngc_engineering_hmi')
