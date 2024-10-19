@@ -23,7 +23,8 @@ setup(
             'kontroller = regulator.kontroller:main',
             'estimator = regulator.estimator:main',
             'allokering = regulator.allokering:main',
-            'waypoint = regulator.waypoint:main'
+            'waypoint = regulator.waypoint:main',
+            'waypoint_mottaker = regulator.waypoint_mottaker:main'
         ],
     },
 )

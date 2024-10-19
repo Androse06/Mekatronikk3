@@ -126,6 +126,14 @@ def generate_launch_description():
         output = 'screen'
     )
 
+
+    waypoint_mottaker  = Node(
+        package     = "regulator",
+        executable  = "waypoint_mottaker",
+        name        = 'waypoint_mottaker',
+        output      = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
     delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
     delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
@@ -143,9 +151,11 @@ def generate_launch_description():
     ld.add_action(hmi_node_autopilot)
     #ld.add_action(hmi_node_engineering)
     #ld.add_action(opencpn_process)
-    ld.add_action(delayed_plotjuggler)
-    ld.add_action(delayed_kontroller)
-    ld.add_action(delayed_estimator)
-    ld.add_action(delayed_allokering)
+    #ld.add_action(delayed_plotjuggler)
+    ld.add_action(regulator)
+    ld.add_action(estimator)
+    ld.add_action(allokering)
     ld.add_action(waypoint)
+    ld.add_action(waypoint_mottaker)
+
     return ld

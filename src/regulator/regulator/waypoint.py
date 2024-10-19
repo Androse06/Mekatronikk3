@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import gpxpy
-from ngc_interfaces.msg import HMI, Eta, Nu
+from ngc_interfaces.msg import HMI, Eta, Nu, Route
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
@@ -16,6 +16,8 @@ class WaypointNode(Node):
         self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile) # Bool for Standby, position, sail, track. Jeg lagde en ny .msg i ngc_interfaces.
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
+        self.route_sub      = self.create_subscription(Route, 'route', self.route_callback, default_qos_profile)
+
 
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
         self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
@@ -29,7 +31,8 @@ class WaypointNode(Node):
         self.nu_u = 0.0
 
         self.coordinates = []
-        
+        self.coordinates_min = []
+
         self.pass_counter = 0
 
         self.i = 0
@@ -40,6 +43,37 @@ class WaypointNode(Node):
 
         self.debug = True
 
+
+
+    def route_callback(self, msg: Route):
+        name = msg.route_name
+        waypoints = msg.waypoints
+
+        self.coordinates_min = [(wp.latitude, wp.longitude) for wp in waypoints]
+
+        self.coordinates.append((self.eta[0], self.eta[1]))
+
+        for i in range(len(self.coordinates_min)):
+            if i == 0:
+                pass
+
+            else:
+                self.get_logger().info(f'Nr{i} = {self.coordinates_min[i]}')
+                cor = self.coordinates_min[i]
+
+                lat = self.nmea_to_decimal(cor[0])
+                lon = self.nmea_to_decimal(cor[1])
+
+                self.coordinates.append((lat, lon))
+
+
+            #self.coordinates.append(self.nmea_to_decimal(self.coordinates_min[i]))
+
+        if self.debug:
+            self.get_logger().info('Route callback')
+            self.get_logger().info(f'Name: {name}')
+            self.get_logger().info(f'Waypoints: {waypoints}')
+            self.get_logger().info(f'Coordinates - route_callback: {self.coordinates}')
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
 
@@ -70,6 +104,16 @@ class WaypointNode(Node):
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
+    def nmea_to_decimal(self, degrees_minutes):
+        # Separate the degrees and minutes
+        degrees = int(degrees_minutes) // 100
+        minutes = degrees_minutes % 100
+
+        # Convert to decimal degrees
+        decimal_degrees = degrees + minutes / 60.0
+
+        return decimal_degrees
+    
     def gpx_parsing(self):
 
         coordinates = [] 
