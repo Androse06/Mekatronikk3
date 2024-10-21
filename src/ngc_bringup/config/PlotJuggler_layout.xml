@@ -1,31 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
  <tabbed_widget name="Main Window" parent="main_window">
-  <Tab containers="1" tab_name="Tab1">
+  <Tab tab_name="Eta og Nu" containers="1">
    <Container>
-    <DockSplitter count="3" sizes="0.333333;0.333333;0.333333" orientation="-">
+    <DockSplitter sizes="0.333333;0.333333;0.333333" count="3" orientation="-">
      <DockArea name="...">
-      <plot flip_y="false" mode="TimeSeries" flip_x="false" style="Lines">
-       <range bottom="-0.000488" top="0.008951" right="11.135827" left="0.000000"/>
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range left="77.059176" top="1.095674" bottom="-0.017784" right="107.047128"/>
        <limitY/>
-       <curve color="#1f77b4" name="/eta_setpoint/psi"/>
-       <curve color="#d62728" name="/eta_sim/psi"/>
+       <curve name="/eta_setpoint/psi" color="#1f77b4"/>
+       <curve name="/eta_sim/psi" color="#d62728"/>
+       <curve name="/eta_hat/psi" color="#f14cc1"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot flip_y="false" mode="TimeSeries" flip_x="false" style="Lines">
-       <range bottom="-0.000001" top="0.000026" right="11.135827" left="0.000000"/>
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range left="77.059176" top="0.886325" bottom="0.717425" right="107.047128"/>
        <limitY/>
-       <curve color="#1ac938" name="/nu_setpoint/u"/>
-       <curve color="#ff7f0e" name="/nu_sim/u"/>
+       <curve name="/nu_setpoint/u" color="#1ac938"/>
+       <curve name="/nu_sim/u" color="#ff7f0e"/>
+       <curve name="/nu_hat/u" color="#9467bd"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot flip_y="false" mode="TimeSeries" flip_x="false" style="Lines">
-       <range bottom="-0.100000" top="0.100000" right="11.135827" left="0.000000"/>
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range left="77.059176" top="69.316923" bottom="-5.083414" right="107.047128"/>
        <limitY/>
-       <curve color="#f14cc1" name="/tau_propulsion/surge_x"/>
-       <curve color="#9467bd" name="/tau_propulsion/yaw_n"/>
+       <curve name="/tau_propulsion/surge_x" color="#f14cc1"/>
+       <curve name="/tau_propulsion/yaw_n" color="#9467bd"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Thrusters" containers="1">
+   <Container>
+    <DockSplitter sizes="0.500885;0.499115" count="2" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range left="77.000259" top="14.881620" bottom="7.460362" right="107.010458"/>
+       <limitY/>
+       <curve name="/thruster_1_feedback/rps" color="#1f77b4"/>
+       <curve name="/thruster_1_setpoints/rps" color="#d62728"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range left="77.000259" top="9.294893" bottom="-9.656504" right="107.010458"/>
+       <limitY/>
+       <curve name="/thruster_2_feedback/rps" color="#1ac938"/>
+       <curve name="/thruster_2_setpoints/rps" color="#ff7f0e"/>
       </plot>
      </DockArea>
     </DockSplitter>
@@ -56,7 +80,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/eta_setpoint;/eta_sim;/nu_setpoint;/nu_sim;/tau_propulsion"/>
+   <selected_topics value="/eta_setpoint;/eta_sim;/nu_setpoint;/nu_sim;/tau_propulsion;/eta_hat;/nu_hat;/thruster_1_feedback;/thruster_1_setpoints;/thruster_2_feedback;/thruster_2_setpoints"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
@@ -78,4 +102,3 @@
  <snippets/>
  <!-- - - - - - - - - - - - - - - -->
 </root>
-
