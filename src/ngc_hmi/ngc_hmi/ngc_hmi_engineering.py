@@ -48,6 +48,7 @@ class EngineeringHMI(Node):
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
+
         
         # Set initial values (optional)
         self.set_sail_throttle_value(0)
@@ -106,8 +107,9 @@ class EngineeringHMI(Node):
 
     # Method to handle sail heading dial value changes
     def update_sail_heading(self, value):
-        remapped_value = (value - 180) % 300
-        self.eta = float(remapped_value)        
+        remapped_value = (value - 180) % 360
+        self.eta = float(remapped_value)
+        self.get_logger().info(f'eta = {self.eta}')
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(remapped_value)
         self.hmi_send_ros_message()
@@ -199,6 +201,8 @@ class EngineeringHMI(Node):
         hmi_message.nu      = float(self.nu) * 0.514444
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         self.hmi_publisher.publish(hmi_message)
+        self.get_logger().info(f'etapub={hmi_message.eta}')
+        self.get_logger().info(f'nupub={hmi_message.nu}')
 
     def hmi_callback(self, msg: HMI):
         self.route = msg.route
