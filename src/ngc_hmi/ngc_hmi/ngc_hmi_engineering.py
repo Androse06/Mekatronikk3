@@ -18,8 +18,11 @@ class EngineeringHMI(Node):
     def __init__(self):
         super().__init__('ngc_engineering_hmi')
 
-        #### System mode publisher ####
+        #### HMI publisher ####
         self.hmi_publisher = self.create_publisher(HMI, 'hmi', default_qos_profile)
+
+        ### HMI subscriber ####
+        self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
 
         # Initialize the UI
         self.init_ui()
@@ -193,10 +196,23 @@ class EngineeringHMI(Node):
         hmi_message.mode    = self.mode
         hmi_message.route   = self.route
         hmi_message.point   = self.point
-        hmi_message.nu      = self.nu
-        hmi_message.eta     = self.eta
+        hmi_message.nu      = float(self.nu) * 0.514444
+        hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         self.hmi_publisher(hmi_message)
- 
+
+    def hmi_callback(self, msg: HMI):
+        self.mode = msg.mode
+        self.route = msg.route
+        self.point = msg.point
+
+        if  self.mode == 0:
+            self.enable_standby()
+        elif self.mode == 1:
+            self.enable_sail()
+        elif self.mode == 2:
+            self.enable_dp()
+        elif self.mode == 3:
+            self.enable_track()
         
     def spin_ros(self):
         rclpy.spin_once(self, timeout_sec=0.1)
