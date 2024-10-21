@@ -97,7 +97,7 @@ class Kontroller(Node):
 
     def step_control(self):
         
-        if self.estimator_ready:
+        if self.estimator_ready and self.mode != 0:
         ################## PID Heading #####################
             e_psi       = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
             e_psi_dot   = self.nu_setpoint[5] - self.nu[5]

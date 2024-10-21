@@ -26,6 +26,9 @@ class WaypointNode(Node):
         self.mode           = 0
         self.load_route     = False
         self.load_waypoint  = False
+
+        self.pos_lock = False
+        self.pos_counter = 0
         
         self.eta_psi = 0.0
         self.nu_u = 0.0
@@ -42,6 +45,7 @@ class WaypointNode(Node):
         self.get_logger().info("Waypoint-node er initialisert.")
 
         self.debug = True
+        self.debug1 = False
 
 
 
@@ -49,6 +53,7 @@ class WaypointNode(Node):
         name = msg.route_name
         waypoints = msg.waypoints
 
+        self.i = 0
         self.coordinates_min = [(wp.latitude, wp.longitude) for wp in waypoints]
 
         self.coordinates.append((self.eta[0], self.eta[1]))
@@ -66,9 +71,6 @@ class WaypointNode(Node):
 
                 self.coordinates.append((lat, lon))
 
-
-            #self.coordinates.append(self.nmea_to_decimal(self.coordinates_min[i]))
-
         if self.debug:
             self.get_logger().info('Route callback')
             self.get_logger().info(f'Name: {name}')
@@ -76,7 +78,6 @@ class WaypointNode(Node):
             self.get_logger().info(f'Coordinates - route_callback: {self.coordinates}')
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-
         self.mode: int              = msg.mode # 0 = standby, 1 = sail, 2 = position, 3 = track
         self.load_route: bool       = msg.route # for track
         self.load_waypoint: bool    = msg.point # for position
@@ -91,12 +92,13 @@ class WaypointNode(Node):
                 self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
-        if not self.debug:
+        if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
             self.get_logger().info(f'callback - route: {msg.route}')
             self.get_logger().info(f'callback - point: {msg.point}')
             self.get_logger().info(f'callback - eta: {msg.eta}')
             self.get_logger().info(f'callback - nu: {msg.nu}')
+
             
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
@@ -152,6 +154,8 @@ class WaypointNode(Node):
             self.get_logger().info(f'nu: {nu}')
 
     def mode_publisher(self, mode):
+        self.mode       = mode
+
         mode_msg = HMI()
         mode_msg.mode   = mode
         mode_msg.route  = self.load_route
@@ -227,6 +231,9 @@ class WaypointNode(Node):
 
         elif self.mode == 3: # step funksjonen til waypoint regulering.
 
+            if self.debug:
+                self.get_logger().info(f'i = {self.i}')
+
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
                 self.get_logger().info('No waypoints loaded')
                 self.mode_publisher(0)
@@ -241,10 +248,9 @@ class WaypointNode(Node):
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
                 self.mode_publisher(2)
-                self.i = 0
                 return
 
-            delta = 20 # radiusen som båten svinger inn mot linjen
+
 
             if self.debug:
                 self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
@@ -260,6 +266,10 @@ class WaypointNode(Node):
             ### båtens posisjon ###
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
+
+            ### avstanden mellom båt og waypoint 2 ###
+            p_vec = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
+            p_distance = np.sqrt(p_vec[0]**2 + p_vec[1]**2) # skalar verdi for avstanden
 
             ### avstanden mellom wayoint 1 og 2 ###
             a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
@@ -277,6 +287,8 @@ class WaypointNode(Node):
 
             d = np.sign(d_vec_pass_check) * np.sqrt(d_vec[0]**2 + d_vec[1]**2) # magnituden til d_vektor
 
+            delta = np.tanh(p_distance/150) * 80 # radiusen som båten svinger inn mot linjen
+
             psi_L = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
 
             psi_east = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1) # vinkelen til linjen med øst=0deg
@@ -288,15 +300,19 @@ class WaypointNode(Node):
 
             psi_d = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
-            p_distance = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
-
-            if np.sqrt(p_distance[0]**2 + p_distance[1]**2) < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
-                self.i += 1
-
-            self.eta_publisher(psi_d)
+            wp_error_vec = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            wp_error = np.sqrt(wp_error_vec[0]**2 + wp_error_vec[1]**2)
 
             nu = self.nu_u
-            self.nu_publisher(nu)
+            nu_dynamic = np.tanh(wp_error/10) * nu
+
+            self.nu_publisher(nu_dynamic)
+            self.eta_publisher(psi_d)
+
+            if p_distance < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
+                self.i += 1
+                self.get_logger().info('Next waypoint')
+
 
             if self.debug:
                 if d_vec_pass_check < 0:

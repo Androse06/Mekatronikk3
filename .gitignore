@@ -4,3 +4,4 @@ install/
 log/
 gpx_file/
 src/.venv/
+venv/
