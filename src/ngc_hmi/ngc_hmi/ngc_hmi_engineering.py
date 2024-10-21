@@ -194,7 +194,7 @@ class EngineeringHMI(Node):
     def hmi_send_ros_message(self):
         hmi_message = HMI()
         hmi_message.mode    = self.mode
-        hmi_message.route   = self.route
+        hmi_message.route   = self.route 
         hmi_message.point   = self.point
         hmi_message.nu      = float(self.nu) * 0.514444
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
