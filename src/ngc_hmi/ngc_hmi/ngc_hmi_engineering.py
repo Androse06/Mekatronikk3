@@ -111,9 +111,9 @@ class EngineeringHMI(Node):
             return
 
         # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
-        map_placeholder_geometry = self.ui.MapPlaceHolder.geometry()
-        map_placeholder_x = self.window.x() + self.ui.centralwidget.x() + map_placeholder_geometry.x()
-        map_placeholder_y = self.window.y() + self.ui.centralwidget.y() + map_placeholder_geometry.y()
+        map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
+        map_placeholder_x = map_placeholder_geometry.left()
+        map_placeholder_y = map_placeholder_geometry.top()
         map_placeholder_width = map_placeholder_geometry.width()
         map_placeholder_height = map_placeholder_geometry.height()
 
