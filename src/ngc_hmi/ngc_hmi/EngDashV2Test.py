@@ -47,13 +47,10 @@ class EngineeringHMI(Node):
         if self.opencpn_window_id:
             self.embed_external_application(self.opencpn_window_id)
 
-        # Connect to window resize and move events
-        self.window.resizeEvent = self.on_window_resize_or_move
-        self.window.moveEvent = self.on_window_resize_or_move
-
-        # Connect to MapPlaceHolder's resize and move events by subclassing QWidget
-        self.ui.MapPlaceHolder.resizeEvent = self.on_window_resize_or_move
-        self.ui.MapPlaceHolder.moveEvent = self.on_window_resize_or_move
+        # Create a QTimer for continuous adjustments to the OpenCPN window
+        self.update_timer = QTimer()
+        self.update_timer.timeout.connect(self.adjust_opencpn_window)
+        self.update_timer.start(100)  # Update every 100ms
 
 
         # Lager Variabler'
@@ -136,10 +133,6 @@ class EngineeringHMI(Node):
 
         except Exception as e:
             self.get_logger().error(f"Failed to adjust window position: {e}")
-
-    def on_window_resize_or_move(self, event):
-        # This method is called whenever the window or MapPlaceHolder is resized or moved
-        self.adjust_opencpn_window()
 
 
 
@@ -300,7 +293,7 @@ def main(args=None):
     # Set up a QTimer to spin the ROS2 node and handle callbacks
     timer = QTimer()
     timer.timeout.connect(engineering_hmi.spin_ros)
-    timer.start(200)  # Call every 100 ms
+    timer.start(200)  # Call every 200 ms
 
     # Handle signal for graceful shutdown
     def signal_handler(sig, frame):
