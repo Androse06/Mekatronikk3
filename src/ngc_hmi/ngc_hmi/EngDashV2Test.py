@@ -39,8 +39,9 @@ class EngineeringHMI(Node):
         self.ui.setupUi(self.window)
         self.window.show()
 
-        # Launch and embed OpenCPN
-        self.embed_external_application()
+        # Embed the external OpenCPN application if a window ID is provided
+        self.opencpn_window_id = 29360373
+        self.embed_external_application(self.opencpn_window_id)
 
 
         # Lager Variabler'
@@ -87,19 +88,7 @@ class EngineeringHMI(Node):
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
-
-
-    def embed_external_application(self):
-        # Start the external application using QProcess
-        self.process = QProcess(self)
-        self.process.start("opencpn")  # Replace "opencpn" with the command to start OpenCPN
-
-        # Set a QTimer to wait briefly and then adjust the position of the external window
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.adjust_external_window)
-        self.timer.start(2000)  # Wait for 2 seconds before adjusting the window
-
-    def adjust_external_window(self):
+    def embed_external_application(self, window_id):
         # Get the geometry of the MapPlaceHolder
         map_placeholder_geometry = self.ui.MapPlaceHolder.geometry()
         map_placeholder_x = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).x()
@@ -107,20 +96,22 @@ class EngineeringHMI(Node):
         map_placeholder_width = map_placeholder_geometry.width()
         map_placeholder_height = map_placeholder_geometry.height()
 
+        print(f"Adjusting OpenCPN window ID {window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
+            f"width={map_placeholder_width}, height={map_placeholder_height}")
+
         try:
-            # Use xdotool to find the window by name and move it (Linux only)
-            subprocess.run([
-                "xdotool", "search", "--name", "OpenCPN",  # Replace "OpenCPN" with the exact window name
-                "windowmove", str(map_placeholder_x), str(map_placeholder_y),
-                "windowsize", str(map_placeholder_width), str(map_placeholder_height)
-            ])
+            # Use xdotool to move the identified window ID
+            result = subprocess.run([
+                "xdotool", "windowmove", window_id, str(map_placeholder_x), str(map_placeholder_y),
+                "windowsize", window_id, str(map_placeholder_width), str(map_placeholder_height)
+            ], capture_output=True, text=True)
 
-            # Stop the timer once we've adjusted the window
-            self.timer.stop()
+            # Print the result of the xdotool command for debugging
+            print("xdotool output:", result.stdout)
+            print("xdotool errors:", result.stderr)
+
         except Exception as e:
-            self.get_logger().error(f"Failed to adjust window position: {e}")
-
-
+           self.get_logger().error(f"Failed to adjust window position: {e}")
 
 
     def add_waypoint(self):
@@ -267,6 +258,9 @@ class EngineeringHMI(Node):
 
 def main(args=None):
     rclpy.init(args=args)
+
+    # Get the OpenCPN window ID from command-line arguments or prompt the user
+    opencpn_window_id = input("Enter the OpenCPN window ID: ")
 
     # Create the application object
     app = QApplication(sys.argv)
