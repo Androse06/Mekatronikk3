@@ -1,10 +1,12 @@
 ### Import for PyQt ###
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
-from PySide6.QtCore import QStringListModel, QTimer, Qt
+from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess
 from PySide6.QtGui import QWindow
 from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
+import subprocess  # For running commands like xdotool (Linux)
+import time
 
 ### Import for Ros ###
 import rclpy
@@ -14,7 +16,6 @@ from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
 import signal
-
 
 class EngineeringHMI(Node):
     def __init__(self):
@@ -38,8 +39,9 @@ class EngineeringHMI(Node):
         self.ui.setupUi(self.window)
         self.window.show()
 
-        # Legge inn opencpn
+        # Launch and embed OpenCPN
         self.embed_external_application()
+
 
         # Lager Variabler'
         self.mode   = 0
@@ -84,19 +86,39 @@ class EngineeringHMI(Node):
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
+
+
+
     def embed_external_application(self):
-        external_window_id = 12345 #Bytt ut med faktisk ID
+        # Start the external application using QProcess
+        self.process = QProcess(self)
+        self.process.start("opencpn")  # Replace "opencpn" with the command to start OpenCPN
+
+        # Set a QTimer to wait briefly and then adjust the position of the external window
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.adjust_external_window)
+        self.timer.start(2000)  # Wait for 2 seconds before adjusting the window
+
+    def adjust_external_window(self):
+        # Get the geometry of the MapPlaceHolder
+        map_placeholder_geometry = self.ui.MapPlaceHolder.geometry()
+        map_placeholder_x = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).x()
+        map_placeholder_y = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).y()
+        map_placeholder_width = map_placeholder_geometry.width()
+        map_placeholder_height = map_placeholder_geometry.height()
 
         try:
-            external_window = QWindow.fromWinId(external_window_id)
+            # Use xdotool to find the window by name and move it (Linux only)
+            subprocess.run([
+                "xdotool", "search", "--name", "OpenCPN",  # Replace "OpenCPN" with the exact window name
+                "windowmove", str(map_placeholder_x), str(map_placeholder_y),
+                "windowsize", str(map_placeholder_width), str(map_placeholder_height)
+            ])
 
-            embedded_widget = sip.wrapinstance(external_window, QWidget)
-
-            layout = QVBoxLayout(self.ui.MapPlaceHolder)
-            layout.addWidget(embedded_widget)
-            self.ui.MapPlaceHolder.setLayout(layout)
+            # Stop the timer once we've adjusted the window
+            self.timer.stop()
         except Exception as e:
-            self.get_logger().error(f'failed to embed opencpn:{e}')
+            self.get_logger().error(f"Failed to adjust window position: {e}")
 
 
 
