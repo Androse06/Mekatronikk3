@@ -1,8 +1,10 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtCore import QStringListModel, QTimer
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
+from PySide6.QtCore import QStringListModel, QTimer, Qt
+from PySide6.QtGui import QWindow
 from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
+import sip
 
 ### Import for Ros ###
 import rclpy
@@ -13,9 +15,6 @@ import numpy as np
 import ngc_utils.math_utils as mu
 import signal
 
-### Import for X11 ###
-from Xlib import display
-import ctypes
 
 class EngineeringHMI(Node):
     def __init__(self):
@@ -38,6 +37,9 @@ class EngineeringHMI(Node):
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
         self.window.show()
+
+        # Legge inn opencpn
+        self.embed_external_application()
 
         # Lager Variabler'
         self.mode   = 0
@@ -82,24 +84,20 @@ class EngineeringHMI(Node):
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
-        # Embed opencpn
-        self.embed_opencpn()
+    def embed_external_application(self):
+        external_window_id = 12345 #Bytt ut med faktisk ID
 
-    def embed_opencpn(self):
-        display_instance = display.Display()
+        try:
+            external_window = QWindow.fromWinId(external_window_id)
 
-        # Replace '0xYourOpenCPNWindowID' with the actual window ID obtained from xwininfo
-        window_id = 0xYourOpenCPNWindowID  # Replace this with the correct window ID
-        
-        # Use ctypes to reparent the OpenCPN window into the MapPlaceHolder
-        xlib = ctypes.cdll.LoadLibrary('libX11.so')
-        xlib.XReparentWindow(
-            display_instance,  # Display instance
-            window_id,         # OpenCPN window ID
-            self.ui.MapPlaceHolder.winId().__int__(),  # ID of MapPlaceHolder widget
-            0, 0               # Position inside the placeholder widget
-        )
-        display_instance.sync()
+            embedded_widget = sip.wrapinstance(external_window, QWidget)
+
+            layout = QVBoxLayout(self.ui.MapPlaceHolder)
+            layout.addWidget(embedded_widget)
+            self.ui.MapPlaceHolder.setLayout(layout)
+        except Exception as e:
+            self.get_logger().error(f'failed to embed opencpn:{e}')
+
 
 
 
