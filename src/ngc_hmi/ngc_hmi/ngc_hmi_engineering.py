@@ -43,15 +43,13 @@ class EngineeringHMI(Node):
         self.window.show()
 
 
-         # Embed the external OpenCPN application if a window ID is provided
-        if self.opencpn_window_id:
-            self.embed_external_application(self.opencpn_window_id)
+        # Add a small delay to let the window finish loading and layout updating
+        QTimer.singleShot(500, lambda: self.embed_external_application(self.opencpn_window_id))
 
         # Create a QTimer for continuous adjustments to the OpenCPN window
         self.update_timer = QTimer()
         self.update_timer.timeout.connect(self.adjust_opencpn_window)
         self.update_timer.start(100)  # Update every 100ms
-
 
         # Lager Variabler'
         self.mode   = 0
@@ -106,17 +104,11 @@ class EngineeringHMI(Node):
         self.adjust_opencpn_window()
 
     def adjust_opencpn_window(self):
-        # Ensure the window ID is set
         if not self.opencpn_window_id:
             return
 
-        #FUNKA FOR STØRRELSE
-        # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
-        #map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
-        #map_placeholder_width = map_placeholder_geometry.width()
-        #map_placeholder_height = map_placeholder_geometry.height()
-
-        # Ensure the layouts are up to date
+        # Force a layout update and geometry recalculation
+        self.ui.MapPlaceHolder.updateGeometry()
         self.window.layout().activate()
         QApplication.processEvents()
 
@@ -138,12 +130,11 @@ class EngineeringHMI(Node):
         height = rect.height()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_global_x}, y={map_placeholder_global_y}, "
-            f"width={width}, height={height}")
+              f"width={width}, height={height}")
         
         print(f"Main window frame position: {main_window_frame_pos}")
         print(f"MapPlaceHolder relative position: {map_placeholder_relative_pos}")
         print(f"MapPlaceHolder global position: ({map_placeholder_global_x}, {map_placeholder_global_y})")
-
 
         try:
             # Use xdotool to move and resize the identified window ID
