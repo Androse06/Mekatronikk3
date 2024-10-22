@@ -1,6 +1,6 @@
 ### Import for PyQt ###
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
-from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess
+from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
 from PySide6.QtGui import QWindow
 from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
@@ -112,9 +112,9 @@ class EngineeringHMI(Node):
 
         # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
         map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
-        map_placeholder_top_left = self.ui.MapPlaceHolder.mapToGlobal(self.ui.MapPlaceHolder.rect().topLeft())
-        map_placeholder_x = map_placeholder_top_left.x()
-        map_placeholder_y = map_placeholder_top_left.y()
+        map_placeholder_global_pos = self.ui.MapPlaceHolder.mapToGlobal(QPoint(0, 0))
+        map_placeholder_x = map_placeholder_global_pos.x()
+        map_placeholder_y = map_placeholder_global_pos.y()
         map_placeholder_width = map_placeholder_geometry.width()
         map_placeholder_height = map_placeholder_geometry.height()
 
