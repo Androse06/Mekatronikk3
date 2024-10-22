@@ -250,8 +250,6 @@ class WaypointNode(Node):
                 self.mode_publisher(2)
                 return
 
-
-
             if self.debug:
                 self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
 
@@ -338,16 +336,3 @@ def main(args=None):
 
 if __name__ == 'main':
     main()
-
-
-'''
-
-NOTATER:
-
--   Som rutedata fungerer nå må man tegne ut er rute i OpenCPN og eksportere som .gpx fil. Denne filen må så legges i en mappe som kan nås av noden og indekes med gpxpy. 
-    Når regulatoren mottar 'track' signal over mode topic, så skal den hente ut koordinatene fra .gpx filen og sende til regulatoren. 
-    Det skal være mulig å streame dataene fra OpenCPN direkte til ROS, og bør utforskes.
-
--   (12.10.24 - oskar) Track mode fungerer nå, men hvis båten passerer waypointet uten å gå innenfor radiusen så vil den ikke gå tilbake til waypointet; den vil fortsette langs linjen uendelig.
-
-'''
