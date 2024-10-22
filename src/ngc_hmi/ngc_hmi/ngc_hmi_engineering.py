@@ -134,13 +134,13 @@ class EngineeringHMI(Node):
         map_placeholder_width = self.ui.MapPlaceHolder.width()
         map_placeholder_height = self.ui.MapPlaceHolder.height()
 
-        print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
+        print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_global_x}, y={map_placeholder_global_y}, "
             f"width={map_placeholder_width}, height={map_placeholder_height}")
 
         try:
             # Use xdotool to move and resize the identified window ID
             result = subprocess.run([
-                "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_x), str(map_placeholder_y),
+                "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_global_x), str(map_placeholder_global_y),
                 "windowsize", self.opencpn_window_id, str(map_placeholder_width), str(map_placeholder_height)
             ], capture_output=True, text=True)
 
