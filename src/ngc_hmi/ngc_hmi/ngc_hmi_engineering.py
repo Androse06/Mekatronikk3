@@ -116,32 +116,40 @@ class EngineeringHMI(Node):
         #map_placeholder_width = map_placeholder_geometry.width()
         #map_placeholder_height = map_placeholder_geometry.height()
 
-        # Force the layouts to update
+        # Ensure the layouts are up to date
         self.window.layout().activate()
         QApplication.processEvents()
 
-        # Get the MapPlaceHolder's position relative to the main window
-        map_placeholder_pos = self.ui.MapPlaceHolder.mapTo(self.window, QPoint(0, 0))
+        # Get the MapPlaceHolder's rectangle (size)
+        rect = self.ui.MapPlaceHolder.rect()
 
-        # Get the main window's global position
-        main_window_global_pos = self.window.pos()
+        # Get the MapPlaceHolder's position relative to the main window
+        map_placeholder_relative_pos = self.ui.MapPlaceHolder.mapTo(self.window, QPoint(0, 0))
+
+        # Get the main window's frame geometry (includes window decorations)
+        main_window_frame_pos = self.window.frameGeometry().topLeft()
 
         # Calculate the MapPlaceHolder's global position
-        map_placeholder_global_x = main_window_global_pos.x() + map_placeholder_pos.x()
-        map_placeholder_global_y = main_window_global_pos.y() + map_placeholder_pos.y()
+        map_placeholder_global_x = main_window_frame_pos.x() + map_placeholder_relative_pos.x()
+        map_placeholder_global_y = main_window_frame_pos.y() + map_placeholder_relative_pos.y()
 
-        # Get the MapPlaceHolder's size
-        map_placeholder_width = self.ui.MapPlaceHolder.width()
-        map_placeholder_height = self.ui.MapPlaceHolder.height()
+        # Get the size of the MapPlaceHolder
+        width = rect.width()
+        height = rect.height()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_global_x}, y={map_placeholder_global_y}, "
-            f"width={map_placeholder_width}, height={map_placeholder_height}")
+            f"width={width}, height={height}")
+        
+        print(f"Main window frame position: {main_window_frame_pos}")
+        print(f"MapPlaceHolder relative position: {map_placeholder_relative_pos}")
+        print(f"MapPlaceHolder global position: ({map_placeholder_global_x}, {map_placeholder_global_y})")
+
 
         try:
             # Use xdotool to move and resize the identified window ID
             result = subprocess.run([
                 "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_global_x), str(map_placeholder_global_y),
-                "windowsize", self.opencpn_window_id, str(map_placeholder_width), str(map_placeholder_height)
+                "windowsize", self.opencpn_window_id, str(width), str(height)
             ], capture_output=True, text=True)
 
             # Print the result of the xdotool command for debugging
@@ -150,8 +158,6 @@ class EngineeringHMI(Node):
 
         except Exception as e:
             self.get_logger().error(f"Failed to adjust window position: {e}")
-
-
 
 
     def add_waypoint(self):
