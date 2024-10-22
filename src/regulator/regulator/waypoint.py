@@ -192,9 +192,6 @@ class WaypointNode(Node):
 
         
         elif self.mode == 2:
-            ### Nu ###
-            delta = 5
-
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
             else:
@@ -202,25 +199,29 @@ class WaypointNode(Node):
                 self.get_logger().info('waypoint mangler')
                 return
             
+            ### Nu ###
+            delta = 5
+                
             lat_set = setpoint[0]
             lon_set = setpoint[1]
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
 
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
+
             error = np.sqrt(distance[0]**2 + distance[1]**2) - delta # 0 når båten ligger 5 meter unna wp
 
             nu_setpoint = np.tanh(error/10) * 2
 
             self.nu_publisher(nu_setpoint)
 
-            ### psi ###s
-
+            ### psi ###
             psi_angle = np.arctan2(distance[1], distance[0])
 
             psi_setpoint = mu.mapToPiPi(psi_angle)
 
             self.eta_publisher(psi_setpoint)
+
 
             if self.debug:
                 self.get_logger().info(f'error: {error}')
@@ -242,16 +243,16 @@ class WaypointNode(Node):
 
             waypoint = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
 
-            if self.i < len(self.coordinates) - 1:
-                waypoint_next = self.coordinates[self.i + 1]
+            if self.debug:
+                self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
 
+            if self.i < len(self.coordinates) - 1: # Definerer Wp2 når det er minst 2 waypoints igjen
+                waypoint_next = self.coordinates[self.i + 1]
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
                 self.mode_publisher(2)
                 return
 
-            if self.debug:
-                self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
 
             ### waypoint 1 ###
             lat_wp1 = waypoint[0]
@@ -317,14 +318,13 @@ class WaypointNode(Node):
                     self.get_logger().info('Line pass: True')
                 elif d_vec_pass_check > 0:
                     self.get_logger().info('Line pass: False')
-                
                 self.get_logger().info(f'wp nr: {self.i + 1}')
-                self.get_logger().info(f'båt til wp avstand: {p_distance}')
-                self.get_logger().info(f'a merket; avstand fra wp1 til p_merket: {a_vec_m}')
-                self.get_logger().info(f'pos_merket: {pos_m}')
-                self.get_logger().info(f'd; avstand fra båt til linje: {d}')
-                self.get_logger().info(f'psi_L; angrepsvinkel til båt: {np.rad2deg(psi_L)}')
-                self.get_logger().info(f'psi_T; waypoint linje sin vinkel: {np.rad2deg(psi_T)}')
+                self.get_logger().info(f'boat to wp distance: {p_distance}')
+                self.get_logger().info(f'Distance between wp1 and p`: {a_vec_m}')
+                self.get_logger().info(f'pos_m: {pos_m}')
+                self.get_logger().info(f'd; distance between boat and line: {d}')
+                self.get_logger().info(f'psi_L; boat attack angle: {np.rad2deg(psi_L)}')
+                self.get_logger().info(f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}')
                 self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
 
 def main(args=None):
