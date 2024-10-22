@@ -51,6 +51,10 @@ class EngineeringHMI(Node):
         self.window.resizeEvent = self.on_window_resize_or_move
         self.window.moveEvent = self.on_window_resize_or_move
 
+        # Connect to MapPlaceHolder's resize and move events by subclassing QWidget
+        self.ui.MapPlaceHolder.resizeEvent = self.on_window_resize_or_move
+        self.ui.MapPlaceHolder.moveEvent = self.on_window_resize_or_move
+
 
         # Lager Variabler'
         self.mode   = 0
@@ -134,7 +138,7 @@ class EngineeringHMI(Node):
             self.get_logger().error(f"Failed to adjust window position: {e}")
 
     def on_window_resize_or_move(self, event):
-        # This method is called whenever the window is resized or moved
+        # This method is called whenever the window or MapPlaceHolder is resized or moved
         self.adjust_opencpn_window()
 
 
