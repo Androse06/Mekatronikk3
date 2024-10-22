@@ -112,11 +112,17 @@ class EngineeringHMI(Node):
 
         # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
         map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
-        map_placeholder_global_pos = self.ui.MapPlaceHolder.mapToGlobal(QPoint(0, 0))
-        map_placeholder_x = map_placeholder_global_pos.x()
-        map_placeholder_y = map_placeholder_global_pos.y()
         map_placeholder_width = map_placeholder_geometry.width()
         map_placeholder_height = map_placeholder_geometry.height()
+
+        # Get the global position of the top-left corner of the MapPlaceHolder
+        main_window_pos = self.window.pos()  # Get the position of the main window on the screen
+        central_widget_pos = self.ui.centralwidget.pos()  # Get the position of the central widget within the main window
+        map_placeholder_pos = self.ui.MapPlaceHolder.pos()  # Get the position of the MapPlaceHolder within the central widget
+
+        # Calculate the global position of MapPlaceHolder
+        map_placeholder_x = main_window_pos.x() + central_widget_pos.x() + map_placeholder_pos.x()
+        map_placeholder_y = main_window_pos.y() + central_widget_pos.y() + map_placeholder_pos.y()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
             f"width={map_placeholder_width}, height={map_placeholder_height}")
