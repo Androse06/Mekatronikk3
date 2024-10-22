@@ -110,18 +110,18 @@ class EngineeringHMI(Node):
         if not self.opencpn_window_id:
             return
 
-        # Get the geometry of the MapPlaceHolder
+        # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
         map_placeholder_geometry = self.ui.MapPlaceHolder.geometry()
-        map_placeholder_x = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).x()
-        map_placeholder_y = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).y()
+        map_placeholder_x = self.window.x() + self.ui.centralwidget.x() + map_placeholder_geometry.x()
+        map_placeholder_y = self.window.y() + self.ui.centralwidget.y() + map_placeholder_geometry.y()
         map_placeholder_width = map_placeholder_geometry.width()
         map_placeholder_height = map_placeholder_geometry.height()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
-              f"width={map_placeholder_width}, height={map_placeholder_height}")
+            f"width={map_placeholder_width}, height={map_placeholder_height}")
 
         try:
-            # Use xdotool to move the identified window ID
+            # Use xdotool to move and resize the identified window ID
             result = subprocess.run([
                 "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_x), str(map_placeholder_y),
                 "windowsize", self.opencpn_window_id, str(map_placeholder_width), str(map_placeholder_height)
@@ -133,8 +133,6 @@ class EngineeringHMI(Node):
 
         except Exception as e:
             self.get_logger().error(f"Failed to adjust window position: {e}")
-
-
 
 
 
