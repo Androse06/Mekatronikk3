@@ -116,18 +116,23 @@ class EngineeringHMI(Node):
         #map_placeholder_width = map_placeholder_geometry.width()
         #map_placeholder_height = map_placeholder_geometry.height()
 
-        # Get the rectangle of MapPlaceHolder in its own coordinate system
-        rect = self.ui.MapPlaceHolder.rect()
+        # Force the layouts to update
+        self.window.layout().activate()
+        QApplication.processEvents()
 
-        # Map the top-left and bottom-right points to global coordinates
-        global_top_left = self.ui.MapPlaceHolder.mapToGlobal(rect.topLeft())
-        global_bottom_right = self.ui.MapPlaceHolder.mapToGlobal(rect.bottomRight())
+        # Get the MapPlaceHolder's position relative to the main window
+        map_placeholder_pos = self.ui.MapPlaceHolder.mapTo(self.window, QPoint(0, 0))
 
-        # Calculate global position and size
-        map_placeholder_x = global_top_left.x()
-        map_placeholder_y = global_top_left.y()
-        map_placeholder_width = global_bottom_right.x() - global_top_left.x()
-        map_placeholder_height = global_bottom_right.y() - global_top_left.y()
+        # Get the main window's global position
+        main_window_global_pos = self.window.pos()
+
+        # Calculate the MapPlaceHolder's global position
+        map_placeholder_global_x = main_window_global_pos.x() + map_placeholder_pos.x()
+        map_placeholder_global_y = main_window_global_pos.y() + map_placeholder_pos.y()
+
+        # Get the MapPlaceHolder's size
+        map_placeholder_width = self.ui.MapPlaceHolder.width()
+        map_placeholder_height = self.ui.MapPlaceHolder.height()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
             f"width={map_placeholder_width}, height={map_placeholder_height}")
