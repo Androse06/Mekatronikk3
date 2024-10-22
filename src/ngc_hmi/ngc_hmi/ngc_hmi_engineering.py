@@ -110,17 +110,24 @@ class EngineeringHMI(Node):
         if not self.opencpn_window_id:
             return
 
+        #FUNKA FOR STØRRELSE
         # Get the geometry of the MapPlaceHolder relative to its parent (centralwidget)
-        map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
-        map_placeholder_width = map_placeholder_geometry.width()
-        map_placeholder_height = map_placeholder_geometry.height()
+        #map_placeholder_geometry = self.ui.MapPlaceHolder.frameGeometry()
+        #map_placeholder_width = map_placeholder_geometry.width()
+        #map_placeholder_height = map_placeholder_geometry.height()
 
-        main_window_pos = self.window.pos()  # Get the position of the main window on the screen
+        # Get the rectangle of MapPlaceHolder in its own coordinate system
+        rect = self.ui.MapPlaceHolder.rect()
 
-        # Use the main window's position directly for testing
-        map_placeholder_x = main_window_pos.x()
-        map_placeholder_y = main_window_pos.y()
+        # Map the top-left and bottom-right points to global coordinates
+        global_top_left = self.ui.MapPlaceHolder.mapToGlobal(rect.topLeft())
+        global_bottom_right = self.ui.MapPlaceHolder.mapToGlobal(rect.bottomRight())
 
+        # Calculate global position and size
+        map_placeholder_x = global_top_left.x()
+        map_placeholder_y = global_top_left.y()
+        map_placeholder_width = global_bottom_right.x() - global_top_left.x()
+        map_placeholder_height = global_bottom_right.y() - global_top_left.y()
 
         print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
             f"width={map_placeholder_width}, height={map_placeholder_height}")
