@@ -192,9 +192,6 @@ class WaypointNode(Node):
 
         
         elif self.mode == 2:
-            ### Nu ###
-            delta = 5
-
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
             else:
@@ -202,25 +199,29 @@ class WaypointNode(Node):
                 self.get_logger().info('waypoint mangler')
                 return
             
+            ### Nu ###
+            delta = 5
+                
             lat_set = setpoint[0]
             lon_set = setpoint[1]
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
 
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
+
             error = np.sqrt(distance[0]**2 + distance[1]**2) - delta # 0 når båten ligger 5 meter unna wp
 
             nu_setpoint = np.tanh(error/10) * 2
 
             self.nu_publisher(nu_setpoint)
 
-            ### psi ###s
-
+            ### psi ###
             psi_angle = np.arctan2(distance[1], distance[0])
 
             psi_setpoint = mu.mapToPiPi(psi_angle)
 
             self.eta_publisher(psi_setpoint)
+
 
             if self.debug:
                 self.get_logger().info(f'error: {error}')
