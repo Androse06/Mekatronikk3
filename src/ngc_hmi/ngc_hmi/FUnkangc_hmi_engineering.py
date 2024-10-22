@@ -1,12 +1,8 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
-from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess
-from PySide6.QtGui import QWindow
+from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtCore import QStringListModel, QTimer
 from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
-import sip
-import subprocess  # For running commands like xdotool (Linux)
-import time
 
 ### Import for Ros ###
 import rclpy
@@ -17,6 +13,7 @@ import numpy as np
 import ngc_utils.math_utils as mu
 import signal
 
+
 class EngineeringHMI(Node):
     def __init__(self):
         super().__init__('ngc_engineering_hmi')
@@ -26,9 +23,6 @@ class EngineeringHMI(Node):
 
         ### HMI subscriber ####
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
-
-        # Embed the external OpenCPN application if a window ID is provided
-        self.opencpn_window_id = "29360373"
 
         # Initialize the UI
         self.init_ui()
@@ -41,17 +35,6 @@ class EngineeringHMI(Node):
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-
-
-         # Embed the external OpenCPN application if a window ID is provided
-        if self.opencpn_window_id:
-            self.embed_external_application(self.opencpn_window_id)
-
-        # Create a QTimer for continuous adjustments to the OpenCPN window
-        self.update_timer = QTimer()
-        self.update_timer.timeout.connect(self.adjust_opencpn_window)
-        self.update_timer.start(100)  # Update every 100ms
-
 
         # Lager Variabler'
         self.mode   = 0
@@ -95,47 +78,6 @@ class EngineeringHMI(Node):
         self.waypoint_model = QStringListModel()
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
-
-
-
-
-    def embed_external_application(self, window_id):
-        # Save the window ID for reuse in resizing or moving
-        self.opencpn_window_id = str(window_id)
-        # Adjust the window position initially
-        self.adjust_opencpn_window()
-
-    def adjust_opencpn_window(self):
-        # Ensure the window ID is set
-        if not self.opencpn_window_id:
-            return
-
-        # Get the geometry of the MapPlaceHolder
-        map_placeholder_geometry = self.ui.MapPlaceHolder.geometry()
-        map_placeholder_x = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).x()
-        map_placeholder_y = self.ui.MapPlaceHolder.mapToGlobal(map_placeholder_geometry.topLeft()).y()
-        map_placeholder_width = map_placeholder_geometry.width()
-        map_placeholder_height = map_placeholder_geometry.height()
-
-        print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_x}, y={map_placeholder_y}, "
-              f"width={map_placeholder_width}, height={map_placeholder_height}")
-
-        try:
-            # Use xdotool to move the identified window ID
-            result = subprocess.run([
-                "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_x), str(map_placeholder_y),
-                "windowsize", self.opencpn_window_id, str(map_placeholder_width), str(map_placeholder_height)
-            ], capture_output=True, text=True)
-
-            # Print the result of the xdotool command for debugging
-            print("xdotool output:", result.stdout)
-            print("xdotool errors:", result.stderr)
-
-        except Exception as e:
-            self.get_logger().error(f"Failed to adjust window position: {e}")
-
-
-
 
 
 
@@ -293,7 +235,7 @@ def main(args=None):
     # Set up a QTimer to spin the ROS2 node and handle callbacks
     timer = QTimer()
     timer.timeout.connect(engineering_hmi.spin_ros)
-    timer.start(200)  # Call every 200 ms
+    timer.start(200)  # Call every 100 ms
 
     # Handle signal for graceful shutdown
     def signal_handler(sig, frame):
