@@ -26,9 +26,7 @@ class WaypointNode(Node):
         self.mode           = 0
         self.load_route     = False
         self.load_waypoint  = False
-
-        self.pos_lock = False
-        self.pos_counter = 0
+        self.proximity_lock = False
         
         self.eta_psi = 0.0
         self.nu_u = 0.0
@@ -177,6 +175,11 @@ class WaypointNode(Node):
 
         return lat_new, lon_new
 
+    def magnitude(self, vec):
+        a = vec[0]
+        b = vec[1]
+        return np.sqrt(a**2 + b**2)
+
 
     def step_waypoint(self):
 
@@ -209,7 +212,7 @@ class WaypointNode(Node):
 
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
 
-            error = np.sqrt(distance[0]**2 + distance[1]**2) - delta # 0 når båten ligger 5 meter unna wp
+            error = self.magnitude(distance) - delta # 0 når båten ligger 5 meter unna wp
 
             nu_setpoint = np.tanh(error/10) * 2
 
@@ -268,7 +271,7 @@ class WaypointNode(Node):
 
             ### avstanden mellom båt og waypoint 2 ###
             p_vec = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
-            p_distance = np.sqrt(p_vec[0]**2 + p_vec[1]**2) # skalar verdi for avstanden
+            p_distance = self.magnitude(p_vec) # skalar verdi for avstanden
 
             ### avstanden mellom wayoint 1 og 2 ###
             a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
@@ -284,7 +287,7 @@ class WaypointNode(Node):
 
             d_vec_pass_check = - np.cross(a_vec, d_vec) # kryssprodukt mellom a og d for å se om båten har passert linjen
 
-            d = np.sign(d_vec_pass_check) * np.sqrt(d_vec[0]**2 + d_vec[1]**2) # magnituden til d_vektor
+            d = np.sign(d_vec_pass_check) * self.magnitude(d_vec) # magnituden til d_vektor
 
             delta = np.tanh(p_distance/150) * 80 # radiusen som båten svinger inn mot linjen
 
@@ -300,17 +303,31 @@ class WaypointNode(Node):
             psi_d = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
             wp_error_vec = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
-            wp_error = np.sqrt(wp_error_vec[0]**2 + wp_error_vec[1]**2)
+            wp_error = self.magnitude(wp_error_vec)
 
             nu = self.nu_u
             nu_dynamic = np.tanh(wp_error/10) * nu
 
             self.nu_publisher(nu_dynamic)
-            self.eta_publisher(psi_d)
 
-            if p_distance < 20: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
+
+            if p_distance < 50 or self.proximity_lock:
+                psi_angle = np.arctan2(-p_vec[1], -p_vec[0])
+                psi_setpoint = mu.mapToPiPi(psi_angle)
+                self.eta_publisher(psi_setpoint)
+                self.proximity_lock = True
+                if self.debug:
+                    self.get_logger().info('Waypoint guiding')
+                    self.get_logger().info(f'psi_setpoint = {np.rad2deg(psi_setpoint)}')
+            else:
+                self.eta_publisher(psi_d)
+                if self.debug:
+                    self.get_logger().info('Line guiding')
+
+            if p_distance < 10: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
                 self.i += 1
-                self.get_logger().info('Next waypoint')
+                self.proximity_lock = False
+                self.get_logger().info('***Next waypoint***')
 
 
             if self.debug:
