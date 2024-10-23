@@ -20,6 +20,8 @@ class AutopilotHMI(Node):
         self.mode_label = 'init'
         self.mode = 0
 
+        self.debug = False
+
         # Subscribers to eta_sim and nu_sim
         self.create_subscription(Eta, 'eta_sim', self.update_eta_feedback, default_qos_profile)
         self.create_subscription(Nu, 'nu_sim', self.update_nu_feedback, default_qos_profile)
@@ -103,29 +105,21 @@ class AutopilotHMI(Node):
         self.mode = 0
         self.publish_setpoints()
         self.get_logger().info('Standby mode activated')
-        self.mode_label = 'Standby'
-        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_sail_mode(self):
         self.mode = 1
         self.publish_setpoints()
         self.get_logger().info('Sail mode activated')
-        self.mode_label = 'Sail'
-        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_position_mode(self):
         self.mode = 2
         self.publish_setpoints()
         self.get_logger().info('Position mode activated')
-        self.mode_label = 'Position'
-        self.label.setText(f'Mode: {self.mode_label}')
 
     def set_track_mode(self):
         self.mode = 3
         self.publish_setpoints()
         self.get_logger().info('Track mode activated')
-        self.mode_label = 'Track'
-        self.label.setText(f'Mode: {self.mode_label}')
 
     ########################################
 
@@ -134,8 +128,21 @@ class AutopilotHMI(Node):
         # Spin ROS 2 callbacks to handle incoming messages
         rclpy.spin_once(self, timeout_sec=0.1)
 
+        if self.mode == 0:
+            self.mode_label = 'Standby'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif self.mode == 1:
+            self.mode_label = 'Sail'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif self.mode == 2:
+            self.mode_label = 'Position'
+            self.label.setText(f'Mode: {self.mode_label}')
+        elif self.mode == 3:
+            self.mode_label = 'Track'
+            self.label.setText(f'Mode: {self.mode_label}')
+
         # Publish the current setpoints regularly
-        self.publish_setpoints()
+        #self.publish_setpoints() kommentert ut kontinuerlig publishing
 
     def add_wheel_layout(self, label_text, min_val, max_val, unit, update_method):
         wheel_layout = QVBoxLayout()
@@ -161,6 +168,12 @@ class AutopilotHMI(Node):
 
         self.layout.addLayout(wheel_layout)
         self.layout.addItem(QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding))
+
+        dial.valueChanged.connect(self.eta_dial) # publisher ved endret verdi
+
+    def eta_dial(self):
+        self.publish_setpoints()
+
 
     def remap_dial_value(self, value):
         # Remap the dial so that 0 at the top is north (0°)
@@ -193,6 +206,11 @@ class AutopilotHMI(Node):
         self.layout.addLayout(slider_layout)
         self.layout.addItem(QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
+        slider.valueChanged.connect(self.nu_slider) # publisher ved endret verdi
+
+    def nu_slider(self):
+        self.publish_setpoints()
+
     def handle_heading_wraparound(self, current_value, update_method):
         update_method(current_value)
 
@@ -208,17 +226,17 @@ class AutopilotHMI(Node):
         self.mode = msg.mode
 
         if msg.mode == 0:
-            self.mode_label = 'Standby'
-            self.label.setText(f'Mode: {self.mode_label}')
+            self.get_logger().info('Standby mode activated')
         elif msg.mode == 1:
-            self.mode_label = 'Sail'
-            self.label.setText(f'Mode: {self.mode_label}')
+            self.get_logger().info('Sail mode activated')
         elif msg.mode == 2:
-            self.mode_label = 'Position'
-            self.label.setText(f'Mode: {self.mode_label}')
+            self.get_logger().info('Position mode activated')
         elif msg.mode == 3:
-            self.mode_label = 'Track'
-            self.label.setText(f'Mode: {self.mode_label}')
+            self.get_logger().info('Track mode activated')
+        
+        if self.debug:
+            self.get_logger().info('hmi_callback active')
+            self.get_logger().info(f'hmi_callback mode setpoint {msg.mode}')
 
     def update_heading_setpoint(self, value):
         # Update the heading setpoint value
@@ -236,7 +254,9 @@ class AutopilotHMI(Node):
         hmi_msg.nu = float(self.surge_setpoint) * 0.514444
         self.mode_publisher.publish(hmi_msg)
 
-    
+        if self.debug:
+            self.get_logger().info('hmi_publisher')
+            self.get_logger().info(f'hmi_publisher, mode: {self.mode}')
 
 def main(args=None):
     rclpy.init(args=args)

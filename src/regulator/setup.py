@@ -13,8 +13,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='oskar',
-    maintainer_email='oskarfjo@stud.ntnu.no',
+    maintainer='gruppe5',
+    maintainer_email='gruppe5@stud.ntnu.no',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
@@ -23,7 +23,9 @@ setup(
             'kontroller = regulator.kontroller:main',
             'estimator = regulator.estimator:main',
             'allokering = regulator.allokering:main',
-            'waypoint = regulator.waypoint:main'
+            'waypoint = regulator.waypoint:main',
+            'waypoint_mottaker = regulator.waypoint_mottaker:main',
+            'signalbehandler = regulator.signalbehandler:main'
         ],
     },
 )
