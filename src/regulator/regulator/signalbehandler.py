@@ -17,13 +17,16 @@ class SignalbehandlingsNode(Node):
         self.Heading_Sub = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
 
 
-        def heading_callback(self):
-            ###tull
-            return 1
+        def heading_callback(self, msg):
+            self.current_heading    = msg.heading
+            self.current_rot        = msg.rot
+            self.HeadingState       = msg.valid_signal
 
-        def Gnss_callback(self):
-            ###tull
-            return 1
+        def gnss_callback(self, msg):
+            self.current_lat    = msg.lat
+            self.current_lon    = msg.lon
+            self.GnssState      = msg.valid_signal
+
 
         def MedianFilter(self):
             ### Median filter ###

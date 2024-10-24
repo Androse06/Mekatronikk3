@@ -134,6 +134,20 @@ def generate_launch_description():
         output      = 'screen'
     )
 
+    signal_behandling = Node(
+        package     = "regulator",
+        executable  = "signalbehandler",
+        name        = 'signalbehandler',
+        output      = 'screen'
+    )
+
+    otter_interface = Node(
+        package     = "ngc_otter_interface",
+        executable  = "otter_interface_node",
+        name        = 'otter_interface_node',
+        output      = 'screen'
+    )
+
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
     delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
     delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
@@ -157,5 +171,7 @@ def generate_launch_description():
     ld.add_action(allokering)
     ld.add_action(waypoint)
     ld.add_action(waypoint_mottaker)
+    ld.add_action(signal_behandling)
+    ld.add_action(otter_interface)
 
     return ld
