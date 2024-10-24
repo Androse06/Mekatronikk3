@@ -143,8 +143,8 @@ def generate_launch_description():
 
     otter_interface = Node(
         package     = "ngc_otter_interface",
-        executable  = "otter_interface_node",
-        name        = 'otter_interface_node',
+        executable  = "otter_interface",
+        name        = 'otter_interface',
         output      = 'screen'
     )
 
