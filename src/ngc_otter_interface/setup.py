@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # Include the parsed_data.csv in the package installation
+        ('share/' + package_name + '/resource', ['resource/parsed_data.csv']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,5 +24,9 @@ setup(
         'console_scripts': [
             "otter_interface = ngc_otter_interface.otter_interface_node:main"
         ],
+    },
+    package_data={
+        # Include the CSV file in the package data
+        '': ['resource/*.csv'],
     },
 )
