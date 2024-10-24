@@ -10,6 +10,8 @@ import ngc_utils.math_utils as mu
 
 
 class SignalbehandlingsNode(Node):
+
+    
     def __init__(self):
         super().__init__('signalbehandling')
 
