@@ -13,15 +13,15 @@ class WaypointNode(Node):
 
         self.step_size = 0.1
 
-        self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile) # Bool for Standby, position, sail, track. Jeg lagde en ny .msg i ngc_interfaces.
+        self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
         self.route_sub      = self.create_subscription(Route, 'route', self.route_callback, default_qos_profile)
 
 
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
-        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
-        self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
+        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+        self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
 
         self.mode           = 0
         self.load_route     = False
@@ -47,7 +47,7 @@ class WaypointNode(Node):
 
 
 
-    def route_callback(self, msg: Route):
+    def route_callback(self, msg: Route): # For waypoint_mottaker
         name = msg.route_name
         waypoints = msg.waypoints
 
@@ -116,8 +116,7 @@ class WaypointNode(Node):
     
     def gpx_parsing(self):
 
-        coordinates = [] 
-        
+        coordinates: list[tuple[float, float]] = [] 
         coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
 
         with open('gpx_file/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
@@ -128,9 +127,6 @@ class WaypointNode(Node):
                 latitude = point.latitude
                 longitude = point.longitude
                 coordinates.append((latitude, longitude))
-                if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
-                    #self.get_logger().info('gpx indexing pass')
-                    self.pass_counter += 1
         
         self.load_route = False
         self.i = 0
