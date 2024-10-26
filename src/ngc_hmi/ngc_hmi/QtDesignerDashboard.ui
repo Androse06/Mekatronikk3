@@ -283,7 +283,7 @@
             <item>
              <widget class="QSlider" name="Sail_Throttle_Slider">
               <property name="maximum">
-               <number>100</number>
+               <number>6</number>
               </property>
               <property name="orientation">
                <enum>Qt::Vertical</enum>
