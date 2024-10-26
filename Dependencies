@@ -1,0 +1,14 @@
+### Linux programmer ###
+
+sudo apt install xdotool
+
+sudo apt install wmctrl
+
+
+### Python ###
+
+pip install pyside6 --include-deps
+
+pip install pyqt6
+
+pip install gpxpy
