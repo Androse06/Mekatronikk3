@@ -1,0 +1,9 @@
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/uninstall.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/ngc_bringup_uninstall.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/test.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/edit_cache.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/rebuild_cache.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/list_install_components.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/install.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/install/local.dir
+/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup/CMakeFiles/install/strip.dir

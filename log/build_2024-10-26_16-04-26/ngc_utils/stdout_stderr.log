@@ -1,0 +1,77 @@
+running egg_info
+creating ../../build/ngc_utils/ngc_utils.egg-info
+writing ../../build/ngc_utils/ngc_utils.egg-info/PKG-INFO
+writing dependency_links to ../../build/ngc_utils/ngc_utils.egg-info/dependency_links.txt
+writing requirements to ../../build/ngc_utils/ngc_utils.egg-info/requires.txt
+writing top-level names to ../../build/ngc_utils/ngc_utils.egg-info/top_level.txt
+writing manifest file '../../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+reading manifest file '../../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+writing manifest file '../../build/ngc_utils/ngc_utils.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/propulsion_model.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/thruster_objects_loader.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/math_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/nmea_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/qos_profiles.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/vessel_model.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/geo_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+copying ngc_utils/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/propeller_rudder_unit.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/fixed_pitch_propeller.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/tunnel_thruster.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/azimuth_thruster.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/propeller_base.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/controllable_pitch_propeller.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+copying ngc_utils/thruster_models/thrusters_base.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models
+running install
+running install_lib
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/propulsion_model.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_objects_loader.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/math_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/nmea_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/qos_profiles.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/propeller_rudder_unit.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/fixed_pitch_propeller.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/tunnel_thruster.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/azimuth_thruster.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/propeller_base.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/controllable_pitch_propeller.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/thruster_models/thrusters_base.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/vessel_model.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/geo_utils.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/build/lib/ngc_utils/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/propulsion_model.py to propulsion_model.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_objects_loader.py to thruster_objects_loader.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/math_utils.py to math_utils.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/nmea_utils.py to nmea_utils.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/qos_profiles.py to qos_profiles.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/propeller_rudder_unit.py to propeller_rudder_unit.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/fixed_pitch_propeller.py to fixed_pitch_propeller.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/tunnel_thruster.py to tunnel_thruster.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/azimuth_thruster.py to azimuth_thruster.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/propeller_base.py to propeller_base.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/controllable_pitch_propeller.py to controllable_pitch_propeller.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/thruster_models/thrusters_base.py to thrusters_base.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/vessel_model.py to vessel_model.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/geo_utils.py to geo_utils.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/share/ament_index
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/share/ament_index/resource_index
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/share/ament_index/resource_index/packages
+copying resource/ngc_utils -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/share/ament_index/resource_index/packages
+copying package.xml -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/share/ngc_utils
+running install_egg_info
+Copying ../../build/ngc_utils/ngc_utils.egg-info to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_utils/lib/python3.12/site-packages/ngc_utils-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_utils/install.log'

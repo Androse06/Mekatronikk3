@@ -1,0 +1,45 @@
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup
+-- Install configuration: ""
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/launch
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/plotjuggler layouts
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/plotjuggler layouts/PlotJuggler_layout.xml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/package.dsv
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+-- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/package.xml

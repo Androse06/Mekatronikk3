@@ -1,0 +1,566 @@
+[0.027s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adolf-fick/Desktop/git_ws/Mekatronikk3/src/ngc_interfaces -DCMAKE_INSTALL_PREFIX=/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces
+[0.572s] -- The C compiler identification is GNU 13.2.0
+[0.573s] -- The CXX compiler identification is GNU 13.2.0
+[0.573s] -- Detecting C compiler ABI info
+[0.573s] -- Detecting C compiler ABI info - done
+[0.574s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.575s] -- Detecting C compile features
+[0.575s] -- Detecting C compile features - done
+[0.575s] -- Detecting CXX compiler ABI info
+[0.575s] -- Detecting CXX compiler ABI info - done
+[0.576s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.576s] -- Detecting CXX compile features
+[0.576s] -- Detecting CXX compile features - done
+[0.576s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.726s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.858s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.865s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.936s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.995s] -- Found rosidl_adapter: 4.6.4 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.783s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[2.316s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.994s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.004s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[3.159s] -- Found PythonExtra: /usr/bin/python3  
+[3.691s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[3.744s] -- Configuring done (3.7s)
+[3.806s] -- Generating done (0.0s)
+[3.809s] -- Build files have been written to: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces
+[3.818s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adolf-fick/Desktop/git_ws/Mekatronikk3/src/ngc_interfaces -DCMAKE_INSTALL_PREFIX=/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces
+[3.819s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces -- -j8 -l8
+[3.880s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[3.889s] [  1%] Built target ament_cmake_python_copy_ngc_interfaces
+[4.153s] running egg_info
+[4.154s] creating ngc_interfaces.egg-info
+[4.179s] writing ngc_interfaces.egg-info/PKG-INFO
+[4.179s] writing dependency_links to ngc_interfaces.egg-info/dependency_links.txt
+[4.179s] writing top-level names to ngc_interfaces.egg-info/top_level.txt
+[4.180s] writing manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+[4.259s] reading manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+[4.260s] writing manifest file 'ngc_interfaces.egg-info/SOURCES.txt'
+[4.290s] [  1%] Built target ament_cmake_python_build_ngc_interfaces_egg
+[4.507s] [  1%] Built target ngc_interfaces__rosidl_generator_type_description
+[4.519s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[4.531s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[5.603s] [  2%] Built target ngc_interfaces__cpp
+[5.865s] [  3%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__type_support.c.o[0m
+[5.866s] [  4%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__type_support.c.o[0m
+[5.866s] [  5%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__description.c.o[0m
+[5.866s] [  5%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu__functions.c.o[0m
+[5.866s] [  7%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__functions.c.o[0m
+[5.866s] [  7%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__description.c.o[0m
+[5.867s] [  8%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__functions.c.o[0m
+[5.870s] [  8%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/eta__description.c.o[0m
+[5.932s] [  9%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__description.c.o[0m
+[5.933s] [  9%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/nu_dot__type_support.c.o[0m
+[5.950s] [ 11%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__functions.c.o[0m
+[5.951s] [ 11%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/tau__type_support.c.o[0m
+[5.952s] [ 11%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__description.c.o[0m
+[5.975s] [ 13%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__type_support.c.o[0m
+[5.975s] [ 13%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/wind__functions.c.o[0m
+[5.976s] [ 14%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__description.c.o[0m
+[5.995s] [ 14%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__functions.c.o[0m
+[6.010s] [ 15%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/thruster_signals__type_support.c.o[0m
+[6.018s] [ 16%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__description.c.o[0m
+[6.032s] [ 17%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__functions.c.o[0m
+[6.040s] [ 17%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/gnss__type_support.c.o[0m
+[6.053s] [ 18%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__description.c.o[0m
+[6.055s] [ 19%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__functions.c.o[0m
+[6.075s] [ 20%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/heading_device__type_support.c.o[0m
+[6.075s] [ 20%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/route__description.c.o[0m
+[6.097s] [ 21%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/route__functions.c.o[0m
+[6.099s] [ 22%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/route__type_support.c.o[0m
+[6.102s] [ 23%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/waypoint__description.c.o[0m
+[6.134s] [ 24%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/hmi__description.c.o[0m
+[6.134s] [ 25%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/waypoint__type_support.c.o[0m
+[6.138s] [ 25%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/waypoint__functions.c.o[0m
+[6.155s] [ 25%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/hmi__type_support.c.o[0m
+[6.155s] [ 26%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ngc_interfaces/msg/detail/hmi__functions.c.o[0m
+[6.228s] [ 27%] [32m[1mLinking C shared library libngc_interfaces__rosidl_generator_c.so[0m
+[6.275s] [ 27%] Built target ngc_interfaces__rosidl_generator_c
+[6.288s] [ 27%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[6.288s] [ 28%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[6.291s] [ 29%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[6.291s] [ 29%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[6.291s] [ 30%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[6.292s] [ 31%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[7.173s] [ 33%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/nu__type_support.cpp.o[0m
+[7.174s] [ 33%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/eta__type_support.cpp.o[0m
+[7.174s] [ 33%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/nu_dot__type_support.cpp.o[0m
+[7.283s] [ 34%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/tau__type_support.cpp.o[0m
+[7.289s] [ 35%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/thruster_signals__type_support.cpp.o[0m
+[7.289s] [ 35%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/wind__type_support.cpp.o[0m
+[7.373s] [ 36%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/gnss__type_support.cpp.o[0m
+[7.387s] [ 37%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/heading_device__type_support.cpp.o[0m
+[7.391s] [ 37%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/route__type_support.cpp.o[0m
+[7.477s] [ 38%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/waypoint__type_support.cpp.o[0m
+[7.481s] [ 39%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ngc_interfaces/msg/hmi__type_support.cpp.o[0m
+[7.516s] [ 41%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/nu__type_support.cpp.o[0m
+[7.516s] [ 41%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/eta__type_support.cpp.o[0m
+[7.568s] [ 41%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/nu_dot__type_support.cpp.o[0m
+[7.578s] [ 42%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_c.so[0m
+[7.664s] [ 42%] Built target ngc_interfaces__rosidl_typesupport_c
+[7.683s] [ 43%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/tau__type_support.cpp.o[0m
+[7.869s] [ 44%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/eta__type_support.cpp.o[0m
+[8.271s] [ 45%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/eta__type_support.c.o[0m
+[8.307s] [ 46%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/nu__type_support.cpp.o[0m
+[8.308s] [ 47%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/nu__type_support.c.o[0m
+[8.308s] [ 48%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/wind__type_support.cpp.o[0m
+[8.343s] [ 49%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp.o[0m
+[8.384s] [ 50%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/nu_dot__type_support.c.o[0m
+[8.451s] [ 50%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/tau__type_support.c.o[0m
+[8.467s] [ 51%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/nu_dot__type_support.cpp.o[0m
+[8.531s] [ 52%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/wind__type_support.c.o[0m
+[8.605s] [ 53%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/thruster_signals__type_support.c.o[0m
+[8.640s] [ 53%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/eta__type_support.cpp.o[0m
+[8.670s] [ 54%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/gnss__type_support.c.o[0m
+[8.683s] [ 54%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/gnss__type_support.cpp.o[0m
+[8.748s] [ 54%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/heading_device__type_support.c.o[0m
+[8.829s] [ 55%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/route__type_support.c.o[0m
+[8.847s] [ 56%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/eta__type_support_c.cpp.o[0m
+[8.914s] [ 57%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/waypoint__type_support.c.o[0m
+[8.991s] [ 58%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ngc_interfaces/msg/detail/hmi__type_support.c.o[0m
+[9.053s] [ 59%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/nu__type_support.cpp.o[0m
+[9.062s] [ 59%] [32m[1mLinking C shared library libngc_interfaces__rosidl_typesupport_introspection_c.so[0m
+[9.087s] [ 60%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/nu_dot__type_support.cpp.o[0m
+[9.105s] [ 60%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/nu__type_support_c.cpp.o[0m
+[9.124s] [ 60%] Built target ngc_interfaces__rosidl_typesupport_introspection_c
+[9.143s] [ 61%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/nu_dot__type_support_c.cpp.o[0m
+[9.218s] [ 61%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/tau__type_support.cpp.o[0m
+[9.425s] [ 62%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/heading_device__type_support.cpp.o[0m
+[9.844s] [ 63%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/wind__type_support.cpp.o[0m
+[9.959s] [ 64%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/tau__type_support.cpp.o[0m
+[9.985s] [ 64%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/wind__type_support.cpp.o[0m
+[10.180s] [ 65%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/thruster_signals__type_support.cpp.o[0m
+[10.202s] [ 66%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/route__type_support.cpp.o[0m
+[10.212s] [ 66%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/gnss__type_support.cpp.o[0m
+[10.247s] [ 67%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/tau__type_support_c.cpp.o[0m
+[10.250s] [ 68%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/wind__type_support_c.cpp.o[0m
+[10.610s] [ 69%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/waypoint__type_support.cpp.o[0m
+[10.911s] [ 70%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/thruster_signals__type_support.cpp.o[0m
+[10.933s] [ 71%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/heading_device__type_support.cpp.o[0m
+[11.036s] [ 71%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/thruster_signals__type_support_c.cpp.o[0m
+[11.092s] [ 71%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ngc_interfaces/msg/detail/hmi__type_support.cpp.o[0m
+[11.134s] [ 72%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/route__type_support.cpp.o[0m
+[11.337s] [ 73%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/waypoint__type_support.cpp.o[0m
+[11.361s] [ 74%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/gnss__type_support.cpp.o[0m
+[11.364s] [ 74%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ngc_interfaces/msg/hmi__type_support.cpp.o[0m
+[11.670s] [ 75%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/gnss__type_support_c.cpp.o[0m
+[11.837s] [ 76%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[11.876s] [ 77%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/heading_device__type_support_c.cpp.o[0m
+[12.011s] [ 77%] Built target ngc_interfaces__rosidl_typesupport_introspection_cpp
+[12.026s] [ 78%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/route__type_support_c.cpp.o[0m
+[12.098s] [ 79%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/heading_device__type_support.cpp.o[0m
+[12.102s] [ 79%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/waypoint__type_support_c.cpp.o[0m
+[12.123s] [ 80%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_cpp.so[0m
+[12.149s] [ 80%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/route__type_support.cpp.o[0m
+[12.208s] [ 80%] Built target ngc_interfaces__rosidl_typesupport_cpp
+[12.224s] [ 81%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/waypoint__type_support.cpp.o[0m
+[12.538s] [ 82%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ngc_interfaces/msg/detail/hmi__type_support_c.cpp.o[0m
+[12.780s] [ 83%] [32mBuilding CXX object CMakeFiles/ngc_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ngc_interfaces/msg/detail/dds_fastrtps/hmi__type_support.cpp.o[0m
+[13.466s] [ 84%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[13.563s] [ 84%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_c
+[13.567s] [ 85%] [32m[1mLinking CXX shared library libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[13.656s] [ 85%] Built target ngc_interfaces__rosidl_typesupport_fastrtps_cpp
+[13.679s] [ 85%] Built target ngc_interfaces
+[13.702s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[15.369s] [ 86%] Built target ngc_interfaces__py
+[15.398s] [ 88%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_nu_dot_s.c.o[0m
+[15.399s] [ 88%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_nu_s.c.o[0m
+[15.399s] [ 89%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_tau_s.c.o[0m
+[15.400s] [ 89%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_eta_s.c.o[0m
+[15.400s] [ 92%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_wind_s.c.o[0m
+[15.400s] [ 92%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_thruster_signals_s.c.o[0m
+[15.400s] [ 92%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_heading_device_s.c.o[0m
+[15.400s] [ 92%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_gnss_s.c.o[0m
+[15.677s] [ 93%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_route_s.c.o[0m
+[15.678s] [ 94%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_hmi_s.c.o[0m
+[15.678s] [ 94%] [32mBuilding C object CMakeFiles/ngc_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ngc_interfaces/msg/_waypoint_s.c.o[0m
+[15.833s] [ 95%] [32m[1mLinking C shared library libngc_interfaces__rosidl_generator_py.so[0m
+[15.882s] [ 95%] Built target ngc_interfaces__rosidl_generator_py
+[15.904s] [ 97%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[15.905s] [ 97%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[15.905s] [ 97%] [32mBuilding C object CMakeFiles/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[16.067s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so[0m
+[16.070s] [ 99%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[16.077s] [100%] [32m[1mLinking C shared module rosidl_generator_py/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[16.103s] [100%] Built target ngc_interfaces_s__rosidl_typesupport_c
+[16.107s] [100%] Built target ngc_interfaces_s__rosidl_typesupport_introspection_c
+[16.113s] [100%] Built target ngc_interfaces_s__rosidl_typesupport_fastrtps_c
+[16.128s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces -- -j8 -l8
+[16.410s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces
+[16.420s] -- Install configuration: ""
+[16.420s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ament_index/resource_index/rosidl_interfaces/ngc_interfaces
+[16.420s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.json
+[16.421s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Route.json
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Waypoint.json
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HMI.json
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/route.h
+[16.422s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/hmi.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/waypoint.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.h
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.c
+[16.423s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__description.c
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__type_support.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__functions.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.h
+[16.424s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.h
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__functions.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__functions.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__functions.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.h
+[16.425s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__struct.h
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__description.c
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__description.c
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.h
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.c
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.h
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.c
+[16.426s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.h
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__struct.h
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__functions.c
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__type_support.h
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.h
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.h
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__description.c
+[16.427s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.h
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.h
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__description.c
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__description.c
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.h
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.h
+[16.428s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__description.c
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__type_support.c
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__functions.h
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__functions.h
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__description.c
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.h
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__description.c
+[16.429s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__functions.h
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__type_support.h
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.c
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__functions.c
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__functions.c
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.h
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__functions.c
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__functions.h
+[16.430s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__functions.h
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__struct.h
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__type_support.c
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.h
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__description.c
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__type_support.c
+[16.431s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__functions.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__description.c
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_c__visibility_control.h
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.sh
+[16.432s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/library_path.dsv
+[16.433s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so
+[16.433s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_c.so" to ""
+[16.433s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.433s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.433s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_c.h
+[16.434s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_c.h
+[16.435s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_c.h
+[16.435s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__rosidl_typesupport_fastrtps_c.h
+[16.435s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[16.435s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so
+[16.435s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[16.436s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.436s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[16.436s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__rosidl_typesupport_introspection_c.h
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_c.h
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.c
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.c
+[16.436s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.c
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.c
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_c.h
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_c.h
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__rosidl_typesupport_introspection_c.h
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.c
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_c.h
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__type_support.c
+[16.437s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__rosidl_typesupport_introspection_c.h
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_c.h
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__type_support.c
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_c.h
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.c
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.c
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_c.h
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__type_support.c
+[16.438s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_c.h
+[16.439s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.c
+[16.439s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so
+[16.439s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[16.439s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so
+[16.440s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_c.so" to ""
+[16.440s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.440s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.440s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/hmi.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/thruster_signals.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/waypoint.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/heading_device.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/route.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/eta.hpp
+[16.441s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__traits.hpp
+[16.441s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__struct.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__traits.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__traits.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__builder.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__builder.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.hpp
+[16.442s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__traits.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__struct.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__struct.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__traits.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__type_support.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__struct.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__type_support.hpp
+[16.443s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__builder.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__builder.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__struct.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__builder.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__struct.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__builder.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__traits.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__struct.hpp
+[16.444s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__builder.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__traits.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__struct.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__traits.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__struct.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__struct.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__traits.hpp
+[16.445s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__type_support.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__struct.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__builder.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__builder.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__traits.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__traits.hpp
+[16.446s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__builder.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__builder.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/nu_dot.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/gnss.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/tau.hpp
+[16.447s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/wind.hpp
+[16.447s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.448s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.448s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__rosidl_typesupport_fastrtps_cpp.hpp
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_fastrtps_cpp.hpp
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_fastrtps_cpp.hpp
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_fastrtps_cpp.hpp
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_fastrtps_cpp.hpp
+[16.448s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/dds_fastrtps
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_fastrtps_cpp.hpp
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[16.449s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[16.450s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[16.450s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces
+[16.450s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg
+[16.450s] -- Up-to-date: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail
+[16.450s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__type_support.cpp
+[16.450s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__rosidl_typesupport_introspection_cpp.hpp
+[16.450s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__rosidl_typesupport_introspection_cpp.hpp
+[16.450s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/route__type_support.cpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/tau__type_support.cpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__rosidl_typesupport_introspection_cpp.hpp
+[16.451s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/hmi__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/gnss__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/wind__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu_dot__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/thruster_signals__rosidl_typesupport_introspection_cpp.hpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/nu__type_support.cpp
+[16.452s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/heading_device__rosidl_typesupport_introspection_cpp.hpp
+[16.453s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/eta__rosidl_typesupport_introspection_cpp.hpp
+[16.453s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/include/ngc_interfaces/ngc_interfaces/msg/detail/waypoint__type_support.cpp
+[16.453s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so
+[16.453s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[16.454s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so
+[16.454s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_typesupport_cpp.so" to ""
+[16.454s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.sh
+[16.454s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/pythonpath.dsv
+[16.454s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+[16.455s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+[16.456s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[16.456s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[16.456s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/__init__.py
+[16.456s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/_ngc_interfaces_s.ep.rosidl_typesupport_c.c
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_route.py
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau_s.c
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_waypoint_s.c
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals_s.c
+[16.457s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_waypoint.py
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_route_s.c
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot_s.c
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device_s.c
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_hmi.py
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss.py
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_s.c
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py
+[16.458s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_hmi_s.c
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta_s.c
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss_s.c
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind_s.c
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py
+[16.459s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device.py
+[16.518s] Listing '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/__init__.py'...
+[16.518s] Listing '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/__init__.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_eta.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_gnss.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_heading_device.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_hmi.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu.py'...
+[16.518s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_nu_dot.py'...
+[16.519s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_route.py'...
+[16.519s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_tau.py'...
+[16.519s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_thruster_signals.py'...
+[16.519s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_waypoint.py'...
+[16.519s] Compiling '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/msg/_wind.py'...
+[16.525s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[16.525s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[16.525s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so
+[16.526s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[16.526s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so
+[16.526s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/python3.12/site-packages/ngc_interfaces/ngc_interfaces_s__rosidl_typesupport_c.so" to ""
+[16.527s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so
+[16.527s] -- Set non-toolchain portion of runtime path of "/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/lib/libngc_interfaces__rosidl_generator_py.so" to ""
+[16.527s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.idl
+[16.527s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Route.idl
+[16.528s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Waypoint.idl
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HMI.idl
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Eta.msg
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Nu.msg
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/NuDot.msg
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Tau.msg
+[16.529s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Wind.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/ThrusterSignals.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/GNSS.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HeadingDevice.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Route.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/Waypoint.msg
+[16.530s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/msg/HMI.msg
+[16.531s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ament_index/resource_index/package_run_dependencies/ngc_interfaces
+[16.531s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ament_index/resource_index/parent_prefix_path/ngc_interfaces
+[16.531s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.sh
+[16.531s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/ament_prefix_path.dsv
+[16.531s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/path.sh
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/environment/path.dsv
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/local_setup.bash
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/local_setup.sh
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/local_setup.zsh
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/local_setup.dsv
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/package.dsv
+[16.532s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ament_index/resource_index/packages/ngc_interfaces
+[16.533s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport.cmake
+[16.533s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cExport-noconfig.cmake
+[16.533s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[16.533s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[16.533s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[16.534s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[16.534s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport.cmake
+[16.534s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[16.534s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_cppExport.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport.cmake
+[16.535s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/export_ngc_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake-extras.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[16.536s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/cmake/ngc_interfacesConfig-version.cmake
+[16.537s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_interfaces/share/ngc_interfaces/package.xml
+[16.541s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_interfaces

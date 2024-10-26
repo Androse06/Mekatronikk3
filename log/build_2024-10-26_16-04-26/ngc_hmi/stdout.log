@@ -1,0 +1,57 @@
+running egg_info
+creating ../../build/ngc_hmi/ngc_hmi.egg-info
+writing ../../build/ngc_hmi/ngc_hmi.egg-info/PKG-INFO
+writing dependency_links to ../../build/ngc_hmi/ngc_hmi.egg-info/dependency_links.txt
+writing entry points to ../../build/ngc_hmi/ngc_hmi.egg-info/entry_points.txt
+writing requirements to ../../build/ngc_hmi/ngc_hmi.egg-info/requires.txt
+writing top-level names to ../../build/ngc_hmi/ngc_hmi.egg-info/top_level.txt
+writing manifest file '../../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+reading manifest file '../../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+writing manifest file '../../build/ngc_hmi/ngc_hmi.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/ngc_hmi_yaml_editor.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/custom_slider_widget.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/EngineeringDashboard.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/ngc_hmi_engineering_opencpn.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/ngc_hmi_autopilot.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/ngc_hmi_engineering.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+copying ngc_hmi/ngc_hmi_main.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi
+running install
+running install_lib
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_yaml_editor.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/custom_slider_widget.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/EngineeringDashboard.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_engineering_opencpn.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_autopilot.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/__init__.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_engineering.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+copying /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/build/lib/ngc_hmi/ngc_hmi_main.py -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_yaml_editor.py to ngc_hmi_yaml_editor.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/custom_slider_widget.py to custom_slider_widget.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/EngineeringDashboard.py to EngineeringDashboard.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_engineering_opencpn.py to ngc_hmi_engineering_opencpn.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_autopilot.py to ngc_hmi_autopilot.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_engineering.py to ngc_hmi_engineering.cpython-312.pyc
+byte-compiling /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi/ngc_hmi_main.py to ngc_hmi_main.cpython-312.pyc
+running install_data
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/share/ament_index
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/share/ament_index/resource_index
+creating /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/share/ament_index/resource_index/packages
+copying resource/ngc_hmi -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/share/ament_index/resource_index/packages
+copying package.xml -> /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/share/ngc_hmi
+running install_egg_info
+Copying ../../build/ngc_hmi/ngc_hmi.egg-info to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/python3.12/site-packages/ngc_hmi-0.0.0-py3.12.egg-info
+running install_scripts
+Installing ngc_hmi script to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/ngc_hmi
+Installing ngc_hmi_autopilot script to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/ngc_hmi
+Installing ngc_hmi_engineering script to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/ngc_hmi
+Installing ngc_hmi_engineering_opencpn script to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/ngc_hmi
+Installing ngc_hmi_yaml_editor script to /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_hmi/lib/ngc_hmi
+writing list of installed files to '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_hmi/install.log'

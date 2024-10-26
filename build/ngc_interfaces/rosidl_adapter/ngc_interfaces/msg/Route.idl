@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ngc_interfaces/msg/Route.msg
+// generated code does not contain a copyright notice
+
+#include "ngc_interfaces/msg/Waypoint.idl"
+
+module ngc_interfaces {
+  module msg {
+    struct Route {
+      @verbatim (language="comment", text=
+        "Name of the route")
+      string route_name;
+
+      @verbatim (language="comment", text=
+        "List of waypoints")
+      sequence<ngc_interfaces::msg::Waypoint> waypoints;
+    };
+  };
+};

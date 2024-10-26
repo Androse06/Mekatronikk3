@@ -1,0 +1,51 @@
+[0.022s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adolf-fick/Desktop/git_ws/Mekatronikk3/src/ngc_bringup -DCMAKE_INSTALL_PREFIX=/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup
+[0.569s] -- The C compiler identification is GNU 13.2.0
+[0.569s] -- The CXX compiler identification is GNU 13.2.0
+[0.569s] -- Detecting C compiler ABI info
+[0.569s] -- Detecting C compiler ABI info - done
+[0.570s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.570s] -- Detecting C compile features
+[0.570s] -- Detecting C compile features - done
+[0.570s] -- Detecting CXX compiler ABI info
+[0.570s] -- Detecting CXX compiler ABI info - done
+[0.570s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.570s] -- Detecting CXX compile features
+[0.570s] -- Detecting CXX compile features - done
+[0.571s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.720s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.968s] -- Configuring done (0.9s)
+[0.972s] -- Generating done (0.0s)
+[0.973s] -- Build files have been written to: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup
+[0.980s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/adolf-fick/Desktop/git_ws/Mekatronikk3/src/ngc_bringup -DCMAKE_INSTALL_PREFIX=/home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup
+[0.982s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup -- -j8 -l8
+[1.030s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup -- -j8 -l8
+[1.065s] Invoking command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup
+[1.074s] -- Install configuration: ""
+[1.074s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/launch
+[1.074s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/launch/ngc.launch.py
+[1.074s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config
+[1.075s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/plotjuggler layouts
+[1.075s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/plotjuggler layouts/PlotJuggler_layout.xml
+[1.075s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/simulator_config.yaml
+[1.075s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/sensor_config.yaml
+[1.076s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/PlotJuggler_layout.xml
+[1.076s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/propulsion_config.yaml
+[1.076s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/control_config.yaml
+[1.076s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/layout.yaml
+[1.076s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/config/vessel_config.yaml
+[1.077s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/package_run_dependencies/ngc_bringup
+[1.077s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/parent_prefix_path/ngc_bringup
+[1.077s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.sh
+[1.078s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/ament_prefix_path.dsv
+[1.078s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/path.sh
+[1.078s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/environment/path.dsv
+[1.078s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.bash
+[1.079s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.sh
+[1.079s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.zsh
+[1.079s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/local_setup.dsv
+[1.079s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/package.dsv
+[1.079s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ament_index/resource_index/packages/ngc_bringup
+[1.080s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig.cmake
+[1.080s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/cmake/ngc_bringupConfig-version.cmake
+[1.080s] -- Installing: /home/adolf-fick/Desktop/git_ws/Mekatronikk3/install/ngc_bringup/share/ngc_bringup/package.xml
+[1.083s] Invoked command in '/home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/adolf-fick/Desktop/git_ws/Mekatronikk3/build/ngc_bringup
