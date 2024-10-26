@@ -11,7 +11,7 @@ import time
 ### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import HMI
+from ngc_interfaces.msg import HMI, TravelData
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -26,6 +26,8 @@ class EngineeringHMI(Node):
 
         ### HMI subscriber ####
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
+
+        self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
 
         self.opencpn_process = QProcess()
         self.opencpn_process.started.connect(self.get_opencpn_window_id)
@@ -81,6 +83,10 @@ class EngineeringHMI(Node):
         self.nu     = 0
         self.eta    = 0
 
+        self.i = 0
+        self.coordinates = []
+        self.status = False
+
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
         self.ui.Sail_Status_Icon.setValue(int(0))
@@ -117,7 +123,7 @@ class EngineeringHMI(Node):
         # Setter opp waypoint list
         self.waypoint_model = QStringListModel()
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-        self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
+        self.ui.Track_Load_Button.clicked.connect(self.add_waypoint)
 
     def exit_procedure(self):
         try:
@@ -173,10 +179,7 @@ class EngineeringHMI(Node):
 
 
     def add_waypoint(self):
-        waypoint = f"Lat: {self.Track_Lat_Input}, Lon: {self.Track_Lon_Input}"
-        current_waypoints = self.waypoint_model.stringList()
-        current_waypoints.append(waypoint)
-        self.waypoint_model.setStringList(current_waypoints)
+        self.waypoint_model.setStringList(self.coordinates)
         self.ui.Lat_Input_Track.clear()
         self.ui.Lon_Input_Track.clear()
     
@@ -294,6 +297,11 @@ class EngineeringHMI(Node):
         self.hmi_publisher.publish(hmi_message)
         self.get_logger().info(f'etapub={hmi_message.eta}')
         self.get_logger().info(f'nupub={hmi_message.nu}')
+
+    def travel_data_callback(self, msg: TravelData):
+        self.i = msg.i
+        self.coordinates = msg.coordinates
+        self.status = msg.status
 
     def hmi_callback(self, msg: HMI):
         self.route = msg.route

@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import gpxpy
-from ngc_interfaces.msg import HMI, Eta, Nu, Route
+from ngc_interfaces.msg import HMI, Eta, Nu, Route, TravelData, Coordinate
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
@@ -22,6 +22,7 @@ class WaypointNode(Node):
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
         self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
         self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
 
         self.mode           = 0
         self.load_route     = False
@@ -157,6 +158,17 @@ class WaypointNode(Node):
         mode_msg.nu     = self.nu_u
         self.mode_pub.publish(mode_msg)
 
+    def traveldata_publisher(self, status):
+        travel_msg = TravelData()
+        if status == True:
+            travel_msg.i                = self.i
+            travel_msg.status           = True
+            travel_msg.coordinates      = [Coordinate(latitude=lat, longitude=lon) for lat, lon in self.coordinates]
+        else:
+            travel_msg.status = False
+
+        self.TravelData_pub.publish(travel_msg)
+
     def meter_p_coordinate(self, lat, lon, v_north, v_east): # koordinatene er gitt i grader, v_north og v_east er gitt i meter. denne brukes til å kunne plusse a_merket på wp1 for å finne posisjon_merket.
         R_earth = 6371000 # meter
         meter_per_degree_lat = 2 * np.pi * R_earth / 360
@@ -177,6 +189,11 @@ class WaypointNode(Node):
 
 
     def step_waypoint(self):
+
+        if len(self.coordinates) > 0:
+            self.traveldata_publisher(True)
+        else:
+            self.traveldata_publisher(False)
 
         if self.mode == 0:
             self.nu_publisher(0.0)
@@ -302,11 +319,17 @@ class WaypointNode(Node):
 
             psi_d: float = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
-            wp_error_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
-            wp_error: float = self.magnitude(wp_error_vec)
+            wp2_error_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            wp2_error: float = self.magnitude(wp2_error_vec)
+            wp1_error: float = self.magnitude(b_vec)
 
             nu: float = self.nu_u
-            nu_dynamic: float = np.tanh(wp_error/10) * nu
+
+            if wp2_error < wp1_error:
+                nu_dynamic: float = np.tanh(wp2_error/10) * nu
+            elif wp2_error > wp1_error:
+                nu_dynamic: float = np.tanh(wp1_error/10) * nu
+                
 
             self.nu_publisher(nu_dynamic)
 
