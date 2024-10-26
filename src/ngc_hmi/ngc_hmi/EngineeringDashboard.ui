@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
-    <height>737</height>
+    <width>986</width>
+    <height>795</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,329 +19,172 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_10" stretch="4,1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5,1">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,10,1">
-        <property name="spacing">
-         <number>5</number>
-        </property>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_9">
-          <item>
-           <widget class="QLabel" name="Global_Heading_Label">
-            <property name="text">
-             <string>Heading</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLCDNumber" name="Global_Heading_LCD"/>
-          </item>
-          <item>
-           <widget class="QLabel" name="Global_Speed_Label">
-            <property name="text">
-             <string>Speed</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLCDNumber" name="Global_Speed_LCD"/>
-          </item>
-          <item>
-           <widget class="QTimeEdit" name="Global_Timer"/>
-          </item>
-          <item>
-           <widget class="QLabel" name="Gloabl_Throttle1_Label">
-            <property name="text">
-             <string>TH1 RPS</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QProgressBar" name="Global_Throttle1_Status">
-            <property name="value">
-             <number>24</number>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="Global_Throttle2_Label">
-            <property name="text">
-             <string>TH2 RPS</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QProgressBar" name="Global_Throttle2_Status">
-            <property name="value">
-             <number>24</number>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="Global_Heading_Label">
+          <property name="text">
+           <string>Heading</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QGraphicsView" name="MapPlaceHolder"/>
+         <widget class="QLCDNumber" name="Global_Heading_LCD"/>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="7" column="2">
-           <widget class="QDoubleSpinBox" name="SpinBox2"/>
-          </item>
-          <item row="6" column="1" colspan="2">
-           <widget class="QPushButton" name="Extra_Button_2">
-            <property name="text">
-             <string>ExtraB2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <widget class="QDoubleSpinBox" name="SpinBox1"/>
-          </item>
-          <item row="6" column="0">
-           <widget class="QPushButton" name="Extra_Button_1">
-            <property name="text">
-             <string>ExtraB1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="Extra_S1_Label">
-            <property name="text">
-             <string>Extra S1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="Extra_S2_Label">
-            <property name="text">
-             <string>Extra S2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" colspan="2">
-           <widget class="QSlider" name="Extra_Slider_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QLCDNumber" name="Extra_LCD_2"/>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLineEdit" name="Extra_Input_1"/>
-          </item>
-          <item row="4" column="2">
-           <widget class="QLabel" name="Extra_Input_2_Label">
-            <property name="text">
-             <string>Extra I2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLCDNumber" name="Extra_LCD_1"/>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="Extra_Input_1_Label">
-            <property name="text">
-             <string>Extra I1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" colspan="2">
-           <widget class="QSlider" name="Extra_Slider_1">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1" colspan="2">
-           <widget class="QLineEdit" name="Extra_Input_2"/>
-          </item>
-         </layout>
+         <widget class="QLabel" name="Global_Speed_Label">
+          <property name="text">
+           <string>Speed</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="Global_Speed_LCD"/>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="Global_Timer"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Gloabl_Throttle1_Label">
+          <property name="text">
+           <string>TH1 RPS</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="Global_Throttle1_Status">
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="Global_Throttle2_Label">
+          <property name="text">
+           <string>TH2 RPS</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="Global_Throttle2_Status">
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,20">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <widget class="QLabel" name="Standby_Label">
-              <property name="text">
-               <string>STANDBY</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Enable_Standby_Button">
-              <property name="text">
-               <string>Enable</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QProgressBar" name="Standby_Status_Icon">
-              <property name="value">
-               <number>100</number>
-              </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="Compass_Label">
-              <property name="text">
-               <string>COMPASS</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="1" column="1">
-             <widget class="QDial" name="Compass_Dial">
-              <property name="maximum">
-               <number>360</number>
-              </property>
-              <property name="wrapping">
-               <bool>true</bool>
-              </property>
-              <property name="notchesVisible">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="East_Label">
-              <property name="text">
-               <string>E</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="North_Label">
-              <property name="text">
-               <string>N</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="West_Label">
-              <property name="text">
-               <string>W</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="S_Label">
-              <property name="text">
-               <string>S</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="3">
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QSlider" name="Sail_Throttle_Slider">
-              <property name="maximum">
-               <number>6</number>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLCDNumber" name="Sail_Throttle_LCD"/>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="0" colspan="4">
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <widget class="QLabel" name="Sail_Label">
-              <property name="text">
-               <string>SAIL</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Enable_Sail_Button">
-              <property name="text">
-               <string>Enable</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QProgressBar" name="Sail_Status_Icon">
-              <property name="value">
-               <number>100</number>
-              </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <widget class="QDial" name="Sail_Heading_Dial">
-              <property name="maximum">
-               <number>360</number>
-              </property>
-              <property name="wrapping">
-               <bool>true</bool>
-              </property>
-              <property name="notchesVisible">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLCDNumber" name="Sail_Heading_LCD"/>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="QGraphicsView" name="MapPlaceHolder"/>
         </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="4" column="2">
+         <widget class="QLabel" name="Extra_Input_2_Label">
+          <property name="text">
+           <string>Extra I2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QSlider" name="Extra_Slider_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="Exit_Button">
+          <property name="text">
+           <string>Exit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QSlider" name="Extra_Slider_1">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLineEdit" name="Extra_Input_1"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLCDNumber" name="Extra_LCD_1"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="Extra_S2_Label">
+          <property name="text">
+           <string>Extra S2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="2">
+         <widget class="QDoubleSpinBox" name="SpinBox2"/>
+        </item>
+        <item row="7" column="0">
+         <widget class="QDoubleSpinBox" name="SpinBox1"/>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLCDNumber" name="Extra_LCD_2"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="Extra_Input_1_Label">
+          <property name="text">
+           <string>Extra I1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1" colspan="2">
+         <widget class="QLineEdit" name="Extra_Input_2"/>
+        </item>
+        <item row="6" column="2">
+         <widget class="QLabel" name="Extra_S1_Label">
+          <property name="text">
+           <string>Extra S1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="Extra_Button_1">
+          <property name="text">
+           <string>ExtraB1</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QLabel" name="Dp_Label">
+           <widget class="QLabel" name="Standby_Label">
             <property name="text">
-             <string>DP</string>
+             <string>STANDBY</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -349,14 +192,14 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="Enable_Dp_Button">
+           <widget class="QPushButton" name="Enable_Standby_Button">
             <property name="text">
              <string>Enable</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QProgressBar" name="Dp_Status_Icon">
+           <widget class="QProgressBar" name="Standby_Status_Icon">
             <property name="value">
              <number>100</number>
             </property>
@@ -366,18 +209,270 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <widget class="QLabel" name="Compass_Label">
+            <property name="text">
+             <string>COMPASS</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="1" column="1">
+           <widget class="QDial" name="Compass_Dial">
+            <property name="maximum">
+             <number>360</number>
+            </property>
+            <property name="wrapping">
+             <bool>true</bool>
+            </property>
+            <property name="notchesVisible">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="West_Label">
+            <property name="text">
+             <string>W</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="North_Label">
+            <property name="text">
+             <string>N</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="S_Label">
+            <property name="text">
+             <string>S</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="East_Label">
+            <property name="text">
+             <string>E</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QDial" name="Sail_Heading_Dial">
+            <property name="maximum">
+             <number>360</number>
+            </property>
+            <property name="wrapping">
+             <bool>true</bool>
+            </property>
+            <property name="notchesVisible">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="Sail_Heading_LCD"/>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" colspan="4">
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="Sail_Label">
+            <property name="text">
+             <string>SAIL</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Enable_Sail_Button">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="Sail_Status_Icon">
+            <property name="value">
+             <number>100</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="3">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QSlider" name="Sail_Throttle_Slider">
+            <property name="maximum">
+             <number>6</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="Sail_Throttle_LCD"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="Dp_Label">
+          <property name="text">
+           <string>DP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Enable_Dp_Button">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="Dp_Status_Icon">
+          <property name="value">
+           <number>100</number>
+          </property>
+          <property name="textVisible">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="Dp_Load_Button">
+            <property name="text">
+             <string>Load Position</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="Lat_Dp_Label">
+          <property name="text">
+           <string>LAT</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Lat_Input_Dp"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Lon_Dp_Label">
+          <property name="text">
+           <string>LON</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Lon_Input_Dp"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Deviation_Dp_Label">
+          <property name="text">
+           <string>DEVIATION</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="Deviation_Dp_LCD"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="Track_Label">
+            <property name="text">
+             <string>TRACK</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Enable_Track_Button">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="Track_Status_Icon">
+            <property name="value">
+             <number>100</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QPushButton" name="Dp_Load_Button">
+             <widget class="QPushButton" name="Track_Load_Button">
               <property name="text">
-               <string>Load Position</string>
+               <string>Load Route</string>
               </property>
              </widget>
             </item>
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="Lat_Dp_Label">
+           <widget class="QLabel" name="Lat_Label_Track">
             <property name="text">
              <string>LAT</string>
             </property>
@@ -387,10 +482,10 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="Lat_Input_Dp"/>
+           <widget class="QLineEdit" name="Lat_Input_Track"/>
           </item>
           <item>
-           <widget class="QLabel" name="Lon_Dp_Label">
+           <widget class="QLabel" name="Lon_Label_Track">
             <property name="text">
              <string>LON</string>
             </property>
@@ -400,12 +495,30 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="Lon_Input_Dp"/>
+           <widget class="QLineEdit" name="Lon_Input_Track"/>
           </item>
           <item>
-           <widget class="QLabel" name="Deviation_Dp_Label">
+           <widget class="QPushButton" name="Add_WayPoint_Button">
             <property name="text">
-             <string>DEVIATION</string>
+             <string>Add waypoint</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Clear_Waypoint_Button">
+            <property name="text">
+             <string>Clear waypoints</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="Waypoints_Label">
+            <property name="text">
+             <string>Waypoints</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -413,110 +526,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLCDNumber" name="Deviation_Dp_LCD"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QLabel" name="Track_Label">
-              <property name="text">
-               <string>TRACK</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Enable_Track_Button">
-              <property name="text">
-               <string>Enable</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QProgressBar" name="Track_Status_Icon">
-              <property name="value">
-               <number>100</number>
-              </property>
-              <property name="textVisible">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QPushButton" name="Track_Load_Button">
-                <property name="text">
-                 <string>Load Route</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QLabel" name="Lat_Label_Track">
-              <property name="text">
-               <string>LAT</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="Lat_Input_Track"/>
-            </item>
-            <item>
-             <widget class="QLabel" name="Lon_Label_Track">
-              <property name="text">
-               <string>LON</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="Lon_Input_Track"/>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Add_WayPoint_Button">
-              <property name="text">
-               <string>Add waypoint</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="Clear_Waypoint_Button">
-              <property name="text">
-               <string>Clear waypoints</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
-            <item>
-             <widget class="QLabel" name="Waypoints_Label">
-              <property name="text">
-               <string>Waypoints</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListView" name="WayPoint_ListView"/>
-            </item>
-           </layout>
+           <widget class="QListView" name="WayPoint_ListView"/>
           </item>
          </layout>
         </item>
@@ -531,7 +541,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1029</width>
+     <width>986</width>
      <height>22</height>
     </rect>
    </property>

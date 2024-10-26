@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'EngineeringDashboardOIwyaf.ui'
+## Form generated from reading UI file 'EngineeringDashboardHLPKQc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -19,22 +19,20 @@ from PySide6.QtWidgets import (QApplication, QDial, QDoubleSpinBox, QGraphicsVie
     QGridLayout, QHBoxLayout, QLCDNumber, QLabel,
     QLineEdit, QListView, QMainWindow, QMenuBar,
     QProgressBar, QPushButton, QSizePolicy, QSlider,
-    QStatusBar, QTimeEdit, QVBoxLayout, QWidget)
+    QSpacerItem, QStatusBar, QTimeEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1029, 737)
+        MainWindow.resize(986, 795)
         MainWindow.setAnimated(True)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.verticalLayout_10 = QVBoxLayout()
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -88,42 +86,28 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_9)
 
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer)
+
         self.MapPlaceHolder = QGraphicsView(self.centralwidget)
         self.MapPlaceHolder.setObjectName(u"MapPlaceHolder")
 
-        self.horizontalLayout_2.addWidget(self.MapPlaceHolder)
+        self.verticalLayout_10.addWidget(self.MapPlaceHolder)
+
+        self.verticalLayout_10.setStretch(0, 1)
+        self.verticalLayout_10.setStretch(1, 20)
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout_10)
 
         self.gridLayout_4 = QGridLayout()
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.SpinBox2 = QDoubleSpinBox(self.centralwidget)
-        self.SpinBox2.setObjectName(u"SpinBox2")
+        self.Extra_Input_2_Label = QLabel(self.centralwidget)
+        self.Extra_Input_2_Label.setObjectName(u"Extra_Input_2_Label")
 
-        self.gridLayout_4.addWidget(self.SpinBox2, 7, 2, 1, 1)
-
-        self.Extra_Button_2 = QPushButton(self.centralwidget)
-        self.Extra_Button_2.setObjectName(u"Extra_Button_2")
-
-        self.gridLayout_4.addWidget(self.Extra_Button_2, 6, 1, 1, 2)
-
-        self.SpinBox1 = QDoubleSpinBox(self.centralwidget)
-        self.SpinBox1.setObjectName(u"SpinBox1")
-
-        self.gridLayout_4.addWidget(self.SpinBox1, 7, 0, 1, 1)
-
-        self.Extra_Button_1 = QPushButton(self.centralwidget)
-        self.Extra_Button_1.setObjectName(u"Extra_Button_1")
-
-        self.gridLayout_4.addWidget(self.Extra_Button_1, 6, 0, 1, 1)
-
-        self.Extra_S1_Label = QLabel(self.centralwidget)
-        self.Extra_S1_Label.setObjectName(u"Extra_S1_Label")
-
-        self.gridLayout_4.addWidget(self.Extra_S1_Label, 0, 0, 1, 1)
-
-        self.Extra_S2_Label = QLabel(self.centralwidget)
-        self.Extra_S2_Label.setObjectName(u"Extra_S2_Label")
-
-        self.gridLayout_4.addWidget(self.Extra_S2_Label, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.Extra_Input_2_Label, 4, 2, 1, 1)
 
         self.Extra_Slider_2 = QSlider(self.centralwidget)
         self.Extra_Slider_2.setObjectName(u"Extra_Slider_2")
@@ -131,30 +115,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.Extra_Slider_2, 3, 0, 1, 2)
 
-        self.Extra_LCD_2 = QLCDNumber(self.centralwidget)
-        self.Extra_LCD_2.setObjectName(u"Extra_LCD_2")
+        self.Exit_Button = QPushButton(self.centralwidget)
+        self.Exit_Button.setObjectName(u"Exit_Button")
 
-        self.gridLayout_4.addWidget(self.Extra_LCD_2, 3, 2, 1, 1)
-
-        self.Extra_Input_1 = QLineEdit(self.centralwidget)
-        self.Extra_Input_1.setObjectName(u"Extra_Input_1")
-
-        self.gridLayout_4.addWidget(self.Extra_Input_1, 5, 0, 1, 1)
-
-        self.Extra_Input_2_Label = QLabel(self.centralwidget)
-        self.Extra_Input_2_Label.setObjectName(u"Extra_Input_2_Label")
-
-        self.gridLayout_4.addWidget(self.Extra_Input_2_Label, 4, 2, 1, 1)
-
-        self.Extra_LCD_1 = QLCDNumber(self.centralwidget)
-        self.Extra_LCD_1.setObjectName(u"Extra_LCD_1")
-
-        self.gridLayout_4.addWidget(self.Extra_LCD_1, 1, 2, 1, 1)
-
-        self.Extra_Input_1_Label = QLabel(self.centralwidget)
-        self.Extra_Input_1_Label.setObjectName(u"Extra_Input_1_Label")
-
-        self.gridLayout_4.addWidget(self.Extra_Input_1_Label, 4, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.Exit_Button, 0, 2, 1, 1)
 
         self.Extra_Slider_1 = QSlider(self.centralwidget)
         self.Extra_Slider_1.setObjectName(u"Extra_Slider_1")
@@ -162,19 +126,64 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.Extra_Slider_1, 1, 0, 1, 2)
 
+        self.Extra_Input_1 = QLineEdit(self.centralwidget)
+        self.Extra_Input_1.setObjectName(u"Extra_Input_1")
+
+        self.gridLayout_4.addWidget(self.Extra_Input_1, 5, 0, 1, 1)
+
+        self.Extra_LCD_1 = QLCDNumber(self.centralwidget)
+        self.Extra_LCD_1.setObjectName(u"Extra_LCD_1")
+
+        self.gridLayout_4.addWidget(self.Extra_LCD_1, 1, 2, 1, 1)
+
+        self.Extra_S2_Label = QLabel(self.centralwidget)
+        self.Extra_S2_Label.setObjectName(u"Extra_S2_Label")
+
+        self.gridLayout_4.addWidget(self.Extra_S2_Label, 2, 0, 1, 1)
+
+        self.SpinBox2 = QDoubleSpinBox(self.centralwidget)
+        self.SpinBox2.setObjectName(u"SpinBox2")
+
+        self.gridLayout_4.addWidget(self.SpinBox2, 7, 2, 1, 1)
+
+        self.SpinBox1 = QDoubleSpinBox(self.centralwidget)
+        self.SpinBox1.setObjectName(u"SpinBox1")
+
+        self.gridLayout_4.addWidget(self.SpinBox1, 7, 0, 1, 1)
+
+        self.Extra_LCD_2 = QLCDNumber(self.centralwidget)
+        self.Extra_LCD_2.setObjectName(u"Extra_LCD_2")
+
+        self.gridLayout_4.addWidget(self.Extra_LCD_2, 3, 2, 1, 1)
+
+        self.Extra_Input_1_Label = QLabel(self.centralwidget)
+        self.Extra_Input_1_Label.setObjectName(u"Extra_Input_1_Label")
+
+        self.gridLayout_4.addWidget(self.Extra_Input_1_Label, 4, 0, 1, 1)
+
         self.Extra_Input_2 = QLineEdit(self.centralwidget)
         self.Extra_Input_2.setObjectName(u"Extra_Input_2")
 
         self.gridLayout_4.addWidget(self.Extra_Input_2, 5, 1, 1, 2)
 
+        self.Extra_S1_Label = QLabel(self.centralwidget)
+        self.Extra_S1_Label.setObjectName(u"Extra_S1_Label")
+
+        self.gridLayout_4.addWidget(self.Extra_S1_Label, 6, 2, 1, 1)
+
+        self.Extra_Button_1 = QPushButton(self.centralwidget)
+        self.Extra_Button_1.setObjectName(u"Extra_Button_1")
+
+        self.gridLayout_4.addWidget(self.Extra_Button_1, 0, 0, 1, 1)
+
 
         self.horizontalLayout_2.addLayout(self.gridLayout_4)
 
         self.horizontalLayout_2.setStretch(0, 1)
-        self.horizontalLayout_2.setStretch(1, 10)
+        self.horizontalLayout_2.setStretch(1, 5)
         self.horizontalLayout_2.setStretch(2, 1)
 
-        self.verticalLayout_10.addLayout(self.horizontalLayout_2)
+        self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -219,10 +228,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.Compass_Dial, 1, 1, 1, 1)
 
-        self.East_Label = QLabel(self.centralwidget)
-        self.East_Label.setObjectName(u"East_Label")
+        self.West_Label = QLabel(self.centralwidget)
+        self.West_Label.setObjectName(u"West_Label")
+        self.West_Label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_3.addWidget(self.East_Label, 1, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.West_Label, 1, 0, 1, 1)
 
         self.North_Label = QLabel(self.centralwidget)
         self.North_Label.setObjectName(u"North_Label")
@@ -230,17 +240,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.North_Label, 0, 1, 1, 1)
 
-        self.West_Label = QLabel(self.centralwidget)
-        self.West_Label.setObjectName(u"West_Label")
-        self.West_Label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_3.addWidget(self.West_Label, 1, 0, 1, 1)
-
         self.S_Label = QLabel(self.centralwidget)
         self.S_Label.setObjectName(u"S_Label")
         self.S_Label.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_3.addWidget(self.S_Label, 2, 1, 1, 1)
+
+        self.East_Label = QLabel(self.centralwidget)
+        self.East_Label.setObjectName(u"East_Label")
+
+        self.gridLayout_3.addWidget(self.East_Label, 1, 2, 1, 1)
 
 
         self.verticalLayout_8.addLayout(self.gridLayout_3)
@@ -250,22 +259,23 @@ class Ui_MainWindow(object):
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalLayout_5 = QVBoxLayout()
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.Sail_Throttle_Slider = QSlider(self.centralwidget)
-        self.Sail_Throttle_Slider.setObjectName(u"Sail_Throttle_Slider")
-        self.Sail_Throttle_Slider.setMaximum(6)
-        self.Sail_Throttle_Slider.setOrientation(Qt.Vertical)
+        self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.Sail_Heading_Dial = QDial(self.centralwidget)
+        self.Sail_Heading_Dial.setObjectName(u"Sail_Heading_Dial")
+        self.Sail_Heading_Dial.setMaximum(360)
+        self.Sail_Heading_Dial.setWrapping(True)
+        self.Sail_Heading_Dial.setNotchesVisible(True)
 
-        self.verticalLayout_5.addWidget(self.Sail_Throttle_Slider)
+        self.verticalLayout_4.addWidget(self.Sail_Heading_Dial)
 
-        self.Sail_Throttle_LCD = QLCDNumber(self.centralwidget)
-        self.Sail_Throttle_LCD.setObjectName(u"Sail_Throttle_LCD")
+        self.Sail_Heading_LCD = QLCDNumber(self.centralwidget)
+        self.Sail_Heading_LCD.setObjectName(u"Sail_Heading_LCD")
 
-        self.verticalLayout_5.addWidget(self.Sail_Throttle_LCD)
+        self.verticalLayout_4.addWidget(self.Sail_Heading_LCD)
 
 
-        self.gridLayout.addLayout(self.verticalLayout_5, 1, 3, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout_4, 1, 0, 1, 1)
 
         self.verticalLayout_6 = QVBoxLayout()
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -290,23 +300,22 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addLayout(self.verticalLayout_6, 0, 0, 1, 4)
 
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.Sail_Heading_Dial = QDial(self.centralwidget)
-        self.Sail_Heading_Dial.setObjectName(u"Sail_Heading_Dial")
-        self.Sail_Heading_Dial.setMaximum(360)
-        self.Sail_Heading_Dial.setWrapping(True)
-        self.Sail_Heading_Dial.setNotchesVisible(True)
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.Sail_Throttle_Slider = QSlider(self.centralwidget)
+        self.Sail_Throttle_Slider.setObjectName(u"Sail_Throttle_Slider")
+        self.Sail_Throttle_Slider.setMaximum(6)
+        self.Sail_Throttle_Slider.setOrientation(Qt.Vertical)
 
-        self.verticalLayout_4.addWidget(self.Sail_Heading_Dial)
+        self.verticalLayout_5.addWidget(self.Sail_Throttle_Slider)
 
-        self.Sail_Heading_LCD = QLCDNumber(self.centralwidget)
-        self.Sail_Heading_LCD.setObjectName(u"Sail_Heading_LCD")
+        self.Sail_Throttle_LCD = QLCDNumber(self.centralwidget)
+        self.Sail_Throttle_LCD.setObjectName(u"Sail_Throttle_LCD")
 
-        self.verticalLayout_4.addWidget(self.Sail_Heading_LCD)
+        self.verticalLayout_5.addWidget(self.Sail_Throttle_LCD)
 
 
-        self.gridLayout.addLayout(self.verticalLayout_4, 1, 0, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout_5, 1, 3, 1, 1)
 
 
         self.horizontalLayout_5.addLayout(self.gridLayout)
@@ -464,17 +473,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addLayout(self.horizontalLayout_4)
 
 
-        self.verticalLayout_10.addLayout(self.horizontalLayout_5)
-
-        self.verticalLayout_10.setStretch(0, 4)
-        self.verticalLayout_10.setStretch(1, 1)
-
-        self.gridLayout_2.addLayout(self.verticalLayout_10, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.horizontalLayout_5, 1, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1029, 22))
+        self.menubar.setGeometry(QRect(0, 0, 986, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -491,19 +495,19 @@ class Ui_MainWindow(object):
         self.Global_Speed_Label.setText(QCoreApplication.translate("MainWindow", u"Speed", None))
         self.Gloabl_Throttle1_Label.setText(QCoreApplication.translate("MainWindow", u"TH1 RPS", None))
         self.Global_Throttle2_Label.setText(QCoreApplication.translate("MainWindow", u"TH2 RPS", None))
-        self.Extra_Button_2.setText(QCoreApplication.translate("MainWindow", u"ExtraB2", None))
-        self.Extra_Button_1.setText(QCoreApplication.translate("MainWindow", u"ExtraB1", None))
-        self.Extra_S1_Label.setText(QCoreApplication.translate("MainWindow", u"Extra S1", None))
-        self.Extra_S2_Label.setText(QCoreApplication.translate("MainWindow", u"Extra S2", None))
         self.Extra_Input_2_Label.setText(QCoreApplication.translate("MainWindow", u"Extra I2", None))
+        self.Exit_Button.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.Extra_S2_Label.setText(QCoreApplication.translate("MainWindow", u"Extra S2", None))
         self.Extra_Input_1_Label.setText(QCoreApplication.translate("MainWindow", u"Extra I1", None))
+        self.Extra_S1_Label.setText(QCoreApplication.translate("MainWindow", u"Extra S1", None))
+        self.Extra_Button_1.setText(QCoreApplication.translate("MainWindow", u"ExtraB1", None))
         self.Standby_Label.setText(QCoreApplication.translate("MainWindow", u"STANDBY", None))
         self.Enable_Standby_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Compass_Label.setText(QCoreApplication.translate("MainWindow", u"COMPASS", None))
-        self.East_Label.setText(QCoreApplication.translate("MainWindow", u"E", None))
-        self.North_Label.setText(QCoreApplication.translate("MainWindow", u"N", None))
         self.West_Label.setText(QCoreApplication.translate("MainWindow", u"W", None))
+        self.North_Label.setText(QCoreApplication.translate("MainWindow", u"N", None))
         self.S_Label.setText(QCoreApplication.translate("MainWindow", u"S", None))
+        self.East_Label.setText(QCoreApplication.translate("MainWindow", u"E", None))
         self.Sail_Label.setText(QCoreApplication.translate("MainWindow", u"SAIL", None))
         self.Enable_Sail_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Dp_Label.setText(QCoreApplication.translate("MainWindow", u"DP", None))
