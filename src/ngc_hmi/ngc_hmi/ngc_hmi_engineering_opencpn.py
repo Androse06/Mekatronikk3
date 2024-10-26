@@ -11,7 +11,7 @@ import time
 ### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import HMI, OtterStatus
+from ngc_interfaces.msg import HMI, OtterStatus, ThrusterSignals
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -26,7 +26,11 @@ class EngineeringHMI(Node):
 
         ### HMI subscriber ####
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
+
+        # Endring for otter interface
         self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_1_setpoints_sim', self.thruster_1_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_2_setpoints_sim', self.thruster_2_sim_callback, default_qos_profile)
 
         # Embed the external OpenCPN application if a window ID is provided
         self.opencpn_window_id = "29360373"
@@ -194,13 +198,61 @@ class EngineeringHMI(Node):
     def set_sail_heading_value(self, value):
         self.ui.Sail_Heading_Dial.setValue(value)
 
-
+    """
     def set_Th1_Icon(self, value):
         self.ui.Global_Throttle1_Status.setValue(int(value))
 
     def set_Th2_Icon(self, value):
         self.ui.Global_Throttle2_Status.setValue(int(value))
-    
+    """
+
+    def set_Th1_Icon(self, value):
+        # Set the value of the progress bar
+        self.ui.Global_Throttle1_Status.setValue(int(abs(value)))
+
+        # Define color thresholds and set color based on the value
+        if value < 0:
+            color = "#FF0000"  # Red for low values
+        else:
+            color = "#4CAF50"  # Green for high values
+
+        # Update the QProgressBar's color using stylesheet
+        self.ui.Global_Throttle1_Status.setStyleSheet(f"""
+            QProgressBar {{
+                border: 2px solid grey;
+                border-radius: 5px;
+                text-align: center;
+            }}
+            QProgressBar::chunk {{
+                background-color: {color};
+                width: 10px;
+            }}
+        """)
+
+    def set_Th2_Icon(self, value):
+        # Set the value of the progress bar
+        self.ui.Global_Throttle2_Status.setValue(int(abs(value)))
+
+        # Define color thresholds and set color based on the value
+        if value < 0:
+            color = "#FF0000"  # Red for low values
+        else:
+            color = "#4CAF50"  # Green for high values
+
+        # Update the QProgressBar's color using stylesheet
+        self.ui.Global_Throttle2_Status.setStyleSheet(f"""
+            QProgressBar {{
+                border: 2px solid grey;
+                border-radius: 5px;
+                text-align: center;
+            }}
+            QProgressBar::chunk {{
+                background-color: {color};
+                width: 10px;
+            }}
+        """)
+
+
     def set_Heading_Lcd(self, value):
         self.ui.Global_Heading_LCD.display(value)
     
@@ -294,7 +346,11 @@ class EngineeringHMI(Node):
                 self.enable_dp()
             elif self.mode == 3:
                 self.enable_track()
-        
+    
+    def spin_ros(self):
+        rclpy.spin_once(self, timeout_sec=0.1)
+
+
     def otter_status_callback(self, msg:OtterStatus):
         self.th1_rpm    = msg.rpm_port
         self.th2_rpm    = msg.rpm_stb
@@ -303,10 +359,14 @@ class EngineeringHMI(Node):
         self.fuel_cap   = msg.current_fuel_capacity
         self.set_Th1_Icon(self.th1_rpm)
         self.set_Th2_Icon(self.th2_rpm)
-        
-    def spin_ros(self):
-        rclpy.spin_once(self, timeout_sec=0.1)
     
+    def thruster_1_sim_callback(self, msg:ThrusterSignals):
+        self.sim_th1_rpm = msg.rps * 60
+        self.set_Th1_Icon(self.th1_rpm)
+
+    def thruster_2_sim_callback(self, msg:ThrusterSignals):
+        self.sim_th1_rpm = msg.rps * 60
+        self.set_Th2_Icon(self.th2_rpm)
 
 def main(args=None):
     rclpy.init(args=args)

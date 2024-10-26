@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'EngineeringDashboardOIwyaf.ui'
+## Form generated from reading UI file 'QtDesignerDashboarduDqBrH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -70,7 +70,9 @@ class Ui_MainWindow(object):
 
         self.Global_Throttle1_Status = QProgressBar(self.centralwidget)
         self.Global_Throttle1_Status.setObjectName(u"Global_Throttle1_Status")
-        self.Global_Throttle1_Status.setValue(24)
+        self.Global_Throttle1_Status.setMinimum(0)
+        self.Global_Throttle1_Status.setMaximum(2000)
+        self.Global_Throttle1_Status.setValue(0)
 
         self.verticalLayout_9.addWidget(self.Global_Throttle1_Status)
 
@@ -81,7 +83,9 @@ class Ui_MainWindow(object):
 
         self.Global_Throttle2_Status = QProgressBar(self.centralwidget)
         self.Global_Throttle2_Status.setObjectName(u"Global_Throttle2_Status")
-        self.Global_Throttle2_Status.setValue(24)
+        self.Global_Throttle2_Status.setMinimum(0)
+        self.Global_Throttle2_Status.setMaximum(2000)
+        self.Global_Throttle2_Status.setValue(0)
 
         self.verticalLayout_9.addWidget(self.Global_Throttle2_Status)
 
@@ -254,7 +258,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.Sail_Throttle_Slider = QSlider(self.centralwidget)
         self.Sail_Throttle_Slider.setObjectName(u"Sail_Throttle_Slider")
-        self.Sail_Throttle_Slider.setMaximum(6)
+        self.Sail_Throttle_Slider.setMaximum(100)
         self.Sail_Throttle_Slider.setOrientation(Qt.Vertical)
 
         self.verticalLayout_5.addWidget(self.Sail_Throttle_Slider)
