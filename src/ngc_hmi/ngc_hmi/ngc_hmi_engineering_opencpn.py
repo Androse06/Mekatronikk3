@@ -105,6 +105,7 @@ class EngineeringHMI(Node):
         self.ui.Dp_Load_Button.clicked.connect(self.load_dp)
         self.ui.Track_Load_Button.pressed.connect(self.load_track)       
         self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
+        self.ui.Exit_Button.clicked.connect(self.exit_procedure)
         
        
         # Connect Inputs
@@ -117,6 +118,16 @@ class EngineeringHMI(Node):
         self.waypoint_model = QStringListModel()
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
+
+    def exit_procedure(self):
+        try:
+            subprocess.run(["gnome-terminal", "--", "bash", "-c", "pkill -SIGTERM -f ros2; wmctrl -c 'OpenCPN'; exec bash"])
+            rclpy.shutdown()
+            
+        except Exception as e:
+            self.get_logger().error(f"Exit not exiting, plis try again {e}")
+
+
 
     def embed_external_application(self, window_id):
         # Save the window ID for reuse in resizing or moving
