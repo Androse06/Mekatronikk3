@@ -46,7 +46,6 @@ class WaypointNode(Node):
         self.debug1 = False
 
 
-
     def route_callback(self, msg: Route): # For waypoint_mottaker
         name = msg.route_name
         waypoints = msg.waypoints

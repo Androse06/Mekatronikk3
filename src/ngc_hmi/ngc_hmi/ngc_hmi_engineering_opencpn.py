@@ -64,7 +64,7 @@ class EngineeringHMI(Node):
         # Create an instance of the MainWindow and show it
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
-        self.window.show()
+        self.window.showFullScreen()
 
         # Add a small delay to let the window finish loading and layout updating
         QTimer.singleShot(500, lambda: self.embed_external_application(self.opencpn_window_id))
@@ -154,7 +154,7 @@ class EngineeringHMI(Node):
             subprocess.run([
                 "wmctrl", "-i", "-r", self.opencpn_window_id, "-b", "add,above"
             ], capture_output=True, text=True)
-            
+
         except Exception as e:
             self.get_logger().error(f"Failed to adjust OpenCPN window position: {e}")
 
