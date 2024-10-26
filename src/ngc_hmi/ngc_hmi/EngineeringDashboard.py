@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'EngineeringDashboardHLPKQc.ui'
+## Form generated from reading UI file 'EngineeringDashboardAImlwZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -26,12 +26,14 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(986, 795)
+        MainWindow.resize(1082, 836)
         MainWindow.setAnimated(True)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_9 = QVBoxLayout()
@@ -183,7 +185,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setStretch(1, 5)
         self.horizontalLayout_2.setStretch(2, 1)
 
-        self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -473,12 +475,17 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addLayout(self.horizontalLayout_4)
 
 
-        self.gridLayout_2.addLayout(self.horizontalLayout_5, 1, 0, 1, 1)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_5)
+
+        self.verticalLayout_11.setStretch(0, 5)
+        self.verticalLayout_11.setStretch(1, 1)
+
+        self.gridLayout_2.addLayout(self.verticalLayout_11, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 986, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1082, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -525,4 +532,5 @@ class Ui_MainWindow(object):
         self.Clear_Waypoint_Button.setText(QCoreApplication.translate("MainWindow", u"Clear waypoints", None))
         self.Waypoints_Label.setText(QCoreApplication.translate("MainWindow", u"Waypoints", None))
     # retranslateUi
+
 
