@@ -22,22 +22,48 @@ from PySide6.QtWidgets import (QApplication, QDial, QDoubleSpinBox, QGraphicsVie
     QSpacerItem, QStatusBar, QTimeEdit, QVBoxLayout,
     QWidget)
 
+class CompassDial(QDial):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # Load the compass image from the specified path
+        self.compass_image = QPixmap('/home/adolf-fick/Desktop/git_ws/Mekatronikk3/pictures/kompass.jpeg')
+
+    def paintEvent(self, event):
+        super().paintEvent(event)  # Call the base class paint event
+        painter = QPainter(self)
+        # Center the compass image on the dial
+        rect = self.rect()
+        compass_size = min(rect.width(), rect.height())
+        compass_rect = QRect(
+            (rect.width() - compass_size) // 2,
+            (rect.height() - compass_size) // 2,
+            compass_size, compass_size
+        )
+        painter.drawPixmap(compass_rect, self.compass_image)
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
+
         MainWindow.resize(1082, 836)
         MainWindow.setAnimated(True)
+
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+
         self.verticalLayout_11 = QVBoxLayout()
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+
         self.Global_Heading_Label = QLabel(self.centralwidget)
         self.Global_Heading_Label.setObjectName(u"Global_Heading_Label")
 
@@ -120,6 +146,14 @@ class Ui_MainWindow(object):
         self.Exit_Button = QPushButton(self.centralwidget)
         self.Exit_Button.setObjectName(u"Exit_Button")
 
+        self.Exit_Button.setStyleSheet("""
+            QPushButton {
+                background-color: red;
+                color: white;
+                border-radius: 20px;  /* Adjust radius for roundness */
+                padding: 10px;
+            }
+        """)
         self.gridLayout_4.addWidget(self.Exit_Button, 0, 2, 1, 1)
 
         self.Extra_Slider_1 = QSlider(self.centralwidget)
@@ -222,6 +256,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
+
         self.Compass_Dial = QDial(self.centralwidget)
         self.Compass_Dial.setObjectName(u"Compass_Dial")
         self.Compass_Dial.setMaximum(360)

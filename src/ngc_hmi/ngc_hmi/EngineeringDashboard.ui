@@ -115,6 +115,15 @@
           </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="Exit_Button">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: red;
+    border-radius: 15px;  /* Adjust radius for desired roundness */
+    color: white;  /* Text color */
+    padding: 10px;
+}
+</string>
+            </property>
             <property name="text">
              <string>Exit</string>
             </property>
@@ -226,6 +235,17 @@
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="1" column="1">
              <widget class="QDial" name="Compass_Dial">
+              <property name="styleSheet">
+               <string notr="true">QDial {
+    background-color: transparent;
+    border: 2px solid #555;
+    border-radius: 50px; /* Adjust size based on dial size */
+    background-image: url('home/adolf-fick/Desktop/git_ws/Mekatronikk3/pictures/kompass.jpeg'); /* Use a compass image */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</string>
+              </property>
               <property name="maximum">
                <number>360</number>
               </property>
@@ -546,7 +566,7 @@
      <x>0</x>
      <y>0</y>
      <width>1082</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
