@@ -105,6 +105,7 @@ class EngineeringHMI(Node):
         self.ui.Dp_Load_Button.clicked.connect(self.load_dp)
         self.ui.Track_Load_Button.pressed.connect(self.load_track)       
         self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
+        
        
         # Connect Inputs
         self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
