@@ -121,7 +121,7 @@ class EngineeringHMI(Node):
 
     def exit_procedure(self):
         try:
-            subprocess.run(["gnome-terminal", "--", "bash", "-c", "pkill -SIGTERM -f ros2; wmctrl -c 'OpenCPN'; exec bash"])
+            subprocess.run(['gnome-terminal', '--', 'bash', '-c', 'pkill -SIGTERM opencpn; pkill -SIGTERM -f ros2; exec bash'])
             rclpy.shutdown()
             
         except Exception as e:
