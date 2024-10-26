@@ -22,7 +22,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 "msg/Waypoint.msg"
 "msg/HMI.msg"
 "msg/SystemMode.msg"
-"msg/OtterStatus"
+"msg/OtterStatus.msg"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
