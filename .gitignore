@@ -1,4 +1,7 @@
 src/.vscode/settings.json
 gpx_file/
+build/
+install/
+log/
 src/.venv/
 venv/

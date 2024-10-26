@@ -1,4 +1,0 @@
-source;share/ngc_bringup/local_setup.bash
-source;share/ngc_bringup/local_setup.dsv
-source;share/ngc_bringup/local_setup.sh
-source;share/ngc_bringup/local_setup.zsh
