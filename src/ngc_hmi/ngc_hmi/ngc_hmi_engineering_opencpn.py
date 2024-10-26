@@ -11,7 +11,7 @@ import time
 ### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import HMI
+from ngc_interfaces.msg import HMI, OtterStatus
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -26,6 +26,7 @@ class EngineeringHMI(Node):
 
         ### HMI subscriber ####
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
+        self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
 
         # Embed the external OpenCPN application if a window ID is provided
         self.opencpn_window_id = "29360373"
@@ -52,11 +53,16 @@ class EngineeringHMI(Node):
         self.update_timer.start(100)  # Update every 100ms
 
         # Lager Variabler'
-        self.mode   = 0
-        self.route  = False
-        self.point  = False
-        self.nu     = 0
-        self.eta    = 0
+        self.mode       = 0
+        self.route      = False
+        self.point      = False
+        self.nu         = 0
+        self.eta        = 0
+        self.th1_rpm    = 0
+        self.th2_rpm    = 0
+        self.th1_pwr    = 0
+        self.th2_pwr    = 0
+        self.fuel_cap   = 0
 
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
@@ -288,6 +294,15 @@ class EngineeringHMI(Node):
                 self.enable_dp()
             elif self.mode == 3:
                 self.enable_track()
+        
+    def otter_status_callback(self, msg:OtterStatus):
+        self.th1_rpm    = msg.rpm_port
+        self.th2_rpm    = msg.rpm_stb
+        self.th1_pwr    = msg.power_port
+        self.th2_pwr    = msg.power_stb
+        self.fuel_cap   = msg.current_fuel_capacity
+        self.set_Th1_Icon(self.th1_rpm)
+        self.set_Th2_Icon(self.th2_rpm)
         
     def spin_ros(self):
         rclpy.spin_once(self, timeout_sec=0.1)
