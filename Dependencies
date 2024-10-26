@@ -1,3 +1,8 @@
+### Sette opp shell scriptet ###
+
+chmod +x launch.sh
+
+
 ### Linux programmer ###
 
 sudo apt install xdotool
