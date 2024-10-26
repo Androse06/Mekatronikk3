@@ -281,16 +281,14 @@ class EngineeringHMI(Node):
         self.th1_pwr    = msg.power_port
         self.th2_pwr    = msg.power_stb
         self.fuel_cap   = msg.current_fuel_capacity
-        self.set_Th1_Icon(self.th1_rpm)
-        self.set_Th2_Icon(self.th2_rpm)
     
     def thruster_1_sim_callback(self, msg:ThrusterSignals):
-        self.sim_th1_rpm = msg.rps * 60
-        self.set_Th1_Icon(self.th1_rpm)
+        self.sim_th1_rpm = int(msg.rps) * 60
+        self.set_Th1_Icon(self.sim_th1_rpm)
 
     def thruster_2_sim_callback(self, msg:ThrusterSignals):
-        self.sim_th1_rpm = msg.rps * 60
-        self.set_Th2_Icon(self.th2_rpm)
+        self.sim_th2_rpm = (msg.rps) * 60
+        self.set_Th2_Icon(self.sim_th2_rpm)
     
 
 def main(args=None):
