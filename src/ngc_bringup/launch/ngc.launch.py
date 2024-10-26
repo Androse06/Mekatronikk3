@@ -156,6 +156,6 @@ def generate_launch_description():
     ld.add_action(estimator)
     ld.add_action(allokering)
     ld.add_action(waypoint)
-    ld.add_action(waypoint_mottaker)
+    #ld.add_action(waypoint_mottaker)
 
     return ld
