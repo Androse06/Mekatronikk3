@@ -38,7 +38,7 @@ class EngineeringHMI(Node):
         self.init_ui()
 
     def get_opencpn_window_id(self):
-        time.sleep(1)  # Wait briefly to allow OpenCPN to load and focus
+        time.sleep(2)  # Wait briefly to allow OpenCPN to load and focus
         try:
             # Use xdotool to get the focused window ID with OpenCPN's name
             result = subprocess.run(
@@ -142,7 +142,7 @@ class EngineeringHMI(Node):
         map_placeholder_global_x = map_placeholder_global_pos.x()
         map_placeholder_global_y = map_placeholder_global_pos.y()
         width = rect.width()
-        height = rect.height()
+        height = rect.height() - 60
 
         try:
             # Use xdotool to move and resize the identified window ID
