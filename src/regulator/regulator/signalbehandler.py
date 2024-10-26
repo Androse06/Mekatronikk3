@@ -32,13 +32,13 @@ class SignalbehandlingsNode(Node):
         self.current_lat    = msg.lat
         self.current_lon    = msg.lon
         self.GnssState      = msg.valid_signal
-        self.gnss_behandling()
+        #self.gnss_behandling()
         
 
     def gnss_behandling(self):
        # Reknar ut gjennomsnitt
-        self.lat_average = np.sum(self.lat_readings) / len(self.lat_readings)
-        self.lon_average = np.sum(self.lon_readings) / len(self.lon_readings)
+        self.lat_average = sum(self.lat_readings) / len(self.lat_readings)
+        self.lon_average = sum(self.lon_readings) / len(self.lon_readings)
 
         # Reknar ut sum for emperisk varians
         for i in self.lat_readings:
