@@ -25,10 +25,31 @@ from PySide6.QtWidgets import (QApplication, QDial, QDoubleSpinBox, QGraphicsVie
 class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.compass_image = QPixmap('pictures/compass_2.png')
+        
+        # Load the original image
+        self.original_image = QPixmap('pictures/compass_2.png')  
+        
+        # Initial scaling of the compass image for the widget size
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.KeepAspectRatio, 
+            Qt.SmoothTransformation  # Provide smooth transformation as positional argument
+        )
+
+        # Hide the default dial appearance
+        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+        self.setNotchesVisible(False)
+
+    def resizeEvent(self, event):
+        # Rescale the image when the widget is resized
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.KeepAspectRatio, 
+            Qt.SmoothTransformation
+        )
+        super().resizeEvent(event)
 
     def paintEvent(self, event):
-        super().paintEvent(event)  # Call the base class paint event
         painter = QPainter(self)
 
         # Center and fit the compass image on the dial
@@ -45,8 +66,10 @@ class CompassDial(QDial):
         painter.rotate(self.value())
         painter.translate(-rect.center())
 
-        # Draw the rotated compass
+        # Draw the rotated compass image only
         painter.drawPixmap(compass_rect, self.compass_image)
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
