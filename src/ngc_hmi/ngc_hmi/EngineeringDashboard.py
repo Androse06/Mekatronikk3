@@ -25,13 +25,13 @@ from PySide6.QtWidgets import (QApplication, QDial, QDoubleSpinBox, QGraphicsVie
 class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
-        # Load the compass image from the specified path
-        self.compass_image = QPixmap('/home/adolf-fick/Desktop/git_ws/Mekatronikk3/pictures/kompass.jpeg')
+        self.compass_image = QPixmap('pictures/compass_2.png')
 
     def paintEvent(self, event):
         super().paintEvent(event)  # Call the base class paint event
         painter = QPainter(self)
-        # Center the compass image on the dial
+
+        # Center and fit the compass image on the dial
         rect = self.rect()
         compass_size = min(rect.width(), rect.height())
         compass_rect = QRect(
@@ -39,7 +39,15 @@ class CompassDial(QDial):
             (rect.height() - compass_size) // 2,
             compass_size, compass_size
         )
+
+        # Apply rotation based on the dial value
+        painter.translate(rect.center())
+        painter.rotate(self.value())
+        painter.translate(-rect.center())
+
+        # Draw the rotated compass
         painter.drawPixmap(compass_rect, self.compass_image)
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
 
@@ -257,7 +265,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
 
-        self.Compass_Dial = QDial(self.centralwidget)
+        self.Compass_Dial = CompassDial(self.centralwidget)
         self.Compass_Dial.setObjectName(u"Compass_Dial")
         self.Compass_Dial.setMaximum(360)
         self.Compass_Dial.setWrapping(True)
