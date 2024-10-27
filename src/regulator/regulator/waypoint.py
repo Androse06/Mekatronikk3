@@ -325,16 +325,18 @@ class WaypointNode(Node):
 
             nu: float = self.nu_u
 
-            if wp2_error < wp1_error:
+            if wp2_error < wp1_error: # Sakker farten nær waypoints
                 nu_dynamic: float = np.tanh(wp2_error/10) * nu
             elif wp2_error > wp1_error:
                 nu_dynamic: float = np.tanh(wp1_error/10) * nu
                 
-
             self.nu_publisher(nu_dynamic)
 
+            pos_m_wp_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            pos_m_wp: float = self.magnitude(pos_m_wp_vec)
+
             ### Låser guidingen til waypoint peiling når p_merket er innenfor 50 meter av WP2 ###
-            if p_distance < 50 or self.proximity_lock:
+            if pos_m_wp < 50 or self.proximity_lock:
                 psi_angle: float = np.arctan2(-p_vec[1], -p_vec[0])
                 psi_setpoint: float = mu.mapToPiPi(psi_angle)
                 self.eta_publisher(psi_setpoint)
@@ -347,11 +349,12 @@ class WaypointNode(Node):
                 if self.debug:
                     self.get_logger().info('Line guiding')
 
-            ### Hopper til neste WP når båten er innenfor 20m radius an nåværende WP2 ###
+            ### Hopper til neste WP når båten er innenfor 10m radius an nåværende WP2 ###
             if p_distance < 10: 
                 self.i += 1
                 self.proximity_lock = False
-                self.get_logger().info('***Next waypoint***')
+                if self.debug:
+                    self.get_logger().info('***Next waypoint***')
 
 
             if self.debug:
