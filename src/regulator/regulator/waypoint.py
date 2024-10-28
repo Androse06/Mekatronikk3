@@ -159,11 +159,24 @@ class WaypointNode(Node):
         self.mode_pub.publish(mode_msg)
 
     def traveldata_publisher(self, status):
+
+        wp_data = []
         travel_msg = TravelData()
+        
         if status == True:
             travel_msg.i                = self.i
             travel_msg.status           = True
-            travel_msg.coordinates      = [Coordinate(latitude=lat, longitude=lon) for lat, lon in self.coordinates]
+
+            for wp in self.coordinates:
+                coor_msg = Coordinate()
+
+                lat, lon = wp
+                coor_msg.lat = lat
+                coor_msg.lon = lon
+
+                wp_data.append(coor_msg)
+                
+            travel_msg.coordinates = wp_data
         else:
             travel_msg.status = False
 

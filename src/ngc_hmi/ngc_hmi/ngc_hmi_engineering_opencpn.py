@@ -123,7 +123,7 @@ class EngineeringHMI(Node):
         # Setter opp waypoint list
         self.waypoint_model = QStringListModel()
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-        self.ui.Track_Load_Button.clicked.connect(self.add_waypoint)
+        self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
     def exit_procedure(self):
         try:
@@ -300,8 +300,21 @@ class EngineeringHMI(Node):
 
     def travel_data_callback(self, msg: TravelData):
         self.i = msg.i
-        self.coordinates = msg.coordinates
+        #self.coordinates = msg.coordinates
+        for wp in msg.coordinates:
+            latitude = wp.lat
+            longitude = wp.lon
+            coor = (latitude, longitude)
+            self.coordinates.append(coor)
         self.status = msg.status
+        #if self.status:
+            #self.waypoint_model.setStringList(self.coordinates)
+            #self.ui.WayPoint_ListView.setModel(self.waypoint_model)
+
+        self.get_logger().info(f'i: {msg.i}')
+        self.get_logger().info(f'coordinates: {self.coordinates}')
+        self.get_logger().info(f'status: {msg.status}')
+            
 
     def hmi_callback(self, msg: HMI):
         self.route = msg.route
