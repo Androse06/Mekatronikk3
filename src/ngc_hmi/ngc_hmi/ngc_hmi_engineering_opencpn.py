@@ -1,7 +1,7 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QSizePolicy, QFrame, QLayout, QGraphicsView
 from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
-from PySide6.QtGui import QWindow
+from PySide6.QtGui import QWindow, QFont
 from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
@@ -115,10 +115,10 @@ class EngineeringHMI(Node):
         
        
         # Connect Inputs
-        self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
-        self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
+        #self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        #self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        #self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
+        #self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
         
         # Setter opp waypoint list
         self.waypoint_model = QStringListModel()
@@ -176,8 +176,6 @@ class EngineeringHMI(Node):
         except Exception as e:
             self.get_logger().error(f"Failed to adjust OpenCPN window position: {e}")
 
-
-
     def add_waypoint(self):
         self.waypoint_model.setStringList(self.coordinates)
         self.ui.Lat_Input_Track.clear()
@@ -228,14 +226,14 @@ class EngineeringHMI(Node):
     def set_compass_value(self, value):
         self.ui.Compass_Dial.setValue(value)
 
-    def retrieve_dp_input(self):
-        self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
-        self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
+    # def retrieve_dp_input(self):
+    #     self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
+    #     self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
 
 
-    def retrieve_track_input(self):
-        self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
-        self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
+    # def retrieve_track_input(self):
+    #     self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
+    #     self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
 
 
 
