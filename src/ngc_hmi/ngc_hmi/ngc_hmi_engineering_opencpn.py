@@ -125,6 +125,9 @@ class EngineeringHMI(Node):
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
+
+        self.debug = False
+
     def exit_procedure(self):
         try:
             subprocess.run(['gnome-terminal', '--', 'bash', '-c', 'pkill -SIGTERM opencpn; pkill -SIGTERM -f ros2; exec bash'])
@@ -179,7 +182,8 @@ class EngineeringHMI(Node):
 
 
     def add_waypoint(self):
-        self.waypoint_model.setStringList(self.coordinates)
+        waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
+        self.waypoint_model.setStringList(waypoint_strings)
         self.ui.Lat_Input_Track.clear()
         self.ui.Lon_Input_Track.clear()
     
@@ -307,13 +311,10 @@ class EngineeringHMI(Node):
             coor = (latitude, longitude)
             self.coordinates.append(coor)
         self.status = msg.status
-        #if self.status:
-            #self.waypoint_model.setStringList(self.coordinates)
-            #self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-
-        self.get_logger().info(f'i: {msg.i}')
-        self.get_logger().info(f'coordinates: {self.coordinates}')
-        self.get_logger().info(f'status: {msg.status}')
+        if self.debug:
+            self.get_logger().info(f'i: {msg.i}')
+            self.get_logger().info(f'coordinates: {self.coordinates}')
+            self.get_logger().info(f'status: {msg.status}')
             
 
     def hmi_callback(self, msg: HMI):
