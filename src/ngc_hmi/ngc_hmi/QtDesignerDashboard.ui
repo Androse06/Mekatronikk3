@@ -59,8 +59,14 @@
           </item>
           <item>
            <widget class="QProgressBar" name="Global_Throttle1_Status">
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>2000</number>
+            </property>
             <property name="value">
-             <number>24</number>
+             <number>0</number>
             </property>
            </widget>
           </item>
@@ -73,8 +79,14 @@
           </item>
           <item>
            <widget class="QProgressBar" name="Global_Throttle2_Status">
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>2000</number>
+            </property>
             <property name="value">
-             <number>24</number>
+             <number>0</number>
             </property>
            </widget>
           </item>
@@ -271,7 +283,7 @@
             <item>
              <widget class="QSlider" name="Sail_Throttle_Slider">
               <property name="maximum">
-               <number>100</number>
+               <number>6</number>
               </property>
               <property name="orientation">
                <enum>Qt::Vertical</enum>

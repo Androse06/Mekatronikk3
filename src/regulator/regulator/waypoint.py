@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import gpxpy
-from ngc_interfaces.msg import HMI, Eta, Nu, Route, TravelData, Coordinate
+from ngc_interfaces.msg import HMI, Eta, Nu, Route, SystemMode, TravelData, Coordinate
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
@@ -23,6 +23,7 @@ class WaypointNode(Node):
         self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
         self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
+        self.system_mode_pub    = self.create_publisher(SystemMode, 'system_mode', default_qos_profile)
 
         self.mode           = 0
         self.load_route     = False
@@ -207,11 +208,23 @@ class WaypointNode(Node):
         else:
             self.traveldata_publisher(False)
 
-        if self.mode == 0:
+        if self.mode == 0: # Standby
+            # Setter system mode til standby for otter interface
+            system_msg = SystemMode()
+            system_msg.standby_mode = True
+            system_msg.auto_mode    = False
+            self.system_mode_pub.publish(system_msg)
+
             self.nu_publisher(0.0)
             return
 
-        elif self.mode == 1:
+        elif self.mode == 1: # Sail
+            # Setter system mode til auto for otter interface
+            system_msg = SystemMode()
+            system_msg.standby_mode = False
+            system_msg.auto_mode    = True
+            self.system_mode_pub.publish(system_msg)
+
             eta = self.eta_psi
             self.eta_publisher(eta)
 
@@ -219,7 +232,13 @@ class WaypointNode(Node):
             self.nu_publisher(nu)
 
         
-        elif self.mode == 2:
+        elif self.mode == 2: # Dynamisk posisjonering
+            # Setter system mode til auto for otter interface
+            system_msg = SystemMode()
+            system_msg.standby_mode = False
+            system_msg.auto_mode    = True
+            self.system_mode_pub.publish(system_msg)
+
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
             else:
@@ -253,9 +272,16 @@ class WaypointNode(Node):
             if self.debug:
                 self.get_logger().info(f'error: {error}')
                 self.get_logger().info(f'distance: {distance}')
+                self.get_logger().info(f'nu_setpoint: {nu_setpoint}')
+                self.get_logger().info(f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}')
 
 
-        elif self.mode == 3: # step funksjonen til waypoint regulering.
+        elif self.mode == 3: # Waypoint step-funksjon.
+            # Setter system mode til auto for otter interface
+            system_msg = SystemMode()
+            system_msg.standby_mode = False
+            system_msg.auto_mode    = True
+            self.system_mode_pub.publish(system_msg)
 
             if self.debug:
                 self.get_logger().info(f'i = {self.i}')
