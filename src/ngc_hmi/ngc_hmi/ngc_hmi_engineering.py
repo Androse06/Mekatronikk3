@@ -48,7 +48,6 @@ class EngineeringHMI(Node):
         self.ui.Sail_Status_Icon.setValue(int(0))
         self.ui.Dp_Status_Icon.setValue(int(0))
         self.ui.Track_Status_Icon.setValue(int(0))
-
         
         # Set initial values (optional)
         self.set_sail_throttle_value(0)

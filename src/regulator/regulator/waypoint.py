@@ -96,7 +96,6 @@ class WaypointNode(Node):
             self.get_logger().info(f'callback - point: {msg.point}')
             self.get_logger().info(f'callback - eta: {msg.eta}')
             self.get_logger().info(f'callback - nu: {msg.nu}')
-
             
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
@@ -250,7 +249,6 @@ class WaypointNode(Node):
             psi_setpoint = mu.mapToPiPi(psi_angle)
 
             self.eta_publisher(psi_setpoint)
-
 
             if self.debug:
                 self.get_logger().info(f'error: {error}')
