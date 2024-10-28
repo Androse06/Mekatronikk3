@@ -127,7 +127,9 @@ class Ui_MainWindow(object):
 
         self.Global_Throttle1_Status = QProgressBar(self.centralwidget)
         self.Global_Throttle1_Status.setObjectName(u"Global_Throttle1_Status")
-        self.Global_Throttle1_Status.setValue(24)
+        self.Global_Throttle1_Status.setMinimum(0)
+        self.Global_Throttle1_Status.setMaximum(2000)
+        self.Global_Throttle1_Status.setValue(0)
 
         self.verticalLayout_9.addWidget(self.Global_Throttle1_Status)
 
@@ -138,7 +140,9 @@ class Ui_MainWindow(object):
 
         self.Global_Throttle2_Status = QProgressBar(self.centralwidget)
         self.Global_Throttle2_Status.setObjectName(u"Global_Throttle2_Status")
-        self.Global_Throttle2_Status.setValue(24)
+        self.Global_Throttle2_Status.setMinimum(0)
+        self.Global_Throttle2_Status.setMaximum(2000)
+        self.Global_Throttle2_Status.setValue(0)
 
         self.verticalLayout_9.addWidget(self.Global_Throttle2_Status)
 

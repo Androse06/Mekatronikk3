@@ -1,6 +1,6 @@
 #paramaeter for the thrusters on the boat
 
-main_propulsion_1:
+main_propulsion_1: # Port
   id: 1
   position: [-1,-0.5,0.3]                   # the position of the thruster form CO (the forces are poisitve in the direction according to the SNAME-notation)
   type: propeller_with_rudder               # (str) [propeller_fixed, propeller_variable_rudder
@@ -14,7 +14,7 @@ main_propulsion_1:
     pitch_time_constant: 0.5
     wake_factor: 0.05
 
-main_propulsion_2:
+main_propulsion_2: # Starboard
   id: 2
   position: [-1,0.5,0.3]                    # the position of the thruster form CO (the forces are poisitve in the direction according to the SNAME-notation)
   type: propeller_with_rudder               # (str) [propeller_fixed, propeller_variable_rudder]
