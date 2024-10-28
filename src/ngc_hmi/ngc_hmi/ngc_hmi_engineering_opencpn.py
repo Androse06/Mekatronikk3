@@ -11,7 +11,7 @@ import time
 ### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import HMI
+from ngc_interfaces.msg import HMI, TravelData
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -27,11 +27,37 @@ class EngineeringHMI(Node):
         ### HMI subscriber ####
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
 
+        self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
+
+        self.opencpn_process = QProcess()
+        self.opencpn_process.started.connect(self.get_opencpn_window_id)
+        self.opencpn_process.start("gnome-terminal", ["--", "opencpn"])
+
         # Embed the external OpenCPN application if a window ID is provided
-        self.opencpn_window_id = "29360373"
+        self.opencpn_window_id = ""
 
         # Initialize the UI
         self.init_ui()
+
+    def get_opencpn_window_id(self):
+        time.sleep(2)  # Wait briefly to allow OpenCPN to load and focus
+        try:
+            # Use xdotool to get the focused window ID with OpenCPN's name
+            result = subprocess.run(
+                ["xdotool", "search", "--onlyvisible", "--name", "OpenCPN", "getwindowfocus"],
+                capture_output=True, text=True
+            )
+            self.opencpn_window_id = result.stdout.strip()
+
+            if self.opencpn_window_id:
+                print(f"OpenCPN Main Window ID: {self.opencpn_window_id}")
+                self.embed_external_application(self.opencpn_window_id)
+            else:
+                self.get_logger().error("Failed to retrieve the OpenCPN window ID.")
+
+        except subprocess.CalledProcessError as e:
+            self.get_logger().error(f"Error finding OpenCPN window ID: {e}")
+
 
     def init_ui(self):
 
@@ -40,8 +66,7 @@ class EngineeringHMI(Node):
         # Create an instance of the MainWindow and show it
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
-        self.window.show()
-
+        self.window.showFullScreen()
 
         # Add a small delay to let the window finish loading and layout updating
         QTimer.singleShot(500, lambda: self.embed_external_application(self.opencpn_window_id))
@@ -57,6 +82,10 @@ class EngineeringHMI(Node):
         self.point  = False
         self.nu     = 0
         self.eta    = 0
+
+        self.i = 0
+        self.coordinates = []
+        self.status = False
 
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
@@ -82,6 +111,8 @@ class EngineeringHMI(Node):
         self.ui.Dp_Load_Button.clicked.connect(self.load_dp)
         self.ui.Track_Load_Button.pressed.connect(self.load_track)       
         self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
+        self.ui.Exit_Button.clicked.connect(self.exit_procedure)
+        
        
         # Connect Inputs
         self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
@@ -94,6 +125,13 @@ class EngineeringHMI(Node):
         self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
+    def exit_procedure(self):
+        try:
+            subprocess.run(['gnome-terminal', '--', 'bash', '-c', 'pkill -SIGTERM opencpn; pkill -SIGTERM -f ros2; exec bash'])
+            rclpy.shutdown()
+            
+        except Exception as e:
+            self.get_logger().error(f"Exit not exiting, plis try again {e}")
 
 
 
@@ -107,55 +145,41 @@ class EngineeringHMI(Node):
         if not self.opencpn_window_id:
             return
 
-        # Force a layout update and geometry recalculation
+
+
+        # Ensure layout updates and geometry calculations
         self.ui.MapPlaceHolder.updateGeometry()
         self.window.layout().activate()
         QApplication.processEvents()
 
-        # Get the MapPlaceHolder's rectangle (size)
+        # Calculate the MapPlaceHolder's global position and size
         rect = self.ui.MapPlaceHolder.rect()
+        map_placeholder_global_pos = self.ui.MapPlaceHolder.mapToGlobal(QPoint(0, 0))
 
-        # Get the MapPlaceHolder's position relative to the main window
-        map_placeholder_relative_pos = self.ui.MapPlaceHolder.mapTo(self.window, QPoint(0, 0))
-
-        # Get the main window's frame geometry (includes window decorations)
-        main_window_frame_pos = self.window.frameGeometry().topLeft()
-
-        # Calculate the MapPlaceHolder's global position
-        map_placeholder_global_x = main_window_frame_pos.x() + map_placeholder_relative_pos.x()
-        map_placeholder_global_y = main_window_frame_pos.y() + map_placeholder_relative_pos.y()
-
-        # Get the size of the MapPlaceHolder
+        # Extract global x, y, width, and height
+        map_placeholder_global_x = map_placeholder_global_pos.x()
+        map_placeholder_global_y = map_placeholder_global_pos.y()
         width = rect.width()
-        height = rect.height()
-
-        print(f"Adjusting OpenCPN window ID {self.opencpn_window_id} to x={map_placeholder_global_x}, y={map_placeholder_global_y}, "
-              f"width={width}, height={height}")
-        
-        print(f"Main window frame position: {main_window_frame_pos}")
-        print(f"MapPlaceHolder relative position: {map_placeholder_relative_pos}")
-        print(f"MapPlaceHolder global position: ({map_placeholder_global_x}, {map_placeholder_global_y})")
+        height = rect.height() - 60
 
         try:
             # Use xdotool to move and resize the identified window ID
-            result = subprocess.run([
+            subprocess.run([
                 "xdotool", "windowmove", self.opencpn_window_id, str(map_placeholder_global_x), str(map_placeholder_global_y),
                 "windowsize", self.opencpn_window_id, str(width), str(height)
             ], capture_output=True, text=True)
-
-            # Print the result of the xdotool command for debugging
-            print("xdotool output:", result.stdout)
-            print("xdotool errors:", result.stderr)
+    
+            subprocess.run([
+                "wmctrl", "-i", "-r", self.opencpn_window_id, "-b", "add,above"
+            ], capture_output=True, text=True)
 
         except Exception as e:
-            self.get_logger().error(f"Failed to adjust window position: {e}")
+            self.get_logger().error(f"Failed to adjust OpenCPN window position: {e}")
+
 
 
     def add_waypoint(self):
-        waypoint = f"Lat: {self.Track_Lat_Input}, Lon: {self.Track_Lon_Input}"
-        current_waypoints = self.waypoint_model.stringList()
-        current_waypoints.append(waypoint)
-        self.waypoint_model.setStringList(current_waypoints)
+        self.waypoint_model.setStringList(self.coordinates)
         self.ui.Lat_Input_Track.clear()
         self.ui.Lon_Input_Track.clear()
     
@@ -273,6 +297,24 @@ class EngineeringHMI(Node):
         self.hmi_publisher.publish(hmi_message)
         self.get_logger().info(f'etapub={hmi_message.eta}')
         self.get_logger().info(f'nupub={hmi_message.nu}')
+
+    def travel_data_callback(self, msg: TravelData):
+        self.i = msg.i
+        #self.coordinates = msg.coordinates
+        for wp in msg.coordinates:
+            latitude = wp.lat
+            longitude = wp.lon
+            coor = (latitude, longitude)
+            self.coordinates.append(coor)
+        self.status = msg.status
+        #if self.status:
+            #self.waypoint_model.setStringList(self.coordinates)
+            #self.ui.WayPoint_ListView.setModel(self.waypoint_model)
+
+        self.get_logger().info(f'i: {msg.i}')
+        self.get_logger().info(f'coordinates: {self.coordinates}')
+        self.get_logger().info(f'status: {msg.status}')
+            
 
     def hmi_callback(self, msg: HMI):
         self.route = msg.route

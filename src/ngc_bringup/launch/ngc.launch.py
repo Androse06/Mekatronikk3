@@ -73,7 +73,7 @@ def generate_launch_description():
 
     hmi_node_engineering = Node(
         package     = "ngc_hmi", 
-        executable  = "ngc_hmi_engineering",
+        executable  = "ngc_hmi_engineering_opencpn",
         name        = 'hmi_engineering',
         output      = 'screen'
     )
@@ -122,7 +122,7 @@ def generate_launch_description():
     )
 
     opencpn_process = ExecuteProcess(
-        cmd = ['opencpn'],
+        cmd = ['gnome-terminal', '--', 'opencpn'],
         output = 'screen'
     )
 
@@ -164,7 +164,7 @@ def generate_launch_description():
     ld.add_action(hmi_node_yaml_editor)
     #ld.add_action(hmi_node_autopilot)
     ld.add_action(hmi_node_engineering)
-    ld.add_action(opencpn_process)
+    #ld.add_action(opencpn_process)
     #ld.add_action(delayed_plotjuggler)
     ld.add_action(regulator)
     ld.add_action(estimator)

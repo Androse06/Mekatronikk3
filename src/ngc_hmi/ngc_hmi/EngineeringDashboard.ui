@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
-    <height>737</height>
+    <width>1082</width>
+    <height>836</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,12 +19,9 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_10" stretch="4,1">
+     <layout class="QVBoxLayout" name="verticalLayout_11" stretch="5,1">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,10,1">
-        <property name="spacing">
-         <number>5</number>
-        </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5,1">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
@@ -81,41 +78,31 @@
          </layout>
         </item>
         <item>
-         <widget class="QGraphicsView" name="MapPlaceHolder"/>
+         <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,20">
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>5</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QGraphicsView" name="MapPlaceHolder"/>
+          </item>
+         </layout>
         </item>
         <item>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="7" column="2">
-           <widget class="QDoubleSpinBox" name="SpinBox2"/>
-          </item>
-          <item row="6" column="1" colspan="2">
-           <widget class="QPushButton" name="Extra_Button_2">
+          <item row="4" column="2">
+           <widget class="QLabel" name="Extra_Input_2_Label">
             <property name="text">
-             <string>ExtraB2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <widget class="QDoubleSpinBox" name="SpinBox1"/>
-          </item>
-          <item row="6" column="0">
-           <widget class="QPushButton" name="Extra_Button_1">
-            <property name="text">
-             <string>ExtraB1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="Extra_S1_Label">
-            <property name="text">
-             <string>Extra S1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="Extra_S2_Label">
-            <property name="text">
-             <string>Extra S2</string>
+             <string>Extra I2</string>
             </property>
            </widget>
           </item>
@@ -126,26 +113,19 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="2">
-           <widget class="QLCDNumber" name="Extra_LCD_2"/>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLineEdit" name="Extra_Input_1"/>
-          </item>
-          <item row="4" column="2">
-           <widget class="QLabel" name="Extra_Input_2_Label">
-            <property name="text">
-             <string>Extra I2</string>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="Exit_Button">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: red;
+    border-radius: 15px;  /* Adjust radius for desired roundness */
+    color: white;  /* Text color */
+    padding: 10px;
+}
+</string>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLCDNumber" name="Extra_LCD_1"/>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="Extra_Input_1_Label">
             <property name="text">
-             <string>Extra I1</string>
+             <string>Exit</string>
             </property>
            </widget>
           </item>
@@ -156,8 +136,51 @@
             </property>
            </widget>
           </item>
+          <item row="5" column="0">
+           <widget class="QLineEdit" name="Extra_Input_1"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLCDNumber" name="Extra_LCD_1"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="Extra_S2_Label">
+            <property name="text">
+             <string>Extra S2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="QDoubleSpinBox" name="SpinBox2"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QDoubleSpinBox" name="SpinBox1"/>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLCDNumber" name="Extra_LCD_2"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="Extra_Input_1_Label">
+            <property name="text">
+             <string>Extra I1</string>
+            </property>
+           </widget>
+          </item>
           <item row="5" column="1" colspan="2">
            <widget class="QLineEdit" name="Extra_Input_2"/>
+          </item>
+          <item row="6" column="2">
+           <widget class="QLabel" name="Extra_S1_Label">
+            <property name="text">
+             <string>Extra S1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="Extra_Button_1">
+            <property name="text">
+             <string>ExtraB1</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -212,6 +235,17 @@
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="1" column="1">
              <widget class="QDial" name="Compass_Dial">
+              <property name="styleSheet">
+               <string notr="true">QDial {
+    background-color: transparent;
+    border: 2px solid #555;
+    border-radius: 50px; /* Adjust size based on dial size */
+    background-image: url('home/adolf-fick/Desktop/git_ws/Mekatronikk3/pictures/kompass.jpeg'); /* Use a compass image */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</string>
+              </property>
               <property name="maximum">
                <number>360</number>
               </property>
@@ -220,23 +254,6 @@
               </property>
               <property name="notchesVisible">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="East_Label">
-              <property name="text">
-               <string>E</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="North_Label">
-              <property name="text">
-               <string>N</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -250,6 +267,16 @@
               </property>
              </widget>
             </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="North_Label">
+              <property name="text">
+               <string>N</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
             <item row="2" column="1">
              <widget class="QLabel" name="S_Label">
               <property name="text">
@@ -260,26 +287,36 @@
               </property>
              </widget>
             </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="East_Label">
+              <property name="text">
+               <string>E</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
          </layout>
         </item>
         <item>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="3">
-           <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item row="1" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QSlider" name="Sail_Throttle_Slider">
+             <widget class="QDial" name="Sail_Heading_Dial">
               <property name="maximum">
-               <number>6</number>
+               <number>360</number>
               </property>
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
+              <property name="wrapping">
+               <bool>true</bool>
+              </property>
+              <property name="notchesVisible">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLCDNumber" name="Sail_Throttle_LCD"/>
+             <widget class="QLCDNumber" name="Sail_Heading_LCD"/>
             </item>
            </layout>
           </item>
@@ -314,23 +351,20 @@
             </item>
            </layout>
           </item>
-          <item row="1" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item row="1" column="3">
+           <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
-             <widget class="QDial" name="Sail_Heading_Dial">
+             <widget class="QSlider" name="Sail_Throttle_Slider">
               <property name="maximum">
-               <number>360</number>
+               <number>6</number>
               </property>
-              <property name="wrapping">
-               <bool>true</bool>
-              </property>
-              <property name="notchesVisible">
-               <bool>true</bool>
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLCDNumber" name="Sail_Heading_LCD"/>
+             <widget class="QLCDNumber" name="Sail_Throttle_LCD"/>
             </item>
            </layout>
           </item>
@@ -531,8 +565,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1029</width>
-     <height>22</height>
+     <width>1082</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>

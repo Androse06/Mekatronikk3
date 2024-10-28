@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import gpxpy
-from ngc_interfaces.msg import HMI, Eta, Nu, Route
+from ngc_interfaces.msg import HMI, Eta, Nu, Route, TravelData, Coordinate
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
@@ -13,15 +13,16 @@ class WaypointNode(Node):
 
         self.step_size = 0.1
 
-        self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile) # Bool for Standby, position, sail, track. Jeg lagde en ny .msg i ngc_interfaces.
+        self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
         self.route_sub      = self.create_subscription(Route, 'route', self.route_callback, default_qos_profile)
 
 
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
-        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
-        self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile) # Eget setpoint topic for waypoint regulatoren for å forhindre konflikter med autopilot regulatoren.
+        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+        self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
 
         self.mode           = 0
         self.load_route     = False
@@ -42,12 +43,11 @@ class WaypointNode(Node):
 
         self.get_logger().info("Waypoint-node er initialisert.")
 
-        self.debug = True
+        self.debug = False
         self.debug1 = False
 
 
-
-    def route_callback(self, msg: Route):
+    def route_callback(self, msg: Route): # For waypoint_mottaker
         name = msg.route_name
         waypoints = msg.waypoints
 
@@ -115,8 +115,7 @@ class WaypointNode(Node):
     
     def gpx_parsing(self):
 
-        coordinates = [] 
-        
+        coordinates: list[tuple[float, float]] = [] 
         coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
 
         with open('gpx_file/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
@@ -127,9 +126,6 @@ class WaypointNode(Node):
                 latitude = point.latitude
                 longitude = point.longitude
                 coordinates.append((latitude, longitude))
-                if self.debug: # Den jobber seg gjennom filen og indekserer waypoints helt til alle punktene i ruten er stacket inn i coordinates arrayet.
-                    #self.get_logger().info('gpx indexing pass')
-                    self.pass_counter += 1
         
         self.load_route = False
         self.i = 0
@@ -161,6 +157,30 @@ class WaypointNode(Node):
         mode_msg.nu     = self.nu_u
         self.mode_pub.publish(mode_msg)
 
+    def traveldata_publisher(self, status):
+
+        wp_data = []
+        travel_msg = TravelData()
+        
+        if status == True:
+            travel_msg.i                = self.i
+            travel_msg.status           = True
+
+            for wp in self.coordinates:
+                coor_msg = Coordinate()
+
+                lat, lon = wp
+                coor_msg.lat = lat
+                coor_msg.lon = lon
+
+                wp_data.append(coor_msg)
+                
+            travel_msg.coordinates = wp_data
+        else:
+            travel_msg.status = False
+
+        self.TravelData_pub.publish(travel_msg)
+
     def meter_p_coordinate(self, lat, lon, v_north, v_east): # koordinatene er gitt i grader, v_north og v_east er gitt i meter. denne brukes til å kunne plusse a_merket på wp1 for å finne posisjon_merket.
         R_earth = 6371000 # meter
         meter_per_degree_lat = 2 * np.pi * R_earth / 360
@@ -182,7 +202,13 @@ class WaypointNode(Node):
 
     def step_waypoint(self):
 
+        if len(self.coordinates) > 0:
+            self.traveldata_publisher(True)
+        else:
+            self.traveldata_publisher(False)
+
         if self.mode == 0:
+            self.nu_publisher(0.0)
             return
 
         elif self.mode == 1:
@@ -227,8 +253,6 @@ class WaypointNode(Node):
             if self.debug:
                 self.get_logger().info(f'error: {error}')
                 self.get_logger().info(f'distance: {distance}')
-                self.get_logger().info(f'nu_setpoint: {nu_setpoint}')
-                self.get_logger().info(f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}')
 
 
         elif self.mode == 3: # step funksjonen til waypoint regulering.
@@ -242,10 +266,10 @@ class WaypointNode(Node):
                 self.coordinates = []
                 return
 
-            waypoint = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
+            waypoint: tuple[float, float] = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
 
             if self.debug:
-                self.get_logger().info(f'waypoint: {waypoint}, Lat: {waypoint[0]}, Lon: {waypoint[1]}')
+                self.get_logger().info(f'waypoint: {waypoint}')
 
             if self.i < len(self.coordinates) - 1: # Definerer Wp2 når det er minst 2 waypoints igjen
                 waypoint_next = self.coordinates[self.i + 1]
@@ -255,65 +279,79 @@ class WaypointNode(Node):
                 return
 
 
-            ### waypoint 1 ###
-            lat_wp1 = waypoint[0]
-            lon_wp1 = waypoint[1]
+            ### Waypoint 1 - WP1 ###
+            lat_wp1: float = waypoint[0]
+            lon_wp1: float = waypoint[1]
 
-            ### waypoint 2 ###
-            lat_wp2 = waypoint_next[0]
-            lon_wp2 = waypoint_next[1]
+            ### Waypoint 2 - WP2 ###
+            lat_wp2: float = waypoint_next[0]
+            lon_wp2: float = waypoint_next[1]
 
-            ### båtens posisjon ###
-            lat_hat = self.eta[0]
-            lon_hat = self.eta[1]
+            ### Båtens posisjon - P ###
+            lat_hat: float = self.eta[0]
+            lon_hat: float = self.eta[1]
 
-            ### avstanden mellom båt og waypoint 2 ###
-            p_vec = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
-            p_distance = self.magnitude(p_vec) # skalar verdi for avstanden
+            ### Avstanden mellom båt og waypoint 2 ###
+            p_vec: tuple[float, float]  = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
+            p_distance: float           = self.magnitude(p_vec)
 
-            ### avstanden mellom wayoint 1 og 2 ###
-            a_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2) # avstand i meter
+            ### Avstanden mellom wayoint 1 og 2 - a ###
+            a_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2)
 
-            ### avstanden mellom waypoint 1 og båt ###
-            b_vec = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat) # avstand i meter
+            ### Avstanden mellom waypoint 1 og båt - b ###
+            b_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat)
 
-            a_vec_m = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec) # a_merket
+            ### Avstanden mellom waypoint 1 og P_merket - a_merket ###
+            a_vec_m: tuple[float, float] = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
 
-            pos_m = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1]) # p_merket
+            ### Koordinat til P_merket ###
+            pos_m: tuple[float, float] = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
 
-            d_vec = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1]) # d_vektor; vektor mellom båt og p_merket
+            ### d_vektor; vektor mellom båt og P_merket ###
+            d_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1])
 
-            d_vec_pass_check = - np.cross(a_vec, d_vec) # kryssprodukt mellom a og d for å se om båten har passert linjen
+            ### Kryssprodukt mellom a og d for å se om båten har passert linjen ###
+            d_vec_pass_check: int = np.sign(-np.cross(a_vec, d_vec))
 
-            d = np.sign(d_vec_pass_check) * self.magnitude(d_vec) # magnituden til d_vektor
+            ### Magnituden til d_vektor ###
+            d: float = d_vec_pass_check * self.magnitude(d_vec)
 
-            delta = np.tanh(p_distance/150) * 80 # radiusen som båten svinger inn mot linjen
+            ### Radiusen som båten svinger inn mot linjen ###
+            delta: float = np.tanh(p_distance/150) * 80
 
-            psi_L = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
+            psi_L: float = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
 
-            psi_east = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1) # vinkelen til linjen med øst=0deg
+            psi_east: float = np.arctan2(lat_wp2 - lat_wp1, lon_wp2 - lon_wp1) # vinkelen til linjen med øst=0deg
             
-            psi_T = 1/2 * np.pi - psi_east # vinkelen til linjen med nord=0deg
+            psi_T: float = 1/2 * np.pi - psi_east # vinkelen til linjen med nord=0deg
             
             if psi_T < 0:
                 psi_T += 2 * np.pi
 
-            psi_d = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
+            psi_d: float = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
-            wp_error_vec = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
-            wp_error = self.magnitude(wp_error_vec)
+            wp2_error_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            wp2_error: float = self.magnitude(wp2_error_vec)
+            wp1_error: float = self.magnitude(b_vec)
 
-            nu = self.nu_u
-            nu_dynamic = np.tanh(wp_error/10) * nu
+            nu: float = self.nu_u
 
+            if wp2_error < wp1_error: # Sakker farten nær waypoints
+                nu_dynamic: float = np.tanh(wp2_error/10) * nu
+            elif wp2_error > wp1_error:
+                nu_dynamic: float = np.tanh(wp1_error/10) * nu
+                
             self.nu_publisher(nu_dynamic)
 
+            pos_m_wp_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            pos_m_wp: float = self.magnitude(pos_m_wp_vec)
 
-            if p_distance < 50 or self.proximity_lock:
-                psi_angle = np.arctan2(-p_vec[1], -p_vec[0])
-                psi_setpoint = mu.mapToPiPi(psi_angle)
+            ### Låser guidingen til waypoint peiling når p_merket er innenfor 50 meter av WP2 ###
+            if pos_m_wp < 50 or self.proximity_lock:
+                psi_angle: float = np.arctan2(-p_vec[1], -p_vec[0])
+                psi_setpoint: float = mu.mapToPiPi(psi_angle)
                 self.eta_publisher(psi_setpoint)
-                self.proximity_lock = True
+                self.proximity_lock: bool = True
                 if self.debug:
                     self.get_logger().info('Waypoint guiding')
                     self.get_logger().info(f'psi_setpoint = {np.rad2deg(psi_setpoint)}')
@@ -322,10 +360,12 @@ class WaypointNode(Node):
                 if self.debug:
                     self.get_logger().info('Line guiding')
 
-            if p_distance < 10: # hopper til neste waypoint når båten er innenfor 20m radius an nåværende waypoint
+            ### Hopper til neste WP når båten er innenfor 10m radius an nåværende WP2 ###
+            if p_distance < 10: 
                 self.i += 1
                 self.proximity_lock = False
-                self.get_logger().info('***Next waypoint***')
+                if self.debug:
+                    self.get_logger().info('***Next waypoint***')
 
 
             if self.debug:
@@ -335,7 +375,7 @@ class WaypointNode(Node):
                     self.get_logger().info('Line pass: False')
                 self.get_logger().info(f'wp nr: {self.i + 1}')
                 self.get_logger().info(f'boat to wp distance: {p_distance}')
-                self.get_logger().info(f'Distance between wp1 and p`: {a_vec_m}')
+                self.get_logger().info(f'Distance between wp1 and p_m: {a_vec_m}')
                 self.get_logger().info(f'pos_m: {pos_m}')
                 self.get_logger().info(f'd; distance between boat and line: {d}')
                 self.get_logger().info(f'psi_L; boat attack angle: {np.rad2deg(psi_L)}')
