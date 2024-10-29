@@ -22,6 +22,12 @@ class SignalbehandlingsNode(Node):
         self.Heading_pub    = self.create_publisher(HeadingDevice, 'heading_measurement_filtered', default_qos_profile)
 
         ### VARIABLER ###
+        self.current_lon        = None
+        self.current_lat        = None
+        self.last_lon           = None
+        self.last_lat           = None
+        self.current_heading    = None
+        self.last_heading       = None
         self.lat_readings       = np.array([])
         self.lon_readings       = np.array([])
         self.heading_readings   = np.array([])
@@ -31,6 +37,12 @@ class SignalbehandlingsNode(Node):
 
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
+        if self.current_heading is not None:
+            if msg.heading != self.current_heading:
+                self.last_heading = self.current_heading
+        else:
+            self.last_heading = msg.heading
+
         self.current_heading    = msg.heading
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
@@ -47,7 +59,7 @@ class SignalbehandlingsNode(Node):
                 self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
 
                 # Sjekker om ny verdi er innanfor intervall og publiserer
-                if self.check_intervall(self.current_heading, self.heading_average, self.heading_S, 2):
+                if self.check_intervall(self.current_heading, self.last_heading, self.heading_S, 2):
                     self.heading_readings = np.append(self.heading_readings, self.current_heading)
                     
                     heading_filtered_msg                = HeadingDevice()
@@ -70,6 +82,18 @@ class SignalbehandlingsNode(Node):
 
     ### GNSS CALLBACK FUNKSJON ###
     def gnss_callback(self, msg: GNSS):
+        if self.current_lat is not None:
+            if msg.lat != self.current_lat:
+                self.last_lat = self.current_lat
+        else:
+            self.last_lat = msg.lat
+        
+        if self.current_lon is not None:        
+            if msg.lon != self.current_lon:
+                self.last_lon = self.current_lon
+        else:
+            self.last_lon = msg.lon
+
         self.current_lat    = msg.lat
         self.current_lon    = msg.lon
         self.current_sog    = msg.sog
@@ -90,7 +114,7 @@ class SignalbehandlingsNode(Node):
                 self.lon_S, self.lon_average = self.varians_kalkulator(self.lon_readings)
 
                 # Sjekker om nye verdier er innanfor intervall
-                if self.check_intervall(self.current_lat, self.lat_average, self.lat_S, 2):
+                if self.check_intervall(self.current_lat, self.last_lat, self.lat_S, 2):
                     self.lat_readings = np.append(self.lat_readings, self.current_lat)
                     filtered_lat = True
                     if (len(self.lat_readings) > self.max_readings):
@@ -98,7 +122,7 @@ class SignalbehandlingsNode(Node):
                 else:
                     filtered_lat = False
                 
-                if self.check_intervall(self.current_lon, self.lon_average, self.lon_S, 2):
+                if self.check_intervall(self.current_lon, self.last_lon, self.lon_S, 2):
                     self.lon_readings = np.append(self.lon_readings, self.current_lon)
                     filtered_lon = True
                     if (len(self.lon_readings) > self.max_readings):
@@ -152,6 +176,7 @@ class SignalbehandlingsNode(Node):
         return value_S, value_average
 
     ### INTERVALL SJEKK FUNKSJON ###
+    """
     def check_intervall(self, value, average, stand_avvik, toleranse):
         # Reknar ut intervall etter gitt antall standardavvik
         nedre_grense = average - (toleranse * stand_avvik)
@@ -161,7 +186,16 @@ class SignalbehandlingsNode(Node):
             return True
         else:
             return False
+    """
+    def check_intervall(self, value, last_value, stand_avvik, toleranse):
+        # Reknar ut intervall etter gitt antall standardavvik
+        nedre_grense = last_value - (toleranse * stand_avvik)
+        ovre_grense  = last_value + (toleranse * stand_avvik)
 
+        if (value > nedre_grense) and (value < ovre_grense):
+            return True
+        else:
+            return False
 
 
 def main(args=None):
