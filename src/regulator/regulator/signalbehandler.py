@@ -73,22 +73,22 @@ class SignalbehandlingsNode(Node):
             # Sjekker om nye verdier er innanfor intervall
             if self.check_intervall(self.current_lat, self.lat_average, self.lat_S, 2):
                 self.lat_readings = np.append(self.lat_readings, self.current_lat)
+                filtered_lat = True
                 if (len(self.lat_readings) > self.max_readings):
                     self.lat_readings = np.delete(self.lat_readings, 0)
-                    filter_lat = True
             else:
-                filter_lat = False
+                filtered_lat = False
             
             if self.check_intervall(self.current_lon, self.lon_average, self.lon_S, 2):
                 self.lon_readings = np.append(self.lon_readings, self.current_lon)
+                filtered_lon = True
                 if (len(self.lon_readings) > self.max_readings):
                     self.lon_readings = np.delete(self.lon_readings, 0)
-                    filtered_lon = True
             else:
                 filtered_lon = False
 
             # Sjekker om begge verdiene er godkjent og publiserer
-            if filter_lat and filtered_lon:
+            if filtered_lat and filtered_lon:
                 gnss_filtered_msg               = GNSS()
                 gnss_filtered_msg.lat           = self.current_lat
                 gnss_filtered_msg.lon           = self.current_lon
@@ -96,6 +96,8 @@ class SignalbehandlingsNode(Node):
                 gnss_filtered_msg.cog           = self.current_cog
                 gnss_filtered_msg.valid_signal  = self.GnssState
                 self.Gnss_pub.publish(gnss_filtered_msg)
+                filtered_lat = False
+                filtered_lon = False
             
             # Sender ut not_valid signal dersom signal ikkje er godkjent
             else:
