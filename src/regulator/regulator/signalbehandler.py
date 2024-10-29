@@ -33,30 +33,36 @@ class SignalbehandlingsNode(Node):
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
 
-        if self.HeadingState:
-            # Rekne ut variansen til målingar
-            self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
+        if len(self.heading_readings) > 8:
+            heading_readings_intalized = True
+        else:
+            heading_readings_intalized = False
+        
+        if heading_readings_intalized:
+            if self.HeadingState:
+                # Rekne ut variansen til målingar
+                self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
 
-            # Sjekker om ny verdi er innanfor intervall og publiserer
-            if self.check_intervall(self.current_heading, self.heading_average, self.heading_S, 2):
-                self.heading_readings = np.append(self.heading_readings, self.current_heading)
-                
-                heading_filtered_msg                = HeadingDevice()
-                heading_filtered_msg.heading        = self.current_heading
-                heading_filtered_msg.rot            = self.current_rot
-                heading_filtered_msg.HeadingState   = self.HeadingState
-                self.Heading_pub.publish(heading_filtered_msg)
-                self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
+                # Sjekker om ny verdi er innanfor intervall og publiserer
+                if self.check_intervall(self.current_heading, self.heading_average, self.heading_S, 2):
+                    self.heading_readings = np.append(self.heading_readings, self.current_heading)
+                    
+                    heading_filtered_msg                = HeadingDevice()
+                    heading_filtered_msg.heading        = self.current_heading
+                    heading_filtered_msg.rot            = self.current_rot
+                    heading_filtered_msg.HeadingState   = self.HeadingState
+                    self.Heading_pub.publish(heading_filtered_msg)
+                    self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
 
-                if (len(self.heading_readings) > self.max_readings):
-                    self.heading_readings = np.delete(self.heading_readings, 0)
+                    if (len(self.heading_readings) > self.max_readings):
+                        self.heading_readings = np.delete(self.heading_readings, 0)
 
-            # Sender ut not_valid signal dersom signal ikkje er godkjent
-            else:
-                #heading_filtered_msg                = HeadingDevice()
-                #heading_filtered_msg.HeadingState   = False
-                #self.Heading_pub.publish(heading_filtered_msg)
-                self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
+                # Sender ut not_valid signal dersom signal ikkje er godkjent
+                else:
+                    #heading_filtered_msg                = HeadingDevice()
+                    #heading_filtered_msg.HeadingState   = False
+                    #self.Heading_pub.publish(heading_filtered_msg)
+                    self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
 
 
     ### GNSS CALLBACK FUNKSJON ###
@@ -67,47 +73,53 @@ class SignalbehandlingsNode(Node):
         self.current_cog    = msg.cog
         self.GnssState      = msg.valid_signal
 
-        if self.GnssState:
-            # Rekne ut variansen til målingar
-            self.lat_S, self.lat_average = self.varians_kalkulator(self.lat_readings)
-            self.lon_S, self.lon_average = self.varians_kalkulator(self.lon_readings)
+        if (len(self.lat_readings) > 8) and (len(self.lon_readings) > 8):
+            gnss_readings_initialized = True
+        else:
+            gnss_readings_initialized = False
 
-            # Sjekker om nye verdier er innanfor intervall
-            if self.check_intervall(self.current_lat, self.lat_average, self.lat_S, 2):
-                self.lat_readings = np.append(self.lat_readings, self.current_lat)
-                filtered_lat = True
-                if (len(self.lat_readings) > self.max_readings):
-                    self.lat_readings = np.delete(self.lat_readings, 0)
-            else:
-                filtered_lat = False
-            
-            if self.check_intervall(self.current_lon, self.lon_average, self.lon_S, 2):
-                self.lon_readings = np.append(self.lon_readings, self.current_lon)
-                filtered_lon = True
-                if (len(self.lon_readings) > self.max_readings):
-                    self.lon_readings = np.delete(self.lon_readings, 0)
-            else:
-                filtered_lon = False
+        if gnss_readings_initialized:
+            if self.GnssState:
+                # Rekne ut variansen til målingar
+                self.lat_S, self.lat_average = self.varians_kalkulator(self.lat_readings)
+                self.lon_S, self.lon_average = self.varians_kalkulator(self.lon_readings)
 
-            # Sjekker om begge verdiene er godkjent og publiserer
-            if filtered_lat and filtered_lon:
-                gnss_filtered_msg               = GNSS()
-                gnss_filtered_msg.lat           = self.current_lat
-                gnss_filtered_msg.lon           = self.current_lon
-                gnss_filtered_msg.sog           = self.current_sog
-                gnss_filtered_msg.cog           = self.current_cog
-                gnss_filtered_msg.valid_signal  = self.GnssState
-                self.Gnss_pub.publish(gnss_filtered_msg)
-                self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
-                filtered_lat = False
-                filtered_lon = False
-            
-            # Sender ut not_valid signal dersom signal ikkje er godkjent
-            else:
-                #gnss_filtered_msg               = GNSS()
-                #gnss_filtered_msg.valid_signal  = False
-                #self.Gnss_pub.publish(gnss_filtered_msg)
-                self.get_logger().info(f'GNSS verdier er ikkje innanfor intervall')
+                # Sjekker om nye verdier er innanfor intervall
+                if self.check_intervall(self.current_lat, self.lat_average, self.lat_S, 2):
+                    self.lat_readings = np.append(self.lat_readings, self.current_lat)
+                    filtered_lat = True
+                    if (len(self.lat_readings) > self.max_readings):
+                        self.lat_readings = np.delete(self.lat_readings, 0)
+                else:
+                    filtered_lat = False
+                
+                if self.check_intervall(self.current_lon, self.lon_average, self.lon_S, 2):
+                    self.lon_readings = np.append(self.lon_readings, self.current_lon)
+                    filtered_lon = True
+                    if (len(self.lon_readings) > self.max_readings):
+                        self.lon_readings = np.delete(self.lon_readings, 0)
+                else:
+                    filtered_lon = False
+
+                # Sjekker om begge verdiene er godkjent og publiserer
+                if filtered_lat and filtered_lon:
+                    gnss_filtered_msg               = GNSS()
+                    gnss_filtered_msg.lat           = self.current_lat
+                    gnss_filtered_msg.lon           = self.current_lon
+                    gnss_filtered_msg.sog           = self.current_sog
+                    gnss_filtered_msg.cog           = self.current_cog
+                    gnss_filtered_msg.valid_signal  = self.GnssState
+                    self.Gnss_pub.publish(gnss_filtered_msg)
+                    self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
+                    filtered_lat = False
+                    filtered_lon = False
+                
+                # Sender ut not_valid signal dersom signal ikkje er godkjent
+                else:
+                    #gnss_filtered_msg               = GNSS()
+                    #gnss_filtered_msg.valid_signal  = False
+                    #self.Gnss_pub.publish(gnss_filtered_msg)
+                    self.get_logger().info(f'GNSS verdier er ikkje innanfor intervall')
 
                 
             
