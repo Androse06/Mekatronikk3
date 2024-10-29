@@ -46,15 +46,17 @@ class SignalbehandlingsNode(Node):
                 heading_filtered_msg.rot            = self.current_rot
                 heading_filtered_msg.HeadingState   = self.HeadingState
                 self.Heading_pub.publish(heading_filtered_msg)
+                self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
 
                 if (len(self.heading_readings) > self.max_readings):
                     self.heading_readings = np.delete(self.heading_readings, 0)
 
             # Sender ut not_valid signal dersom signal ikkje er godkjent
             else:
-                heading_filtered_msg                = HeadingDevice()
-                heading_filtered_msg.HeadingState   = False
-                self.Heading_pub.publish(heading_filtered_msg)
+                #heading_filtered_msg                = HeadingDevice()
+                #heading_filtered_msg.HeadingState   = False
+                #self.Heading_pub.publish(heading_filtered_msg)
+                self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
 
 
     ### GNSS CALLBACK FUNKSJON ###
@@ -96,14 +98,16 @@ class SignalbehandlingsNode(Node):
                 gnss_filtered_msg.cog           = self.current_cog
                 gnss_filtered_msg.valid_signal  = self.GnssState
                 self.Gnss_pub.publish(gnss_filtered_msg)
+                self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
                 filtered_lat = False
                 filtered_lon = False
             
             # Sender ut not_valid signal dersom signal ikkje er godkjent
             else:
-                gnss_filtered_msg               = GNSS()
-                gnss_filtered_msg.valid_signal  = False
-                self.Gnss_pub.publish(gnss_filtered_msg)
+                #gnss_filtered_msg               = GNSS()
+                #gnss_filtered_msg.valid_signal  = False
+                #self.Gnss_pub.publish(gnss_filtered_msg)
+                self.get_logger().info(f'GNSS verdier er ikkje innanfor intervall')
 
                 
             
