@@ -53,7 +53,7 @@ class SignalbehandlingsNode(Node):
                     heading_filtered_msg                = HeadingDevice()
                     heading_filtered_msg.heading        = self.current_heading
                     heading_filtered_msg.rot            = self.current_rot
-                    heading_filtered_msg.HeadingState   = self.HeadingState
+                    heading_filtered_msg.valid_signal   = self.HeadingState
                     self.Heading_pub.publish(heading_filtered_msg)
                     self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
 
@@ -63,7 +63,7 @@ class SignalbehandlingsNode(Node):
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
                     heading_filtered_msg                = HeadingDevice()
-                    heading_filtered_msg.HeadingState   = False
+                    heading_filtered_msg.valid_signal   = False
                     self.Heading_pub.publish(heading_filtered_msg)
                     self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
 
