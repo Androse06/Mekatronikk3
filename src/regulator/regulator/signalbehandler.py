@@ -31,20 +31,13 @@ class SignalbehandlingsNode(Node):
         self.lat_readings       = np.array([])
         self.lon_readings       = np.array([])
         self.heading_readings   = np.array([])
-        self.max_readings = 10
+        self.distance_readings = np.array([])
+        self.max_readings = 20
 
         self.get_logger().info("Signalbehandlings-node er initialisert.")
 
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
-
-        if self.current_heading is not None:
-            if msg.heading != self.current_heading:
-                self.last_heading = self.current_heading
-        else:
-            self.last_heading = msg.heading
-
-
         self.current_heading    = msg.heading
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
@@ -81,60 +74,44 @@ class SignalbehandlingsNode(Node):
                     heading_filtered_msg.valid_signal   = False
                     self.Heading_pub.publish(heading_filtered_msg)
                     self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
+        else:
+            self.get_logger().info('Samler inn heading data til filtrering')
+        
+        self.last_heading = self.current_heading
+
 
 
     ### GNSS CALLBACK FUNKSJON ###
     def gnss_callback(self, msg: GNSS):
-        if self.current_lat is not None:
-            if msg.lat != self.current_lat:
-                self.last_lat = self.current_lat
-        else:
-            self.last_lat = msg.lat
-        
-        if self.current_lon is not None:        
-            if msg.lon != self.current_lon:
-                self.last_lon = self.current_lon
-        else:
-            self.last_lon = msg.lon
-
         self.current_lat    = msg.lat
         self.current_lon    = msg.lon
         self.current_sog    = msg.sog
         self.current_cog    = msg.cog
         self.GnssState      = msg.valid_signal
 
-        if (len(self.lat_readings) > 8) and (len(self.lon_readings) > 8):
+        if self.last_lat is not None and self.last_lon is not None:
+            delta_distance = self.calculate_distance(self.current_lat, self.current_lon, self.last_lat, self.last_lon)
+        else:
+            delta_distance = 0
+            self.get_logger().info('Første gnss måling mottatt')
+        
+        self.distance_readings = np.append(self.distance_readings, delta_distance)
+        if len(self.distance_readings) > self.max_readings:
+            self.distance_readings = np.delete(self.distance_readings, 0)
+
+        if (len(self.distance_readings) > 8):
             gnss_readings_initialized = True
         else:
-            self.lat_readings = np.append(self.lat_readings, self.current_lat)
-            self.lon_readings = np.append(self.lon_readings, self.current_lon)
             gnss_readings_initialized = False
 
         if gnss_readings_initialized:
             if self.GnssState:
                 # Rekne ut variansen til målingar
-                self.lat_S, self.lat_average = self.varians_kalkulator(self.lat_readings)
-                self.lon_S, self.lon_average = self.varians_kalkulator(self.lon_readings)
+                #self.lat_S, self.lat_average = self.varians_kalkulator(self.lat_readings)
+                #self.lon_S, self.lon_average = self.varians_kalkulator(self.lon_readings)
+                self.distance_S, self.distance_average = self.varians_kalkulator(self.distance_readings)
 
-                # Sjekker om nye verdier er innanfor intervall
-                if self.check_intervall(self.current_lat, self.last_lat, self.lat_S, 2):
-                    self.lat_readings = np.append(self.lat_readings, self.current_lat)
-                    filtered_lat = True
-                    if (len(self.lat_readings) > self.max_readings):
-                        self.lat_readings = np.delete(self.lat_readings, 0)
-                else:
-                    filtered_lat = False
-                
-                if self.check_intervall(self.current_lon, self.last_lon, self.lon_S, 2):
-                    self.lon_readings = np.append(self.lon_readings, self.current_lon)
-                    filtered_lon = True
-                    if (len(self.lon_readings) > self.max_readings):
-                        self.lon_readings = np.delete(self.lon_readings, 0)
-                else:
-                    filtered_lon = False
-
-                # Sjekker om begge verdiene er godkjent og publiserer
-                if filtered_lat and filtered_lon:
+                if delta_distance <= (2 * self.distance_S):
                     gnss_filtered_msg               = GNSS()
                     gnss_filtered_msg.lat           = self.current_lat
                     gnss_filtered_msg.lon           = self.current_lon
@@ -143,19 +120,33 @@ class SignalbehandlingsNode(Node):
                     gnss_filtered_msg.valid_signal  = self.GnssState
                     self.Gnss_pub.publish(gnss_filtered_msg)
                     self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
-                    filtered_lat = False
-                    filtered_lon = False
-                
-                # Sender ut not_valid signal dersom signal ikkje er godkjent
+
                 else:
                     gnss_filtered_msg               = GNSS()
                     gnss_filtered_msg.valid_signal  = False
                     self.Gnss_pub.publish(gnss_filtered_msg)
-                    self.get_logger().info(f'GNSS verdier er ikkje innanfor intervall')
-
-                
-            
+                    self.get_logger().info('GNSS verdier er ikkje innanfor intervall')
+        else:
+            self.get_logger().info('Samler inn GNSS data for å starte filtrering')
         
+        self.last_lat = self.current_lat
+        self.last_lon = self.current_lon
+
+    
+    def calculate_distance(self, lat1, lon1, lat2, lon2):
+        # Convert degrees to radians
+        lat1_rad, lon1_rad = np.radians([lat1, lon1])
+        lat2_rad, lon2_rad = np.radians([lat2, lon2])
+
+        # Haversine formula
+        dlat = lat2_rad - lat1_rad
+        dlon = lon2_rad - lon1_rad
+        a = np.sin(dlat / 2.0)**2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon / 2.0)**2
+        c = 2 * np.arcsin(np.sqrt(a))
+        R = 6371000  # Earth radius in meters
+        distance = R * c
+        return distance
+
     ### VARIANS KALKULATOR FUNKSJON ###
     def varians_kalkulator(self, value):
         value_average   = 0
