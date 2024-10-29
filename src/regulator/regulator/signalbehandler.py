@@ -25,9 +25,9 @@ class SignalbehandlingsNode(Node):
         self.lat_readings       = np.array([])
         self.lon_readings       = np.array([])
         self.heading_readings   = np.array([])
-
         self.max_readings = 10
 
+    ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
         self.current_heading    = msg.heading
         self.current_rot        = msg.rot
@@ -37,7 +37,7 @@ class SignalbehandlingsNode(Node):
             # Rekne ut variansen til målingar
             self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
 
-            # Sjekker om ny verdi er innanfor intervall
+            # Sjekker om ny verdi er innanfor intervall og publiserer
             if self.check_intervall(self.current_heading, self.heading_average, self.heading_S, 2):
                 self.heading_readings = np.append(self.heading_readings, self.current_heading)
                 
@@ -50,13 +50,14 @@ class SignalbehandlingsNode(Node):
                 if (len(self.heading_readings) > self.max_readings):
                     self.heading_readings = np.delete(self.heading_readings, 0)
 
+            # Sender ut not_valid signal dersom signal ikkje er godkjent
             else:
                 heading_filtered_msg                = HeadingDevice()
                 heading_filtered_msg.HeadingState   = False
                 self.Heading_pub.publish(heading_filtered_msg)
 
 
-        
+    ### GNSS CALLBACK FUNKSJON ###
     def gnss_callback(self, msg: GNSS):
         self.current_lat    = msg.lat
         self.current_lon    = msg.lon
@@ -83,8 +84,10 @@ class SignalbehandlingsNode(Node):
                 if (len(self.lon_readings) > self.max_readings):
                     self.lon_readings = np.delete(self.lon_readings, 0)
                     filtered_lon = True
-            else: filtered_lon = False
+            else:
+                filtered_lon = False
 
+            # Sjekker om begge verdiene er godkjent og publiserer
             if filter_lat and filtered_lon:
                 gnss_filtered_msg               = GNSS()
                 gnss_filtered_msg.lat           = self.current_lat
@@ -93,7 +96,8 @@ class SignalbehandlingsNode(Node):
                 gnss_filtered_msg.cog           = self.current_cog
                 gnss_filtered_msg.valid_signal  = self.GnssState
                 self.Gnss_pub.publish(gnss_filtered_msg)
-
+            
+            # Sender ut not_valid signal dersom signal ikkje er godkjent
             else:
                 gnss_filtered_msg               = GNSS()
                 gnss_filtered_msg.valid_signal  = False
@@ -102,7 +106,7 @@ class SignalbehandlingsNode(Node):
                 
             
         
-
+    ### VARIANS KALKULATOR FUNKSJON ###
     def varians_kalkulator(self, value):
         value_average   = 0
         value_sum       = 0
@@ -124,6 +128,7 @@ class SignalbehandlingsNode(Node):
     
         return value_S, value_average
 
+    ### INTERVALL SJEKK FUNKSJON ###
     def check_intervall(self, value, average, stand_avvik, toleranse):
         # Reknar ut intervall etter gitt antall standardavvik
         nedre_grense = average - (toleranse * stand_avvik)
@@ -135,7 +140,7 @@ class SignalbehandlingsNode(Node):
             return False
 
 
-    ##### GAMMALT #####
+    ##### GAMMALT ##### 
 
     def gnss_behandling(self):
        # Reknar ut gjennomsnitt
