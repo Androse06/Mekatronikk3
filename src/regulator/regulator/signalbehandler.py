@@ -7,7 +7,7 @@ from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
 import ngc_utils.math_utils as mu
-
+from scipy.stats import circmean, circstd
 
 class SignalbehandlingsNode(Node):
     def __init__(self):
@@ -37,40 +37,43 @@ class SignalbehandlingsNode(Node):
 
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
+
         if self.current_heading is not None:
             if msg.heading != self.current_heading:
                 self.last_heading = self.current_heading
         else:
             self.last_heading = msg.heading
 
+
         self.current_heading    = msg.heading
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
 
+        self.heading_readings = np.append(self.heading_readings, self.current_heading)
+        if len(self.heading_readings) > self.max_readings:
+            self.heading_readings = np.delete(self.heading_readings, 0)
+
         if len(self.heading_readings) > 8:
             heading_readings_intalized = True
         else:
-            self.heading_readings = np.append(self.heading_readings, self.current_heading)
             heading_readings_intalized = False
+
         
         if heading_readings_intalized:
             if self.HeadingState:
                 # Rekne ut variansen til målingar
-                self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
+                #self.heading_S, self.heading_average = self.varians_kalkulator(self.heading_readings)
+                self.heading_S, self.heading_average = self.varians_kalkulator_heading(self.heading_readings)
 
                 # Sjekker om ny verdi er innanfor intervall og publiserer
-                if self.check_intervall(self.current_heading, self.last_heading, self.heading_S, 2):
-                    self.heading_readings = np.append(self.heading_readings, self.current_heading)
-                    
+                #if self.check_intervall(self.current_heading, self.last_heading, self.heading_S, 2):
+                if self.check_intervall_heading(self.current_heading, self.last_heading, self.heading_S, 2):
                     heading_filtered_msg                = HeadingDevice()
                     heading_filtered_msg.heading        = self.current_heading
                     heading_filtered_msg.rot            = self.current_rot
                     heading_filtered_msg.valid_signal   = self.HeadingState
                     self.Heading_pub.publish(heading_filtered_msg)
                     self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
-
-                    if (len(self.heading_readings) > self.max_readings):
-                        self.heading_readings = np.delete(self.heading_readings, 0)
 
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
@@ -175,6 +178,21 @@ class SignalbehandlingsNode(Node):
     
         return value_S, value_average
 
+    ### VARIANS KALKULATOR HEADING ###
+    def varians_kalkulator_heading(self, values):
+        value_average   =  circmean(values, high=np.pi, low=-np.pi)
+        value_S         = circstd(values, high=np.pi, low=-np.pi)
+        return value_S, value_average
+    
+    def vinkel_forskjell(self, angle1, angle2):
+        delta = (angle1 - angle2 + np.pi) % (2 * np.pi) - np.pi
+        return delta
+    
+    def check_intervall_heading(self, value, last_value, stand_avvik, toleranse):
+        delta = self.vinkel_forskjell(value, last_value)
+        limit = toleranse * stand_avvik
+        return abs(delta) <= limit
+    
     ### INTERVALL SJEKK FUNKSJON ###
     """
     def check_intervall(self, value, average, stand_avvik, toleranse):
