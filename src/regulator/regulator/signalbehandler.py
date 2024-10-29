@@ -27,6 +27,8 @@ class SignalbehandlingsNode(Node):
         self.heading_readings   = np.array([])
         self.max_readings = 10
 
+        self.get_logger().info("Signalbehandlings-node er initialisert.")
+
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
         self.current_heading    = msg.heading
@@ -36,6 +38,7 @@ class SignalbehandlingsNode(Node):
         if len(self.heading_readings) > 8:
             heading_readings_intalized = True
         else:
+            self.heading_readings = np.append(self.heading_readings, self.current_heading)
             heading_readings_intalized = False
         
         if heading_readings_intalized:
@@ -76,6 +79,8 @@ class SignalbehandlingsNode(Node):
         if (len(self.lat_readings) > 8) and (len(self.lon_readings) > 8):
             gnss_readings_initialized = True
         else:
+            self.lat_readings = np.append(self.lat_readings, self.current_lat)
+            self.lon_readings = np.append(self.lon_readings, self.current_lon)
             gnss_readings_initialized = False
 
         if gnss_readings_initialized:
