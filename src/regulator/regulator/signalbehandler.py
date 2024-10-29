@@ -59,9 +59,9 @@ class SignalbehandlingsNode(Node):
 
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
-                    #heading_filtered_msg                = HeadingDevice()
-                    #heading_filtered_msg.HeadingState   = False
-                    #self.Heading_pub.publish(heading_filtered_msg)
+                    heading_filtered_msg                = HeadingDevice()
+                    heading_filtered_msg.HeadingState   = False
+                    self.Heading_pub.publish(heading_filtered_msg)
                     self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
 
 
@@ -116,9 +116,9 @@ class SignalbehandlingsNode(Node):
                 
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
-                    #gnss_filtered_msg               = GNSS()
-                    #gnss_filtered_msg.valid_signal  = False
-                    #self.Gnss_pub.publish(gnss_filtered_msg)
+                    gnss_filtered_msg               = GNSS()
+                    gnss_filtered_msg.valid_signal  = False
+                    self.Gnss_pub.publish(gnss_filtered_msg)
                     self.get_logger().info(f'GNSS verdier er ikkje innanfor intervall')
 
                 
