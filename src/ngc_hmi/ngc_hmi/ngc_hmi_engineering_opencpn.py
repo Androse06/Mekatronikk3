@@ -2,7 +2,7 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
 from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
 from PySide6.QtGui import QWindow
-from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
+from .DarkmodeDashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
 import subprocess  # For running commands like xdotool (Linux)
@@ -124,16 +124,16 @@ class EngineeringHMI(Node):
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
         
        
-        # Connect Inputs
-        self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
-        self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
+        # # Connect Inputs
+        # self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        # self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        # self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
+        # self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
         
-        # Setter opp waypoint list
-        self.waypoint_model = QStringListModel()
-        self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-        self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
+        # # Setter opp waypoint list
+        # self.waypoint_model = QStringListModel()
+        # self.ui.WayPoint_ListView.setModel(self.waypoint_model)
+        # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
         self.debug = False
@@ -191,11 +191,11 @@ class EngineeringHMI(Node):
 
 
 
-    def add_waypoint(self):
-        waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
-        self.waypoint_model.setStringList(waypoint_strings)
-        self.ui.Lat_Input_Track.clear()
-        self.ui.Lon_Input_Track.clear()
+    # def add_waypoint(self):
+    #     waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
+    #     self.waypoint_model.setStringList(waypoint_strings)
+    #     self.ui.Lat_Input_Track.clear()
+    #     self.ui.Lon_Input_Track.clear()
     
     def clear_waypoint(self):
         self.waypoint_model.setStringList([])
@@ -290,14 +290,14 @@ class EngineeringHMI(Node):
     def set_compass_value(self, value):
         self.ui.Compass_Dial.setValue(value)
 
-    def retrieve_dp_input(self):
-        self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
-        self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
+    # def retrieve_dp_input(self):
+    #     self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
+    #     self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
 
 
-    def retrieve_track_input(self):
-        self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
-        self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
+    # def retrieve_track_input(self):
+    #     self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
+    #     self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
 
 
 
