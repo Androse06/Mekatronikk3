@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Darkmode V3kXTLKm.ui'
+## Form generated from reading UI file 'Darkmode V3ZXpLQu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -22,6 +22,56 @@ from PySide6.QtWidgets import (QApplication, QDial, QDoubleSpinBox, QGraphicsVie
     QSpacerItem, QStatusBar, QTimeEdit, QVBoxLayout,
     QWidget, QFrame, QLayout)
 
+
+
+# class CompassDial(QDial):
+#     def __init__(self, parent=None):
+#         super().__init__(parent)
+        
+#         # Load the original image
+#         self.original_image = QPixmap('pictures/compass_2.png')  
+        
+#         # Initial scaling of the compass image for the widget size
+#         self.compass_image = self.original_image.scaled(
+#             self.size(), 
+#             Qt.KeepAspectRatio, 
+#             Qt.SmoothTransformation  # Provide smooth transformation as positional argument
+#         )
+
+#         # Hide the default dial appearance
+#         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+#         self.setNotchesVisible(False)
+
+#     def resizeEvent(self, event):
+#         # Rescale the image when the widget is resized
+#         self.compass_image = self.original_image.scaled(
+#             self.size(), 
+#             Qt.KeepAspectRatio, 
+#             Qt.SmoothTransformation
+#         )
+#         super().resizeEvent(event)
+
+#     def paintEvent(self, event):
+#         painter = QPainter(self)
+
+#         # Center and fit the compass image on the dial
+#         rect = self.rect()
+#         compass_size = min(rect.width(), rect.height())
+#         compass_rect = QRect(
+#             (rect.width() - compass_size) // 2,
+#             (rect.height() - compass_size) // 2,
+#             compass_size, compass_size
+#         )
+
+#         # Apply rotation based on the dial value
+#         painter.translate(rect.center())
+#         painter.rotate(self.value())
+#         painter.translate(-rect.center())
+
+#         # Draw the rotated compass image only
+#         painter.drawPixmap(compass_rect, self.compass_image)
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -36,86 +86,10 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(u"background-color: rgb(69, 69, 69);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-<<<<<<< HEAD
         self.gridLayout_8 = QGridLayout(self.centralwidget)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_7 = QGridLayout()
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-=======
-
-        self.gridLayout_2 = QGridLayout(self.centralwidget)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-
-        self.verticalLayout_11 = QVBoxLayout()
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-
-        self.verticalLayout_9 = QVBoxLayout()
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-
-        self.Global_Heading_Label = QLabel(self.centralwidget)
-        self.Global_Heading_Label.setObjectName(u"Global_Heading_Label")
-
-        self.verticalLayout_9.addWidget(self.Global_Heading_Label)
-
-        self.Global_Heading_LCD = QLCDNumber(self.centralwidget)
-        self.Global_Heading_LCD.setObjectName(u"Global_Heading_LCD")
-
-        self.verticalLayout_9.addWidget(self.Global_Heading_LCD)
-
-        self.Global_Speed_Label = QLabel(self.centralwidget)
-        self.Global_Speed_Label.setObjectName(u"Global_Speed_Label")
-
-        self.verticalLayout_9.addWidget(self.Global_Speed_Label)
-
-        self.Global_Speed_LCD = QLCDNumber(self.centralwidget)
-        self.Global_Speed_LCD.setObjectName(u"Global_Speed_LCD")
-
-        self.verticalLayout_9.addWidget(self.Global_Speed_LCD)
-
-        self.Global_Timer = QTimeEdit(self.centralwidget)
-        self.Global_Timer.setObjectName(u"Global_Timer")
-
-        self.verticalLayout_9.addWidget(self.Global_Timer)
-
-        self.Gloabl_Throttle1_Label = QLabel(self.centralwidget)
-        self.Gloabl_Throttle1_Label.setObjectName(u"Gloabl_Throttle1_Label")
-
-        self.verticalLayout_9.addWidget(self.Gloabl_Throttle1_Label)
-
-        self.Global_Throttle1_Status = QProgressBar(self.centralwidget)
-        self.Global_Throttle1_Status.setObjectName(u"Global_Throttle1_Status")
-        self.Global_Throttle1_Status.setMinimum(0)
-        self.Global_Throttle1_Status.setMaximum(2000)
-        self.Global_Throttle1_Status.setValue(0)
-
-        self.verticalLayout_9.addWidget(self.Global_Throttle1_Status)
-
-        self.Global_Throttle2_Label = QLabel(self.centralwidget)
-        self.Global_Throttle2_Label.setObjectName(u"Global_Throttle2_Label")
-
-        self.verticalLayout_9.addWidget(self.Global_Throttle2_Label)
-
-        self.Global_Throttle2_Status = QProgressBar(self.centralwidget)
-        self.Global_Throttle2_Status.setObjectName(u"Global_Throttle2_Status")
-        self.Global_Throttle2_Status.setMinimum(0)
-        self.Global_Throttle2_Status.setMaximum(2000)
-        self.Global_Throttle2_Status.setValue(0)
-
-        self.verticalLayout_9.addWidget(self.Global_Throttle2_Status)
-
-
-        self.horizontalLayout_2.addLayout(self.verticalLayout_9)
-
-        self.verticalLayout_10 = QVBoxLayout()
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_10.addItem(self.verticalSpacer)
-
->>>>>>> main
         self.MapPlaceHolder = QGraphicsView(self.centralwidget)
         self.MapPlaceHolder.setObjectName(u"MapPlaceHolder")
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -997,113 +971,85 @@ class Ui_MainWindow(object):
         self.gridLayout_12 = QGridLayout(self.frame_2)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.gridLayout_12.setContentsMargins(-1, 20, -1, -1)
-        self.horizontalSpacer_13 = QSpacerItem(200, 200, QSizePolicy.Minimum, QSizePolicy.Minimum)
-
-        self.gridLayout_12.addItem(self.horizontalSpacer_13, 7, 0, 1, 1)
-
-        self.Global_Throttle1_Status_2 = QProgressBar(self.frame_2)
-        self.Global_Throttle1_Status_2.setObjectName(u"Global_Throttle1_Status_2")
-        self.Global_Throttle1_Status_2.setMinimumSize(QSize(30, 0))
-        font6 = QFont()
-        font6.setPointSize(8)
-        font6.setBold(False)
-        font6.setWeight(QFont.Weight.Normal)
-        self.Global_Throttle1_Status_2.setFont(font6)
-        self.Global_Throttle1_Status_2.setStyleSheet(u"QProgressBar {\n"
-"    color: black;                      /* Text color */\n"
-"    border: 2px solid #2c2c2c;         /* Border color */\n"
-"    border-radius: 4px;                /* Rounded corners */\n"
-"    text-align: center;                /* Center align the text */\n"
-"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
-"}\n"
-"\n"
-"QProgressBar::chunk {\n"
-"    background-color: #f97f55;         /* Chunk (progress) color */\n"
-"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
-"}\n"
-"")
-        self.Global_Throttle1_Status_2.setMaximum(2000)
-        self.Global_Throttle1_Status_2.setValue(500)
-        self.Global_Throttle1_Status_2.setOrientation(Qt.Vertical)
-        self.Global_Throttle1_Status_2.setInvertedAppearance(False)
-        self.Global_Throttle1_Status_2.setTextDirection(QProgressBar.TopToBottom)
-
-        self.gridLayout_12.addWidget(self.Global_Throttle1_Status_2, 7, 1, 1, 1)
-
-        self.pushButton = QPushButton(self.frame_2)
-        self.pushButton.setObjectName(u"pushButton")
-        sizePolicy1.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy1)
-        icon = QIcon()
-        icon.addFile(u"../Grafisk/Otter/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QSize(260, 260))
-        self.pushButton.setAutoDefault(False)
-        self.pushButton.setFlat(True)
-
-        self.gridLayout_12.addWidget(self.pushButton, 4, 1, 2, 3)
-
-        self.verticalSpacer_17 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_12.addItem(self.verticalSpacer_17, 3, 1, 1, 1)
-
-        self.Global_Throttle2_Status_2 = QProgressBar(self.frame_2)
-        self.Global_Throttle2_Status_2.setObjectName(u"Global_Throttle2_Status_2")
-        self.Global_Throttle2_Status_2.setMinimumSize(QSize(30, 0))
-        self.Global_Throttle2_Status_2.setFont(font3)
-        self.Global_Throttle2_Status_2.setStyleSheet(u"QProgressBar {\n"
-"    color: black;                      /* Text color */\n"
-"    border: 2px solid #2c2c2c;         /* Border color */\n"
-"    border-radius: 4px;                /* Rounded corners */\n"
-"    text-align: center;                /* Center align the text */\n"
-"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
-"}\n"
-"\n"
-"QProgressBar::chunk {\n"
-"    background-color: #f97f55;         /* Chunk (progress) color */\n"
-"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
-"}\n"
-"")
-        self.Global_Throttle2_Status_2.setMaximum(2000)
-        self.Global_Throttle2_Status_2.setValue(1500)
-        self.Global_Throttle2_Status_2.setTextVisible(True)
-        self.Global_Throttle2_Status_2.setOrientation(Qt.Vertical)
-        self.Global_Throttle2_Status_2.setInvertedAppearance(False)
-        self.Global_Throttle2_Status_2.setTextDirection(QProgressBar.TopToBottom)
-
-        self.gridLayout_12.addWidget(self.Global_Throttle2_Status_2, 7, 3, 1, 1)
-
         self.Gloabl_Throttle1_Label = QLabel(self.frame_2)
         self.Gloabl_Throttle1_Label.setObjectName(u"Gloabl_Throttle1_Label")
         sizePolicy.setHeightForWidth(self.Gloabl_Throttle1_Label.sizePolicy().hasHeightForWidth())
         self.Gloabl_Throttle1_Label.setSizePolicy(sizePolicy)
-        font7 = QFont()
-        font7.setPointSize(10)
-        font7.setBold(True)
-        font7.setWeight(QFont.Weight.Bold)
-        self.Gloabl_Throttle1_Label.setFont(font7)
+        font6 = QFont()
+        font6.setPointSize(10)
+        font6.setBold(True)
+        font6.setWeight(QFont.Weight.Bold)
+        self.Gloabl_Throttle1_Label.setFont(font6)
 
-        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label, 8, 1, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label, 8, 2, 1, 1, Qt.AlignHCenter)
 
         self.Gloabl_Throttle1_Label_2 = QLabel(self.frame_2)
         self.Gloabl_Throttle1_Label_2.setObjectName(u"Gloabl_Throttle1_Label_2")
         sizePolicy.setHeightForWidth(self.Gloabl_Throttle1_Label_2.sizePolicy().hasHeightForWidth())
         self.Gloabl_Throttle1_Label_2.setSizePolicy(sizePolicy)
-        self.Gloabl_Throttle1_Label_2.setFont(font7)
+        self.Gloabl_Throttle1_Label_2.setFont(font6)
 
-        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label_2, 6, 2, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label_2, 5, 3, 1, 1, Qt.AlignHCenter)
 
-        self.Global_Throttle2_Label = QLabel(self.frame_2)
-        self.Global_Throttle2_Label.setObjectName(u"Global_Throttle2_Label")
-        sizePolicy.setHeightForWidth(self.Global_Throttle2_Label.sizePolicy().hasHeightForWidth())
-        self.Global_Throttle2_Label.setSizePolicy(sizePolicy)
-        self.Global_Throttle2_Label.setFont(font7)
+        self.verticalSpacer_17 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Preferred)
 
-        self.gridLayout_12.addWidget(self.Global_Throttle2_Label, 8, 3, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_12.addItem(self.verticalSpacer_17, 2, 2, 1, 1)
 
-        self.horizontalSpacer_14 = QSpacerItem(200, 200, QSizePolicy.Minimum, QSizePolicy.Minimum)
+        self.Global_Throttle2_Status = QProgressBar(self.frame_2)
+        self.Global_Throttle2_Status.setObjectName(u"Global_Throttle2_Status")
+        self.Global_Throttle2_Status.setMinimumSize(QSize(30, 0))
+        self.Global_Throttle2_Status.setFont(font3)
+        self.Global_Throttle2_Status.setStyleSheet(u"QProgressBar {\n"
+"    color: black;                      /* Text color */\n"
+"    border: 2px solid #2c2c2c;         /* Border color */\n"
+"    border-radius: 4px;                /* Rounded corners */\n"
+"    text-align: center;                /* Center align the text */\n"
+"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #3fb184;         /* Chunk (progress) color */\n"
+"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
+"}\n"
+"")
+        self.Global_Throttle2_Status.setMaximum(1100)
+        self.Global_Throttle2_Status.setValue(400)
+        self.Global_Throttle2_Status.setTextVisible(True)
+        self.Global_Throttle2_Status.setOrientation(Qt.Vertical)
+        self.Global_Throttle2_Status.setInvertedAppearance(False)
+        self.Global_Throttle2_Status.setTextDirection(QProgressBar.TopToBottom)
 
-        self.gridLayout_12.addItem(self.horizontalSpacer_14, 7, 4, 1, 1)
+        self.gridLayout_12.addWidget(self.Global_Throttle2_Status, 6, 4, 1, 1)
+
+        self.Global_Throttle1_Status = QProgressBar(self.frame_2)
+        self.Global_Throttle1_Status.setObjectName(u"Global_Throttle1_Status")
+        self.Global_Throttle1_Status.setMinimumSize(QSize(30, 0))
+        font7 = QFont()
+        font7.setPointSize(8)
+        font7.setBold(False)
+        font7.setWeight(QFont.Weight.Normal)
+        self.Global_Throttle1_Status.setFont(font7)
+        self.Global_Throttle1_Status.setStyleSheet(u"QProgressBar {\n"
+"    color: black;                      /* Text color */\n"
+"    border: 2px solid #2c2c2c;         /* Border color */\n"
+"    border-radius: 4px;                /* Rounded corners */\n"
+"    text-align: center;                /* Center align the text */\n"
+"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #3fb184;         /* Chunk (progress) color */\n"
+"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
+"}\n"
+"")
+        self.Global_Throttle1_Status.setMinimum(0)
+        self.Global_Throttle1_Status.setMaximum(1100)
+        self.Global_Throttle1_Status.setValue(1100)
+        self.Global_Throttle1_Status.setOrientation(Qt.Vertical)
+        self.Global_Throttle1_Status.setInvertedAppearance(False)
+        self.Global_Throttle1_Status.setTextDirection(QProgressBar.TopToBottom)
+
+        self.gridLayout_12.addWidget(self.Global_Throttle1_Status, 6, 2, 1, 1)
 
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
@@ -1120,12 +1066,123 @@ class Ui_MainWindow(object):
         self.label.setWordWrap(False)
         self.label.setOpenExternalLinks(False)
 
-        self.gridLayout_12.addWidget(self.label, 1, 1, 1, 3)
+        self.gridLayout_12.addWidget(self.label, 1, 2, 1, 3)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.pushButton = QPushButton(self.frame_2)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy1.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy1)
+        icon = QIcon()
+        icon.addFile(u"pictures/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(230, 230))
+        self.pushButton.setAutoDefault(False)
+        self.pushButton.setFlat(True)
 
-        self.gridLayout_12.addItem(self.verticalSpacer_7, 2, 1, 1, 1)
+        self.gridLayout_12.addWidget(self.pushButton, 3, 2, 2, 3)
 
+        self.Global_Throttle2_Label = QLabel(self.frame_2)
+        self.Global_Throttle2_Label.setObjectName(u"Global_Throttle2_Label")
+        sizePolicy.setHeightForWidth(self.Global_Throttle2_Label.sizePolicy().hasHeightForWidth())
+        self.Global_Throttle2_Label.setSizePolicy(sizePolicy)
+        self.Global_Throttle2_Label.setFont(font6)
+
+        self.gridLayout_12.addWidget(self.Global_Throttle2_Label, 8, 4, 1, 1, Qt.AlignHCenter)
+
+        self.Global_Throttle1rev_Status = QProgressBar(self.frame_2)
+        self.Global_Throttle1rev_Status.setObjectName(u"Global_Throttle1rev_Status")
+        self.Global_Throttle1rev_Status.setMinimumSize(QSize(30, 0))
+        self.Global_Throttle1rev_Status.setFont(font7)
+        self.Global_Throttle1rev_Status.setLayoutDirection(Qt.LeftToRight)
+        self.Global_Throttle1rev_Status.setStyleSheet(u"QProgressBar {\n"
+"    color: black;                      /* Text color */\n"
+"    border: 2px solid #2c2c2c;         /* Border color */\n"
+"    border-radius: 4px;                /* Rounded corners */\n"
+"    text-align: center;                /* Center align the text */\n"
+"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #f97f55;         /* Chunk (progress) color */\n"
+"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
+"}\n"
+"")
+        self.Global_Throttle1rev_Status.setMinimum(0)
+        self.Global_Throttle1rev_Status.setMaximum(800)
+        self.Global_Throttle1rev_Status.setValue(0)
+        self.Global_Throttle1rev_Status.setOrientation(Qt.Vertical)
+        self.Global_Throttle1rev_Status.setInvertedAppearance(True)
+        self.Global_Throttle1rev_Status.setTextDirection(QProgressBar.TopToBottom)
+
+        self.gridLayout_12.addWidget(self.Global_Throttle1rev_Status, 7, 2, 1, 1)
+
+        self.Gloabl_Throttle1_Label_3 = QLabel(self.frame_2)
+        self.Gloabl_Throttle1_Label_3.setObjectName(u"Gloabl_Throttle1_Label_3")
+        sizePolicy.setHeightForWidth(self.Gloabl_Throttle1_Label_3.sizePolicy().hasHeightForWidth())
+        self.Gloabl_Throttle1_Label_3.setSizePolicy(sizePolicy)
+        font8 = QFont()
+        font8.setPointSize(6)
+        font8.setBold(True)
+        font8.setWeight(QFont.Weight.Bold)
+        self.Gloabl_Throttle1_Label_3.setFont(font8)
+        self.Gloabl_Throttle1_Label_3.setScaledContents(False)
+
+        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label_3, 6, 3, 1, 1, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.horizontalSpacer_14 = QSpacerItem(200, 200, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.gridLayout_12.addItem(self.horizontalSpacer_14, 6, 5, 1, 1)
+
+        self.Global_Throttle2rev_Status = QProgressBar(self.frame_2)
+        self.Global_Throttle2rev_Status.setObjectName(u"Global_Throttle2rev_Status")
+        self.Global_Throttle2rev_Status.setMinimumSize(QSize(30, 0))
+        self.Global_Throttle2rev_Status.setFont(font3)
+        self.Global_Throttle2rev_Status.setStyleSheet(u"QProgressBar {\n"
+"    color: black;                      /* Text color */\n"
+"    border: 2px solid #2c2c2c;         /* Border color */\n"
+"    border-radius: 4px;                /* Rounded corners */\n"
+"    text-align: center;                /* Center align the text */\n"
+"    background-color: #f0f0f0;         /* Background color for unfilled portion */\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #f97f55;         /* Chunk (progress) color */\n"
+"    /*border-radius: 4px;                /* Match rounding of progress bar */\n"
+"}\n"
+"")
+        self.Global_Throttle2rev_Status.setMinimum(0)
+        self.Global_Throttle2rev_Status.setMaximum(800)
+        self.Global_Throttle2rev_Status.setValue(600)
+        self.Global_Throttle2rev_Status.setTextVisible(True)
+        self.Global_Throttle2rev_Status.setOrientation(Qt.Vertical)
+        self.Global_Throttle2rev_Status.setInvertedAppearance(True)
+        self.Global_Throttle2rev_Status.setTextDirection(QProgressBar.TopToBottom)
+
+        self.gridLayout_12.addWidget(self.Global_Throttle2rev_Status, 7, 4, 1, 1)
+
+        self.Gloabl_Throttle1_Label_4 = QLabel(self.frame_2)
+        self.Gloabl_Throttle1_Label_4.setObjectName(u"Gloabl_Throttle1_Label_4")
+        sizePolicy.setHeightForWidth(self.Gloabl_Throttle1_Label_4.sizePolicy().hasHeightForWidth())
+        self.Gloabl_Throttle1_Label_4.setSizePolicy(sizePolicy)
+        self.Gloabl_Throttle1_Label_4.setFont(font8)
+
+        self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label_4, 7, 3, 1, 1, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.horizontalSpacer_13 = QSpacerItem(200, 200, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.gridLayout_12.addItem(self.horizontalSpacer_13, 6, 0, 1, 1)
+
+        self.Global_Throttle1_Status.raise_()
+        self.Global_Throttle2_Status.raise_()
+        self.Gloabl_Throttle1_Label.raise_()
+        self.Gloabl_Throttle1_Label_2.raise_()
+        self.Global_Throttle2_Label.raise_()
+        self.label.raise_()
+        self.Global_Throttle1rev_Status.raise_()
+        self.Global_Throttle2rev_Status.raise_()
+        self.Gloabl_Throttle1_Label_3.raise_()
+        self.Gloabl_Throttle1_Label_4.raise_()
+        self.pushButton.raise_()
 
         self.gridLayout_10.addWidget(self.frame_2, 1, 0, 1, 1, Qt.AlignHCenter)
 
@@ -1150,9 +1207,9 @@ class Ui_MainWindow(object):
         self.gridFrame.setObjectName(u"gridFrame")
         self.gridFrame.setMinimumSize(QSize(0, 30))
         self.gridFrame.setMaximumSize(QSize(16777215, 20))
-        font8 = QFont()
-        font8.setKerning(True)
-        self.gridFrame.setFont(font8)
+        font9 = QFont()
+        font9.setKerning(True)
+        self.gridFrame.setFont(font9)
         self.gridFrame.setStyleSheet(u"background-color: rgb(204, 204, 204);\n"
 "border-radius: 2px;")
         self.gridFrame.setLineWidth(0)
@@ -1161,12 +1218,12 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setContentsMargins(1, 0, 1, 0)
         self.label_3 = QLabel(self.gridFrame)
         self.label_3.setObjectName(u"label_3")
-        font9 = QFont()
-        font9.setFamily(u"Consolas")
-        font9.setPointSize(14)
-        font9.setBold(True)
-        font9.setWeight(QFont.Weight.Bold)
-        self.label_3.setFont(font9)
+        font10 = QFont()
+        font10.setFamily(u"Consolas")
+        font10.setPointSize(14)
+        font10.setBold(True)
+        font10.setWeight(QFont.Weight.Bold)
+        self.label_3.setFont(font10)
         self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
 
         self.gridLayout_11.addWidget(self.label_3, 0, 1, 1, 1)
@@ -1181,11 +1238,11 @@ class Ui_MainWindow(object):
         self.Exit_Button.setSizePolicy(sizePolicy2)
         self.Exit_Button.setMinimumSize(QSize(52, 20))
         self.Exit_Button.setMaximumSize(QSize(40, 14))
-        font10 = QFont()
-        font10.setFamily(u"MT Extra")
-        font10.setBold(True)
-        font10.setWeight(QFont.Weight.Bold)
-        self.Exit_Button.setFont(font10)
+        font11 = QFont()
+        font11.setFamily(u"MT Extra")
+        font11.setBold(True)
+        font11.setWeight(QFont.Weight.Bold)
+        self.Exit_Button.setFont(font11)
         self.Exit_Button.setStyleSheet(u"/* Default style for the exit button with gradient background */\n"
 "QPushButton {\n"
 "    background-color: qlineargradient(\n"
@@ -1290,13 +1347,17 @@ class Ui_MainWindow(object):
         self.East_Label.setText(QCoreApplication.translate("MainWindow", u"E", None))
         self.North_Label.setText(QCoreApplication.translate("MainWindow", u"N", None))
         self.West_Label.setText(QCoreApplication.translate("MainWindow", u"W", None))
-        self.Global_Throttle1_Status_2.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
-        self.pushButton.setText("")
-        self.Global_Throttle2_Status_2.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
         self.Gloabl_Throttle1_Label.setText(QCoreApplication.translate("MainWindow", u"L", None))
         self.Gloabl_Throttle1_Label_2.setText(QCoreApplication.translate("MainWindow", u"RPM", None))
-        self.Global_Throttle2_Label.setText(QCoreApplication.translate("MainWindow", u"R", None))
+        self.Global_Throttle2_Status.setFormat(QCoreApplication.translate("MainWindow", u"%v", None))
+        self.Global_Throttle1_Status.setFormat(QCoreApplication.translate("MainWindow", u"%v", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; color:#3fb184;\">Thrusters</span></p></body></html>", None))
+        self.pushButton.setText("")
+        self.Global_Throttle2_Label.setText(QCoreApplication.translate("MainWindow", u"R", None))
+        self.Global_Throttle1rev_Status.setFormat(QCoreApplication.translate("MainWindow", u"%v", None))
+        self.Gloabl_Throttle1_Label_3.setText(QCoreApplication.translate("MainWindow", u"FORWARD", None))
+        self.Global_Throttle2rev_Status.setFormat(QCoreApplication.translate("MainWindow", u"%v", None))
+        self.Gloabl_Throttle1_Label_4.setText(QCoreApplication.translate("MainWindow", u"REVERSE", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Quit", None))
         self.Exit_Button.setText(QCoreApplication.translate("MainWindow", u"X", None))
     # retranslateUi

@@ -39,7 +39,9 @@ class Estimator(Node):
         #### SUB ####
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         self.gnss_sub               = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)
+        #self.gnss_sub               = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
         self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
+        #self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
         self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
 
         #### PUB ####
