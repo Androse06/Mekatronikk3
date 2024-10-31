@@ -130,9 +130,9 @@ class EngineeringHMI(Node):
         # self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
         # self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
         
-        # # Setter opp waypoint list
-        # self.waypoint_model = QStringListModel()
-        # self.ui.WayPoint_ListView.setModel(self.waypoint_model)
+        # Setter opp waypoint list
+        self.waypoint_model = QStringListModel()
+        self.ui.WayPoint_ListView.setModel(self.waypoint_model)
         # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
