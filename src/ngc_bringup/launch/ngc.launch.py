@@ -7,10 +7,25 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 from launch.actions import RegisterEventHandler, LogInfo
 from launch.event_handlers import OnExecutionComplete, OnProcessExit, OnProcessStart
+import yaml
+
 
 #: https://roboticscasual.com/tutorial-ros2-launch-files-all-you-need-to-know/ 
 def generate_launch_description():
 
+    # Path to the simulator_config.yaml file
+    simulator_config_file = os.path.join(
+        get_package_share_directory('ngc_bringup'),
+        'config',
+        'simulator_config.yaml'
+    )
+
+    # Load the YAML file
+    with open(simulator_config_file, 'r') as file:
+        simulator_config = yaml.safe_load(file)
+
+    # Check if the 'simulator_in_the_loop' flag is True
+    simulator_in_the_loop = simulator_config.get('simulator_in_the_loop', False)
 
 
     run_man_control_args = DeclareLaunchArgument(
@@ -28,7 +43,7 @@ def generate_launch_description():
         package    = "ngc_hull_sim", 
         executable = "simulate",
         name       = 'ngc_hull_sim',
-        output    = 'screen'
+        output     = 'screen'
     )
 
     propulsion_node = Node(
@@ -155,11 +170,11 @@ def generate_launch_description():
 
     ld = LaunchDescription() 
     
-    ld.add_action(sim_node)
-    ld.add_action(gnss_node)
-    ld.add_action(compass_node)
+    #ld.add_action(sim_node)
+    #ld.add_action(gnss_node)
+    #ld.add_action(compass_node)
     #ld.add_action(anemometer_node)
-    ld.add_action(propulsion_node)
+    #ld.add_action(propulsion_node)
     #ld.add_action(hmi_node)
     ld.add_action(hmi_node_yaml_editor)
     #ld.add_action(hmi_node_autopilot)
@@ -173,5 +188,11 @@ def generate_launch_description():
     ld.add_action(waypoint_mottaker)
     ld.add_action(signal_behandling)
     ld.add_action(otter_interface)
+
+    if simulator_in_the_loop:
+        ld.add_action(sim_node)
+        ld.add_action(gnss_node)
+        ld.add_action(compass_node)
+        ld.add_action(propulsion_node)
 
     return ld
