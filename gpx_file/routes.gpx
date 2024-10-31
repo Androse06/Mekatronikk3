@@ -101,7 +101,7 @@
         <opencpn:scale_min_max UseScale="false" ScaleMin="2147483646" ScaleMax="0" />
       </extensions>
     </rtept>
-    <rtept lat="62.479078245" lon="6.111311958">
+    <rtept lat="62.478563527" lon="6.110399766">
       <time>2024-10-31T10:01:25Z</time>
       <name>008</name>
       <sym>diamond</sym>

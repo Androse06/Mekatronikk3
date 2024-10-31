@@ -186,7 +186,7 @@ def generate_launch_description():
     ld.add_action(allokering)
     ld.add_action(waypoint)
     #ld.add_action(waypoint_mottaker)
-    #ld.add_action(signal_behandling)
+    ld.add_action(signal_behandling)
     ld.add_action(otter_interface)
 
     if simulator_in_the_loop:
