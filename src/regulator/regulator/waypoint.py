@@ -147,6 +147,21 @@ class WaypointNode(Node):
         if self.debug:
             self.get_logger().info(f'nu: {nu}')
 
+    def sys_publisher(self, mode):
+        system_msg = SystemMode()
+
+        if mode == 'auto':
+            system_msg.standby_mode = False
+            system_msg.auto_mode    = True
+        elif mode == 'standby':
+            system_msg.standby_mode = True
+            system_msg.auto_mode    = False
+            
+        self.system_mode_pub.publish(system_msg)
+
+        if self.debug1:
+            self.get_logger().info(f'system mode pub: {system_msg}')
+
     def mode_publisher(self, mode):
         self.mode       = mode
 
@@ -210,20 +225,14 @@ class WaypointNode(Node):
 
         if self.mode == 0: # Standby
             # Setter system mode til standby for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = True
-            system_msg.auto_mode    = False
-            self.system_mode_pub.publish(system_msg)
+            self.sys_publisher('standby')
 
             self.nu_publisher(0.0)
             return
 
         elif self.mode == 1: # Sail
             # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
+            self.sys_publisher('auto')
 
             eta = self.eta_psi
             self.eta_publisher(eta)
@@ -234,10 +243,7 @@ class WaypointNode(Node):
         
         elif self.mode == 2: # Dynamisk posisjonering
             # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
+            self.sys_publisher('auto')
 
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
@@ -278,10 +284,7 @@ class WaypointNode(Node):
 
         elif self.mode == 3: # Waypoint step-funksjon.
             # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
+            self.sys_publisher('auto')
 
             if self.debug:
                 self.get_logger().info(f'i = {self.i}')
