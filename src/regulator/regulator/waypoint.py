@@ -44,7 +44,7 @@ class WaypointNode(Node):
 
         self.get_logger().info("Waypoint-node er initialisert.")
 
-        self.debug = False
+        self.debug = True
         self.debug1 = False
 
 

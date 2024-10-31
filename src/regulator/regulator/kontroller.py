@@ -19,16 +19,19 @@ class Kontroller(Node):
         self.declare_parameter('vessel_config_file', 'config/vessel_config.yaml')
         self.declare_parameter('simulation_config_file', 'config/simulator_config.yaml')
         self.declare_parameter('control_config_file', 'config/control_config.yaml')
+        self.declare_parameter('propulsion_config_file', 'config/propulsion_config.yaml')
 
         yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
         yaml_package_path        = get_package_share_directory(yaml_package_name)
         vessel_config_path       = os.path.join(yaml_package_path, self.get_parameter('vessel_config_file').get_parameter_value().string_value)
         simulation_config_path   = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
+        self.propulsion_config_path = os.path.join(yaml_package_path, self.get_parameter('propulsion_config_file').get_parameter_value().string_value)
 
         self.vessel_config     = self.load_yaml_file(vessel_config_path)
         self.simulation_config = self.load_yaml_file(simulation_config_path)
         self.control_config    = self.load_yaml_file(self.control_config_path)
+        self.propuslion_config      = self.load_yaml_file(self.propulsion_config_path)
 
         self.vessel_model = VesselModel(self.vessel_config)
         
@@ -62,6 +65,26 @@ class Kontroller(Node):
 
         self.mode: int = 0
 
+        self.rho                     = self.simulation_config['physical_parameters']['rho_water']
+
+                ### Thruster 1 ###
+        self.id_1                    = self.propuslion_config['main_propulsion_1']['id']
+        self.propellerDiameter_1     = self.propuslion_config['main_propulsion_1']['propeller']['diameter']
+        self.Kt0_1                   = self.propuslion_config['main_propulsion_1']['propeller']['Kt0']
+        self.max_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['max_rpm'] / 60
+        self.min_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['min_rpm'] / 60
+        self.position_1              = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.5,0.3]
+        self.type_1                  = self.propuslion_config['main_propulsion_1']['type']
+
+                ### Thruster 2 ###
+        self.id_2                    = self.propuslion_config['main_propulsion_2']['id']
+        self.propellerDiameter_2     = self.propuslion_config['main_propulsion_2']['propeller']['diameter']
+        self.Kt0_2                   = self.propuslion_config['main_propulsion_2']['propeller']['Kt0']
+        self.max_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['max_rpm'] / 60
+        self.min_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['min_rpm'] / 60
+        self.position_2              = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
+        self.type_2                  = self.propuslion_config['main_propulsion_2']['type']
+
         ####################
 
         self.timer = self.create_timer(self.step_size, self.step_control)
@@ -94,7 +117,12 @@ class Kontroller(Node):
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
         self.mode = msg.mode
 
-
+    def rps(self, x, KT0, propellerDiameter):
+        return np.sign(x) * np.sqrt((2 * np.abs(x)) / ( self.rho * KT0 * (propellerDiameter ** 4)))
+    
+    def force(self, rps, KT0, propellerDiameter):
+        return 0.5 * self.rho * KT0 * (propellerDiameter**4) * abs(rps) * rps 
+    
     def step_control(self):
         
         if self.estimator_ready and self.mode != 0:
@@ -134,7 +162,13 @@ class Kontroller(Node):
 
             self.qi_u += self.step_size*K_i_u*mu.saturate(e_u,-ki_limit_u,ki_limit_u)
 
-            tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
+            tau_X_a = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
+
+            tau_rps = self.rps(tau_X_a, self.Kt0_1, self.propellerDiameter_1)
+
+            tau_rps_sat = mu.saturate(tau_rps, self.min_rps_1 * 0.95, self.max_rps_1 * 0.95)
+
+            tau_X = self.force(tau_rps_sat, self.Kt0_1, self.propellerDiameter_1)
             
             ################## Publiser kontrollkrefter #####################
 

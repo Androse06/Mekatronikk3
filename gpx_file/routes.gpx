@@ -10,7 +10,7 @@
         <gpxx:IsAutoNamed>false</gpxx:IsAutoNamed>
       </gpxx:RouteExtension>
     </extensions>
-    <rtept lat="62.488322900" lon="6.120008057">
+    <rtept lat="62.488323000" lon="6.120008000">
       <time>2024-10-21T16:38:39Z</time>
       <name>001</name>
       <sym>diamond</sym>
