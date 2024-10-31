@@ -101,6 +101,7 @@ class Allokering(Node):
         rps_1 = self.rps(fe[0], self.Kt0_1, self.propellerDiameter_1)
         rps_2 = self.rps(fe[2], self.Kt0_2, self.propellerDiameter_2)
 
+
         fake_rps_1 = self.rps(fe_fake[0], self.Kt0_1, self.propellerDiameter_1)
         fake_rps_2 = self.rps(fe_fake[2], self.Kt0_2, self.propellerDiameter_2)
 
@@ -110,10 +111,11 @@ class Allokering(Node):
 
         if fake_force_1 >= fake_force_2:
             max_surge = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
-            min_surge = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
+            min_surge = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_2)
         else:
             max_surge = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
-            min_surge = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
+            min_surge = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_1)
+
 
         ########### PUBLISH ###########
         thruster1_message               = ThrusterSignals()
