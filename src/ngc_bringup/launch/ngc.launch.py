@@ -180,7 +180,7 @@ def generate_launch_description():
     #ld.add_action(hmi_node_autopilot)
     ld.add_action(hmi_node_engineering)
     #ld.add_action(opencpn_process)
-    #ld.add_action(delayed_plotjuggler)
+    ld.add_action(delayed_plotjuggler)
     ld.add_action(regulator)
     ld.add_action(estimator)
     ld.add_action(allokering)

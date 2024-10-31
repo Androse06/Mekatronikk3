@@ -110,11 +110,11 @@ class Kontroller(Node):
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         self.estimator_ready = True
-        self.get_logger().info(f'estimator {self.estimator_ready} ****************')
+        #self.get_logger().info(f'estimator {self.estimator_ready} ****************')
 
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-        self.get_logger().info(f'nu ****************')
+        #self.get_logger().info(f'nu ****************')
 
     def eta_setpoint_callback(self, msg: Eta):
         self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
@@ -127,7 +127,7 @@ class Kontroller(Node):
         self.yaw_max    = msg.nmax
         self.surge_min  = msg.xmin
         self.yaw_min    = msg.nmin
-        self.get_logger().info(f'surge: [{self.surge_min}, {self.surge_max}]. yaw: [{self.yaw_min}, {self.yaw_max}]')
+        #self.get_logger().info(f'surge: [{self.surge_min}, {self.surge_max}]. yaw: [{self.yaw_min}, {self.yaw_max}]')
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
         self.mode = msg.mode
@@ -196,8 +196,8 @@ class Kontroller(Node):
 
             self.tau_pub.publish(tau_message)
 
-            self.get_logger().info(f'tau_message: {tau_message}')
-            self.get_logger().info(f'tau_pre: [{tau_X}, 0, {tau_N}]')
+            #self.get_logger().info(f'tau_message: {tau_message}')
+            #self.get_logger().info(f'tau_pre: [{tau_X}, 0, {tau_N}]')
         ################## Debugging #####################
         if self.debug == True:
 

@@ -500,8 +500,8 @@ class OtterUSVNode(Node):
             if self.latest_heading_data is None:
                 self.latest_heading_data = HeadingDevice()
 
-            self.latest_heading_data.heading      = float(self.otter.current_orientation[2])
-            self.latest_heading_data.rot          = float(self.otter.current_rotational_velocities[2])
+            self.latest_heading_data.heading      = np.deg2rad(float(self.otter.current_orientation[2]))
+            self.latest_heading_data.rot          = np.deg2rad(float(self.otter.current_rotational_velocities[2]))
             self.latest_heading_data.valid_signal = True
 
             if self.latest_thruster_1_feedback is None:
@@ -587,7 +587,7 @@ class OtterUSVNode(Node):
                 if self.latest_thruster_1_setpoints is not None and self.latest_thruster_2_setpoints is not None:
 
                     rpm_port_setpoint = mu.saturate(self.latest_thruster_1_setpoints.rps*60.0,-800,1100)
-                    rpm_strb_setpoint = mu.saturate(self.latest_thruster_1_setpoints.rps*60.0,-800,1100)  
+                    rpm_strb_setpoint = mu.saturate(self.latest_thruster_2_setpoints.rps*60.0,-800,1100)  
 
                     self.fx, self.fz = self.map_rpm_to_force_moment(rpm_strb_setpoint, rpm_port_setpoint)
                     self.otter.set_manual_control_mode(self.fx,0.0,self.fz)

@@ -6,7 +6,7 @@ main_propulsion_1: # Port
   type: propeller_with_rudder               # (str) [propeller_fixed, propeller_variable_rudder
   propeller:
     type: fpp
-    Kt0: 0.55  
+    Kt0: 0.35  
     diameter: 0.2                           # the prop diameter in meters
     max_rpm: 1100
     min_rpm: -800
@@ -20,7 +20,7 @@ main_propulsion_2: # Starboard
   type: propeller_with_rudder               # (str) [propeller_fixed, propeller_variable_rudder]
   propeller:
     type: fpp
-    Kt0: 0.55 
+    Kt0: 0.35 
     diameter: 0.2                           # the prop diameter in meters
     max_rpm: 1100
     min_rpm: -800
