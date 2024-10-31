@@ -3,7 +3,7 @@ from rclpy.node import Node
 import numpy as np
 import os
 import yaml
-from ngc_interfaces.msg import Tau, ThrusterSignals
+from ngc_interfaces.msg import Tau, ThrusterSignals, TauMax
 from ament_index_python.packages import get_package_share_directory
 from ngc_utils.qos_profiles import default_qos_profile
 import time
@@ -34,7 +34,7 @@ class Allokering(Node):
         ##### PUB ####
         self.thruster1_pub          = self.create_publisher(ThrusterSignals, "thruster_1_setpoints", default_qos_profile)
         self.thruster2_pub          = self.create_publisher(ThrusterSignals, "thruster_2_setpoints", default_qos_profile)
-        self.tau_max_pub            = self.create_publisher(Tau, "tau_max", default_qos_profile)
+        self.tau_max_pub            = self.create_publisher(TauMax, "tau_max", default_qos_profile)
 
         ##### Variabler ####
         self.rho                     = self.simulation_config['physical_parameters']['rho_water']
@@ -94,8 +94,27 @@ class Allokering(Node):
         
         fe = Twt @ self.tau
 
+        fake_tau = self.tau
+        fake_tau[0] = 0
+        fe_fake = Twt @ fake_tau
+
         rps_1 = self.rps(fe[0], self.Kt0_1, self.propellerDiameter_1)
         rps_2 = self.rps(fe[2], self.Kt0_2, self.propellerDiameter_2)
+
+
+        fake_rps_1 = self.rps(fe_fake[0], self.Kt0_1, self.propellerDiameter_1)
+        fake_rps_2 = self.rps(fe_fake[2], self.Kt0_2, self.propellerDiameter_2)
+
+        fake_force_1 = self.force(fake_rps_1, self.Kt0_1, self.propellerDiameter_1)
+        fake_force_2 = self.force(fake_rps_2, self.Kt0_2, self.propellerDiameter_2)
+        max_yaw     = abs(self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)*self.position_1[1]) + abs(self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) * self.position_2[1])
+
+        if fake_force_1 >= fake_force_2:
+            max_surge = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
+            min_surge = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_2)
+        else:
+            max_surge = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
+            min_surge = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_1)
 
 
         ########### PUBLISH ###########
@@ -117,24 +136,15 @@ class Allokering(Node):
 
 
         ######## TAU_MAX ########
-        if self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) <= self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2):
-            max_surge   = self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)
-            max_yaw     = max_surge * abs(self.position_1[1])
-        else:
-            max_surge   = self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2)
-            max_yaw     = max_surge * (-abs(self.position_2[1]))
-
-        tau_max_message                 = Tau()
-        tau_max_message.surge_x         = 2 * max_surge # 2* pga 2 thrustere med 1/2 av oters totale thrust
-        tau_max_message.sway_y          = 0.0
-        tau_max_message.heave_z         = 0.0
-        tau_max_message.roll_k          = 0.0
-        tau_max_message.pitch_m         = 0.0
-        tau_max_message.yaw_n           = max_yaw
+        tau_max_message                 = TauMax()
+        tau_max_message.xmax            = max_surge
+        tau_max_message.xmin            = min_surge
+        tau_max_message.nmax            = max_yaw
+        tau_max_message.nmin            = -max_yaw
 
         self.thruster1_pub.publish(thruster1_message)
         self.thruster2_pub.publish(thruster2_message)
-        #self.tau_max_pub.publish(tau_max_message)
+        self.tau_max_pub.publish(tau_max_message)
 
 
         ########### DEBUGGING ###########
