@@ -376,7 +376,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.Sail_Throttle_Slider = QSlider(self.centralwidget)
         self.Sail_Throttle_Slider.setObjectName(u"Sail_Throttle_Slider")
-        self.Sail_Throttle_Slider.setMaximum(6)
+        self.Sail_Throttle_Slider.setMaximum(4)
         self.Sail_Throttle_Slider.setOrientation(Qt.Vertical)
 
         self.verticalLayout_5.addWidget(self.Sail_Throttle_Slider)
