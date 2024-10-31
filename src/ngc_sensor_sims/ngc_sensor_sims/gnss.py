@@ -67,7 +67,7 @@ class GNSSSimulator(Node):
         self.eta_subscription = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile, callback_group=self.callback_group)
         self.nu_subscription = self.create_subscription(Nu, 'nu_sim', self.nu_callback, default_qos_profile, callback_group=self.callback_group)
         
-        self.gnss_pub = self.create_publisher(GNSS, 'gnss_measurement', default_qos_profile)    
+        self.gnss_pub = self.create_publisher(GNSS, 'gnss_measurement_sim', default_qos_profile)    
 
         # Initialize message variables
         self.latest_eta_msg = None

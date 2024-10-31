@@ -60,7 +60,7 @@ class CompassSimulator(Node):
         self.eta_subscription = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile, callback_group=self.callback_group)
         self.nu_subscription = self.create_subscription(Nu, 'nu_sim', self.nu_callback, default_qos_profile, callback_group=self.callback_group)
         
-        self.heading_pub = self.create_publisher(HeadingDevice, 'heading_measurement', default_qos_profile)    
+        self.heading_pub = self.create_publisher(HeadingDevice, 'heading_measurement_sim', default_qos_profile)    
 
         # Initialize message variables
         self.latest_eta_msg = None
@@ -102,8 +102,6 @@ class CompassSimulator(Node):
             meas.rot          = local_latest_nu_msg.r + np.deg2rad(self.rot_noise_state)
             meas.valid_signal = True
             self.heading_pub.publish(meas)
-            
-            #self.get_logger().info(f'heading: {meas.heading}')
 
             local_latest_eta_msg = None
             local_latest_nu_msg = None
