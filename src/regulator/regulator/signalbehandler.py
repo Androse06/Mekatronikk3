@@ -36,6 +36,8 @@ class SignalbehandlingsNode(Node):
 
         self.get_logger().info("Signalbehandlings-node er initialisert.")
 
+
+
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
         self.current_heading    = msg.heading
@@ -66,16 +68,16 @@ class SignalbehandlingsNode(Node):
                     heading_filtered_msg.rot            = self.current_rot
                     heading_filtered_msg.valid_signal   = self.HeadingState
                     self.Heading_pub.publish(heading_filtered_msg)
-                    self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
+                    #self.get_logger().info(f'Publiserte: filtret heading={self.current_heading}')
 
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
                     heading_filtered_msg                = HeadingDevice()
                     heading_filtered_msg.valid_signal   = False
                     self.Heading_pub.publish(heading_filtered_msg)
-                    self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
+                    #self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
         else:
-            self.get_logger().info('Samler inn heading data til filtrering')
+            #self.get_logger().info('Samler inn heading data til filtrering')
             pass
         
         self.last_heading = self.current_heading
@@ -120,15 +122,15 @@ class SignalbehandlingsNode(Node):
                     gnss_filtered_msg.cog           = self.current_cog
                     gnss_filtered_msg.valid_signal  = self.GnssState
                     self.Gnss_pub.publish(gnss_filtered_msg)
-                    self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
+                    #self.get_logger().info(f'Publiserte: filtret lat={self.current_lat}, filtrert lon={self.current_lon}')
 
                 else:
                     gnss_filtered_msg               = GNSS()
                     gnss_filtered_msg.valid_signal  = False
                     self.Gnss_pub.publish(gnss_filtered_msg)
-                    self.get_logger().info('GNSS verdier er ikkje innanfor intervall')
+                    #self.get_logger().info('GNSS verdier er ikkje innanfor intervall')
         else:
-            self.get_logger().info('Samler inn GNSS data for å starte filtrering')
+            #self.get_logger().info('Samler inn GNSS data for å starte filtrering')
             pass
         
         self.last_lat = self.current_lat
@@ -187,17 +189,6 @@ class SignalbehandlingsNode(Node):
         return abs(delta) <= limit
     
     ### INTERVALL SJEKK FUNKSJON ###
-    """
-    def check_intervall(self, value, average, stand_avvik, toleranse):
-        # Reknar ut intervall etter gitt antall standardavvik
-        nedre_grense = average - (toleranse * stand_avvik)
-        ovre_grense  = average + (toleranse * stand_avvik)
-
-        if (value > nedre_grense) and (value < ovre_grense):
-            return True
-        else:
-            return False
-    """
     def check_intervall(self, value, last_value, stand_avvik, toleranse):
         # Reknar ut intervall etter gitt antall standardavvik
         nedre_grense = last_value - (toleranse * stand_avvik)
