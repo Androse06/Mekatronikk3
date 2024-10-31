@@ -25,6 +25,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 "msg/OtterStatus.msg"
 "msg/Coordinate.msg"
 "msg/TravelData.msg"
+"msg/TauMax.msg"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
