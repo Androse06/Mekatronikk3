@@ -58,8 +58,6 @@ class Allokering(Node):
         self.position_2              = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
         self.type_2                  = self.propuslion_config['main_propulsion_2']['type']
 
-        ######################
-
         self.timer = self.create_timer(self.step_size, self.step_allokering)
 
         self.get_logger().info("allokering-node er initialisert.")
@@ -84,12 +82,9 @@ class Allokering(Node):
     def step_allokering(self):
 
         We = np.eye(4)
-
         Te = np.array([[1, 0, 1, 0],
                        [0, 1, 0, 1],
                        [abs(self.position_1[1]), 0, -abs(self.position_2[1]), 0]])
-
-
         Twt = np.linalg.inv(We) @ Te.T @ np.linalg.inv(Te @ np.linalg.inv(We) @ Te.T)
         
         fe = Twt @ self.tau

@@ -19,19 +19,16 @@ class Kontroller(Node):
         self.declare_parameter('vessel_config_file', 'config/vessel_config.yaml')
         self.declare_parameter('simulation_config_file', 'config/simulator_config.yaml')
         self.declare_parameter('control_config_file', 'config/control_config.yaml')
-        self.declare_parameter('propulsion_config_file', 'config/propulsion_config.yaml')
 
         yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
         yaml_package_path        = get_package_share_directory(yaml_package_name)
         vessel_config_path       = os.path.join(yaml_package_path, self.get_parameter('vessel_config_file').get_parameter_value().string_value)
         simulation_config_path   = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
-        self.propulsion_config_path = os.path.join(yaml_package_path, self.get_parameter('propulsion_config_file').get_parameter_value().string_value)
 
         self.vessel_config          = self.load_yaml_file(vessel_config_path)
         self.simulation_config      = self.load_yaml_file(simulation_config_path)
         self.control_config         = self.load_yaml_file(self.control_config_path)
-        self.propuslion_config      = self.load_yaml_file(self.propulsion_config_path)
 
         self.vessel_model = VesselModel(self.vessel_config)
         
@@ -39,9 +36,7 @@ class Kontroller(Node):
 
         #### SUB ####
         self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
-        #self.eta_sub                = self.create_subscription(Eta, 'eta_sim', self.eta_callback, default_qos_profile)
         self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
-        #self.nu_sub                 = self.create_subscription(Nu, 'nu_sim', self.nu_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         self.mode_sub               = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
@@ -71,28 +66,6 @@ class Kontroller(Node):
 
         self.mode: int = 0
 
-        self.rho                     = self.simulation_config['physical_parameters']['rho_water']
-
-                ### Thruster 1 ###
-        self.id_1                    = self.propuslion_config['main_propulsion_1']['id']
-        self.propellerDiameter_1     = self.propuslion_config['main_propulsion_1']['propeller']['diameter']
-        self.Kt0_1                   = self.propuslion_config['main_propulsion_1']['propeller']['Kt0']
-        self.max_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['max_rpm'] / 60
-        self.min_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['min_rpm'] / 60
-        self.position_1              = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.5,0.3]
-        self.type_1                  = self.propuslion_config['main_propulsion_1']['type']
-
-                ### Thruster 2 ###
-        self.id_2                    = self.propuslion_config['main_propulsion_2']['id']
-        self.propellerDiameter_2     = self.propuslion_config['main_propulsion_2']['propeller']['diameter']
-        self.Kt0_2                   = self.propuslion_config['main_propulsion_2']['propeller']['Kt0']
-        self.max_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['max_rpm'] / 60
-        self.min_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['min_rpm'] / 60
-        self.position_2              = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
-        self.type_2                  = self.propuslion_config['main_propulsion_2']['type']
-
-        ####################
-
         self.timer = self.create_timer(self.step_size, self.step_control)
 
         self.get_logger().info("Kontroller-node er initialisert.")
@@ -110,11 +83,9 @@ class Kontroller(Node):
     def eta_callback(self, msg: Eta):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         self.estimator_ready = True
-        #self.get_logger().info(f'estimator {self.estimator_ready} ****************')
 
     def nu_callback(self, msg: Nu):
         self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-        #self.get_logger().info(f'nu ****************')
 
     def eta_setpoint_callback(self, msg: Eta):
         self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
@@ -127,17 +98,10 @@ class Kontroller(Node):
         self.yaw_max    = msg.nmax
         self.surge_min  = msg.xmin
         self.yaw_min    = msg.nmin
-        #self.get_logger().info(f'surge: [{self.surge_min}, {self.surge_max}]. yaw: [{self.yaw_min}, {self.yaw_max}]')
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
         self.mode = msg.mode
 
-    def rps(self, x, KT0, propellerDiameter):
-        return np.sign(x) * np.sqrt((2 * np.abs(x)) / ( self.rho * KT0 * (propellerDiameter ** 4)))
-    
-    def force(self, rps, KT0, propellerDiameter):
-        return 0.5 * self.rho * KT0 * (propellerDiameter**4) * abs(rps) * rps 
-    
     def step_control(self):
         
         if self.estimator_ready and self.mode != 0:
@@ -157,7 +121,6 @@ class Kontroller(Node):
             K_i_psi = K_p_psi / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
 
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
-
             self.qi_psi = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
             P_ledd      = K_p_psi * e_psi
@@ -166,9 +129,9 @@ class Kontroller(Node):
 
             tau_N       = P_ledd + I_ledd + D_ledd
 
+
             ################## PI Fart #####################
             e_u         = self.nu_setpoint[0] - self.nu[0]
-
 
             ki_scale_u  = self.control_config['speed_control']['ki_scale']
             ki_limit_u  = self.control_config['speed_control']['ki_saturation_limit']
@@ -178,14 +141,12 @@ class Kontroller(Node):
             K_i_u = K_p_u / (abs(ki_scale_u) + e_u**2)
 
             self.qi_u += self.step_size*K_i_u*mu.saturate(e_u,-ki_limit_u,ki_limit_u)
-
             self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
 
             tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
 
             
             ################## Publiser kontrollkrefter #####################
-
             tau_message         = Tau()
             tau_message.surge_x = mu.saturate(tau_X, self.surge_min, self.surge_max)
             tau_message.sway_y  = 0.0
@@ -193,23 +154,18 @@ class Kontroller(Node):
             tau_message.roll_k  = 0.0
             tau_message.pitch_m = 0.0
             tau_message.yaw_n   = mu.saturate(tau_N, self.yaw_min, self.yaw_max)
-
             self.tau_pub.publish(tau_message)
 
-            #self.get_logger().info(f'tau_message: {tau_message}')
-            #self.get_logger().info(f'tau_pre: [{tau_X}, 0, {tau_N}]')
-        ################## Debugging #####################
-        if self.debug == True:
-
-            self.get_logger().info(f'tau_message: {tau_message}')
-
-            self.get_logger().info(f'error psi: {e_psi}')
-            self.get_logger().info(f'error u: {e_u}')
-            self.get_logger().info(f'yaw: {tau_N}')
-            self.get_logger().info(f'qi psi: {self.qi_psi}')
-            self.get_logger().info(f'qi u: {self.qi_u}')
-            self.get_logger().info(f'Eta: {self.eta[5]}')
-            self.get_logger().info(f'Nu: {self.nu[0]}')
+            ################## Debugging #####################
+            if self.debug == True:
+                self.get_logger().info(f'tau_message: {tau_message}')
+                self.get_logger().info(f'error psi: {e_psi}')
+                self.get_logger().info(f'error u: {e_u}')
+                self.get_logger().info(f'yaw: {tau_N}')
+                self.get_logger().info(f'qi psi: {self.qi_psi}')
+                self.get_logger().info(f'qi u: {self.qi_u}')
+                self.get_logger().info(f'Eta: {self.eta[5]}')
+                self.get_logger().info(f'Nu: {self.nu[0]}')
 
 def main(args=None):
     rclpy.init(args=args)

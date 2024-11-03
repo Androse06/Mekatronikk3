@@ -20,10 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "ngc_hmi = ngc_hmi.ngc_hmi_main:main", 
             "ngc_hmi_autopilot = ngc_hmi.ngc_hmi_autopilot:main", 
             "ngc_hmi_yaml_editor = ngc_hmi.ngc_hmi_yaml_editor:main",
-            "ngc_hmi_engineering = ngc_hmi.ngc_hmi_engineering:main",
             "ngc_hmi_engineering_opencpn = ngc_hmi.ngc_hmi_engineering_opencpn:main" 
         ],
     },

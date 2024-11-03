@@ -36,19 +36,17 @@ class Estimator(Node):
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        filter_active = True
+        filter_active = False
 
         #### SUB ####
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
-        
         if filter_active:
             self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
             self.gnss_sub               = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
         else:
             self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
             self.gnss_sub               = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
-
 
         #### PUB ####
         self.eta_hat_pub            = self.create_publisher(Eta, "eta_hat", default_qos_profile)
@@ -73,16 +71,12 @@ class Estimator(Node):
         self.tau                = np.zeros(3)
         self.nu_hat             = np.zeros(3)
         self.eta_hat            = np.zeros(3)
-
-        #######################
         
         self.timer = self.create_timer(self.step_size, self.step_estimator)
 
         self.get_logger().info("Estimator-node er initialisert.")
 
-        self.debug = False
-
-
+        self.debug = True
 
     def load_yaml_file(self, file_path):
         with open(file_path, 'r') as file:
@@ -95,18 +89,15 @@ class Estimator(Node):
         self.lat_measured   = msg.lat
         self.lon_measured   = msg.lon
         self.gnss_valid     = msg.valid_signal
-
         if self.estimator_pos_initialized == False and msg.valid_signal == True:
             self.estimator_pos_initialized = True
             self.lat_hat    = msg.lat
             self.lon_hat    = msg.lon
             
-
     def heading_callback(self, msg: HeadingDevice):
         self.heading_measured   = msg.heading
         self.rot                = msg.rot
         self.heading_valid      = msg.valid_signal
-
         if self.estimator_hdg_initialized == False and msg.valid_signal == True:
             self.estimator_hdg_initialized = True
             self.eta_hat[2] = mu.mapToPiPi(msg.heading)
@@ -119,12 +110,9 @@ class Estimator(Node):
     def step_estimator(self):
 
         if self.estimator_pos_initialized and self.estimator_hdg_initialized:
-                
-
                 eta_tilde = np.zeros(3)
 
                 if self.gnss_valid == True:
-
                     eta_tilde[0], eta_tilde[1] = geo.calculate_distance_north_east(self.lat_hat, self.lon_hat, self.lat_measured, self.lon_measured)
                     self.gnss_valid = False
 
