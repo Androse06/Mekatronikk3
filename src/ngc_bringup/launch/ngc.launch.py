@@ -144,9 +144,6 @@ def generate_launch_description():
     )
 
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
-    delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
-    delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
-    delayed_allokering= TimerAction(period= 3.0, actions=[allokering])
 
     ld = LaunchDescription() 
     
