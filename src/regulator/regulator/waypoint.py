@@ -200,7 +200,7 @@ class WaypointNode(Node):
 
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
 
-            error = self.magnitude(distance) - delta # 0 når båten ligger 5 meter unna wp
+            error = self.magnitude(distance) - delta # 0 når båten ligger 'delta' meter unna wp
 
             nu_setpoint = np.tanh(error/10) * 2
 

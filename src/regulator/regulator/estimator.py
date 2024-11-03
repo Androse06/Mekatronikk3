@@ -42,11 +42,11 @@ class Estimator(Node):
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
         self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
         if filter_active:
-            self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
-            self.gnss_sub               = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
+            self.heading_sub        = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
+            self.gnss_sub           = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
         else:
-            self.heading_sub            = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
-            self.gnss_sub               = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
+            self.heading_sub        = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
+            self.gnss_sub           = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
 
         #### PUB ####
         self.eta_hat_pub            = self.create_publisher(Eta, "eta_hat", default_qos_profile)
@@ -96,8 +96,8 @@ class Estimator(Node):
         self.gnss_valid     = msg.valid_signal
         if self.estimator_pos_initialized == False and msg.valid_signal == True:
             self.estimator_pos_initialized = True
-            self.lat_hat    = msg.lat
-            self.lon_hat    = msg.lon
+            self.lat_hat    = msg.lat # Hvis den starter med 0 vil den første pos verdien være i senter av jorden
+            self.lon_hat    = msg.lon # Hvis den starter med 0 vil den første pos verdien være i senter av jorden
             
     def heading_callback(self, msg: HeadingDevice):
         self.heading_measured   = msg.heading
@@ -163,21 +163,21 @@ class Estimator(Node):
 
 
                 ###### PUBLISH ######
-                eta_hat_message = Eta()
-                eta_hat_message.lat = float(self.lat_hat)
-                eta_hat_message.lon = float(self.lon_hat)
-                eta_hat_message.z = float(inj[2])
-                eta_hat_message.phi = float(eta_tilde[2])
-                eta_hat_message.theta = float(0)
-                eta_hat_message.psi = float(self.eta_hat[2])
+                eta_hat_message         = Eta()
+                eta_hat_message.lat     = float(self.lat_hat)
+                eta_hat_message.lon     = float(self.lon_hat)
+                eta_hat_message.z       = float(inj[2])
+                eta_hat_message.phi     = float(eta_tilde[2])
+                eta_hat_message.theta   = float(0)
+                eta_hat_message.psi     = float(self.eta_hat[2])
 
-                nu_hat_message = Nu()
-                nu_hat_message.u = float(self.nu_hat[0])
-                nu_hat_message.v = float(self.nu_hat[1])
-                nu_hat_message.w = float(0)
-                nu_hat_message.p = float(0)
-                nu_hat_message.q = float(0)
-                nu_hat_message.r = float(self.nu_hat[2])
+                nu_hat_message          = Nu()
+                nu_hat_message.u        = float(self.nu_hat[0])
+                nu_hat_message.v        = float(self.nu_hat[1])
+                nu_hat_message.w        = float(0)
+                nu_hat_message.p        = float(0)
+                nu_hat_message.q        = float(0)
+                nu_hat_message.r        = float(self.nu_hat[2])
 
                 self.eta_hat_pub.publish(eta_hat_message)
                 self.nu_hat_pub.publish(nu_hat_message)
@@ -185,7 +185,6 @@ class Estimator(Node):
 
                 ####### DEBUG ########
                 if self.debug == True:
-
                     self.get_logger().info(f"eta_hat_message: {eta_hat_message}")
                     self.get_logger().info(f"nu_hat_message: {nu_hat_message}")
 
@@ -202,21 +201,13 @@ class Estimator(Node):
                     self.get_logger().info(f'eta_hat: {self.eta_hat}')
 
 
-
-# Hovedfunksjonen som starter ROS2-noden
 def main(args=None):
-    # Initialiserer ROS2-kommunikasjon
     rclpy.init(args=args)
     node = Estimator()
-    
-    # Kjører noden til den stoppes
     rclpy.spin(node)
-    
-    # Når noden avsluttes, frigjør ressurser
     node.destroy_nrotode()
     rclpy.shutdown()
 
-# Starter hovedfunksjonen hvis denne filen kjøres som et skript
 if __name__ == '__main__':
     main()
 

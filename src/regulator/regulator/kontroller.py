@@ -44,7 +44,7 @@ class Kontroller(Node):
         self.tau_max_sub            = self.create_subscription(TauMax, "tau_max", self.tau_max_callblack, default_qos_profile)
 
         #### PUB ####
-        self.tau_pub = self.create_publisher(Tau, "tau_control", default_qos_profile)
+        self.tau_pub                = self.create_publisher(Tau, "tau_control", default_qos_profile)
 
 
         #### Variabler ####
@@ -84,11 +84,11 @@ class Kontroller(Node):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
         self.estimator_ready = True
 
-    def nu_callback(self, msg: Nu):
-        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-
     def eta_setpoint_callback(self, msg: Eta):
         self.eta_setpoint = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+
+    def nu_callback(self, msg: Nu):
+        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
         
     def nu_setpoint_callback(self, msg: Nu):
         self.nu_setpoint = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
@@ -103,9 +103,9 @@ class Kontroller(Node):
         self.mode = msg.mode
 
     def step_control(self):
-        
         if self.estimator_ready and self.mode != 0:
-        ################## PID Heading #####################
+
+            ################## PID Heading #####################
             e_psi       = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
             e_psi_dot   = self.nu_setpoint[5] - self.nu[5]
 
@@ -129,7 +129,6 @@ class Kontroller(Node):
 
             tau_N       = P_ledd + I_ledd + D_ledd
 
-
             ################## PI Fart #####################
             e_u         = self.nu_setpoint[0] - self.nu[0]
 
@@ -144,7 +143,6 @@ class Kontroller(Node):
             self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
 
             tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
-
             
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()
@@ -170,9 +168,7 @@ class Kontroller(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = Kontroller()
-    
     rclpy.spin(node)
-    
     node.destroy_node()
     rclpy.shutdown()
 
