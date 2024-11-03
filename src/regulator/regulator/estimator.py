@@ -75,12 +75,13 @@ class Estimator(Node):
         self.timer = self.create_timer(self.step_size, self.step_estimator)
 
         self.get_logger().info("Estimator-node er initialisert.")
+
         if filter_active:
             self.get_logger().info("Estimator-node bruker filtrert signaler.")
         else:
             self.get_logger().info("Estimator-node bruker u-filtrert signaler.")
 
-        self.debug = True
+        self.debug = False
 
     def load_yaml_file(self, file_path):
         with open(file_path, 'r') as file:
