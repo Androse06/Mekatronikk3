@@ -170,22 +170,18 @@ class WaypointNode(Node):
             self.traveldata_publisher(False)
 
         if self.mode == 0: # Standby
-            # Setter system mode til standby for otter interface
-            self.sys_publisher('standby')
+            self.sys_publisher('standby') # Setter system mode til standby for otter interface
             self.nu_publisher(0.0)
             return
 
         elif self.mode == 1: # Sail
-            # Setter system mode til auto for otter interface
-            self.sys_publisher('auto')
+            self.sys_publisher('auto') # Setter system mode til auto for otter interface
             self.eta_publisher(self.eta_psi)
             self.nu_publisher(self.nu_u)
             return
-
         
-        elif self.mode == 2: # Dynamisk posisjonering
-            # Setter system mode til auto for otter interface
-            self.sys_publisher('auto')
+        elif self.mode == 2: # DP
+            self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
