@@ -32,9 +32,6 @@ class WaypointNode(Node):
         self.nu_u = 0.0
 
         self.coordinates = []
-        self.coordinates_min = []
-
-        self.pass_counter = 0
 
         self.i = 0
 
@@ -55,9 +52,7 @@ class WaypointNode(Node):
         if msg.route: # .gpx parsing løkke
             self.coordinates = self.gpx_parsing()
             self.i = 0
-            self.pass_counter = 0
             if self.debug:
-                self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
         if self.debug1:
@@ -67,12 +62,6 @@ class WaypointNode(Node):
             self.get_logger().info(f'callback - eta: {msg.eta}')
             self.get_logger().info(f'callback - nu: {msg.nu}')
             
-    def eta_callback(self, msg: Eta):
-        self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
-
-    def nu_callback(self, msg: Nu):
-        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-    
     def gpx_parsing(self):
         coordinates: list[tuple[float, float]] = [] 
         coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
@@ -97,12 +86,18 @@ class WaypointNode(Node):
         if self.debug:
             self.get_logger().info(f'psi: {eta}')
 
+    def eta_callback(self, msg: Eta):
+        self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+
     def nu_publisher(self, nu):
         nu_msg = Nu()
         nu_msg.u = nu
         self.nu_setppoint_pub.publish(nu_msg)
         if self.debug:
             self.get_logger().info(f'nu: {nu}')
+
+    def nu_callback(self, msg: Nu):
+        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
 
     def sys_publisher(self, mode):
         system_msg = SystemMode()
