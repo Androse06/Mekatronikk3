@@ -205,6 +205,9 @@ class EngineeringHMI(Node):
         self.nu = float(value)        
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)
+
+        self.route = False
+        self.point = False
         self.hmi_send_ros_message()
 
     # Method to programmatically set the sail throttle slider's value
@@ -217,6 +220,9 @@ class EngineeringHMI(Node):
         remapped_value = (value - 180) % 360
         self.eta = float(remapped_value)
         self.get_logger().info(f'eta = {self.eta}')
+
+        self.route = False
+        self.point = False
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(remapped_value)
         self.hmi_send_ros_message()
@@ -343,10 +349,12 @@ class EngineeringHMI(Node):
     def load_dp(self):
         self.point = True
         self.hmi_send_ros_message()
+        self.point = False
 
     def load_track(self):
         self.route = True
         self.hmi_send_ros_message()
+        self.route = False
 
     def hmi_send_ros_message(self):
         hmi_message = HMI()
@@ -356,8 +364,10 @@ class EngineeringHMI(Node):
         hmi_message.nu      = float(self.nu) * 0.514444
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         self.hmi_publisher.publish(hmi_message)
-        self.get_logger().info(f'etapub={hmi_message.eta}')
-        self.get_logger().info(f'nupub={hmi_message.nu}')
+
+        if self.debug:
+            self.get_logger().info(f'etapub={hmi_message.eta}')
+            self.get_logger().info(f'nupub={hmi_message.nu}')
 
     def travel_data_callback(self, msg: TravelData):
         self.i = msg.i
