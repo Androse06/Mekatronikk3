@@ -28,8 +28,8 @@ class WaypointNode(Node):
         self.load_waypoint  = False
         self.proximity_lock = False
         
-        self.eta_psi = 0.0
-        self.nu_u = 0.0
+        self.eta_psi    = 0.0
+        self.nu_u       = 0.0
 
         self.coordinates = []
 
@@ -70,17 +70,17 @@ class WaypointNode(Node):
             gpx = gpxpy.parse(gpx_file)
         for route in gpx.routes:
             for point in route.points:
-                latitude = point.latitude
-                longitude = point.longitude
+                latitude    = point.latitude
+                longitude   = point.longitude
                 coordinates.append((latitude, longitude))
         
         self.load_route = False
-        self.i = 0
+        self.i          = 0
         
         return coordinates
     
     def eta_publisher(self, eta):
-        eta_msg = Eta()
+        eta_msg     = Eta()
         eta_msg.psi = eta
         self.eta_setppoint_pub.publish(eta_msg)
         if self.debug:
@@ -90,8 +90,8 @@ class WaypointNode(Node):
         self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
 
     def nu_publisher(self, nu):
-        nu_msg = Nu()
-        nu_msg.u = nu
+        nu_msg      = Nu()
+        nu_msg.u    = nu
         self.nu_setppoint_pub.publish(nu_msg)
         if self.debug:
             self.get_logger().info(f'nu: {nu}')
@@ -129,32 +129,19 @@ class WaypointNode(Node):
         travel_msg = TravelData()
         
         if status == True:
-            travel_msg.i                = self.i
-            travel_msg.status           = True
+            travel_msg.i        = self.i
+            travel_msg.status   = True
             for wp in self.coordinates:
-                coor_msg = Coordinate()
-                lat, lon = wp
-                coor_msg.lat = lat
-                coor_msg.lon = lon
+                coor_msg        = Coordinate()
+                lat, lon        = wp
+                coor_msg.lat    = lat
+                coor_msg.lon    = lon
                 wp_data.append(coor_msg)
             travel_msg.coordinates = wp_data
         else:
             travel_msg.status = False
 
         self.TravelData_pub.publish(travel_msg)
-
-    def meter_p_coordinate(self, lat, lon, v_north, v_east): # koordinatene er gitt i grader, v_north og v_east er gitt i meter. denne brukes til å kunne plusse a_merket på wp1 for å finne posisjon_merket.
-        R_earth = 6371000 # meter
-        meter_per_degree_lat = 2 * np.pi * R_earth / 360
-
-        d_lat = v_north / meter_per_degree_lat
-        lat_new = lat + d_lat
-
-        meter_per_degree_lon = meter_per_degree_lat * np.cos(np.deg2rad(lat))
-        d_lon = v_east / meter_per_degree_lon
-        lon_new = lon + d_lon
-
-        return lat_new, lon_new
 
     def magnitude(self, vec):
         a = vec[0]
@@ -270,7 +257,7 @@ class WaypointNode(Node):
             a_vec_m: tuple[float, float] = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
 
             ### Koordinat til P_merket ###
-            pos_m: tuple[float, float] = self.meter_p_coordinate(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
+            pos_m: tuple[float, float] = geo.add_distance_to_lat_lon(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
 
             ### d_vektor; vektor mellom båt og P_merket ###
             d_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1])
@@ -313,7 +300,7 @@ class WaypointNode(Node):
 
             ### Låser guidingen til waypoint peiling når p_merket er innenfor 50 meter av WP2 ###
             if pos_m_wp < 50 or self.proximity_lock:
-                psi_angle: float = np.arctan2(-p_vec[1], -p_vec[0])
+                psi_angle: float    = np.arctan2(-p_vec[1], -p_vec[0])
                 psi_setpoint: float = mu.mapToPiPi(psi_angle)
                 self.eta_publisher(psi_setpoint)
                 self.proximity_lock: bool = True
