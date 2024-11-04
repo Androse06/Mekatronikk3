@@ -58,8 +58,6 @@ class Allokering(Node):
         self.position_2              = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
         self.type_2                  = self.propuslion_config['main_propulsion_2']['type']
 
-        ######################
-
         self.timer = self.create_timer(self.step_size, self.step_allokering)
 
         self.get_logger().info("allokering-node er initialisert.")
@@ -84,12 +82,9 @@ class Allokering(Node):
     def step_allokering(self):
 
         We = np.eye(4)
-
         Te = np.array([[1, 0, 1, 0],
                        [0, 1, 0, 1],
                        [abs(self.position_1[1]), 0, -abs(self.position_2[1]), 0]])
-
-
         Twt = np.linalg.inv(We) @ Te.T @ np.linalg.inv(Te @ np.linalg.inv(We) @ Te.T)
         
         fe = Twt @ self.tau
@@ -101,26 +96,30 @@ class Allokering(Node):
         rps_1 = self.rps(fe[0], self.Kt0_1, self.propellerDiameter_1)
         rps_2 = self.rps(fe[2], self.Kt0_2, self.propellerDiameter_2)
 
+        ### RPS verdier hvis ønsket surge var 0 - dynamisk ###
+        fake_rps_1: float = self.rps(fe_fake[0], self.Kt0_1, self.propellerDiameter_1)
+        fake_rps_2: float = self.rps(fe_fake[2], self.Kt0_2, self.propellerDiameter_2)
 
-        fake_rps_1 = self.rps(fe_fake[0], self.Kt0_1, self.propellerDiameter_1)
-        fake_rps_2 = self.rps(fe_fake[2], self.Kt0_2, self.propellerDiameter_2)
+        ### Kraften til thrusterene ved 0 surge - dynamisk ###
+        fake_force_1: float = self.force(fake_rps_1, self.Kt0_1, self.propellerDiameter_1)
+        fake_force_2: float = self.force(fake_rps_2, self.Kt0_2, self.propellerDiameter_2)
 
-        fake_force_1 = self.force(fake_rps_1, self.Kt0_1, self.propellerDiameter_1)
-        fake_force_2 = self.force(fake_rps_2, self.Kt0_2, self.propellerDiameter_2)
-        max_yaw     = abs(self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)*self.position_1[1]) + abs(self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) * self.position_2[1])
+        ### Max yaw båten kan produsere - ikke dynamisk ###
+        max_yaw: float      = abs(self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)*self.position_1[1]) + abs(self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) * self.position_2[1])
 
+        ### Regner ut hvor mye surge man maksimalt kan gi for å oppnå ønsket yaw ###
         if fake_force_1 >= fake_force_2:
-            max_surge = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
-            min_surge = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_2)
+            max_surge: float = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
+            min_surge: float = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_2)
         else:
-            max_surge = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
-            min_surge = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_1)
+            max_surge: float = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
+            min_surge: float = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_1)
 
 
         ########### PUBLISH ###########
         thruster1_message               = ThrusterSignals()
         thruster1_message.thruster_id   = self.id_1
-        thruster1_message.rps           = mu.saturate(rps_1, self.min_rps_1, self.max_rps_1)
+        thruster1_message.rps           = mu.saturate(rps_1, self.min_rps_1, self.max_rps_1) # Saturerer rps verdien innenfor maksimum definert i config
         thruster1_message.pitch         = 0.0
         thruster1_message.azimuth_deg   = 0.0
         thruster1_message.active        = True
@@ -128,7 +127,7 @@ class Allokering(Node):
 
         thruster2_message               = ThrusterSignals()
         thruster2_message.thruster_id   = self.id_2
-        thruster2_message.rps           = mu.saturate(rps_2, self.min_rps_2, self.max_rps_2)
+        thruster2_message.rps           = mu.saturate(rps_2, self.min_rps_2, self.max_rps_2) # Saturerer rps verdien innenfor maksimum definert i config
         thruster2_message.pitch         = 0.0
         thruster2_message.azimuth_deg   = 0.0
         thruster2_message.active        = True
@@ -144,6 +143,7 @@ class Allokering(Node):
 
         self.thruster1_pub.publish(thruster1_message)
         self.thruster2_pub.publish(thruster2_message)
+
         self.tau_max_pub.publish(tau_max_message)
 
 
@@ -169,12 +169,9 @@ class Allokering(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = Allokering()
-    
     rclpy.spin(node)
-    
     node.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

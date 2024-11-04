@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import gpxpy
-from ngc_interfaces.msg import HMI, Eta, Nu, Route, SystemMode, TravelData, Coordinate
+from ngc_interfaces.msg import HMI, Eta, Nu, SystemMode, TravelData, Coordinate
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
@@ -16,8 +16,6 @@ class WaypointNode(Node):
         self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
-        self.route_sub      = self.create_subscription(Route, 'route', self.route_callback, default_qos_profile)
-
 
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
         self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
@@ -34,9 +32,6 @@ class WaypointNode(Node):
         self.nu_u = 0.0
 
         self.coordinates = []
-        self.coordinates_min = []
-
-        self.pass_counter = 0
 
         self.i = 0
 
@@ -46,35 +41,6 @@ class WaypointNode(Node):
 
         self.debug = False
         self.debug1 = False
-
-
-    def route_callback(self, msg: Route): # For waypoint_mottaker
-        name = msg.route_name
-        waypoints = msg.waypoints
-
-        self.i = 0
-        self.coordinates_min = [(wp.latitude, wp.longitude) for wp in waypoints]
-
-        self.coordinates.append((self.eta[0], self.eta[1]))
-
-        for i in range(len(self.coordinates_min)):
-            if i == 0:
-                pass
-
-            else:
-                self.get_logger().info(f'Nr{i} = {self.coordinates_min[i]}')
-                cor = self.coordinates_min[i]
-
-                lat = self.nmea_to_decimal(cor[0])
-                lon = self.nmea_to_decimal(cor[1])
-
-                self.coordinates.append((lat, lon))
-
-        if self.debug:
-            self.get_logger().info('Route callback')
-            self.get_logger().info(f'Name: {name}')
-            self.get_logger().info(f'Waypoints: {waypoints}')
-            self.get_logger().info(f'Coordinates - route_callback: {self.coordinates}')
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
         self.mode: int              = msg.mode # 0 = standby, 1 = sail, 2 = position, 3 = track
@@ -86,9 +52,7 @@ class WaypointNode(Node):
         if msg.route: # .gpx parsing løkke
             self.coordinates = self.gpx_parsing()
             self.i = 0
-            self.pass_counter = 0
             if self.debug:
-                self.get_logger().info(f'Waypoints: {self.pass_counter}')
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
 
         if self.debug1:
@@ -98,30 +62,12 @@ class WaypointNode(Node):
             self.get_logger().info(f'callback - eta: {msg.eta}')
             self.get_logger().info(f'callback - nu: {msg.nu}')
             
-    def eta_callback(self, msg: Eta):
-        self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
-
-    def nu_callback(self, msg: Nu):
-        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
-
-    def nmea_to_decimal(self, degrees_minutes):
-        # Separate the degrees and minutes
-        degrees = int(degrees_minutes) // 100
-        minutes = degrees_minutes % 100
-
-        # Convert to decimal degrees
-        decimal_degrees = degrees + minutes / 60.0
-
-        return decimal_degrees
-    
     def gpx_parsing(self):
-
         coordinates: list[tuple[float, float]] = [] 
         coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
 
         with open('gpx_file/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
             gpx = gpxpy.parse(gpx_file)
-
         for route in gpx.routes:
             for point in route.points:
                 latitude = point.latitude
@@ -130,7 +76,7 @@ class WaypointNode(Node):
         
         self.load_route = False
         self.i = 0
-
+        
         return coordinates
     
     def eta_publisher(self, eta):
@@ -140,12 +86,31 @@ class WaypointNode(Node):
         if self.debug:
             self.get_logger().info(f'psi: {eta}')
 
+    def eta_callback(self, msg: Eta):
+        self.eta = np.array([msg.lat, msg.lon, msg.z, msg.phi, msg.theta, msg.psi])
+
     def nu_publisher(self, nu):
         nu_msg = Nu()
         nu_msg.u = nu
         self.nu_setppoint_pub.publish(nu_msg)
         if self.debug:
             self.get_logger().info(f'nu: {nu}')
+
+    def nu_callback(self, msg: Nu):
+        self.nu = np.array([msg.u, msg.v, msg.w, msg.p, msg.q, msg.r])
+
+    def sys_publisher(self, mode):
+        system_msg = SystemMode()
+        if mode == 'auto':
+            system_msg.standby_mode = False
+            system_msg.auto_mode    = True
+        elif mode == 'standby':
+            system_msg.standby_mode = True
+            system_msg.auto_mode    = False
+        self.system_mode_pub.publish(system_msg)
+
+        if self.debug1:
+            self.get_logger().info(f'system mode pub: {system_msg}')
 
     def mode_publisher(self, mode):
         self.mode       = mode
@@ -166,16 +131,12 @@ class WaypointNode(Node):
         if status == True:
             travel_msg.i                = self.i
             travel_msg.status           = True
-
             for wp in self.coordinates:
                 coor_msg = Coordinate()
-
                 lat, lon = wp
                 coor_msg.lat = lat
                 coor_msg.lon = lon
-
                 wp_data.append(coor_msg)
-                
             travel_msg.coordinates = wp_data
         else:
             travel_msg.status = False
@@ -209,35 +170,18 @@ class WaypointNode(Node):
             self.traveldata_publisher(False)
 
         if self.mode == 0: # Standby
-            # Setter system mode til standby for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = True
-            system_msg.auto_mode    = False
-            self.system_mode_pub.publish(system_msg)
-
+            self.sys_publisher('standby') # Setter system mode til standby for otter interface
             self.nu_publisher(0.0)
             return
 
         elif self.mode == 1: # Sail
-            # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
-
-            eta = self.eta_psi
-            self.eta_publisher(eta)
-
-            nu = self.nu_u
-            self.nu_publisher(nu)
-
+            self.sys_publisher('auto') # Setter system mode til auto for otter interface
+            self.eta_publisher(self.eta_psi)
+            self.nu_publisher(self.nu_u)
+            return
         
-        elif self.mode == 2: # Dynamisk posisjonering
-            # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
+        elif self.mode == 2: # DP
+            self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
             if len(self.coordinates) > 0:
                 setpoint = self.coordinates[-1]
@@ -256,7 +200,7 @@ class WaypointNode(Node):
 
             distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
 
-            error = self.magnitude(distance) - delta # 0 når båten ligger 5 meter unna wp
+            error = self.magnitude(distance) - delta # 0 når båten ligger 'delta' meter unna wp
 
             nu_setpoint = np.tanh(error/10) * 2
 
@@ -277,11 +221,7 @@ class WaypointNode(Node):
 
 
         elif self.mode == 3: # Waypoint step-funksjon.
-            # Setter system mode til auto for otter interface
-            system_msg = SystemMode()
-            system_msg.standby_mode = False
-            system_msg.auto_mode    = True
-            self.system_mode_pub.publish(system_msg)
+            self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
             if self.debug:
                 self.get_logger().info(f'i = {self.i}')
@@ -293,7 +233,6 @@ class WaypointNode(Node):
                 return
 
             waypoint: tuple[float, float] = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
-
             if self.debug:
                 self.get_logger().info(f'waypoint: {waypoint}')
 
@@ -407,6 +346,7 @@ class WaypointNode(Node):
                 self.get_logger().info(f'psi_L; boat attack angle: {np.rad2deg(psi_L)}')
                 self.get_logger().info(f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}')
                 self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
+            return
 
 def main(args=None):
     rclpy.init(args=args)

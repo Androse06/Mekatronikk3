@@ -22,19 +22,23 @@ class SignalbehandlingsNode(Node):
         self.Heading_pub    = self.create_publisher(HeadingDevice, 'heading_measurement_filtered', default_qos_profile)
 
         ### VARIABLER ###
+        self.gnss_fb_flag1      = False
+        self.gnss_fb_flag2      = False
+        self.heading_fb_flag1   = False
+        self.heading_fb_flag2   = False
         self.current_lon        = None
         self.current_lat        = None
         self.last_lon           = None
         self.last_lat           = None
         self.current_heading    = None
         self.last_heading       = None
-        self.lat_readings       = np.array([])
-        self.lon_readings       = np.array([])
         self.heading_readings   = np.array([])
         self.distance_readings = np.array([])
         self.max_readings = 20
 
         self.get_logger().info("Signalbehandlings-node er initialisert.")
+
+
 
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
@@ -42,15 +46,25 @@ class SignalbehandlingsNode(Node):
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
 
+        if self.last_heading is None and self.current_heading is not None:
+            self.get_logger().info('Første HEADING måling mottatt')
+
         self.heading_readings = np.append(self.heading_readings, self.current_heading)
         if len(self.heading_readings) > self.max_readings:
             self.heading_readings = np.delete(self.heading_readings, 0)
 
-        if len(self.heading_readings) > 8:
+        if len(self.heading_readings) > (self.max_readings - 3):
             heading_readings_intalized = True
         else:
             heading_readings_intalized = False
 
+        if heading_readings_intalized and not self.heading_fb_flag1:
+            self.get_logger().info(f'HEADING målinger er initialisert og filtrering blir utført')
+            self.heading_fb_flag1 = True
+        
+        if not heading_readings_intalized and not self.heading_fb_flag2:
+            self.get_logger().info(f'HEADING målinger blir samlet opp')
+            self.heading_fb_flag2 = True
         
         if heading_readings_intalized:
             if self.HeadingState:
@@ -73,7 +87,7 @@ class SignalbehandlingsNode(Node):
                     heading_filtered_msg                = HeadingDevice()
                     heading_filtered_msg.valid_signal   = False
                     self.Heading_pub.publish(heading_filtered_msg)
-                    self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
+                    #self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
         else:
             #self.get_logger().info('Samler inn heading data til filtrering')
             pass
@@ -94,17 +108,25 @@ class SignalbehandlingsNode(Node):
             delta_distance = self.calculate_distance(self.current_lat, self.current_lon, self.last_lat, self.last_lon)
         else:
             delta_distance = 0
-            self.get_logger().info('Første gnss måling mottatt')
+            self.get_logger().info('Første GNSS måling mottatt')
         
         self.distance_readings = np.append(self.distance_readings, delta_distance)
         if len(self.distance_readings) > self.max_readings:
             self.distance_readings = np.delete(self.distance_readings, 0)
 
-        if (len(self.distance_readings) > 8):
-            gnss_readings_initialized = True
+        if (len(self.distance_readings) > (self.max_readings - 3)):
+            gnss_readings_initialized   = True
         else:
             gnss_readings_initialized = False
 
+        if gnss_readings_initialized and not self.gnss_fb_flag1:
+            self.get_logger().info(f'GNSS målinger er initialisert og filtrering blir utført')
+            self.gnss_fb_flag1 = True
+
+        if not gnss_readings_initialized and not self.gnss_fb_flag2:
+            self.get_logger().info(f'GNSS målinger blir samlet opp')
+            self.gnss_fb_flag2 = True
+                    
         if gnss_readings_initialized:
             if self.GnssState:
                 # Rekne ut variansen til målingar
@@ -126,7 +148,7 @@ class SignalbehandlingsNode(Node):
                     gnss_filtered_msg               = GNSS()
                     gnss_filtered_msg.valid_signal  = False
                     self.Gnss_pub.publish(gnss_filtered_msg)
-                    self.get_logger().info('GNSS verdier er ikkje innanfor intervall')
+                    #self.get_logger().info('GNSS verdier er ikkje innanfor intervall')
         else:
             #self.get_logger().info('Samler inn GNSS data for å starte filtrering')
             pass
@@ -187,17 +209,6 @@ class SignalbehandlingsNode(Node):
         return abs(delta) <= limit
     
     ### INTERVALL SJEKK FUNKSJON ###
-    """
-    def check_intervall(self, value, average, stand_avvik, toleranse):
-        # Reknar ut intervall etter gitt antall standardavvik
-        nedre_grense = average - (toleranse * stand_avvik)
-        ovre_grense  = average + (toleranse * stand_avvik)
-
-        if (value > nedre_grense) and (value < ovre_grense):
-            return True
-        else:
-            return False
-    """
     def check_intervall(self, value, last_value, stand_avvik, toleranse):
         # Reknar ut intervall etter gitt antall standardavvik
         nedre_grense = last_value - (toleranse * stand_avvik)

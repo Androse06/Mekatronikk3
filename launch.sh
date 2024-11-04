@@ -2,9 +2,10 @@
 
 # Navigate to your ROS 2 workspace
 source /opt/ros/jazzy/setup.bash
+source .venv/bin/activate
 
 # Set the environmentvariable for Oskar's fucked up pc
-export PYTHONPATH=$PYTHONPATH:/home/adolf-fick/Desktop/git_ws/Mekatronikk3/src/.venv/lib/python3.12/site-packages
+export PYTHONPATH=$PYTHONPATH:/home/adolf-fick/Desktop/Mekatronikk3/.venv/lib/python3.12/site-packages
 
 # sourcing the install folder
 source install/setup.bash

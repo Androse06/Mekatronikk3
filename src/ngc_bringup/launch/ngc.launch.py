@@ -72,13 +72,6 @@ def generate_launch_description():
         name        = 'anemometer'
     )
 
-    hmi_node = Node(
-        package     = "ngc_hmi", 
-        executable  = "ngc_hmi",
-        name        = 'hmi',
-        output     = 'screen'
-    )
-
     hmi_node_autopilot = Node(
         package     = "ngc_hmi", 
         executable  = "ngc_hmi_autopilot",
@@ -119,7 +112,7 @@ def generate_launch_description():
         package     = "regulator",
         executable  = "estimator",
         name        = 'estimator',
-        #output      = 'screen'
+        output      = 'screen'
     )
 
     allokering = Node(
@@ -133,19 +126,6 @@ def generate_launch_description():
         package     = "regulator",
         executable  = "waypoint",
         name        = 'waypoint',
-        output      = 'screen'
-    )
-
-    opencpn_process = ExecuteProcess(
-        cmd = ['gnome-terminal', '--', 'opencpn'],
-        output = 'screen'
-    )
-
-
-    waypoint_mottaker  = Node(
-        package     = "regulator",
-        executable  = "waypoint_mottaker",
-        name        = 'waypoint_mottaker',
         output      = 'screen'
     )
 
@@ -164,29 +144,18 @@ def generate_launch_description():
     )
 
     delayed_plotjuggler= TimerAction(period= 6.0, actions=[plotjuggler_node])
-    delayed_kontroller= TimerAction(period= 2.0, actions=[regulator])
-    delayed_estimator= TimerAction(period= 1.0, actions=[estimator])
-    delayed_allokering= TimerAction(period= 3.0, actions=[allokering])
 
     ld = LaunchDescription() 
     
-    #ld.add_action(sim_node)
-    #ld.add_action(gnss_node)
-    #ld.add_action(compass_node)
-    #ld.add_action(anemometer_node)
-    #ld.add_action(propulsion_node)
-    #ld.add_action(hmi_node)
     ld.add_action(hmi_node_yaml_editor)
     #ld.add_action(hmi_node_autopilot)
     ld.add_action(hmi_node_engineering)
-    #ld.add_action(opencpn_process)
     ld.add_action(delayed_plotjuggler)
     ld.add_action(regulator)
     ld.add_action(estimator)
     ld.add_action(allokering)
     ld.add_action(waypoint)
-    #ld.add_action(waypoint_mottaker)
-    #ld.add_action(signal_behandling)
+    ld.add_action(signal_behandling)
     ld.add_action(otter_interface)
 
     if simulator_in_the_loop:
