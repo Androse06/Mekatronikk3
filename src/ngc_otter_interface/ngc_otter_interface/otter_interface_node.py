@@ -174,6 +174,8 @@ class otter_connector():
                 error_message = message
                 self.node.get_logger().warning(error_message)
 
+            #self.node.get_logger().info(f"{message}")
+
         # GNSS
         if gps_message != "":
 
@@ -574,7 +576,7 @@ class OtterUSVNode(Node):
 
                 self.fx = mu.saturate(float(self.latest_system_mode.fx_test),-1.0,1.0)
                 self.fz = mu.saturate(float(self.latest_system_mode.fz_test),-1.0,1.0)    
-                
+
                 self.otter.set_manual_control_mode(self.fx,0.0,self.fz)
 
             elif self.latest_system_mode.test_rpm_output_mode == True:

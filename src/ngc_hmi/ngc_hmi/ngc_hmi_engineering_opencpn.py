@@ -202,7 +202,6 @@ class EngineeringHMI(Node):
 
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
-        
         self.nu = float(value)        
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)

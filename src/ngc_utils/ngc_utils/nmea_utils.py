@@ -126,6 +126,7 @@ def create_sog_cog_vtg_message(sog, cog):
 
     return final_sentence
 
+
 def create_rot_message(rate_of_turn):
     """
     Creates a ROT NMEA message indicating the rate of turn.
