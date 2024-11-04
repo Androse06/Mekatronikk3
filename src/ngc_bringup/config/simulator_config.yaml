@@ -1,4 +1,4 @@
-simulator_in_the_loop: True             # This is the toggle for running with hardware or a simulator in the loop
+simulator_in_the_loop: False             # This is the toggle for running with hardware or a simulator in the loop
 
 initial_conditions:
   latitude: 62.485778

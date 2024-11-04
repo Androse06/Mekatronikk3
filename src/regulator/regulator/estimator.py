@@ -36,7 +36,7 @@ class Estimator(Node):
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        filter_active = False
+        filter_active = True
 
         #### SUB ####
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
