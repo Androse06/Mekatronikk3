@@ -205,7 +205,7 @@ class EngineeringHMI(Node):
         
         self.nu = float(value)        
         # Update the LCD display to show the current throttle
-        self.ui.Sail_Throttle_LCD.display(value)
+        self.ui.Sail_Throttle_LCD.display(value / 10)
         self.hmi_send_ros_message()
 
     # Method to programmatically set the sail throttle slider's value
