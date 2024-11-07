@@ -21,6 +21,52 @@ from PySide6.QtWidgets import (QApplication, QDial, QFrame, QGraphicsView,
     QPushButton, QSizePolicy, QSlider, QSpacerItem,
     QStatusBar, QTextBrowser, QVBoxLayout, QWidget)
 
+class CompassDial(QDial):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        
+        # Load the original image
+        self.original_image = QPixmap('pictures/compass_2.png')  
+        
+        # Initial scaling of the compass image for the widget size
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.KeepAspectRatio, 
+            Qt.SmoothTransformation  # Provide smooth transformation as positional argument
+        )
+
+        # Hide the default dial appearance
+        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+        self.setNotchesVisible(False)
+
+    def resizeEvent(self, event):
+        # Rescale the image when the widget is resized
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.KeepAspectRatio, 
+            Qt.SmoothTransformation
+        )
+        super().resizeEvent(event)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+
+        # Center and fit the compass image on the dial
+        rect = self.rect()
+        compass_size = min(rect.width(), rect.height())
+        compass_rect = QRect(
+            (rect.width() - compass_size) // 2,
+            (rect.height() - compass_size) // 2,
+            compass_size, compass_size
+        )
+
+        # Apply rotation based on the dial value
+        painter.translate(rect.center())
+        painter.rotate(self.value())
+        painter.translate(-rect.center())
+
+        # Draw the rotated compass image only
+        painter.drawPixmap(compass_rect, self.compass_image)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -512,7 +558,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_16.addWidget(self.line_2, 1, 0, 1, 3)
 
-        self.Compass_Dial = QDial(self.frame_3)
+        self.Compass_Dial = CompassDial(self.frame_3)
         self.Compass_Dial.setObjectName(u"Compass_Dial")
         sizePolicy3.setHeightForWidth(self.Compass_Dial.sizePolicy().hasHeightForWidth())
         self.Compass_Dial.setSizePolicy(sizePolicy3)
