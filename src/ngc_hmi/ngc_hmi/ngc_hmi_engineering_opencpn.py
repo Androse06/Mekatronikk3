@@ -389,12 +389,6 @@ class EngineeringHMI(Node):
 
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = msg.psi
-
-        if self.eta_hat < 0:
-            self.eta_hat = 0
-        elif self.eta_hat > 360:
-            self.eta_hat = 360
-
         self.ui.Global_Heading_LCD.display(int(self.eta_hat))
 
 
