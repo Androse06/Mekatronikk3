@@ -356,24 +356,25 @@ class EngineeringHMI(Node):
             self.get_logger().info(f'coordinates: {self.coordinates}')
             self.get_logger().info(f'status: {msg.status}')
 
-        if self.i > 0:
-            self.last_waypoint = self.coordinates[self.i - 1]
-        else:
-            self.last_waypoint = None
-        
-        self.current_waypoint   = self.coordinates[self.i]
+        if self.status:
+            if self.i > 0:
+                self.last_waypoint = self.coordinates[self.i - 1]
+            else:
+                self.last_waypoint = None
+            
+            self.current_waypoint   = self.coordinates[self.i]
 
-        if self.i + 1 < len(self.coordinates):
-            self.next_waypoint = self.coordinates[self.i + 1]
-        else:
-            self.next_waypoint = None
+            if self.i + 1 < len(self.coordinates):
+                self.next_waypoint = self.coordinates[self.i + 1]
+            else:
+                self.next_waypoint = None
 
-        self.waypoints = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
-        waypoint_strings = [f"Lat: {lat}, Lon:{lon}" for lat, lon in self.waypoints]
+            self.waypoints = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
+            waypoint_strings = [f"Lat: {lat}, Lon:{lon}" for lat, lon in self.waypoints]
 
-        model = QStringListModel()
-        model.setStringList(waypoint_strings)
-        self.ui.WayPoint_ListView.setModel(model)  
+            model = QStringListModel()
+            model.setStringList(waypoint_strings)
+            self.ui.WayPoint_ListView.setModel(model)  
             
 
     def hmi_callback(self, msg: HMI):
