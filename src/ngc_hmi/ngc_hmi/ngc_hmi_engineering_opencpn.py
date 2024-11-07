@@ -207,8 +207,6 @@ class EngineeringHMI(Node):
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)
 
-        #self.route = False
-        #self.point = False
         self.hmi_send_ros_message()
 
     # Method to programmatically set the sail throttle slider's value
@@ -222,8 +220,6 @@ class EngineeringHMI(Node):
         self.eta = float(remapped_value)
         self.get_logger().info(f'eta = {self.eta}')
 
-        #self.route = False
-        #self.point = False
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(remapped_value)
         self.hmi_send_ros_message()
@@ -350,20 +346,17 @@ class EngineeringHMI(Node):
     def load_dp(self):
         self.point = True
         self.hmi_send_ros_message()
-        #self.point = False
 
     def load_track(self):
         self.route = True
         self.hmi_send_ros_message()
-        #self.route = False
     
     def load_track_reset(self):
         self.route = False
-        self.get_logger().info(f'load track is set to {self.route}')
     
     def load_dp_reset(self):
         self.point = False
-        self.get_logger().info(f'load dp is set to {self.point}')
+        
 
     def hmi_send_ros_message(self):
         hmi_message = HMI()
@@ -394,9 +387,7 @@ class EngineeringHMI(Node):
             
 
     def hmi_callback(self, msg: HMI):
-        self.route = msg.route
-        self.point = msg.point
-
+        
         if self.mode != msg.mode:
             self.mode = msg.mode
             if  self.mode == 0:
