@@ -32,6 +32,7 @@ class WaypointNode(Node):
         self.nu_u       = 0.0
 
         self.coordinates = []
+        self.waypoint = []
 
         self.i = 0
 
@@ -56,10 +57,9 @@ class WaypointNode(Node):
             if self.debug2:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
         elif msg.point:
-            self.coordinates = self.gpx_parsing(2)
-            self.i = 0
+            self.waypoint = self.gpx_parsing(2)
             if self.debug2:
-                self.get_logger().info(f'Coordinates: {self.coordinates}')
+                self.get_logger().info(f'Coordinates: {self.waypoint}')
 
         if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
@@ -194,8 +194,8 @@ class WaypointNode(Node):
         elif self.mode == 2: # DP
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
-            if len(self.coordinates) > 0:
-                setpoint = self.coordinates[-1]
+            if len(self.waypoint) > 0:
+                setpoint = self.waypoint[0]
             else:
                 self.mode_publisher(0)
                 self.get_logger().info('waypoint mangler')
@@ -251,6 +251,7 @@ class WaypointNode(Node):
                 waypoint_next = self.coordinates[self.i + 1]
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
+                self.waypoint = self.coordinates[-1]
                 self.mode_publisher(2)
                 return
 

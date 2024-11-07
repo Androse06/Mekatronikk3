@@ -10,5 +10,6 @@ export PYTHONPATH=$PYTHONPATH:/home/adolf-fick/Desktop/Mekatronikk3/.venv/lib/py
 # sourcing the install folder
 source install/setup.bash
 
+rm -rf estimator_data.csv
 # Launch the ROS 2 launch file
 ros2 launch ngc_bringup ngc.launch.py
