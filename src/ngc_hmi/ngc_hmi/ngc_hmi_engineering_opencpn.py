@@ -388,15 +388,14 @@ class EngineeringHMI(Node):
         self.set_Th2_Icon(self.sim_th2_rpm)
 
     def eta_hat_callback(self, msg:Eta):
-        self.eta_hat = msg.psi
+        self.eta_hat = mu.mapToPiPi(msg.psi)
         self.get_logger().info(f'eta_hat = {self.eta_hat}')
         self.ui.Global_Heading_LCD.display(self.eta_hat)
 
 
     def nu_hat_callback(self, msg:Nu):
-        self.nu_hat = msg.u
-        self.get_logger().info(f'nu_hat = {self.nu_hat}')
-        self.ui.Global_Speed_LCD.display(self.nu_hat)
+        self.nu_hat = msg.u / 1.943844 #konvertert til knop
+        self.ui.Global_Speed_LCD.display(round(self.nu_hat, 2))
 
 
 
