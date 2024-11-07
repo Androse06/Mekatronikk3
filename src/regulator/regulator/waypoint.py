@@ -290,8 +290,10 @@ class WaypointNode(Node):
 
             if wp2_error < wp1_error: # Sakker farten nær waypoints
                 nu_dynamic: float = np.tanh(wp2_error/10) * nu
-            elif wp2_error > wp1_error:
+            elif wp2_error > wp1_error and (self.i != 0):
                 nu_dynamic: float = np.tanh(wp1_error/10) * nu
+            else:
+                nu_dynamic = nu
                 
             self.nu_publisher(nu_dynamic)
 
