@@ -55,9 +55,12 @@ class WaypointNode(Node):
             if self.debug:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
         elif msg.point:
-            self.coordinates = self.gpx_parsing()
+            coordinates = self.gpx_parsing()
             if len(self.coordinates) > 2:
-                
+                self.get_logger().info('Too short route for point. Try track')
+                pass
+            else:
+                self.coordinates = coordinates
 
         if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
