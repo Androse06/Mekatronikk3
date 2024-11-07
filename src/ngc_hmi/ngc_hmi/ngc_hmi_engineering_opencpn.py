@@ -389,7 +389,7 @@ class EngineeringHMI(Node):
 
     def eta_hat_callback(self, msg:Eta):
         #self.eta_hat = mu.mapToPiPi(msg.psi)
-        self.eta_hat = mu.mapToZero2Pi(msg.psi)
+        self.eta_hat = np.degrees(mu.mapToZero2Pi(msg.psi))
         self.get_logger().info(f'eta_hat = {self.eta_hat}')
         self.ui.Global_Heading_LCD.display(self.eta_hat)
 
