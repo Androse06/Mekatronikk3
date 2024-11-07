@@ -31,7 +31,6 @@ class EngineeringHMI(Node):
         self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
         self.create_subscription(ThrusterSignals, 'thruster_1_setpoints_sim', self.thruster_1_sim_callback, default_qos_profile)
         self.create_subscription(ThrusterSignals, 'thruster_2_setpoints_sim', self.thruster_2_sim_callback, default_qos_profile)
-
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
 
         self.opencpn_process = QProcess()
@@ -242,49 +241,23 @@ class EngineeringHMI(Node):
 
     def set_Th1_Icon(self, value):
         # Set the value of the progress bar
-        self.ui.Global_Throttle1_Status.setValue(int(abs(value)))
-
-        # Define color thresholds and set color based on the value
-        if value < 0:
-            color = "#FF0000"  # Red for low values
+        if value > 0:
+            self.ui.Global_Throttle1_Status.setValue(int(abs(value)))
+            self.ui.Global_Throttle1rev_Status.setValue(int(0))
         else:
-            color = "#4CAF50"  # Green for high values
+            self.ui.Global_Throttle1_Status.setValue(int(0))
+            self.ui.Global_Throttle1rev_Status.setValue(int(abs(value)))
 
-        # Update the QProgressBar's color using stylesheet
-        self.ui.Global_Throttle1_Status.setStyleSheet(f"""
-            QProgressBar {{
-                border: 2px solid grey;
-                border-radius: 5px;
-                text-align: center;
-            }}
-            QProgressBar::chunk {{
-                background-color: {color};
-                width: 10px;
-            }}
-        """)
 
     def set_Th2_Icon(self, value):
         # Set the value of the progress bar
-        self.ui.Global_Throttle2_Status.setValue(int(abs(value)))
-
-        # Define color thresholds and set color based on the value
-        if value < 0:
-            color = "#FF0000"  # Red for low values
+        if value > 0:
+            self.ui.Global_Throttle2_Status.setValue(int(abs(value)))
+            self.ui.Global_Throttle2rev_Status.setValue(int(0))
         else:
-            color = "#4CAF50"  # Green for high values
+            self.ui.Global_Throttle2_Status.setValue(int(0))
+            self.ui.Global_Throttle2rev_Status.setValue(int(value))
 
-        # Update the QProgressBar's color using stylesheet
-        self.ui.Global_Throttle2_Status.setStyleSheet(f"""
-            QProgressBar {{
-                border: 2px solid grey;
-                border-radius: 5px;
-                text-align: center;
-            }}
-            QProgressBar::chunk {{
-                background-color: {color};
-                width: 10px;
-            }}
-        """)
 
 
     def set_Heading_Lcd(self, value):
@@ -423,11 +396,11 @@ class EngineeringHMI(Node):
     
     def thruster_1_sim_callback(self, msg:ThrusterSignals):
         self.sim_th1_rpm = msg.rps * 60
-        self.set_Th1_Icon(self.th1_rpm)
+        self.set_Th1_Icon(self.sim_th1_rpm)
 
     def thruster_2_sim_callback(self, msg:ThrusterSignals):
-        self.sim_th1_rpm = msg.rps * 60
-        self.set_Th2_Icon(self.th2_rpm)
+        self.sim_th2_rpm = msg.rps * 60
+        self.set_Th2_Icon(self.sim_th2_rpm)
 
 def main(args=None):
     rclpy.init(args=args)
