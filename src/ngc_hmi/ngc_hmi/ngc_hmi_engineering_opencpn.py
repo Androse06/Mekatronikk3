@@ -392,8 +392,10 @@ class EngineeringHMI(Node):
         self.set_Heading_Lcd(int(self.eta_hat))
 
     def nu_hat_callback(self, msg:Nu):
-        self.nu_hat = msg.psi
+        self.nu_hat = msg.u
         self.set_Speed_Lcd(int(self.nu_hat))
+
+
 
 def main(args=None):
     rclpy.init(args=args)
