@@ -54,6 +54,10 @@ class WaypointNode(Node):
             self.i = 0
             if self.debug:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
+        elif msg.point:
+            self.coordinates = self.gpx_parsing()
+            if len(self.coordinates) > 2:
+                
 
         if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
@@ -117,8 +121,8 @@ class WaypointNode(Node):
 
         mode_msg = HMI()
         mode_msg.mode   = mode
-        mode_msg.route  = self.load_route
-        mode_msg.point  = self.load_waypoint
+        mode_msg.route  = False
+        mode_msg.point  = False
         mode_msg.eta    = self.eta_psi
         mode_msg.nu     = self.nu_u
         self.mode_pub.publish(mode_msg)
