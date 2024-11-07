@@ -18,96 +18,108 @@ class WaypointNode(Node):
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
 
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
-        self.nu_setppoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
-        self.eta_setppoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        self.nu_setpoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+        self.eta_setpoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
         self.system_mode_pub    = self.create_publisher(SystemMode, 'system_mode', default_qos_profile)
 
-        self.mode           = 0
-        self.load_route     = False
-        self.load_waypoint  = False
-        self.proximity_lock = False
+        self.mode           = 0     # id for modus til step_wayopint(). 0=standby, 1=sail, 2=DP, 3=track
+        self.load_route     = False # parcer waypoints.gpx når True og appender self.waypoint
+        self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
+        self.proximity_lock = False # låser track mode på line-of-sight når True
         
-        self.eta_psi    = 0.0
-        self.nu_u       = 0.0
+        self.eta = np.zeros(6)  #til callback
+        self.nu = np.zeros(6)   # til callback
+        self.eta_psi    = 0.0   # til publish
+        self.nu_u       = 0.0   # til publish
 
-        self.coordinates = []
-        self.waypoint = []
+        self.coordinates = []   # skal inneholde [(lat, lon), (lat, lon), ...] for wp i rute
+        self.waypoint = []      # skal inneholde [(lat, lon)] for wp til dp 
 
-        self.i = 0
+        self.i = 0 # self.i er wp i ruten den er på. når et wp i ruten er nådd kjører 'self.i += 1'
 
         self.timer = self.create_timer(self.step_size, self.step_waypoint)
 
         self.get_logger().info("Waypoint-node er initialisert.")
 
-        self.debug = False
-        self.debug1 = False
-        self.debug2 = True
+        self.debug = 0 # 0: ingenting.   1: callback og publishere.   2: interne verdier i step_funksjon
 
-    def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
-        self.mode: int              = msg.mode # 0 = standby, 1 = sail, 2 = position, 3 = track
+    def mode_callback(self, msg: HMI): # data fra HMI. publisher bare når det er interaksjon med HMI.
+        if (self.mode != 3) and (msg.mode == 3) and (self.i > 0):
+            self.proximity_lock = True
+
+        self.mode: int              = msg.mode  # 0 = standby, 1 = sail, 2 = position, 3 = track
         self.load_route: bool       = msg.route # for track
         self.load_waypoint: bool    = msg.point # for position
-        self.eta_psi: float         = msg.eta
-        self.nu_u: float            = msg.nu
+        self.eta_psi: float         = msg.eta   # eta setpunkt
+        self.nu_u: float            = msg.nu    # nu setpunkt
 
         if msg.route: # .gpx parsing løkke
             self.coordinates = self.gpx_parsing(3)
-            self.i = 0
-            if self.debug2:
+            self.i = 0 
+            if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
         elif msg.point:
             self.waypoint = self.gpx_parsing(2)
-            if self.debug2:
+            if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.waypoint}')
 
-        if self.debug1:
-            self.get_logger().info(f'callback - mode: {msg.mode}')
-            self.get_logger().info(f'callback - route: {msg.route}')
-            self.get_logger().info(f'callback - point: {msg.point}')
-            self.get_logger().info(f'callback - eta: {msg.eta}')
-            self.get_logger().info(f'callback - nu: {msg.nu}')
+        if self.debug >= 1:
+            self.get_logger().info(
+            f'callback - mode: {msg.mode}\n'
+            f'callback - route: {msg.route}\n'
+            f'callback - point: {msg.point}\n'
+            f'callback - eta: {msg.eta}\n'
+            f'callback - nu: {msg.nu}'
+            )
             
     def gpx_parsing(self, mode):
+        try:
+            coordinates: list[tuple[float, float]] = []
 
-        coordinates: list[tuple[float, float]] = []
+            if mode == 2:
+                file_path = 'gpx_file/waypoints.gpx'
+            elif mode == 3:
+                file_path = 'gpx_file/routes.gpx'
+                coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
+            else:
+                return
 
-        if mode == 2:
-            file_path = 'gpx_file/waypoints.gpx'
-        elif mode == 3:
-            file_path = 'gpx_file/routes.gpx'
-            coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
-        else:
-            return
+            with open(file_path, 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
+                gpx = gpxpy.parse(gpx_file)
 
-        with open(file_path, 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
-            gpx = gpxpy.parse(gpx_file)
-
-        if mode == 3:
-            for route in gpx.routes:
-                for point in route.points:
-                    lat    = point.latitude
-                    lon   = point.longitude
+            if mode == 3:
+                for route in gpx.routes:
+                    for point in route.points:
+                        lat = point.latitude
+                        lon = point.longitude
+                        coordinates.append((lat, lon))
+            elif mode == 2:
+                for waypoint in gpx.waypoints:
+                    lat = waypoint.latitude
+                    lon = waypoint.longitude
                     coordinates.append((lat, lon))
-        elif mode == 2:
-            for waypoint in gpx.waypoints:
-                lat = waypoint.latitude
-                lon = waypoint.longitude
-                coordinates.append((lat, lon))
-        else:
-            return
+            else:
+                return
 
-        self.load_route = False
-        self.load_waypoint = False
-        self.i          = 0
-        
-        return coordinates
+            self.load_route = False
+            self.load_waypoint = False
+            
+            return coordinates
+
+        except FileNotFoundError:
+            self.get_logger().error(f"File not found: {file_path}")
+            return []
+        except Exception as e:
+            self.get_logger().error(f"Error parsing GPX file: {e}")
+            return []    
+
     
     def eta_publisher(self, eta):
         eta_msg     = Eta()
         eta_msg.psi = eta
-        self.eta_setppoint_pub.publish(eta_msg)
-        if self.debug:
+        self.eta_setpoint_pub.publish(eta_msg)
+        if self.debug >= 1:
             self.get_logger().info(f'psi: {eta}')
 
     def eta_callback(self, msg: Eta):
@@ -116,8 +128,8 @@ class WaypointNode(Node):
     def nu_publisher(self, nu):
         nu_msg      = Nu()
         nu_msg.u    = nu
-        self.nu_setppoint_pub.publish(nu_msg)
-        if self.debug:
+        self.nu_setpoint_pub.publish(nu_msg)
+        if self.debug >= 1:
             self.get_logger().info(f'nu: {nu}')
 
     def nu_callback(self, msg: Nu):
@@ -133,7 +145,7 @@ class WaypointNode(Node):
             system_msg.auto_mode    = False
         self.system_mode_pub.publish(system_msg)
 
-        if self.debug1:
+        if self.debug >= 1:
             self.get_logger().info(f'system mode pub: {system_msg}')
 
     def mode_publisher(self, mode):
@@ -224,17 +236,19 @@ class WaypointNode(Node):
 
             self.eta_publisher(psi_setpoint)
 
-            if self.debug:
-                self.get_logger().info(f'error: {error}')
-                self.get_logger().info(f'distance: {distance}')
-                self.get_logger().info(f'nu_setpoint: {nu_setpoint}')
-                self.get_logger().info(f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}')
+            if self.debug >= 2:
+                self.get_logger().info(
+                f'error: {error}\n'
+                f'distance: {distance}\n'
+                f'nu_setpoint: {nu_setpoint}\n'
+                f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}'
+                )
 
 
         elif self.mode == 3: # Waypoint step-funksjon.
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
-            if self.debug:
+            if self.debug >= 2:
                 self.get_logger().info(f'i = {self.i}')
 
             if len(self.coordinates) == 0: # sjekker at man har lastet inn or parset waypoints
@@ -244,7 +258,7 @@ class WaypointNode(Node):
                 return
 
             waypoint: tuple[float, float] = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
-            if self.debug:
+            if self.debug >= 2:
                 self.get_logger().info(f'waypoint: {waypoint}')
 
             if self.i < len(self.coordinates) - 1: # Definerer Wp2 når det er minst 2 waypoints igjen
@@ -331,35 +345,39 @@ class WaypointNode(Node):
                 psi_setpoint: float = mu.mapToPiPi(psi_angle)
                 self.eta_publisher(psi_setpoint)
                 self.proximity_lock: bool = True
-                if self.debug:
-                    self.get_logger().info('Waypoint guiding')
-                    self.get_logger().info(f'psi_setpoint = {np.rad2deg(psi_setpoint)}')
+                if self.debug >= 2:
+                    self.get_logger().info(
+                    'Waypoint guiding\n'
+                    f'psi_setpoint = {np.rad2deg(psi_setpoint)}'
+                    )
             else:
                 self.eta_publisher(psi_d)
-                if self.debug:
+                if self.debug >= 2:
                     self.get_logger().info('Line guiding')
 
             ### Hopper til neste WP når båten er innenfor 3m radius an nåværende WP2 ###
             if p_distance < 3: 
                 self.i += 1
                 self.proximity_lock = False
-                if self.debug:
+                if self.debug >= 2:
                     self.get_logger().info('***Next waypoint***')
 
 
-            if self.debug:
+            if self.debug >= 2:
                 if d_vec_pass_check < 0:
                     self.get_logger().info('Line pass: True')
                 elif d_vec_pass_check > 0:
                     self.get_logger().info('Line pass: False')
-                self.get_logger().info(f'wp nr: {self.i + 1}')
-                self.get_logger().info(f'boat to wp distance: {p_distance}')
-                self.get_logger().info(f'Distance between wp1 and p_m: {a_vec_m}')
-                self.get_logger().info(f'pos_m: {pos_m}')
-                self.get_logger().info(f'd; distance between boat and line: {d}')
-                self.get_logger().info(f'psi_L; boat attack angle: {np.rad2deg(psi_L)}')
-                self.get_logger().info(f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}')
-                self.get_logger().info(f'psi_d: {np.rad2deg(psi_d)}')
+
+                self.get_logger().info(f'wp nr: {self.i + 1}\n'
+                f'boat to wp distance: {p_distance}\n'
+                f'Distance between wp1 and p_m: {a_vec_m}\n'
+                f'pos_m: {pos_m}\n'
+                f'd; distance between boat and line: {d}\n'
+                f'psi_L; boat attack angle: {np.rad2deg(psi_L)}\n'
+                f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}\n'
+                f'psi_d: {np.rad2deg(psi_d)}'
+                )
             return
 
 def main(args=None):
