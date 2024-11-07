@@ -37,7 +37,7 @@ class Estimator(Node):
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        self.csvfile = open('estimator_data.csv', 'a', newline='')
+        self.csvfile = open('estimator_data.csv', 'w', newline='')
         self.csv_writer = csv.writer(self.csvfile)
         self.csv_writer.writerow(['Latitude', 'Longitude'])
 
@@ -187,7 +187,7 @@ class Estimator(Node):
                 self.eta_hat_pub.publish(eta_hat_message)
                 self.nu_hat_pub.publish(nu_hat_message)
 
-                self.csv_logger()
+                self.csv_logger() # printer ut lat og lon til en csv fil
 
                 ####### DEBUG ########
                 if self.debug == True:
@@ -207,12 +207,12 @@ class Estimator(Node):
                     self.get_logger().info(f'eta_hat: {self.eta_hat}')
 
     def csv_logger(self):
-            with open('estimator_data.csv', 'a', newline='') as csvfile: # Den lager en ny csv fil hvis det ikke finnes en i wd
+            with open('estimator_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv
                 csv_writer = csv.writer(csvfile)
                 data = [self.lat_hat, self.lon_hat]
                 csv_writer.writerow(data)
 
-    def __del__(self):
+    def __del__(self): # lukker csv filen når programmet stopper
         self.csvfile.close()
 
 def main(args=None):
