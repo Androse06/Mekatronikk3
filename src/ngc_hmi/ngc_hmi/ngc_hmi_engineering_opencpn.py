@@ -11,7 +11,7 @@ import time
 ### Import for Ros ###
 import rclpy
 from rclpy.node import Node
-from ngc_interfaces.msg import HMI, TravelData, OtterStatus, ThrusterSignals
+from ngc_interfaces.msg import HMI, TravelData, OtterStatus, ThrusterSignals, Eta, Nu
 from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
@@ -32,6 +32,8 @@ class EngineeringHMI(Node):
         self.create_subscription(ThrusterSignals, 'thruster_1_feedback', self.thruster_1_sim_callback, default_qos_profile)
         self.create_subscription(ThrusterSignals, 'thruster_2_feedback', self.thruster_2_sim_callback, default_qos_profile)
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
+        self.create_subscription(Eta, 'eta_hat', self.eta_hat_callback, default_qos_profile)
+        self.create_subscription(Nu, 'nu_hat', self.nu_hat_callback, default_qos_profile)
 
         self.opencpn_process = QProcess()
         self.opencpn_process.started.connect(self.get_opencpn_window_id)
@@ -384,6 +386,14 @@ class EngineeringHMI(Node):
     def thruster_2_sim_callback(self, msg:ThrusterSignals):
         self.sim_th2_rpm = msg.rps * 60
         self.set_Th2_Icon(self.sim_th2_rpm)
+
+    def eta_hat_callback(self, msg:Eta):
+        self.eta_hat = msg.psi
+        self.set_Heading_Lcd(int(self.eta_hat))
+
+    def nu_hat_callback(self, msg:Nu):
+        self.nu_hat = msg.psi
+        self.set_Speed_Lcd(int(self.nu_hat))
 
 def main(args=None):
     rclpy.init(args=args)
