@@ -1,4 +1,5 @@
 import rclpy
+import csv
 from rclpy.node import Node
 import numpy as np
 import os
@@ -35,6 +36,10 @@ class Estimator(Node):
         self.vessel_model = VesselModel(self.vessel_config)
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
+
+        self.csvfile = open('estimator_data.csv', 'a', newline='')
+        self.csv_writer = csv.writer(self.csvfile)
+        self.csv_writer.writerow(['Latitude', 'Longitude'])
 
         filter_active = True
 
@@ -182,6 +187,7 @@ class Estimator(Node):
                 self.eta_hat_pub.publish(eta_hat_message)
                 self.nu_hat_pub.publish(nu_hat_message)
 
+                self.csv_logger()
 
                 ####### DEBUG ########
                 if self.debug == True:
@@ -200,6 +206,14 @@ class Estimator(Node):
                     self.get_logger().info(f'nu_hat: {self.nu_hat}')
                     self.get_logger().info(f'eta_hat: {self.eta_hat}')
 
+    def csv_logger(self):
+            with open('estimator_data.csv', 'a', newline='') as csvfile: # Den lager en ny csv fil hvis det ikke finnes en i wd
+                csv_writer = csv.writer(csvfile)
+                data = [self.lat_hat, self.lon_hat]
+                csv_writer.writerow(data)
+
+    def __del__(self):
+        self.csvfile.close()
 
 def main(args=None):
     rclpy.init(args=args)
