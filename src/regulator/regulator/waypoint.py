@@ -32,6 +32,7 @@ class WaypointNode(Node):
         self.nu_u       = 0.0
 
         self.coordinates = []
+        self.waypoint = []
 
         self.i = 0
 
@@ -41,6 +42,7 @@ class WaypointNode(Node):
 
         self.debug = False
         self.debug1 = False
+        self.debug2 = True
 
     def mode_callback(self, msg: HMI): # I ngc_hmi_autopilot sendes det setpunkter. 1 er True, alle andre er False.
         self.mode: int              = msg.mode # 0 = standby, 1 = sail, 2 = position, 3 = track
@@ -50,17 +52,14 @@ class WaypointNode(Node):
         self.nu_u: float            = msg.nu
 
         if msg.route: # .gpx parsing løkke
-            self.coordinates = self.gpx_parsing()
+            self.coordinates = self.gpx_parsing(3)
             self.i = 0
-            if self.debug:
+            if self.debug2:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
         elif msg.point:
-            coordinates = self.gpx_parsing()
-            if len(self.coordinates) > 2:
-                self.get_logger().info('Too short route for point. Try track')
-                pass
-            else:
-                self.coordinates = coordinates
+            self.waypoint = self.gpx_parsing(2)
+            if self.debug2:
+                self.get_logger().info(f'Coordinates: {self.waypoint}')
 
         if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
@@ -69,19 +68,37 @@ class WaypointNode(Node):
             self.get_logger().info(f'callback - eta: {msg.eta}')
             self.get_logger().info(f'callback - nu: {msg.nu}')
             
-    def gpx_parsing(self):
-        coordinates: list[tuple[float, float]] = [] 
-        coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
+    def gpx_parsing(self, mode):
 
-        with open('gpx_file/routes.gpx', 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
+        coordinates: list[tuple[float, float]] = []
+
+        if mode == 2:
+            file_path = 'gpx_file/waypoints.gpx'
+        elif mode == 3:
+            file_path = 'gpx_file/routes.gpx'
+            coordinates.append((self.eta[0], self.eta[1])) # waypoint 0 er startposisjonen til båten
+        else:
+            return
+
+        with open(file_path, 'r') as gpx_file: # filepath må endres på avhengig av hvor .gpx filen ligger
             gpx = gpxpy.parse(gpx_file)
-        for route in gpx.routes:
-            for point in route.points:
-                latitude    = point.latitude
-                longitude   = point.longitude
-                coordinates.append((latitude, longitude))
-        
+
+        if mode == 3:
+            for route in gpx.routes:
+                for point in route.points:
+                    lat    = point.latitude
+                    lon   = point.longitude
+                    coordinates.append((lat, lon))
+        elif mode == 2:
+            for waypoint in gpx.waypoints:
+                lat = waypoint.latitude
+                lon = waypoint.longitude
+                coordinates.append((lat, lon))
+        else:
+            return
+
         self.load_route = False
+        self.load_waypoint = False
         self.i          = 0
         
         return coordinates
@@ -177,8 +194,8 @@ class WaypointNode(Node):
         elif self.mode == 2: # DP
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
-            if len(self.coordinates) > 0:
-                setpoint = self.coordinates[-1]
+            if len(self.waypoint) > 0:
+                setpoint = self.waypoint[0]
             else:
                 self.mode_publisher(0)
                 self.get_logger().info('waypoint mangler')
@@ -234,6 +251,7 @@ class WaypointNode(Node):
                 waypoint_next = self.coordinates[self.i + 1]
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
+                self.waypoint = self.coordinates[-1]
                 self.mode_publisher(2)
                 return
 
@@ -321,8 +339,8 @@ class WaypointNode(Node):
                 if self.debug:
                     self.get_logger().info('Line guiding')
 
-            ### Hopper til neste WP når båten er innenfor 10m radius an nåværende WP2 ###
-            if p_distance < 10: 
+            ### Hopper til neste WP når båten er innenfor 3m radius an nåværende WP2 ###
+            if p_distance < 3: 
                 self.i += 1
                 self.proximity_lock = False
                 if self.debug:
