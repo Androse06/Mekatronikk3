@@ -2,7 +2,7 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
 from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
 from PySide6.QtGui import QWindow
-from .EngineeringDashboard import Ui_MainWindow  # Import your generated UI file
+from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
 import subprocess  # For running commands like xdotool (Linux)
@@ -118,22 +118,24 @@ class EngineeringHMI(Node):
         self.ui.Enable_Sail_Button.clicked.connect(self.enable_sail)
         self.ui.Enable_Dp_Button.clicked.connect(self.enable_dp)
         self.ui.Enable_Track_Button.clicked.connect(self.enable_track)
-        self.ui.Dp_Load_Button.clicked.connect(self.load_dp)
-        self.ui.Track_Load_Button.pressed.connect(self.load_track)       
-        self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
+        self.ui.Dp_Load_Button.pressed.connect(self.load_dp)
+        self.ui.Track_Load_Button.pressed.connect(self.load_track)
+        self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
+        self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
+        # self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
         
        
-        # Connect Inputs
-        self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
-        self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
+        # # Connect Inputs
+        # self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        # self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
+        # self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
+        # self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
         
-        # Setter opp waypoint list
-        self.waypoint_model = QStringListModel()
-        self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-        self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
+        # # Setter opp waypoint list
+        # self.waypoint_model = QStringListModel()
+        # self.ui.WayPoint_ListView.setModel(self.waypoint_model)
+        # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
         self.debug = False
@@ -157,7 +159,6 @@ class EngineeringHMI(Node):
     def adjust_opencpn_window(self):
         if not self.opencpn_window_id:
             return
-
 
 
         # Ensure layout updates and geometry calculations
@@ -191,20 +192,23 @@ class EngineeringHMI(Node):
 
 
 
-    def add_waypoint(self):
-        waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
-        self.waypoint_model.setStringList(waypoint_strings)
-        self.ui.Lat_Input_Track.clear()
-        self.ui.Lon_Input_Track.clear()
+    # def add_waypoint(self):
+    #     waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
+    #     self.waypoint_model.setStringList(waypoint_strings)
+    #     self.ui.Lat_Input_Track.clear()
+    #     self.ui.Lon_Input_Track.clear()
     
-    def clear_waypoint(self):
-        self.waypoint_model.setStringList([])
+    # def clear_waypoint(self):
+    #     self.waypoint_model.setStringList([])
 
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
         self.nu = float(value)        
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)
+
+        #self.route = False
+        #self.point = False
         self.hmi_send_ros_message()
 
     # Method to programmatically set the sail throttle slider's value
@@ -217,6 +221,9 @@ class EngineeringHMI(Node):
         remapped_value = (value - 180) % 360
         self.eta = float(remapped_value)
         self.get_logger().info(f'eta = {self.eta}')
+
+        #self.route = False
+        #self.point = False
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(remapped_value)
         self.hmi_send_ros_message()
@@ -289,14 +296,14 @@ class EngineeringHMI(Node):
     def set_compass_value(self, value):
         self.ui.Compass_Dial.setValue(value)
 
-    def retrieve_dp_input(self):
-        self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
-        self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
+    # def retrieve_dp_input(self):
+    #     self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
+    #     self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
 
 
-    def retrieve_track_input(self):
-        self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
-        self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
+    # def retrieve_track_input(self):
+    #     self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
+    #     self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
 
 
 
@@ -343,10 +350,20 @@ class EngineeringHMI(Node):
     def load_dp(self):
         self.point = True
         self.hmi_send_ros_message()
+        #self.point = False
 
     def load_track(self):
         self.route = True
         self.hmi_send_ros_message()
+        #self.route = False
+    
+    def load_track_reset(self):
+        self.route = False
+        self.get_logger().info(f'load track is set to {self.route}')
+    
+    def load_dp_reset(self):
+        self.point = False
+        self.get_logger().info(f'load dp is set to {self.point}')
 
     def hmi_send_ros_message(self):
         hmi_message = HMI()
@@ -356,8 +373,10 @@ class EngineeringHMI(Node):
         hmi_message.nu      = float(self.nu) * 0.514444
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         self.hmi_publisher.publish(hmi_message)
-        self.get_logger().info(f'etapub={hmi_message.eta}')
-        self.get_logger().info(f'nupub={hmi_message.nu}')
+
+        if self.debug:
+            self.get_logger().info(f'etapub={hmi_message.eta}')
+            self.get_logger().info(f'nupub={hmi_message.nu}')
 
     def travel_data_callback(self, msg: TravelData):
         self.i = msg.i

@@ -54,6 +54,13 @@ class WaypointNode(Node):
             self.i = 0
             if self.debug:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
+        elif msg.point:
+            coordinates = self.gpx_parsing()
+            if len(self.coordinates) > 2:
+                self.get_logger().info('Too short route for point. Try track')
+                pass
+            else:
+                self.coordinates = coordinates
 
         if self.debug1:
             self.get_logger().info(f'callback - mode: {msg.mode}')
@@ -117,8 +124,8 @@ class WaypointNode(Node):
 
         mode_msg = HMI()
         mode_msg.mode   = mode
-        mode_msg.route  = self.load_route
-        mode_msg.point  = self.load_waypoint
+        mode_msg.route  = False
+        mode_msg.point  = False
         mode_msg.eta    = self.eta_psi
         mode_msg.nu     = self.nu_u
         self.mode_pub.publish(mode_msg)
@@ -290,8 +297,10 @@ class WaypointNode(Node):
 
             if wp2_error < wp1_error: # Sakker farten nær waypoints
                 nu_dynamic: float = np.tanh(wp2_error/10) * nu
-            elif wp2_error > wp1_error:
+            elif wp2_error > wp1_error and (self.i != 0):
                 nu_dynamic: float = np.tanh(wp1_error/10) * nu
+            else:
+                nu_dynamic = nu
                 
             self.nu_publisher(nu_dynamic)
 
