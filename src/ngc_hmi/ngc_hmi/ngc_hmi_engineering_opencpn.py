@@ -29,8 +29,8 @@ class EngineeringHMI(Node):
 
         # Endring for otter interface
         self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_1_setpoints_sim', self.thruster_1_sim_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_2_setpoints_sim', self.thruster_2_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_1_feedback', self.thruster_1_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_2_feedback', self.thruster_2_sim_callback, default_qos_profile)
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
 
         self.opencpn_process = QProcess()
@@ -121,7 +121,6 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.pressed.connect(self.load_track)
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
-        # self.ui.Clear_Waypoint_Button.clicked.connect(self.clear_waypoint)
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
         
        
@@ -202,7 +201,7 @@ class EngineeringHMI(Node):
 
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
-        self.nu = float(value)        
+        self.nu = float(value/10)        
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)
 
@@ -227,13 +226,6 @@ class EngineeringHMI(Node):
     def set_sail_heading_value(self, value):
         self.ui.Sail_Heading_Dial.setValue(value)
 
-    """
-    def set_Th1_Icon(self, value):
-        self.ui.Global_Throttle1_Status.setValue(int(value))
-
-    def set_Th2_Icon(self, value):
-        self.ui.Global_Throttle2_Status.setValue(int(value))
-    """
 
     def set_Th1_Icon(self, value):
         # Set the value of the progress bar
