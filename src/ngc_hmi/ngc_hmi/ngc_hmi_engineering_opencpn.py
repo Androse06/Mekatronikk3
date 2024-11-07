@@ -371,11 +371,14 @@ class EngineeringHMI(Node):
 
 
     def otter_status_callback(self, msg:OtterStatus):
-        self.th1_rpm    = msg.rpm_port
-        self.th2_rpm    = msg.rpm_stb
-        self.th1_pwr    = msg.power_port
-        self.th2_pwr    = msg.power_stb
-        self.fuel_cap   = msg.current_fuel_capacity
+        self.th1_rpm        = msg.rpm_port
+        self.th2_rpm        = msg.rpm_stb
+        self.th1_pwr        = msg.power_port
+        self.th2_pwr        = msg.power_stb
+        self.current_mode   = msg.current_mode
+        self.fuel_cap       = msg.current_fuel_capacity
+        self.ui.Mode.setText(f'{self.current_mode}')
+        self.ui.Fuel.setText(f'{self.fuel_cap}%')
         self.set_Th1_Icon(self.th1_rpm)
         self.set_Th2_Icon(self.th2_rpm)
     
@@ -387,9 +390,13 @@ class EngineeringHMI(Node):
         self.sim_th2_rpm = msg.rps * 60
         self.set_Th2_Icon(self.sim_th2_rpm)
 
+        # Setter modus og fuel til simulator / demo
+        self.ui.Mode.setText(f'Simulator')
+        self.ui.Fuel.setText(f'100%')
+
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = np.degrees(mu.mapToZero2Pi(msg.psi))
-        self.ui.Global_Heading_LCD.display(self.eta_hat)
+        self.ui.Global_Heading_LCD.display(round(self.eta_hat, 2))
 
 
     def nu_hat_callback(self, msg:Nu):
