@@ -395,6 +395,7 @@ class EngineeringHMI(Node):
 
     def nu_hat_callback(self, msg:Nu):
         self.nu_hat = msg.u / 1.943844 #konvertert til knop
+        self.get_logger().info(f'nu_hat = {self.nu_hat}')
         self.ui.Global_Speed_LCD.display(round(self.nu_hat, 2))
 
 
