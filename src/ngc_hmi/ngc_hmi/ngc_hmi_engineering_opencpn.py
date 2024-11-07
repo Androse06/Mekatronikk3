@@ -389,18 +389,14 @@ class EngineeringHMI(Node):
 
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = msg.psi
-
-        if self.eta_hat < 0:
-            self.eta_hat = 0
-        elif self.eta_hat > 360:
-            self.eta_hat = 360
-
-        self.ui.Global_Heading_LCD.display(int(self.eta_hat))
+        self.get_logger().info(f'eta_hat = {self.eta_hat}')
+        self.ui.Global_Heading_LCD.display(self.eta_hat)
 
 
     def nu_hat_callback(self, msg:Nu):
         self.nu_hat = msg.u
-        self.ui.Global_Speed_LCD.display(int(self.nu_hat))
+        self.get_logger().info(f'nu_hat = {self.nu_hat}')
+        self.ui.Global_Speed_LCD.display(self.nu_hat)
 
 
 
