@@ -232,7 +232,11 @@ class WaypointNode(Node):
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
 
             if len(self.waypoint) > 0:
-                setpoint = self.waypoint[0]
+                setpoint = self.waypoint
+                if self.debug >= 2:
+                    self.get_logger().info(
+                        f'setpoint i dp mode: {setpoint}, type: {type(setpoint)}'
+                        )
             else:
                 self.mode_publisher(0)
                 self.get_logger().info('waypoint mangler')
@@ -292,6 +296,10 @@ class WaypointNode(Node):
                 waypoint_next = self.coordinates[self.i + 1]
             elif self.i == len(self.coordinates) - 1: # når siste waypoint er nådd, så stopper track-mode. Her må det implementeres DP funksjon som skrur seg på
                 self.get_logger().info('Last waypoint reached')
+                if self.debug >= 0:
+                    self.get_logger().info(
+                        f'Siste element i coord-liste: {self.coordinates[-1]}'
+                        )
                 self.waypoint = self.coordinates[-1]
                 self.mode_publisher(2)
                 return
@@ -366,7 +374,7 @@ class WaypointNode(Node):
                 nu_dynamic: float = np.tanh(wp1_error/nu_tanh_var) * nu
             else:
                 nu_dynamic = nu
-                
+
             self.nu_publisher(nu_dynamic)
 
             pos_m_wp_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
