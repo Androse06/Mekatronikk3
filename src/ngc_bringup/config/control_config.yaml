@@ -28,4 +28,5 @@ waypoint:
     delta_max: 80 # avstanden fra p̃ til siktepunkt i m
     delta_tanh_var: 150
     LOS_dist: 50 # avstand fra wp i m hvor den går til line-of-sight
-    nu_tanh_var: 10 
+    nu_tanh_var: 10
+    next_wp_radius: 3 # radius rundt wp i m

@@ -300,6 +300,7 @@ class WaypointNode(Node):
             delta_tanh_var = self.control_config['waypoint']['track']['delta_tanh_var']
             LOS_dist = self.control_config['waypoint']['track']['LOS_dist']
             nu_tanh_var = self.control_config['waypoint']['track']['nu_tanh_var']
+            wp_radius = self.control_config['waypoint']['track']['wp_radius']
 
             ### Waypoint 1 - WP1 ###
             lat_wp1: float = waypoint[0]
@@ -386,8 +387,8 @@ class WaypointNode(Node):
                 if self.debug >= 2:
                     self.get_logger().info('Line guiding')
 
-            ### Hopper til neste WP når båten er innenfor 3m radius an nåværende WP2 ###
-            if p_distance < 3: 
+            ### Hopper til neste WP når båten er innenfor en gitt radius an nåværende WP2 ###
+            if p_distance <= wp_radius: 
                 self.i += 1
                 self.proximity_lock = False
                 if self.debug >= 2:
