@@ -36,13 +36,21 @@ class SignalbehandlingsNode(Node):
         self.distance_readings = np.array([])
         self.max_readings = 20
 
+        self.map_heading_toPiPi = False
+
         self.get_logger().info("Signalbehandlings-node er initialisert.")
 
 
 
     ### HEADING CALLBACK FUNKSJON ###
     def heading_callback(self, msg: HeadingDevice):
-        self.current_heading    = msg.heading
+
+        # Remapper heading til PiPi dersom målingene er feil type
+        if self.map_heading_toPiPi:
+            self.curren_heading = mu.mapToPiPi(msg.heading)
+        else:
+            self.current_heading    = msg.heading
+
         self.current_rot        = msg.rot
         self.HeadingState       = msg.valid_signal
 
@@ -85,6 +93,8 @@ class SignalbehandlingsNode(Node):
                 # Sender ut not_valid signal dersom signal ikkje er godkjent
                 else:
                     heading_filtered_msg                = HeadingDevice()
+                    heading_filtered_msg.heading        = self.last_heading
+                    heading_filtered_msg.rot            = self.current_rot
                     heading_filtered_msg.valid_signal   = False
                     self.Heading_pub.publish(heading_filtered_msg)
                     #self.get_logger().info(f'Heading verdier er ikkje innanfor intervall')
@@ -146,6 +156,10 @@ class SignalbehandlingsNode(Node):
 
                 else:
                     gnss_filtered_msg               = GNSS()
+                    gnss_filtered_msg.lat           = self.last_lat
+                    gnss_filtered_msg.lon           = self.last_lon
+                    gnss_filtered_msg.sog           = self.current_sog
+                    gnss_filtered_msg.cog           = self.current_cog
                     gnss_filtered_msg.valid_signal  = False
                     self.Gnss_pub.publish(gnss_filtered_msg)
                     #self.get_logger().info('GNSS verdier er ikkje innanfor intervall')

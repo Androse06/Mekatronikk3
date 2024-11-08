@@ -218,7 +218,6 @@ class EngineeringHMI(Node):
     def update_sail_heading(self, value):
         remapped_value = (value - 180) % 360
         self.eta = float(remapped_value)
-        self.get_logger().info(f'eta = {self.eta}')
 
         # Update the LCD display to show the current heading
         self.ui.Sail_Heading_LCD.display(remapped_value)
@@ -246,8 +245,7 @@ class EngineeringHMI(Node):
             self.ui.Global_Throttle2rev_Status.setValue(int(0))
         else:
             self.ui.Global_Throttle2_Status.setValue(int(0))
-            self.ui.Global_Throttle2rev_Status.setValue(int(value))
-
+            self.ui.Global_Throttle2rev_Status.setValue(int(abs(value)))
 
 
     def set_Heading_Lcd(self, value):
@@ -421,7 +419,6 @@ class EngineeringHMI(Node):
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = np.degrees(mu.mapToZero2Pi(msg.psi))
         self.ui.Global_Heading_LCD.display(round(self.eta_hat, 2))
-
 
     def nu_hat_callback(self, msg:Nu):
         self.nu_hat = msg.u * 1.943844
