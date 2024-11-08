@@ -38,8 +38,6 @@ class WaypointNode(Node):
         self.system_mode_pub    = self.create_publisher(SystemMode, 'system_mode', default_qos_profile)
 
         ### VARIABLER ###
-        self.config_test = self.control_config['heading_control']['omega']
-
         self.mode           = 0     # id for modus til step_wayopint(). 0=standby, 1=sail, 2=DP, 3=track
         self.load_route     = False # parcer waypoints.gpx når True og appender self.waypoint
         self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
@@ -91,11 +89,11 @@ class WaypointNode(Node):
 
         if self.debug >= 1:
             self.get_logger().info(
-            f'callback - mode: {msg.mode}\n'
-            f'callback - route: {msg.route}\n'
-            f'callback - point: {msg.point}\n'
-            f'callback - eta: {msg.eta}\n'
-            f'callback - nu: {msg.nu}'
+                f'callback - mode: {msg.mode}\n'
+                f'callback - route: {msg.route}\n'
+                f'callback - point: {msg.point}\n'
+                f'callback - eta: {msg.eta}\n'
+                f'callback - nu: {msg.nu}'
             )
             
     def gpx_parsing(self, mode):
@@ -236,7 +234,7 @@ class WaypointNode(Node):
                 if self.debug >= 2:
                     self.get_logger().info(
                         f'setpoint i dp mode: {setpoint}, type: {type(setpoint)}'
-                        )
+                    )
             else:
                 self.mode_publisher(0)
                 self.get_logger().info('waypoint mangler')
@@ -269,10 +267,10 @@ class WaypointNode(Node):
 
             if self.debug >= 2:
                 self.get_logger().info(
-                f'error: {error}\n'
-                f'distance: {distance}\n'
-                f'nu_setpoint: {nu_setpoint}\n'
-                f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}'
+                    f'error: {error}\n'
+                    f'distance: {distance}\n'
+                    f'nu_setpoint: {nu_setpoint}\n'
+                    f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}'
                 )
 
 
@@ -299,17 +297,17 @@ class WaypointNode(Node):
                 if self.debug >= 0:
                     self.get_logger().info(
                         f'Siste element i coord-liste: {self.coordinates[-1]}'
-                        )
+                    )
                 self.waypoint = self.coordinates[-1]
                 self.mode_publisher(2)
                 return
 
             ### yaml variabler ###
-            delta_max = self.control_config['waypoint']['track']['delta_max']
-            delta_tanh_var = self.control_config['waypoint']['track']['delta_tanh_var']
-            LOS_dist = self.control_config['waypoint']['track']['LOS_dist']
-            nu_tanh_var = self.control_config['waypoint']['track']['nu_tanh_var']
-            wp_radius = self.control_config['waypoint']['track']['wp_radius']
+            delta_max       = self.control_config['waypoint']['track']['delta_max']
+            delta_tanh_var  = self.control_config['waypoint']['track']['delta_tanh_var']
+            LOS_dist        = self.control_config['waypoint']['track']['LOS_dist']
+            nu_tanh_var     = self.control_config['waypoint']['track']['nu_tanh_var']
+            wp_radius       = self.control_config['waypoint']['track']['wp_radius']
 
             ### Waypoint 1 - WP1 ###
             lat_wp1: float = waypoint[0]
@@ -389,7 +387,7 @@ class WaypointNode(Node):
                     self.get_logger().info(
                         'Waypoint guiding\n'
                         f'psi_setpoint = {np.rad2deg(psi_setpoint)}'
-                        )
+                    )
             else:
                 self.eta_publisher(psi_d)
                 if self.debug >= 2:
@@ -418,7 +416,7 @@ class WaypointNode(Node):
                     f'psi_L; boat attack angle: {np.rad2deg(psi_L)}\n'
                     f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}\n'
                     f'psi_d: {np.rad2deg(psi_d)}'
-                    )
+                )
             return
 
 def main(args=None):
