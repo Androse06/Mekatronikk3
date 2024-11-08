@@ -295,11 +295,10 @@ class WaypointNode(Node):
                 self.mode_publisher(2)
                 return
 
+            ### yaml variabler ###
             delta_max = self.control_config['waypoint']['track']['delta_max']
             delta_tanh_var = self.control_config['waypoint']['track']['delta_tanh_var']
-
             LOS_dist = self.control_config['waypoint']['track']['LOS_dist']
-
             nu_tanh_var = self.control_config['waypoint']['track']['nu_tanh_var']
 
             ### Waypoint 1 - WP1 ###

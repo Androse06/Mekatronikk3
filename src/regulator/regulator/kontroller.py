@@ -26,25 +26,25 @@ class Kontroller(Node):
         simulation_config_path   = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
 
-        self.vessel_config          = self.load_yaml_file(vessel_config_path)
-        self.simulation_config      = self.load_yaml_file(simulation_config_path)
-        self.control_config         = self.load_yaml_file(self.control_config_path)
+        self.vessel_config      = self.load_yaml_file(vessel_config_path)
+        self.simulation_config  = self.load_yaml_file(simulation_config_path)
+        self.control_config     = self.load_yaml_file(self.control_config_path)
 
         self.vessel_model = VesselModel(self.vessel_config)
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
         #### SUB ####
-        self.eta_setpoint_sub       = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
-        self.nu_setpoint_sub        = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
-        self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
-        self.mode_sub               = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
-        self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
-        self.nu_hat_sub             = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
-        self.tau_max_sub            = self.create_subscription(TauMax, "tau_max", self.tau_max_callblack, default_qos_profile)
+        self.eta_setpoint_sub   = self.create_subscription(Eta, 'eta_setpoint', self.eta_setpoint_callback, default_qos_profile)
+        self.nu_setpoint_sub    = self.create_subscription(Nu, 'nu_setpoint', self.nu_setpoint_callback, default_qos_profile)
+        self.reload_config_sub  = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
+        self.mode_sub           = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
+        self.eta_hat_sub        = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
+        self.nu_hat_sub         = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
+        self.tau_max_sub        = self.create_subscription(TauMax, "tau_max", self.tau_max_callblack, default_qos_profile)
 
         #### PUB ####
-        self.tau_pub                = self.create_publisher(Tau, "tau_control", default_qos_profile)
+        self.tau_pub = self.create_publisher(Tau, "tau_control", default_qos_profile)
 
 
         #### Variabler ####
@@ -156,14 +156,16 @@ class Kontroller(Node):
 
             ################## Debugging #####################
             if self.debug == True:
-                self.get_logger().info(f'tau_message: {tau_message}')
-                self.get_logger().info(f'error psi: {e_psi}')
-                self.get_logger().info(f'error u: {e_u}')
-                self.get_logger().info(f'yaw: {tau_N}')
-                self.get_logger().info(f'qi psi: {self.qi_psi}')
-                self.get_logger().info(f'qi u: {self.qi_u}')
-                self.get_logger().info(f'Eta: {self.eta[5]}')
-                self.get_logger().info(f'Nu: {self.nu[0]}')
+                self.get_logger().info(
+                    f'tau_message: {tau_message}\n'
+                    f'error psi: {e_psi}\n'
+                    f'error u: {e_u}\n'
+                    f'yaw: {tau_N}\n'
+                    f'qi psi: {self.qi_psi}\n'
+                    f'qi u: {self.qi_u}\n'
+                    f'Eta: {self.eta[5]}\n'
+                    f'Nu: {self.nu[0]}'
+                )
 
 def main(args=None):
     rclpy.init(args=args)
