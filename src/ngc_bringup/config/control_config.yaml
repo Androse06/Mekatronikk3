@@ -5,8 +5,8 @@ heading_control:
   ki_saturation_limit: 15  #degrees
   N_rr: 25
   linearization_point: 0.2
-  p_tanh: 0.5
-  d_tanh: 0.5
+  p_tanh: 2
+  d_tanh: 2
   
 speed_control:
   K_p: 0.8  # LF viser til 1
