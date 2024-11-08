@@ -142,7 +142,7 @@ class WaypointNode(Node):
     
     def eta_publisher(self, eta):
         eta_msg     = Eta()
-        eta_msg.psi = eta
+        eta_msg.psi = mu.mapToPiPi(eta)
         self.eta_setpoint_pub.publish(eta_msg)
         if self.debug >= 1:
             self.get_logger().info(f'psi: {eta}')
@@ -224,8 +224,7 @@ class WaypointNode(Node):
 
         elif self.mode == 1: # Sail
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
-            eta_maped = mu.mapToPiPi(self.eta_psi)
-            self.eta_publisher(eta_maped)
+            self.eta_publisher(self.eta_psi)
             self.nu_publisher(self.nu_u)
             return
         
@@ -240,9 +239,9 @@ class WaypointNode(Node):
                 return
             
             ### Nu ###
-            delta = self.control_config['waypoint']['dp']['delta']
-            tanh_var = self.control_config['waypoint']['dp']['tanh_var']
-            max_nu = self.control_config['waypoint']['dp']['max_nu']
+            delta       = self.control_config['waypoint']['dp']['delta']
+            tanh_var    = self.control_config['waypoint']['dp']['tanh_var']
+            max_nu      = self.control_config['waypoint']['dp']['max_nu']
             
             lat_set = setpoint[0]
             lon_set = setpoint[1]
@@ -260,7 +259,7 @@ class WaypointNode(Node):
             ### psi ###
             psi_angle = np.arctan2(distance[1], distance[0])
 
-            psi_setpoint = mu.mapToPiPi(psi_angle)
+            psi_setpoint = (psi_angle)
 
             self.eta_publisher(psi_setpoint)
 
@@ -376,8 +375,7 @@ class WaypointNode(Node):
             ### Låser guidingen til waypoint peiling når p_merket er innenfor en meter avstand fra WP2 ###
             if pos_m_wp < LOS_dist or self.proximity_lock:
                 psi_angle: float    = np.arctan2(-p_vec[1], -p_vec[0])
-                psi_setpoint: float = mu.mapToPiPi(psi_angle)
-                self.eta_publisher(psi_setpoint)
+                self.eta_publisher(psi_angle)
                 self.proximity_lock: bool = True
                 if self.debug >= 2:
                     self.get_logger().info(
