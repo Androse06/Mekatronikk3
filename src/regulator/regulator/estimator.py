@@ -44,18 +44,18 @@ class Estimator(Node):
         filter_active = True
 
         #### SUB ####
-        self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
-        self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
+        self.reload_config_sub  = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
+        self.tau_sub            = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
         if filter_active:
-            self.heading_sub        = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
-            self.gnss_sub           = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
+            self.heading_sub    = self.create_subscription(HeadingDevice, 'heading_measurement_filtered', self.heading_callback, default_qos_profile)  # Filtrert signal
+            self.gnss_sub       = self.create_subscription(GNSS, 'gnss_measurement_filtered', self.gnss_callback, default_qos_profile)                 # Filtrert signal
         else:
-            self.heading_sub        = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
-            self.gnss_sub           = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
+            self.heading_sub    = self.create_subscription(HeadingDevice, 'heading_measurement', self.heading_callback, default_qos_profile)
+            self.gnss_sub       = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
 
         #### PUB ####
-        self.eta_hat_pub            = self.create_publisher(Eta, "eta_hat", default_qos_profile)
-        self.nu_hat_pub             = self.create_publisher(Nu, "nu_hat", default_qos_profile)
+        self.eta_hat_pub     = self.create_publisher(Eta, "eta_hat", default_qos_profile)
+        self.nu_hat_pub      = self.create_publisher(Nu, "nu_hat", default_qos_profile)
 
         #### Variabler ####
         self.heading_measured   = None
@@ -191,20 +191,21 @@ class Estimator(Node):
 
                 ####### DEBUG ########
                 if self.debug == True:
-                    self.get_logger().info(f"eta_hat_message: {eta_hat_message}")
-                    self.get_logger().info(f"nu_hat_message: {nu_hat_message}")
-
-                    self.get_logger().info(f"M_inv: {M_inv}")
-                    self.get_logger().info(f"drag: {drag}")
-                    self.get_logger().info(f"tau: {self.tau}")
-                    self.get_logger().info(f"bias: {bias}")
-                    self.get_logger().info(f"L2: {L2}")
-                    self.get_logger().info(f"R.T: {R.T}")
-                    self.get_logger().info(f"eta_tilde: {eta_tilde}")
-                    self.get_logger().info(f"R: {R}")
-                    self.get_logger().info(f"L1: {L1}")
-                    self.get_logger().info(f'nu_hat: {self.nu_hat}')
-                    self.get_logger().info(f'eta_hat: {self.eta_hat}')
+                    self.get_logger().info(
+                        f"eta_hat_message: {eta_hat_message}\n"
+                        f"nu_hat_message: {nu_hat_message}\n"
+                        f"M_inv: {M_inv}\n"
+                        f"drag: {drag}\n"
+                        f"tau: {self.tau}\n"
+                        f"bias: {bias}\n"
+                        f"L2: {L2}\n"
+                        f"R.T: {R.T}\n"
+                        f"eta_tilde: {eta_tilde}\n"
+                        f"R: {R}\n"
+                        f"L1: {L1}\n"
+                        f'nu_hat: {self.nu_hat}\n'
+                        f'eta_hat: {self.eta_hat}'
+                    )
 
     def csv_logger(self):
             with open('estimator_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv

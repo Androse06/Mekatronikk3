@@ -150,19 +150,18 @@ class Allokering(Node):
         ########### DEBUGGING ###########
         if self.debug == True:
 
-            self.get_logger().info(f"thruster1_message: {thruster1_message}")
-            self.get_logger().info(f"thruster2_message: {thruster2_message}")
-            self.get_logger().info(f"tau_max_message: {tau_max_message}")
-
-            self.get_logger().info(f'Te: {Te}')
-            self.get_logger().info(f'Twt: {Twt}')
-            self.get_logger().info(f'fe: {fe}')
-            self.get_logger().info(f'********tau: {self.tau}')
-
-            self.get_logger().info(f'********Tefe: {Te @ fe}')
-            self.get_logger().info(f'Thruster 1 - rps: {thruster1_message.rps} ... deg: {thruster1_message.azimuth_deg} ... type: {self.type_1}')
-            self.get_logger().info(f'Thruster 2 - rps: {thruster2_message.rps} ... deg: {thruster2_message.azimuth_deg} ... type: {self.type_2}')
-
+            self.get_logger().info(
+                f"thruster1_message: {thruster1_message}\n"
+                f"thruster2_message: {thruster2_message}\n"
+                f"tau_max_message: {tau_max_message}\n"
+                f'Te: {Te}\n'
+                f'Twt: {Twt}\n'
+                f'fe: {fe}\n'
+                f'*tau*: {self.tau}\n'
+                f'*Tefe*: {Te @ fe}\n'
+                f'Thruster 1 - rps: {thruster1_message.rps} ... deg: {thruster1_message.azimuth_deg} ... type: {self.type_1}\n'
+                f'Thruster 2 - rps: {thruster2_message.rps} ... deg: {thruster2_message.azimuth_deg} ... type: {self.type_2}'
+            )
 
 
 
