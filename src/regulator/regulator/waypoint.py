@@ -6,22 +6,39 @@ from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.geo_utils as geo
 import ngc_utils.math_utils as mu
-
+from std_msgs.msg import String
+import os
+import yaml
+from ament_index_python.packages import get_package_share_directory
 class WaypointNode(Node):
     def __init__(self):
         super().__init__('waypoint')
 
         self.step_size = 0.1
 
+        ### YAML ###
+        self.declare_parameter('yaml_package_name', 'ngc_bringup')
+        self.declare_parameter('control_config_file', 'config/control_config.yaml')
+        yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
+        yaml_package_path        = get_package_share_directory(yaml_package_name)
+        self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
+        self.control_config         = self.load_yaml_file(self.control_config_path)
+
+        ### SUB ###
         self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
         self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
         self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
+        self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
 
+        ### PUB ###
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
         self.nu_setpoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
         self.eta_setpoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
         self.system_mode_pub    = self.create_publisher(SystemMode, 'system_mode', default_qos_profile)
+
+        ### VARIABLER ###
+        self.config_test = self.control_config['heading_control']['omega']
 
         self.mode           = 0     # id for modus til step_wayopint(). 0=standby, 1=sail, 2=DP, 3=track
         self.load_route     = False # parcer waypoints.gpx når True og appender self.waypoint
@@ -44,6 +61,14 @@ class WaypointNode(Node):
 
         self.debug = 0 # 0: ingenting.   1: callback og publishere.   2: interne verdier i step_funksjon
 
+    def load_yaml_file(self, file_path):
+        with open(file_path, 'r') as file:
+            return yaml.safe_load(file)
+
+    def reload_configs_callback(self, msg: String):
+        self.control_config = self.load_yaml_file(self.control_config_path)
+        self.get_logger().info("Waypoint-node har lastet in config!")
+        
     def mode_callback(self, msg: HMI): # data fra HMI. publisher bare når det er interaksjon med HMI.
         if (self.mode != 3) and (msg.mode == 3) and (self.i > 0):
             self.proximity_lock = True
@@ -214,8 +239,9 @@ class WaypointNode(Node):
                 return
             
             ### Nu ###
-            delta = 5
-                
+            delta = self.control_config['waypoint']['dp']['delta']
+            tanh_var = self.control_config['waypoint']['dp']['tanh_var']
+            
             lat_set = setpoint[0]
             lon_set = setpoint[1]
             lat_hat = self.eta[0]
@@ -225,7 +251,7 @@ class WaypointNode(Node):
 
             error = self.magnitude(distance) - delta # 0 når båten ligger 'delta' meter unna wp
 
-            nu_setpoint = np.tanh(error/10) * 2
+            nu_setpoint = np.tanh(error/tanh_var) * 2
 
             self.nu_publisher(nu_setpoint)
 
@@ -269,6 +295,12 @@ class WaypointNode(Node):
                 self.mode_publisher(2)
                 return
 
+            delta_max = self.control_config['waypoint']['track']['delta_max']
+            delta_tanh_var = self.control_config['waypoint']['track']['delta_tanh_var']
+
+            LOS_dist = self.control_config['waypoint']['track']['LOS_dist']
+
+            nu_tanh_var = self.control_config['waypoint']['track']['nu_tanh_var']
 
             ### Waypoint 1 - WP1 ###
             lat_wp1: float = waypoint[0]
@@ -308,7 +340,7 @@ class WaypointNode(Node):
             d: float = d_vec_pass_check * self.magnitude(d_vec)
 
             ### Radiusen som båten svinger inn mot linjen ###
-            delta: float = np.tanh(p_distance/150) * 80
+            delta: float = np.tanh(p_distance/delta_tanh_var) * delta_max
 
             psi_L: float = np.arctan(d/delta) # angrepsvinkelen båten har på linjen
 
@@ -325,12 +357,12 @@ class WaypointNode(Node):
             wp2_error: float = self.magnitude(wp2_error_vec)
             wp1_error: float = self.magnitude(b_vec)
 
-            nu: float = self.nu_u
+            nu: float = abs(self.nu_u)
 
             if wp2_error < wp1_error: # Sakker farten nær waypoints
-                nu_dynamic: float = np.tanh(wp2_error/10) * nu
+                nu_dynamic: float = np.tanh(wp2_error/nu_tanh_var) * nu
             elif wp2_error > wp1_error and (self.i != 0):
-                nu_dynamic: float = np.tanh(wp1_error/10) * nu
+                nu_dynamic: float = np.tanh(wp1_error/nu_tanh_var) * nu
             else:
                 nu_dynamic = nu
                 
@@ -339,8 +371,8 @@ class WaypointNode(Node):
             pos_m_wp_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
             pos_m_wp: float = self.magnitude(pos_m_wp_vec)
 
-            ### Låser guidingen til waypoint peiling når p_merket er innenfor 50 meter av WP2 ###
-            if pos_m_wp < 50 or self.proximity_lock:
+            ### Låser guidingen til waypoint peiling når p_merket er innenfor en meter avstand fra WP2 ###
+            if pos_m_wp < LOS_dist or self.proximity_lock:
                 psi_angle: float    = np.arctan2(-p_vec[1], -p_vec[0])
                 psi_setpoint: float = mu.mapToPiPi(psi_angle)
                 self.eta_publisher(psi_setpoint)
@@ -369,7 +401,8 @@ class WaypointNode(Node):
                 elif d_vec_pass_check > 0:
                     self.get_logger().info('Line pass: False')
 
-                self.get_logger().info(f'wp nr: {self.i + 1}\n'
+                self.get_logger().info(
+                f'wp nr: {self.i + 1}\n'
                 f'boat to wp distance: {p_distance}\n'
                 f'Distance between wp1 and p_m: {a_vec_m}\n'
                 f'pos_m: {pos_m}\n'
