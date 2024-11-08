@@ -113,6 +113,8 @@ class Kontroller(Node):
             zeta        = self.control_config['heading_control']['zeta']
             ki_scale    = self.control_config['heading_control']['ki_scale']
             ki_limit    = self.control_config['heading_control']['ki_saturation_limit']
+            p_tanh      = self.control_config['heading_control']['p_tanh']
+            d_tanh      = self.control_config['heading_control']['d_tanh']
 
             d_stjerne   = self.control_config['heading_control']['N_rr'] * self.control_config['heading_control']['linearization_point']
 
@@ -123,9 +125,9 @@ class Kontroller(Node):
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
             self.qi_psi = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
-            P_ledd      = K_p_psi * e_psi
+            P_ledd      = K_p_psi * e_psi * np.tanh(e_psi)
             I_ledd      = K_i_psi * self.qi_psi
-            D_ledd      = K_d_psi * e_psi_dot
+            D_ledd      = K_d_psi * e_psi_dot * np.tanh(e_psi_dot)
 
             tau_N       = P_ledd + I_ledd + D_ledd
 
