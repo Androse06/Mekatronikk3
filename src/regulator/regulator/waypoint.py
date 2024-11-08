@@ -253,7 +253,7 @@ class WaypointNode(Node):
 
             error = self.magnitude(distance) - delta # 0 når båten ligger 'delta' meter unna wp
 
-            nu_setpoint = np.tanh(error/tanh_var) * 2
+            nu_setpoint = np.tanh(error/tanh_var) * max_nu
 
             self.nu_publisher(nu_setpoint)
 
