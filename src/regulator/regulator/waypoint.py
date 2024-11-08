@@ -379,9 +379,9 @@ class WaypointNode(Node):
                 self.proximity_lock: bool = True
                 if self.debug >= 2:
                     self.get_logger().info(
-                    'Waypoint guiding\n'
-                    f'psi_setpoint = {np.rad2deg(psi_setpoint)}'
-                    )
+                        'Waypoint guiding\n'
+                        f'psi_setpoint = {np.rad2deg(psi_setpoint)}'
+                        )
             else:
                 self.eta_publisher(psi_d)
                 if self.debug >= 2:
@@ -402,15 +402,15 @@ class WaypointNode(Node):
                     self.get_logger().info('Line pass: False')
 
                 self.get_logger().info(
-                f'wp nr: {self.i + 1}\n'
-                f'boat to wp distance: {p_distance}\n'
-                f'Distance between wp1 and p_m: {a_vec_m}\n'
-                f'pos_m: {pos_m}\n'
-                f'd; distance between boat and line: {d}\n'
-                f'psi_L; boat attack angle: {np.rad2deg(psi_L)}\n'
-                f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}\n'
-                f'psi_d: {np.rad2deg(psi_d)}'
-                )
+                    f'wp nr: {self.i + 1}\n'
+                    f'boat to wp distance: {p_distance}\n'
+                    f'Distance between wp1 and p_m: {a_vec_m}\n'
+                    f'pos_m: {pos_m}\n'
+                    f'd; distance between boat and line: {d}\n'
+                    f'psi_L; boat attack angle: {np.rad2deg(psi_L)}\n'
+                    f'psi_T; angle - waypoint line: {np.rad2deg(psi_T)}\n'
+                    f'psi_d: {np.rad2deg(psi_d)}'
+                    )
             return
 
 def main(args=None):
