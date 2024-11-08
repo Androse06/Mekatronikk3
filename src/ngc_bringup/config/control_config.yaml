@@ -24,6 +24,7 @@ waypoint:
   dp:
     delta: 5 # radius rundt wp i m
     tanh_var: 10
+    max_nu: 2 # kts
   track:
     delta_max: 80 # avstanden fra p̃ til siktepunkt i m
     delta_tanh_var: 150

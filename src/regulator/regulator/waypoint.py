@@ -242,6 +242,7 @@ class WaypointNode(Node):
             ### Nu ###
             delta = self.control_config['waypoint']['dp']['delta']
             tanh_var = self.control_config['waypoint']['dp']['tanh_var']
+            max_nu = self.control_config['waypoint']['dp']['max_nu']
             
             lat_set = setpoint[0]
             lon_set = setpoint[1]
