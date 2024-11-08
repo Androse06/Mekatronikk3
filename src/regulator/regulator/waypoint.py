@@ -45,7 +45,7 @@ class WaypointNode(Node):
         self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
         self.proximity_lock = False # låser track mode på line-of-sight når True
         
-        self.eta = np.zeros(6)  #til callback
+        self.eta = np.zeros(6)  # til callback
         self.nu = np.zeros(6)   # til callback
         self.eta_psi    = 0.0   # til publish
         self.nu_u       = 0.0   # til publish
@@ -224,7 +224,8 @@ class WaypointNode(Node):
 
         elif self.mode == 1: # Sail
             self.sys_publisher('auto') # Setter system mode til auto for otter interface
-            self.eta_publisher(self.eta_psi)
+            eta_maped = mu.mapToPiPi(self.eta_psi)
+            self.eta_publisher(eta_maped)
             self.nu_publisher(self.nu_u)
             return
         
