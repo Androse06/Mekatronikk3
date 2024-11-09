@@ -113,21 +113,23 @@ class Kontroller(Node):
             zeta        = self.control_config['heading_control']['zeta']
             ki_scale    = self.control_config['heading_control']['ki_scale']
             ki_limit    = self.control_config['heading_control']['ki_saturation_limit']
-            p_tanh      = self.control_config['heading_control']['p_tanh']
-            d_tanh      = self.control_config['heading_control']['d_tanh']
+            Kp_scale    = self.control_config['heading_control']['kp_scale']
+            Kd_scale    = self.control_config['heading_control']['kd_scale']
 
             d_stjerne   = self.control_config['heading_control']['N_rr'] * self.control_config['heading_control']['linearization_point']
 
-            K_p_psi = self.vessel_model.M[5][5]*omega**2
-            K_d_psi = 2*zeta*omega*self.vessel_model.M[5][5] - d_stjerne
-            K_i_psi = K_p_psi / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
+            K_p_psi_base    = self.vessel_model.M[5][5]*omega**2
+            K_p_psi         = K_p_psi_base * ( 1 + ( Kp_scale * e_psi**2))
+            K_d_psi_base    = 2*zeta*omega*self.vessel_model.M[5][5] - d_stjerne
+            K_d_psi         = K_d_psi_base * ( 1 + ( Kd_scale * e_psi_dot**2))
+            K_i_psi         = K_p_psi / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
 
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
             self.qi_psi = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
-            P_ledd      = K_p_psi * e_psi + np.tanh(e_psi * p_tanh) * e_psi**2
+            P_ledd      = K_p_psi * e_psi 
             I_ledd      = K_i_psi * self.qi_psi
-            D_ledd      = K_d_psi * e_psi_dot * np.tanh(e_psi_dot) + np.tanh(e_psi_dot * d_tanh) * e_psi_dot**2
+            D_ledd      = K_d_psi * e_psi_dot
 
             tau_N       = P_ledd + I_ledd + D_ledd
 
