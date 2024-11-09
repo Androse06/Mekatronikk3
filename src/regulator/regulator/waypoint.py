@@ -57,7 +57,7 @@ class WaypointNode(Node):
 
         self.get_logger().info("Waypoint-node er initialisert.")
 
-        self.debug = 0 # 0: ingenting.   1: callback og publishere.   2: interne verdier i step_funksjon
+        self.debug = self.control_config['debug']['waypoint']
 
     def load_yaml_file(self, file_path):
         with open(file_path, 'r') as file:
@@ -87,7 +87,7 @@ class WaypointNode(Node):
             if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.waypoint}')
 
-        if self.debug >= 1:
+        if self.debug == 1:
             self.get_logger().info(
                 f'callback - mode: {msg.mode}\n'
                 f'callback - route: {msg.route}\n'
@@ -142,7 +142,7 @@ class WaypointNode(Node):
         eta_msg     = Eta()
         eta_msg.psi = mu.mapToPiPi(eta)
         self.eta_setpoint_pub.publish(eta_msg)
-        if self.debug >= 1:
+        if self.debug == 1:
             self.get_logger().info(f'psi: {eta}')
 
     def eta_callback(self, msg: Eta):
@@ -152,7 +152,7 @@ class WaypointNode(Node):
         nu_msg      = Nu()
         nu_msg.u    = nu
         self.nu_setpoint_pub.publish(nu_msg)
-        if self.debug >= 1:
+        if self.debug == 1:
             self.get_logger().info(f'nu: {nu}')
 
     def nu_callback(self, msg: Nu):
@@ -168,7 +168,7 @@ class WaypointNode(Node):
             system_msg.auto_mode    = False
         self.system_mode_pub.publish(system_msg)
 
-        if self.debug >= 1:
+        if self.debug == 1:
             self.get_logger().info(f'system mode pub: {system_msg}')
 
     def mode_publisher(self, mode):
@@ -209,6 +209,7 @@ class WaypointNode(Node):
 
 
     def step_waypoint(self):
+        self.debug = self.control_config['debug']['waypoint']
 
         if len(self.coordinates) > 0:
             self.traveldata_publisher(True)
@@ -401,7 +402,7 @@ class WaypointNode(Node):
                     self.get_logger().info('***Next waypoint***')
 
 
-            if self.debug >= 2:
+            if self.debug >= 3:
                 if d_vec_pass_check < 0:
                     self.get_logger().info('Line pass: True')
                 elif d_vec_pass_check > 0:

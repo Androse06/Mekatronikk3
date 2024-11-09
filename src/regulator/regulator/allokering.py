@@ -17,14 +17,17 @@ class Allokering(Node):
         self.declare_parameter('yaml_package_name', 'ngc_bringup')
         self.declare_parameter('simulation_config_file', 'config/simulator_config.yaml')
         self.declare_parameter('propulsion_config_file', 'config/propulsion_config.yaml')
+        self.declare_parameter('control_config_file', 'config/control_config.yaml')
 
         yaml_package_name           = self.get_parameter('yaml_package_name').get_parameter_value().string_value
         yaml_package_path           = get_package_share_directory(yaml_package_name)
         simulation_config_path      = os.path.join(yaml_package_path, self.get_parameter('simulation_config_file').get_parameter_value().string_value)
         self.propulsion_config_path = os.path.join(yaml_package_path, self.get_parameter('propulsion_config_file').get_parameter_value().string_value)
+        self.control_config_path    = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
 
         self.simulation_config      = self.load_yaml_file(simulation_config_path)
         self.propuslion_config      = self.load_yaml_file(self.propulsion_config_path)
+        self.control_config         = self.load_yaml_file(self.control_config_path)
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
@@ -62,7 +65,7 @@ class Allokering(Node):
 
         self.get_logger().info("allokering-node er initialisert.")
 
-        self.debug = False
+        self.debug = self.control_config['debug']['allokering']
 
 
     def load_yaml_file(self, file_path):
@@ -148,6 +151,8 @@ class Allokering(Node):
 
 
         ########### DEBUGGING ###########
+        self.debug = self.control_config['debug']['allokering']
+        
         if self.debug == True:
 
             self.get_logger().info(

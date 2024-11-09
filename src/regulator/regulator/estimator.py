@@ -86,7 +86,7 @@ class Estimator(Node):
         else:
             self.get_logger().info("Estimator-node bruker u-filtrert signaler.")
 
-        self.debug = False
+        self.debug = self.control_config['debug']['estimator']
 
     def load_yaml_file(self, file_path):
         with open(file_path, 'r') as file:
@@ -190,6 +190,7 @@ class Estimator(Node):
                 self.csv_logger() # printer ut lat og lon til en csv fil
 
                 ####### DEBUG ########
+                self.debug = self.control_config['debug']['estimator']
                 if self.debug == True:
                     self.get_logger().info(
                         f"eta_hat_message: {eta_hat_message}\n"

@@ -70,7 +70,7 @@ class Kontroller(Node):
 
         self.get_logger().info("Kontroller-node er initialisert.")
 
-        self.debug = False
+        self.debug = self.control_config['debug']['kontroller']
 
     def load_yaml_file(self, file_path):
         with open(file_path, 'r') as file:
@@ -155,6 +155,7 @@ class Kontroller(Node):
             self.tau_pub.publish(tau_message)
 
             ################## Debugging #####################
+            self.debug = self.control_config['debug']['kontroller']
             if self.debug == True:
                 self.get_logger().info(
                     f'tau_message: {tau_message}\n'
