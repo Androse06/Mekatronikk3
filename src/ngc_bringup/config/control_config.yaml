@@ -1,7 +1,9 @@
 heading_control:
   omega: 0.75  # LF viser til 1.5
-  zeta: 1.3   # LF viser til 1.0
-  ki_scale: 5
+  zeta: 1.8   # LF viser til 1.0
+  ki_scale: 15
+  kp_scale: 13
+  kd_scale: 1.5
   ki_saturation_limit: 15  #degrees
   N_rr: 25
   linearization_point: 0.2
