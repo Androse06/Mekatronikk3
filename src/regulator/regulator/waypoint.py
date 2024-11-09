@@ -19,21 +19,22 @@ class WaypointNode(Node):
         ### YAML ###
         self.declare_parameter('yaml_package_name', 'ngc_bringup')
         self.declare_parameter('control_config_file', 'config/control_config.yaml')
-        yaml_package_name        = self.get_parameter('yaml_package_name').get_parameter_value().string_value
-        yaml_package_path        = get_package_share_directory(yaml_package_name)
-        self.control_config_path = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
+
+        yaml_package_name           = self.get_parameter('yaml_package_name').get_parameter_value().string_value
+        yaml_package_path           = get_package_share_directory(yaml_package_name)
+        self.control_config_path    = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
         self.control_config         = self.load_yaml_file(self.control_config_path)
 
         ### SUB ###
-        self.mode_sub       = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
-        self.eta_hat_sub    = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
-        self.nu_hat_sub     = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
+        self.mode_sub               = self.create_subscription(HMI, 'hmi', self.mode_callback, default_qos_profile)
+        self.eta_hat_sub            = self.create_subscription(Eta, "eta_hat", self.eta_callback, default_qos_profile)
+        self.nu_hat_sub             = self.create_subscription(Nu, "nu_hat", self.nu_callback, default_qos_profile)
         self.reload_config_sub      = self.create_subscription(String, 'reload_configs', self.reload_configs_callback, default_qos_profile)
 
         ### PUB ###
         self.mode_pub           = self.create_publisher(HMI, 'hmi', default_qos_profile)
-        self.nu_setpoint_pub   = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
-        self.eta_setpoint_pub  = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
+        self.nu_setpoint_pub    = self.create_publisher(Nu, 'nu_setpoint', default_qos_profile)
+        self.eta_setpoint_pub   = self.create_publisher(Eta, 'eta_setpoint', default_qos_profile)
         self.TravelData_pub     = self.create_publisher(TravelData, 'traveldata', default_qos_profile)
         self.system_mode_pub    = self.create_publisher(SystemMode, 'system_mode', default_qos_profile)
 
@@ -43,13 +44,14 @@ class WaypointNode(Node):
         self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
         self.proximity_lock = False # låser track mode på line-of-sight når True
         
-        self.eta = np.zeros(6)  # til callback
-        self.nu = np.zeros(6)   # til callback
+        self.eta    = np.zeros(6)  # til callback
+        self.nu     = np.zeros(6)   # til callback
+
         self.eta_psi    = 0.0   # til publish
         self.nu_u       = 0.0   # til publish
 
-        self.coordinates = []   # skal inneholde [(lat, lon), (lat, lon), ...] for wp i rute
-        self.waypoint = []      # skal inneholde [(lat, lon)] for wp til dp 
+        self.coordinates    = []   # skal inneholde [(lat, lon), (lat, lon), ...] for wp i rute
+        self.waypoint       = []      # skal inneholde [(lat, lon)] for wp til dp 
 
         self.i = 0 # self.i er wp i ruten den er på. når et wp i ruten er nådd kjører 'self.i += 1'
 
@@ -125,8 +127,8 @@ class WaypointNode(Node):
             else:
                 return
 
-            self.load_route = False
-            self.load_waypoint = False
+            self.load_route     = False
+            self.load_waypoint  = False
             
             return coordinates
 

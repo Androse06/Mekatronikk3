@@ -25,41 +25,41 @@ class Allokering(Node):
         self.propulsion_config_path = os.path.join(yaml_package_path, self.get_parameter('propulsion_config_file').get_parameter_value().string_value)
         self.control_config_path    = os.path.join(yaml_package_path, self.get_parameter('control_config_file').get_parameter_value().string_value)
 
-        self.simulation_config      = self.load_yaml_file(simulation_config_path)
-        self.propuslion_config      = self.load_yaml_file(self.propulsion_config_path)
-        self.control_config         = self.load_yaml_file(self.control_config_path)
+        self.simulation_config  = self.load_yaml_file(simulation_config_path)
+        self.propuslion_config  = self.load_yaml_file(self.propulsion_config_path)
+        self.control_config     = self.load_yaml_file(self.control_config_path)
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
         ##### SUB ####
-        self.tau_sub                = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
+        self.tau_sub = self.create_subscription(Tau, "tau_control", self.tau_callback, default_qos_profile)
         
         ##### PUB ####
-        self.thruster1_pub          = self.create_publisher(ThrusterSignals, "thruster_1_setpoints", default_qos_profile)
-        self.thruster2_pub          = self.create_publisher(ThrusterSignals, "thruster_2_setpoints", default_qos_profile)
-        self.tau_max_pub            = self.create_publisher(TauMax, "tau_max", default_qos_profile)
+        self.thruster1_pub  = self.create_publisher(ThrusterSignals, "thruster_1_setpoints", default_qos_profile)
+        self.thruster2_pub  = self.create_publisher(ThrusterSignals, "thruster_2_setpoints", default_qos_profile)
+        self.tau_max_pub    = self.create_publisher(TauMax, "tau_max", default_qos_profile)
 
         ##### Variabler ####
-        self.rho                     = self.simulation_config['physical_parameters']['rho_water']
-        self.tau                     = np.zeros(3)
+        self.rho    = self.simulation_config['physical_parameters']['rho_water']
+        self.tau    = np.zeros(3)
 
                 ### Thruster 1 ###
-        self.id_1                    = self.propuslion_config['main_propulsion_1']['id']
-        self.propellerDiameter_1     = self.propuslion_config['main_propulsion_1']['propeller']['diameter']
-        self.Kt0_1                   = self.propuslion_config['main_propulsion_1']['propeller']['Kt0']
-        self.max_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['max_rpm'] / 60
-        self.min_rps_1               = self.propuslion_config['main_propulsion_1']['propeller']['min_rpm'] / 60
-        self.position_1              = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.5,0.3]
-        self.type_1                  = self.propuslion_config['main_propulsion_1']['type']
+        self.id_1                   = self.propuslion_config['main_propulsion_1']['id']
+        self.propellerDiameter_1    = self.propuslion_config['main_propulsion_1']['propeller']['diameter']
+        self.Kt0_1                  = self.propuslion_config['main_propulsion_1']['propeller']['Kt0']
+        self.max_rps_1              = self.propuslion_config['main_propulsion_1']['propeller']['max_rpm'] / 60
+        self.min_rps_1              = self.propuslion_config['main_propulsion_1']['propeller']['min_rpm'] / 60
+        self.position_1             = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.5,0.3]
+        self.type_1                 = self.propuslion_config['main_propulsion_1']['type']
 
                 ### Thruster 2 ###
-        self.id_2                    = self.propuslion_config['main_propulsion_2']['id']
-        self.propellerDiameter_2     = self.propuslion_config['main_propulsion_2']['propeller']['diameter']
-        self.Kt0_2                   = self.propuslion_config['main_propulsion_2']['propeller']['Kt0']
-        self.max_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['max_rpm'] / 60
-        self.min_rps_2               = self.propuslion_config['main_propulsion_2']['propeller']['min_rpm'] / 60
-        self.position_2              = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
-        self.type_2                  = self.propuslion_config['main_propulsion_2']['type']
+        self.id_2                   = self.propuslion_config['main_propulsion_2']['id']
+        self.propellerDiameter_2    = self.propuslion_config['main_propulsion_2']['propeller']['diameter']
+        self.Kt0_2                  = self.propuslion_config['main_propulsion_2']['propeller']['Kt0']
+        self.max_rps_2              = self.propuslion_config['main_propulsion_2']['propeller']['max_rpm'] / 60
+        self.min_rps_2              = self.propuslion_config['main_propulsion_2']['propeller']['min_rpm'] / 60
+        self.position_2             = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
+        self.type_2                 = self.propuslion_config['main_propulsion_2']['type']
 
         self.timer = self.create_timer(self.step_size, self.step_allokering)
 
@@ -84,39 +84,41 @@ class Allokering(Node):
 
     def step_allokering(self):
 
-        We = np.eye(4)
+        We = np.eye(4) # 4x4 identitetsmatrise
+        
         Te = np.array([[1, 0, 1, 0],
                        [0, 1, 0, 1],
                        [abs(self.position_1[1]), 0, -abs(self.position_2[1]), 0]])
+        
         Twt = np.linalg.inv(We) @ Te.T @ np.linalg.inv(Te @ np.linalg.inv(We) @ Te.T)
         
         fe = Twt @ self.tau
 
-        fake_tau = self.tau
-        fake_tau[0] = 0
-        fe_fake = Twt @ fake_tau
+        tau_yaw     = self.tau # en tau vektor med isolert yaw; den brukes til å regne ut minimum kraft som må reserveres for yaw
+        tau_yaw[0]  = 0
+        fe_yaw      = Twt @ tau_yaw
 
-        rps_1 = self.rps(fe[0], self.Kt0_1, self.propellerDiameter_1)
-        rps_2 = self.rps(fe[2], self.Kt0_2, self.propellerDiameter_2)
+        rps_1: float = self.rps(fe[0], self.Kt0_1, self.propellerDiameter_1)
+        rps_2: float = self.rps(fe[2], self.Kt0_2, self.propellerDiameter_2)
 
         ### RPS verdier hvis ønsket surge var 0 - dynamisk ###
-        fake_rps_1: float = self.rps(fe_fake[0], self.Kt0_1, self.propellerDiameter_1)
-        fake_rps_2: float = self.rps(fe_fake[2], self.Kt0_2, self.propellerDiameter_2)
+        rps_1_yaw: float = self.rps(fe_yaw[0], self.Kt0_1, self.propellerDiameter_1)
+        rps_2_yaw: float = self.rps(fe_yaw[2], self.Kt0_2, self.propellerDiameter_2)
 
         ### Kraften til thrusterene ved 0 surge - dynamisk ###
-        fake_force_1: float = self.force(fake_rps_1, self.Kt0_1, self.propellerDiameter_1)
-        fake_force_2: float = self.force(fake_rps_2, self.Kt0_2, self.propellerDiameter_2)
+        force_1_yaw: float = self.force(rps_1_yaw, self.Kt0_1, self.propellerDiameter_1)
+        force_2_yaw: float = self.force(rps_2_yaw, self.Kt0_2, self.propellerDiameter_2)
 
         ### Max yaw båten kan produsere - ikke dynamisk ###
-        max_yaw: float      = abs(self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)*self.position_1[1]) + abs(self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) * self.position_2[1])
+        max_yaw: float = abs(self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1)*self.position_1[1]) + abs(self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) * self.position_2[1])
 
         ### Regner ut hvor mye surge man maksimalt kan gi for å oppnå ønsket yaw ###
-        if fake_force_1 >= fake_force_2:
-            max_surge: float = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_1)
-            min_surge: float = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - fake_force_2)
+        if force_1_yaw >= force_2_yaw:
+            max_surge: float = 2 * (self.force(self.max_rps_1, self.Kt0_1, self.propellerDiameter_1) - force_1_yaw)
+            min_surge: float = 2 * (self.force(self.min_rps_1, self.Kt0_1, self.propellerDiameter_1) - force_2_yaw)
         else:
-            max_surge: float = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_2)
-            min_surge: float = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - fake_force_1)
+            max_surge: float = 2 * (self.force(self.max_rps_2, self.Kt0_2, self.propellerDiameter_2) - force_2_yaw)
+            min_surge: float = 2 * (self.force(self.min_rps_2, self.Kt0_2, self.propellerDiameter_2) - force_1_yaw)
 
 
         ########### PUBLISH ###########
@@ -138,11 +140,11 @@ class Allokering(Node):
 
 
         ######## TAU_MAX ########
-        tau_max_message                 = TauMax()
-        tau_max_message.xmax            = max_surge
-        tau_max_message.xmin            = min_surge
-        tau_max_message.nmax            = max_yaw
-        tau_max_message.nmin            = -max_yaw
+        tau_max_message         = TauMax()
+        tau_max_message.xmax    = max_surge
+        tau_max_message.xmin    = min_surge
+        tau_max_message.nmax    = max_yaw
+        tau_max_message.nmin    = -max_yaw
 
         self.thruster1_pub.publish(thruster1_message)
         self.thruster2_pub.publish(thruster2_message)

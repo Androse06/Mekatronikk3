@@ -37,7 +37,7 @@ class Estimator(Node):
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
-        self.csvfile = open('estimator_data.csv', 'w', newline='')
+        self.csvfile    = open('estimator_data.csv', 'w', newline='')
         self.csv_writer = csv.writer(self.csvfile)
         self.csv_writer.writerow(['Latitude', 'Longitude'])
 
@@ -54,8 +54,8 @@ class Estimator(Node):
             self.gnss_sub       = self.create_subscription(GNSS, "gnss_measurement", self.gnss_callback, default_qos_profile)   
 
         #### PUB ####
-        self.eta_hat_pub     = self.create_publisher(Eta, "eta_hat", default_qos_profile)
-        self.nu_hat_pub      = self.create_publisher(Nu, "nu_hat", default_qos_profile)
+        self.eta_hat_pub    = self.create_publisher(Eta, "eta_hat", default_qos_profile)
+        self.nu_hat_pub     = self.create_publisher(Nu, "nu_hat", default_qos_profile)
 
         #### Variabler ####
         self.heading_measured   = None
@@ -70,12 +70,12 @@ class Estimator(Node):
         self.estimator_pos_initialized = False
         self.estimator_hdg_initialized = False
 
-        self.gnss_valid         = False
-        self.heading_valid      = False
-        self.bias               = np.zeros(3)
-        self.tau                = np.zeros(3)
-        self.nu_hat             = np.zeros(3)
-        self.eta_hat            = np.zeros(3)
+        self.gnss_valid     = False
+        self.heading_valid  = False
+        self.bias           = np.zeros(3)
+        self.tau            = np.zeros(3)
+        self.nu_hat         = np.zeros(3)
+        self.eta_hat        = np.zeros(3)
         
         self.timer = self.create_timer(self.step_size, self.step_estimator)
 
@@ -111,7 +111,7 @@ class Estimator(Node):
         if self.estimator_hdg_initialized == False and msg.valid_signal == True:
             self.estimator_hdg_initialized = True
             self.eta_hat[2] = mu.mapToPiPi(msg.heading)
-            self.nu_hat[2] = msg.rot
+            self.nu_hat[2]  = msg.rot
 
     def tau_callback(self, msg: Tau):
         self.tau = np.array([msg.surge_x, 0.0, msg.yaw_n])
@@ -147,9 +147,9 @@ class Estimator(Node):
 
                 R = mu.RotationMatrix(0,0,self.eta_hat[2])
 
-                M_inv = np.linalg.inv(np.diag([self.vessel_model.M[0][0], self.vessel_model.M[1][1], self.vessel_model.M[5][5]]))
-                bias = Q @ R.T @ self.bias
-                drag = np.zeros(3)
+                M_inv   = np.linalg.inv(np.diag([self.vessel_model.M[0][0], self.vessel_model.M[1][1], self.vessel_model.M[5][5]]))
+                bias    = Q @ R.T @ self.bias
+                drag    = np.zeros(3)
                 drag[0] = - X_uu * abs(self.nu_hat[0]) * self.nu_hat[0]
                 drag[1] = - Y_vv * abs(self.nu_hat[1]) * self.nu_hat[1]
                 drag[2] = - N_rr * abs(self.nu_hat[2]) * self.nu_hat[2]
@@ -157,8 +157,8 @@ class Estimator(Node):
                 self.eta_hat[0] = 0
                 self.eta_hat[1] = 0
 
-                self.nu_hat += self.step_size * M_inv @ (drag + self.tau + bias + L2 @ R.T @ eta_tilde)
-                self.eta_hat += self.step_size * (R @ self.nu_hat + L1 @ eta_tilde)
+                self.nu_hat     += self.step_size * M_inv @ (drag + self.tau + bias + L2 @ R.T @ eta_tilde)
+                self.eta_hat    += self.step_size * (R @ self.nu_hat + L1 @ eta_tilde)
 
                 self.eta_hat[2] = mu.mapToPiPi(self.eta_hat[2])
 
