@@ -85,7 +85,8 @@ class WaypointNode(Node):
             if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.coordinates}')
         elif msg.point:
-            self.waypoint = self.gpx_parsing(2)
+            waypoint = self.gpx_parsing(2)
+            self.waypoint = waypoint[0]
             if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.waypoint}')
 
@@ -389,7 +390,7 @@ class WaypointNode(Node):
                 if self.debug >= 2:
                     self.get_logger().info(
                         'Waypoint guiding\n'
-                        f'psi_setpoint = {np.rad2deg(psi_setpoint)}'
+                        f'psi_angle = {np.rad2deg(psi_angle)}'
                     )
             else:
                 self.eta_publisher(psi_d)
