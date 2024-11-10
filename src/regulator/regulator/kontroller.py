@@ -53,6 +53,7 @@ class Kontroller(Node):
         self.nu           = np.zeros(6)
         self.eta_setpoint = np.zeros(6)
         self.nu_setpoint  = np.zeros(6)
+        self.previous_e_u = None
         
         self.qi_psi       = 0.0
         self.qi_u         = 0.0
