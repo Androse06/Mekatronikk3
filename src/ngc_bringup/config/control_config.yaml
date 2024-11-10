@@ -9,7 +9,7 @@ heading_control:
   linearization_point: 0.2
   
 speed_control:
-  K_p: 0.45  # LF viser til 1
+  K_p: 0.3  # LF viser til 1
   kp_scale: 14
   ki_scale: 8
   ki_saturation_limit: 1.25  #m/s
@@ -17,7 +17,7 @@ speed_control:
 
 estimator:
   L1: 1
-  omega_e: 0.65
+  omega_e: 0.2
   bias_gain: 0.2
   X_uu: 100
   Y_vv: 100
