@@ -355,6 +355,7 @@ class EngineeringHMI(Node):
 
         self.dp_status = msg.dp
         self.dp_error = msg.error
+        self.ui.Deviation_Dp_LCD.display(round(self.dp_error, 2))
 
         if self.debug:
             self.get_logger().info(
