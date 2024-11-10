@@ -135,15 +135,19 @@ class Kontroller(Node):
             ################## PI Fart #####################
             e_u = self.nu_setpoint[0] - self.nu[0]
 
-            ki_scale_u  = self.control_config['speed_control']['ki_scale']
-            ki_limit_u  = self.control_config['speed_control']['ki_saturation_limit']
-            X_uu        = self.control_config['speed_control']['X_uu']
+            ki_scale_u      = self.control_config['speed_control']['ki_scale']
+            ki_limit_u      = self.control_config['speed_control']['ki_saturation_limit']
+            X_uu            = self.control_config['speed_control']['X_uu']
+            K_p_nu          = self.control_config['speed_control']['K_p']
+            K_p_nu_scale    = self.control_config['speed_control']['kp_scale']
 
-            K_p_u = self.vessel_model.M[0][0]*self.control_config['speed_control']['K_p']
-            K_i_u = K_p_u / (abs(ki_scale_u) + e_u**2)
+                  
+            K_p_u_base  = self.vessel_model.M[0][0] * K_p_nu
+            K_p_u       = K_p_u_base * ( 1 + ( K_p_nu_scale * e_u**2 ))
+            K_i_u       = K_p_u_base / (abs(ki_scale_u) + e_u**2)
 
             self.qi_u += self.step_size*K_i_u*mu.saturate(e_u,-ki_limit_u,ki_limit_u)
-            self.qi_u  = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
+            self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
 
             tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
             

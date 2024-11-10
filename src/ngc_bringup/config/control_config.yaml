@@ -1,22 +1,23 @@
 heading_control:
   omega: 0.75  # LF viser til 1.5
   zeta: 1.8   # LF viser til 1.0
-  ki_scale: 15
-  kp_scale: 13
-  kd_scale: 1.5
+  ki_scale: 5
+  kp_scale: 15
+  kd_scale: 2
   ki_saturation_limit: 15  #degrees
   N_rr: 25
   linearization_point: 0.2
   
 speed_control:
-  K_p: 0.8  # LF viser til 1
-  ki_scale: 5
+  K_p: 0.3  # LF viser til 1
+  kp_scale: 14
+  ki_scale: 8
   ki_saturation_limit: 1.25  #m/s
   X_uu: 100
 
 estimator:
   L1: 1
-  omega_e: 0.65
+  omega_e: 0.2 # 0.65
   bias_gain: 0.2
   X_uu: 100
   Y_vv: 100
