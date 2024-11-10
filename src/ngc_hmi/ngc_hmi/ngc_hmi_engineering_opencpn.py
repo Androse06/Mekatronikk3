@@ -140,7 +140,7 @@ class EngineeringHMI(Node):
         # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
-        self.debug = True
+        self.debug = False
 
     def exit_procedure(self):
         try:

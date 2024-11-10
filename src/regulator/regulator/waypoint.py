@@ -349,11 +349,14 @@ class WaypointNode(Node):
                 self.lon_set = self.push_dp[1]
                 self.dp_counter = 0
                 self.correction = True
-            else:
+            elif error <= delta * 1.5:
                 self.dp_counter += 1
                 self.correction = False
-                self.get_logger().info(f'dp counter: {self.dp_counter}')
-
+                if self.debug >= 2:
+                    self.get_logger().info(f'dp counter: {self.dp_counter}')
+            else:
+                self.lat_set = lat_set
+                self.lon_set = lon_set
 
 
         elif self.mode == 3: # Waypoint step-funksjon.
