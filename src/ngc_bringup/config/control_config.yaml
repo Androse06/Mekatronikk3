@@ -10,6 +10,7 @@ heading_control:
   
 speed_control:
   K_p: 0.8  # LF viser til 1
+  kp_scale: 3
   ki_scale: 5
   ki_saturation_limit: 1.25  #m/s
   X_uu: 100
