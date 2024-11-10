@@ -9,9 +9,11 @@ heading_control:
   linearization_point: 0.2
   
 speed_control:
-  K_p: 0.8  # LF viser til 1
-  kp_scale: 3
-  ki_scale: 5
+  K_p: 0.45  # LF viser til 1
+  K_d: 0.8
+  kp_scale: 14
+  ki_scale: 8
+  kd_scale: 2
   ki_saturation_limit: 1.25  #m/s
   X_uu: 100
 
