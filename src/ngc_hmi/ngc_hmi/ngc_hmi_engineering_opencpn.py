@@ -94,9 +94,11 @@ class EngineeringHMI(Node):
         self.th2_pwr    = 0
         self.fuel_cap   = 0
 
-        self.i = 0
-        self.coordinates = []
-        self.status = False
+        self.i              = 0
+        self.coordinates    = []
+        self.status         = False
+        self.dp_status      = False
+        self.dp_error       = False
 
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
@@ -138,7 +140,7 @@ class EngineeringHMI(Node):
         # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
 
-        self.debug = False
+        self.debug = True
 
     def exit_procedure(self):
         try:
@@ -333,8 +335,10 @@ class EngineeringHMI(Node):
         self.hmi_publisher.publish(hmi_message)
 
         if self.debug:
-            self.get_logger().info(f'etapub={hmi_message.eta}')
-            self.get_logger().info(f'nupub={hmi_message.nu}')
+            self.get_logger().info(
+                f'etapub={hmi_message.eta}\n'
+                f'nupub={hmi_message.nu}'
+            )
 
     def travel_data_callback(self, msg: TravelData):
         self.i = msg.i
@@ -349,10 +353,17 @@ class EngineeringHMI(Node):
 
         self.status = msg.status
 
+        self.dp_status = msg.dp
+        self.dp_error = msg.error
+
         if self.debug:
-            self.get_logger().info(f'i: {msg.i}')
-            self.get_logger().info(f'coordinates: {self.coordinates}')
-            self.get_logger().info(f'status: {msg.status}')
+            self.get_logger().info(
+                f'i: {msg.i}\n'
+                f'coordinates: {self.coordinates}\n'
+                f'status: {msg.status}\n'
+                f'DP: {msg.dp}\n'
+                f'DP error: {msg.error}'
+            )
 
         if self.status:
             if self.i > 0:

@@ -171,7 +171,7 @@ class WaypointNode(Node):
             system_msg.auto_mode    = False
         self.system_mode_pub.publish(system_msg)
 
-        if self.debug == 1:
+        if self.debug == -1:
             self.get_logger().info(f'system mode pub: {system_msg}')
 
     def mode_publisher(self, mode):
@@ -268,6 +268,11 @@ class WaypointNode(Node):
             psi_setpoint = (psi_angle)
 
             self.eta_publisher(psi_setpoint)
+
+            dp_msg = TravelData()
+            dp_msg.dp = True
+            dp_msg.error = self.magnitude(distance)
+            self.TravelData_pub.publish(dp_msg)
 
             if self.debug >= 2:
                 self.get_logger().info(
