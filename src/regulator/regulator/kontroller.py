@@ -53,8 +53,7 @@ class Kontroller(Node):
         self.nu           = np.zeros(6)
         self.eta_setpoint = np.zeros(6)
         self.nu_setpoint  = np.zeros(6)
-        self.previous_e_u = None
-        
+ 
         self.qi_psi       = 0.0
         self.qi_u         = 0.0
 
@@ -142,25 +141,17 @@ class Kontroller(Node):
             X_uu            = self.control_config['speed_control']['X_uu']
             K_p_nu          = self.control_config['speed_control']['K_p']
             K_p_nu_scale    = self.control_config['speed_control']['kp_scale']
-            K_d_nu          = self.control_config['speed_control']['K_d']
-            K_d_nu_scale    = self.control_config['speed_control']['kd_scale']
+
                   
             K_p_u_base  = self.vessel_model.M[0][0] * K_p_nu
             K_p_u       = K_p_u_base * ( 1 + ( K_p_nu_scale * e_u**2 ))
-            K_i_u       = K_p_u / (abs(ki_scale_u) + e_u**2)
+            K_i_u       = K_p_u_base / (abs(ki_scale_u) + e_u**2)
 
             self.qi_u += self.step_size*K_i_u*mu.saturate(e_u,-ki_limit_u,ki_limit_u)
             self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
 
             tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
             
-            if self.previous_e_u is not None:
-                d_e_u       = (e_u - self.previous_e_u) / (self.step_size)
-                K_d_u_base  = K_d_nu * d_e_u
-                K_d_u       = K_d_u_base * ( 1 + ( K_d_nu_scale * e_u**2))
-                tau_X += K_d_u
-            
-            self.previous_e_u = e_u
 
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()
