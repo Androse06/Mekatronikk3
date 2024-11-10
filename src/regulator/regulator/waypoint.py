@@ -43,12 +43,18 @@ class WaypointNode(Node):
         self.load_route     = False # parcer waypoints.gpx når True og appender self.waypoint
         self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
         self.proximity_lock = False # låser track mode på line-of-sight når True
-        
+        self.dp_init        = True
+        self.dp_counter     = 0
+        self.correction     = True
+
         self.eta    = np.zeros(6)  # til callback
         self.nu     = np.zeros(6)   # til callback
 
         self.eta_psi    = 0.0   # til publish
         self.nu_u       = 0.0   # til publish
+        self.theta_dp   = 0.0
+        self.p_m        = np.zeros(2)
+        self.push_dp    = np.zeros(2)
 
         self.coordinates    = []   # skal inneholde [(lat, lon), (lat, lon), ...] for wp i rute
         self.waypoint       = []      # skal inneholde [(lat, lon)] for wp til dp 
@@ -89,6 +95,9 @@ class WaypointNode(Node):
             self.waypoint = waypoint[0]
             if self.debug >= 1:
                 self.get_logger().info(f'Coordinates: {self.waypoint}')
+
+        if msg.mode != 2 and not self.dp_init:
+            self.dp_init = True
 
         if self.debug == 1:
             self.get_logger().info(
@@ -249,21 +258,65 @@ class WaypointNode(Node):
             tanh_var    = self.control_config['waypoint']['dp']['tanh_var']
             max_nu      = self.control_config['waypoint']['dp']['max_nu']
             
+            ### WP koordinat ###
             lat_set = setpoint[0]
             lon_set = setpoint[1]
+
+            ### Båt koordinat ###
             lat_hat = self.eta[0]
             lon_hat = self.eta[1]
 
-            distance = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
+            if self.dp_init:
+                self.lat_set = lat_set
+                self.lon_set = lon_set
+                self.dp_init = False
 
-            error = self.magnitude(distance) - delta # 0 når båten ligger 'delta' meter unna wp
+            u_vec = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
+            u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.lat_set, self.lon_set)
+
+            
+            ### Do not judge and you will not be judged.
+            ### Do not condemn, and you will not be condemned.
+            ### Forgive, and you will be forgiven.
+            ###                 - Luke 6:37
+
+            ### jeg vet det er jalla. ikke døm meg. la stå! ###
+
+            #if self.magnitude(u_vec) <= 5 and self.correction:
+            #    self.p_m = geo.add_distance_to_lat_lon(lat_set, lon_set, u_vec[0], u_vec[1])
+            #    self.dp_init = True
+            #else:
+            #    self.dp_init = False
+
+            #v_vec = geo.calculate_distance_north_east(lat_set, lon_set, self.p_m[0], self.p_m[1])
+
+            #if (self.magnitude(u_vec) * self.magnitude(v_vec)) == 0:
+            #    theta_cos = 0
+            #else:
+            #    theta_cos = (np.dot(u_vec, v_vec)) / (self.magnitude(u_vec) * self.magnitude(v_vec))
+            
+            #theta_cos = np.clip(theta_cos, -1 ,1)
+            #theta = np.arccos(theta_cos)
+
+            #w_vec = np.zeros(2)
+            #w_vec[0] = v_vec[0] * np.cos(theta) - v_vec[1] * np.sin(theta)
+            #w_vec[1] = v_vec[0] * np.sin(theta) + v_vec[1] * np.cos(theta)
+
+            #self.p_m = geo.add_distance_to_lat_lon(lat_set, lon_set, w_vec[0], w_vec[1])
+
+            #u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.p_m[0], self.p_m[1])
+
+            error_m = self.magnitude(u_vec_m) - delta # 0 når båten ligger 'delta' meter unna p_m
+            error = self.magnitude(u_vec) - delta # 0 når båten ligger 'delta' meter unna wp
 
             nu_setpoint = np.tanh(error/tanh_var) * max_nu
+            nu_setpoint_m = np.tanh(error_m/tanh_var) * max_nu
 
-            self.nu_publisher(nu_setpoint)
+            self.nu_publisher(nu_setpoint_m)
 
             ### psi ###
-            psi_angle = np.arctan2(distance[1], distance[0])
+
+            psi_angle = np.arctan2(u_vec_m[1], u_vec_m[0])
 
             psi_setpoint = (psi_angle)
 
@@ -271,16 +324,36 @@ class WaypointNode(Node):
 
             dp_msg = TravelData()
             dp_msg.dp = True
-            dp_msg.error = self.magnitude(distance)
+            dp_msg.error = self.magnitude(u_vec)
             self.TravelData_pub.publish(dp_msg)
 
             if self.debug >= 2:
                 self.get_logger().info(
-                    f'error: {error}\n'
-                    f'distance: {distance}\n'
+                    f'error til wp: {error}\n'
+                    f'distance (wp act): {u_vec}\n'
                     f'nu_setpoint: {nu_setpoint}\n'
                     f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}'
                 )
+
+            if self.debug <= -2:
+                self.get_logger().info(
+                    f'error: {error}\n'
+                    f'distance (wp act): {u_vec}\n'
+                    f'p_m: {self.p_m}\n'
+                    f'psi_setpoint: {np.rad2deg(mu.mapToPiPi(psi_setpoint))}'
+                )
+
+            if self.dp_counter >= 1000:
+                self.push_dp = geo.add_distance_to_lat_lon(lat_set, lon_set, u_vec[0], u_vec[1])
+                self.lat_set = self.push_dp[0]
+                self.lon_set = self.push_dp[1]
+                self.dp_counter = 0
+                self.correction = True
+            else:
+                self.dp_counter += 1
+                self.correction = False
+                self.get_logger().info(f'dp counter: {self.dp_counter}')
+
 
 
         elif self.mode == 3: # Waypoint step-funksjon.
