@@ -5,4 +5,4 @@ install/
 log/
 .venv/
 src/.vscode/
-./estimator_data.csv
+estimator_data.csv

@@ -274,13 +274,6 @@ class WaypointNode(Node):
             u_vec = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
             u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.lat_set, self.lon_set)
 
-            
-            ### Do not judge and you will not be judged.
-            ### Do not condemn, and you will not be condemned.
-            ### Forgive, and you will be forgiven.
-            ###                 - Luke 6:37
-
-            ### jeg vet det er jalla. ikke døm meg. la stå! ###
 
             #if self.magnitude(u_vec) <= 5 and self.correction:
             #    self.p_m = geo.add_distance_to_lat_lon(lat_set, lon_set, u_vec[0], u_vec[1])
@@ -306,17 +299,18 @@ class WaypointNode(Node):
 
             #u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.p_m[0], self.p_m[1])
 
+
             error_m = self.magnitude(u_vec_m) - delta # 0 når båten ligger 'delta' meter unna p_m
             error = self.magnitude(u_vec) - delta # 0 når båten ligger 'delta' meter unna wp
 
             nu_setpoint = np.tanh(error/tanh_var) * max_nu
             nu_setpoint_m = np.tanh(error_m/tanh_var) * max_nu
 
-            self.nu_publisher(nu_setpoint_m)
+            self.nu_publisher(nu_setpoint_m) # *
 
             ### psi ###
 
-            psi_angle = np.arctan2(u_vec_m[1], u_vec_m[0])
+            psi_angle = np.arctan2(u_vec_m[1], u_vec_m[0]) # *
 
             psi_setpoint = (psi_angle)
 
