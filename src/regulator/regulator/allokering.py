@@ -49,7 +49,7 @@ class Allokering(Node):
         self.Kt0_1                  = self.propuslion_config['main_propulsion_1']['propeller']['Kt0']
         self.max_rps_1              = self.propuslion_config['main_propulsion_1']['propeller']['max_rpm'] / 60
         self.min_rps_1              = self.propuslion_config['main_propulsion_1']['propeller']['min_rpm'] / 60
-        self.position_1             = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.5,0.3]
+        self.position_1             = self.propuslion_config['main_propulsion_1']['position']               # [-1,-0.395,0.3]
         self.type_1                 = self.propuslion_config['main_propulsion_1']['type']
 
                 ### Thruster 2 ###
@@ -58,7 +58,7 @@ class Allokering(Node):
         self.Kt0_2                  = self.propuslion_config['main_propulsion_2']['propeller']['Kt0']
         self.max_rps_2              = self.propuslion_config['main_propulsion_2']['propeller']['max_rpm'] / 60
         self.min_rps_2              = self.propuslion_config['main_propulsion_2']['propeller']['min_rpm'] / 60
-        self.position_2             = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.5,0.3]
+        self.position_2             = self.propuslion_config['main_propulsion_2']['position']               # [-1,0.395,0.3]
         self.type_2                 = self.propuslion_config['main_propulsion_2']['type']
 
         self.timer = self.create_timer(self.step_size, self.step_allokering)
