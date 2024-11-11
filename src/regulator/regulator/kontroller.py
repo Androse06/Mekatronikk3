@@ -119,14 +119,14 @@ class Kontroller(Node):
 
             K_p_psi_base    = self.vessel_model.M[5][5]*omega**2
             K_p_psi         = K_p_psi_base * ( 1 + ( kp_scale * e_psi**2))
-            K_d_psi_base    = 2*zeta*omega*self.vessel_model.M[5][5] - d_stjerne
+            K_d_psi_base    = 2 * zeta * omega * self.vessel_model.M[5][5] - d_stjerne
             K_d_psi         = K_d_psi_base * ( 1 + ( kd_scale * e_psi_dot**2))
-            K_i_psi = K_p_psi / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
+            K_i_psi         = K_p_psi_base / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
 
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
             self.qi_psi  = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
-            P_ledd = K_p_psi_base * e_psi
+            P_ledd = K_p_psi * e_psi
             I_ledd = K_i_psi * self.qi_psi
             D_ledd = K_d_psi_base * e_psi_dot
 
