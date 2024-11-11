@@ -1,12 +1,4 @@
-# -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'Darkmode V3ooBXRk.ui'
-##
-## Created by: Qt User Interface Compiler version 5.15.2
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
@@ -20,60 +12,27 @@ from PySide6.QtWidgets import (QApplication, QDial, QFrame, QGraphicsView,
     QListView, QMainWindow, QMenuBar, QProgressBar,
     QPushButton, QSizePolicy, QSlider, QSpacerItem,
     QStatusBar, QTextBrowser, QVBoxLayout, QWidget)
+# -*- coding: utf-8 -*-
 
-class CompassDial(QDial):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        
-        # Load the original image
-        self.original_image = QPixmap('pictures/Otter_Compass.png')  
-        
-        # Initial scaling of the compass image for the widget size
-        self.compass_image = self.original_image.scaled(
-            self.size(), 
-            Qt.KeepAspectRatio, 
-            Qt.SmoothTransformation  # Provide smooth transformation as positional argument
-        )
+################################################################################
+## Form generated from reading UI file 'Darkmode V3FVbwgs.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-        # Hide the default dial appearance
-        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
-        self.setNotchesVisible(False)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
-    def resizeEvent(self, event):
-        # Rescale the image when the widget is resized
-        self.compass_image = self.original_image.scaled(
-            self.size(), 
-            Qt.KeepAspectRatio, 
-            Qt.SmoothTransformation
-        )
-        super().resizeEvent(event)
-
-    def paintEvent(self, event):
-        painter = QPainter(self)
-
-        # Center and fit the compass image on the dial
-        rect = self.rect()
-        compass_size = min(rect.width(), rect.height())
-        compass_rect = QRect(
-            (rect.width() - compass_size) // 2,
-            (rect.height() - compass_size) // 2,
-            compass_size, compass_size
-        )
-
-        # Apply rotation based on the dial value
-        painter.translate(rect.center())
-        painter.rotate(self.value() + 180)
-        painter.translate(-rect.center())
-
-        # Draw the rotated compass image only
-        painter.drawPixmap(compass_rect, self.compass_image)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.NonModal)
-        MainWindow.resize(1757, 957)
+        MainWindow.resize(1755, 950)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -169,6 +128,7 @@ class Ui_MainWindow(object):
         self.line_6.setSizePolicy(sizePolicy2)
         self.line_6.setFrameShadow(QFrame.Raised)
         self.line_6.setLineWidth(3)
+        self.line_6.setMidLineWidth(0)
         self.line_6.setFrameShape(QFrame.HLine)
 
         self.gridLayout_24.addWidget(self.line_6, 1, 1, 1, 1)
@@ -178,7 +138,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(14)
         font1.setBold(True)
-        font1.setWeight(QFont.Weight.Bold)
+        font1.setWeight(75)
         self.Track_Label.setFont(font1)
         self.Track_Label.setAlignment(Qt.AlignCenter)
 
@@ -251,7 +211,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(10)
         font2.setBold(True)
-        font2.setWeight(QFont.Weight.Bold)
+        font2.setWeight(75)
         self.Gloabl_Throttle1_Label.setFont(font2)
 
         self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label, 8, 2, 1, 1, Qt.AlignHCenter)
@@ -302,7 +262,7 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(8)
         font4.setBold(False)
-        font4.setWeight(QFont.Weight.Normal)
+        font4.setWeight(50)
         self.Global_Throttle1_Status.setFont(font4)
         self.Global_Throttle1_Status.setStyleSheet(u"QProgressBar {\n"
 "    color: black;                      /* Text color */\n"
@@ -351,7 +311,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy3)
         icon = QIcon()
-        icon.addFile(u"pictures/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../../Grafisk/Otter/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QSize(230, 230))
         self.pushButton.setAutoDefault(False)
@@ -401,7 +361,7 @@ class Ui_MainWindow(object):
         font5 = QFont()
         font5.setPointSize(6)
         font5.setBold(True)
-        font5.setWeight(QFont.Weight.Bold)
+        font5.setWeight(75)
         self.Gloabl_Throttle1_Label_3.setFont(font5)
         self.Gloabl_Throttle1_Label_3.setScaledContents(False)
 
@@ -558,7 +518,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_16.addWidget(self.line_2, 1, 0, 1, 3)
 
-        self.Compass_Dial = CompassDial(self.frame_3)
+        self.Compass_Dial = QDial(self.frame_3)
         self.Compass_Dial.setObjectName(u"Compass_Dial")
         sizePolicy3.setHeightForWidth(self.Compass_Dial.sizePolicy().hasHeightForWidth())
         self.Compass_Dial.setSizePolicy(sizePolicy3)
@@ -890,7 +850,7 @@ class Ui_MainWindow(object):
         self.Sail_Throttle_Slider.setMinimumSize(QSize(20, 0))
         font10 = QFont()
         font10.setBold(False)
-        font10.setWeight(QFont.Weight.Normal)
+        font10.setWeight(50)
         self.Sail_Throttle_Slider.setFont(font10)
         self.Sail_Throttle_Slider.setStyleSheet(u"QSlider::handle:vertical {\n"
 "    height: 10px;\n"
@@ -898,7 +858,7 @@ class Ui_MainWindow(object):
 "    margin: 0 -4px; /* expand outside the groove */\n"
 "}")
         self.Sail_Throttle_Slider.setMinimum(-10)
-        self.Sail_Throttle_Slider.setMaximum(40)
+        self.Sail_Throttle_Slider.setMaximum(25)
         self.Sail_Throttle_Slider.setSingleStep(1)
         self.Sail_Throttle_Slider.setPageStep(1)
         self.Sail_Throttle_Slider.setValue(0)
@@ -1002,10 +962,10 @@ class Ui_MainWindow(object):
         font11 = QFont()
         font11.setKerning(True)
         self.gridFrame.setFont(font11)
-        self.gridFrame.setStyleSheet(u"background-color: rgb(44, 44, 44); \n"
-                                "/*background-color: rgb(116, 116, 116); */\n"
-                                "/* background-color: rgb(240, 240, 240); */\n"
-                                "border-radius: 10px;")
+        self.gridFrame.setStyleSheet(u"/*background-color: rgb(204, 204, 204);*/\n"
+"/* background-color: rgb(116, 116, 116); */\n"
+"background-color: rgb(44, 44, 44);\n"
+"border-radius: 10px;")
         self.gridFrame.setLineWidth(0)
         self.gridLayout_11 = QGridLayout(self.gridFrame)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
@@ -1016,7 +976,7 @@ class Ui_MainWindow(object):
         font12.setFamily(u"Segoe UI")
         font12.setPointSize(12)
         font12.setBold(True)
-        font12.setWeight(QFont.Weight.Bold)
+        font12.setWeight(75)
         self.label_3.setFont(font12)
         self.label_3.setStyleSheet(u"color: rgb(240, 240, 240);")
 
@@ -1035,7 +995,7 @@ class Ui_MainWindow(object):
         font13 = QFont()
         font13.setFamily(u"MT Extra")
         font13.setBold(True)
-        font13.setWeight(QFont.Weight.Bold)
+        font13.setWeight(75)
         self.Exit_Button.setFont(font13)
         self.Exit_Button.setStyleSheet(u"/* Default style for the exit button with gradient background */\n"
 "QPushButton {\n"
@@ -1246,6 +1206,106 @@ class Ui_MainWindow(object):
         self.gridLayout_23 = QGridLayout(self.frame_6)
         self.gridLayout_23.setObjectName(u"gridLayout_23")
         self.gridLayout_23.setContentsMargins(-1, 20, -1, -1)
+        self.Deviation_Dp_Label = QLabel(self.frame_6)
+        self.Deviation_Dp_Label.setObjectName(u"Deviation_Dp_Label")
+        self.Deviation_Dp_Label.setFont(font)
+        self.Deviation_Dp_Label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_23.addWidget(self.Deviation_Dp_Label, 11, 0, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_23.addItem(self.verticalSpacer_2, 10, 0, 1, 1)
+
+        self.Enable_Dp_Button = QPushButton(self.frame_6)
+        self.Enable_Dp_Button.setObjectName(u"Enable_Dp_Button")
+        sizePolicy1.setHeightForWidth(self.Enable_Dp_Button.sizePolicy().hasHeightForWidth())
+        self.Enable_Dp_Button.setSizePolicy(sizePolicy1)
+        self.Enable_Dp_Button.setMinimumSize(QSize(70, 25))
+        self.Enable_Dp_Button.setMaximumSize(QSize(70, 25))
+        self.Enable_Dp_Button.setFont(font)
+        self.Enable_Dp_Button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
+"color: rgb(240, 240, 240);\n"
+"\n"
+"")
+
+        self.gridLayout_23.addWidget(self.Enable_Dp_Button, 3, 0, 1, 1, Qt.AlignHCenter)
+
+        self.line_5 = QFrame(self.frame_6)
+        self.line_5.setObjectName(u"line_5")
+        sizePolicy2.setHeightForWidth(self.line_5.sizePolicy().hasHeightForWidth())
+        self.line_5.setSizePolicy(sizePolicy2)
+        self.line_5.setFrameShadow(QFrame.Raised)
+        self.line_5.setLineWidth(3)
+        self.line_5.setFrameShape(QFrame.HLine)
+
+        self.gridLayout_23.addWidget(self.line_5, 1, 0, 1, 1)
+
+        self.Anchor_button = QPushButton(self.frame_6)
+        self.Anchor_button.setObjectName(u"Anchor_button")
+        sizePolicy1.setHeightForWidth(self.Anchor_button.sizePolicy().hasHeightForWidth())
+        self.Anchor_button.setSizePolicy(sizePolicy1)
+        self.Anchor_button.setMinimumSize(QSize(70, 25))
+        self.Anchor_button.setMaximumSize(QSize(70, 25))
+        self.Anchor_button.setFont(font)
+        self.Anchor_button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
+"color: rgb(240, 240, 240);\n"
+"\n"
+"")
+
+        self.gridLayout_23.addWidget(self.Anchor_button, 9, 0, 1, 1, Qt.AlignHCenter)
+
+        self.verticalSpacer_18 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_23.addItem(self.verticalSpacer_18, 5, 0, 1, 1)
+
+        self.Dp_Label = QLabel(self.frame_6)
+        self.Dp_Label.setObjectName(u"Dp_Label")
+        self.Dp_Label.setFont(font1)
+        self.Dp_Label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_23.addWidget(self.Dp_Label, 0, 0, 1, 1)
+
+        self.verticalSpacer_22 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_23.addItem(self.verticalSpacer_22, 12, 0, 1, 1)
+
+        self.verticalSpacer_15 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_23.addItem(self.verticalSpacer_15, 2, 0, 1, 1)
+
+        self.Dp_Status_Icon = QProgressBar(self.frame_6)
+        self.Dp_Status_Icon.setObjectName(u"Dp_Status_Icon")
+        sizePolicy1.setHeightForWidth(self.Dp_Status_Icon.sizePolicy().hasHeightForWidth())
+        self.Dp_Status_Icon.setSizePolicy(sizePolicy1)
+        self.Dp_Status_Icon.setMinimumSize(QSize(70, 15))
+        self.Dp_Status_Icon.setMaximumSize(QSize(70, 15))
+        self.Dp_Status_Icon.setStyleSheet(u" QProgressBar::chunk {\n"
+"     background-color: #f97f55;\n"
+" }")
+        self.Dp_Status_Icon.setValue(100)
+        self.Dp_Status_Icon.setTextVisible(False)
+
+        self.gridLayout_23.addWidget(self.Dp_Status_Icon, 4, 0, 1, 1, Qt.AlignHCenter)
+
+        self.Dp_Load_Button = QPushButton(self.frame_6)
+        self.Dp_Load_Button.setObjectName(u"Dp_Load_Button")
+        sizePolicy1.setHeightForWidth(self.Dp_Load_Button.sizePolicy().hasHeightForWidth())
+        self.Dp_Load_Button.setSizePolicy(sizePolicy1)
+        self.Dp_Load_Button.setMinimumSize(QSize(70, 25))
+        self.Dp_Load_Button.setMaximumSize(QSize(70, 25))
+        self.Dp_Load_Button.setFont(font)
+        self.Dp_Load_Button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
+"color: rgb(240, 240, 240);\n"
+"\n"
+"")
+
+        self.gridLayout_23.addWidget(self.Dp_Load_Button, 6, 0, 1, 1, Qt.AlignHCenter)
+
+        self.verticalSpacer_20 = QSpacerItem(10, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_23.addItem(self.verticalSpacer_20, 14, 0, 1, 1)
+
         self.Deviation_Dp_LCD = QLCDNumber(self.frame_6)
         self.Deviation_Dp_LCD.setObjectName(u"Deviation_Dp_LCD")
         sizePolicy1.setHeightForWidth(self.Deviation_Dp_LCD.sizePolicy().hasHeightForWidth())
@@ -1280,109 +1340,6 @@ class Ui_MainWindow(object):
         self.gridLayout_23.addWidget(self.line_7, 8, 0, 1, 1)
 
 
-        self.verticalSpacer_18 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_23.addItem(self.verticalSpacer_18, 5, 0, 1, 1)
-
-        self.Dp_Label = QLabel(self.frame_6)
-        self.Dp_Label.setObjectName(u"Dp_Label")
-        self.Dp_Label.setFont(font1)
-        self.Dp_Label.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_23.addWidget(self.Dp_Label, 0, 0, 1, 1)
-
-        self.Deviation_Dp_Label = QLabel(self.frame_6)
-        self.Deviation_Dp_Label.setObjectName(u"Deviation_Dp_Label")
-        self.Deviation_Dp_Label.setFont(font)
-        self.Deviation_Dp_Label.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_23.addWidget(self.Deviation_Dp_Label, 9, 0, 1, 1)
-
-        self.verticalSpacer_15 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_23.addItem(self.verticalSpacer_15, 2, 0, 1, 1)
-
-        self.Enable_Dp_Button = QPushButton(self.frame_6)
-        self.Enable_Dp_Button.setObjectName(u"Enable_Dp_Button")
-        sizePolicy1.setHeightForWidth(self.Enable_Dp_Button.sizePolicy().hasHeightForWidth())
-        self.Enable_Dp_Button.setSizePolicy(sizePolicy1)
-        self.Enable_Dp_Button.setMinimumSize(QSize(70, 25))
-        self.Enable_Dp_Button.setMaximumSize(QSize(70, 25))
-        self.Enable_Dp_Button.setFont(font)
-        self.Enable_Dp_Button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
-"color: rgb(240, 240, 240);\n"
-"\n"
-"")
-
-        self.gridLayout_23.addWidget(self.Enable_Dp_Button, 3, 0, 1, 1, Qt.AlignHCenter)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_23.addItem(self.verticalSpacer_2, 8, 0, 1, 1)
-
-        self.Dp_Status_Icon = QProgressBar(self.frame_6)
-        self.Dp_Status_Icon.setObjectName(u"Dp_Status_Icon")
-        sizePolicy1.setHeightForWidth(self.Dp_Status_Icon.sizePolicy().hasHeightForWidth())
-        self.Dp_Status_Icon.setSizePolicy(sizePolicy1)
-        self.Dp_Status_Icon.setMinimumSize(QSize(70, 15))
-        self.Dp_Status_Icon.setMaximumSize(QSize(70, 15))
-        self.Dp_Status_Icon.setStyleSheet(u" QProgressBar::chunk {\n"
-"     background-color: #f97f55;\n"
-" }")
-        self.Dp_Status_Icon.setValue(100)
-        self.Dp_Status_Icon.setTextVisible(False)
-
-        self.gridLayout_23.addWidget(self.Dp_Status_Icon, 4, 0, 1, 1, Qt.AlignHCenter)
-
-        self.Dp_Load_Button = QPushButton(self.frame_6)
-        self.Dp_Load_Button.setObjectName(u"Dp_Load_Button")
-        sizePolicy1.setHeightForWidth(self.Dp_Load_Button.sizePolicy().hasHeightForWidth())
-        self.Dp_Load_Button.setSizePolicy(sizePolicy1)
-        self.Dp_Load_Button.setMinimumSize(QSize(70, 25))
-        self.Dp_Load_Button.setMaximumSize(QSize(70, 25))
-        self.Dp_Load_Button.setFont(font)
-        self.Dp_Load_Button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
-"color: rgb(240, 240, 240);\n"
-"\n"
-"")
-
-        self.gridLayout_23.addWidget(self.Dp_Load_Button, 6, 0, 1, 1, Qt.AlignHCenter)
-
-        self.verticalSpacer_20 = QSpacerItem(10, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_23.addItem(self.verticalSpacer_20, 12, 0, 1, 1)
-
-        self.line_5 = QFrame(self.frame_6)
-        self.line_5.setObjectName(u"line_5")
-        sizePolicy2.setHeightForWidth(self.line_5.sizePolicy().hasHeightForWidth())
-        self.line_5.setSizePolicy(sizePolicy2)
-        self.line_5.setFrameShadow(QFrame.Raised)
-        self.line_5.setLineWidth(3)
-        self.line_5.setFrameShape(QFrame.HLine)
-
-        self.gridLayout_23.addWidget(self.line_5, 1, 0, 1, 1)
-
-        self.Anchor_button = QPushButton(self.frame_6)
-        self.Anchor_button.setObjectName(u"Anchor_button")
-        sizePolicy1.setHeightForWidth(self.Anchor_button.sizePolicy().hasHeightForWidth())
-        self.Anchor_button.setSizePolicy(sizePolicy1)
-        self.Anchor_button.setMinimumSize(QSize(70, 25))
-        self.Anchor_button.setMaximumSize(QSize(70, 25))
-        self.Anchor_button.setFont(font)
-        self.Anchor_button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
-"color: rgb(240, 240, 240);\n"
-"\n"
-"")
-        
-
-        self.gridLayout_23.addWidget(self.Anchor_button, 9, 0, 1, 1, Qt.AlignHCenter)
-
-
-        self.verticalSpacer_22 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_23.addItem(self.verticalSpacer_22, 10, 0, 1, 1)
-
-
         self.gridLayout_20.addWidget(self.frame_6, 0, 0, 1, 1)
 
 
@@ -1394,7 +1351,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1757, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1755, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -1443,10 +1400,10 @@ class Ui_MainWindow(object):
         self.Exit_Button.setText(QCoreApplication.translate("MainWindow", u"X", None))
         self.Enable_Standby_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Standby_Label.setText(QCoreApplication.translate("MainWindow", u"STANDBY", None))
-        self.Dp_Label.setText(QCoreApplication.translate("MainWindow", u"POSITION", None))
         self.Deviation_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"Deviation", None))
         self.Enable_Dp_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
-        self.Dp_Load_Button.setText(QCoreApplication.translate("MainWindow", u"Load", None))
         self.Anchor_button.setText(QCoreApplication.translate("MainWindow", u"Anchor", None))
-
+        self.Dp_Label.setText(QCoreApplication.translate("MainWindow", u"POSITION", None))
+        self.Dp_Load_Button.setText(QCoreApplication.translate("MainWindow", u"Load", None))
     # retranslateUi
+

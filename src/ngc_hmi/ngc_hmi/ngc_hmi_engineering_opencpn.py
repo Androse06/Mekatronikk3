@@ -1,7 +1,7 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
-from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
-from PySide6.QtGui import QWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial
+from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect
+from PySide6.QtGui import QWindow, QPainter, QPen, QColor, QPixmap
 from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
@@ -16,6 +16,56 @@ from ngc_utils.qos_profiles import default_qos_profile
 import numpy as np
 import ngc_utils.math_utils as mu
 import signal
+import math
+
+class CompassDial(QDial):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        
+        # Load the original image
+        self.original_image = QPixmap('pictures/Otter_Compass.png')  
+        
+        # Initial scaling of the compass image for the widget size
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.AspectRatioMode.KeepAspectRatio, 
+            Qt.TransformationMode.SmoothTransformation
+        )
+
+        # Hide the default dial appearance
+        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+        self.setNotchesVisible(False)
+
+    def resizeEvent(self, event):
+        # Rescale the image when the widget is resized
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.AspectRatioMode.KeepAspectRatio, 
+            Qt.TransformationMode.SmoothTransformation
+        )
+        super().resizeEvent(event)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+
+        # Center and fit the compass image on the dial
+        rect = self.rect()
+        compass_size = min(rect.width(), rect.height())
+        compass_rect = QRect(
+            (rect.width() - compass_size) // 2,
+            (rect.height() - compass_size) // 2,
+            compass_size, compass_size
+        )
+
+        # Apply rotation based on the dial value
+        painter.translate(rect.center())
+        painter.rotate(self.value() + 180)
+        painter.translate(-rect.center())
+
+        # Draw the rotated compass image only
+        painter.drawPixmap(compass_rect, self.compass_image)
+
+
 
 class EngineeringHMI(Node):
     def __init__(self):
@@ -72,6 +122,13 @@ class EngineeringHMI(Node):
         # Create an instance of the MainWindow and show it
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
+
+       # Replace the default compass dial with CompassDial
+        compass_dial_widget = CompassDial(self.window)
+        compass_dial_widget.setGeometry(self.ui.Compass_Dial.geometry())
+        self.ui.Compass_Dial = compass_dial_widget
+        self.ui.Compass_Dial.valueChanged.connect(self.update_sail_heading)  # Connect as needed
+        
         self.window.showFullScreen()
 
         # Add a small delay to let the window finish loading and layout updating
