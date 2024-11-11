@@ -274,32 +274,6 @@ class WaypointNode(Node):
             u_vec = geo.calculate_distance_north_east(lat_hat, lon_hat, lat_set, lon_set)
             u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.lat_set, self.lon_set)
 
-
-            #if self.magnitude(u_vec) <= 5 and self.correction:
-            #    self.p_m = geo.add_distance_to_lat_lon(lat_set, lon_set, u_vec[0], u_vec[1])
-            #    self.dp_init = True
-            #else:
-            #    self.dp_init = False
-
-            #v_vec = geo.calculate_distance_north_east(lat_set, lon_set, self.p_m[0], self.p_m[1])
-
-            #if (self.magnitude(u_vec) * self.magnitude(v_vec)) == 0:
-            #    theta_cos = 0
-            #else:
-            #    theta_cos = (np.dot(u_vec, v_vec)) / (self.magnitude(u_vec) * self.magnitude(v_vec))
-            
-            #theta_cos = np.clip(theta_cos, -1 ,1)
-            #theta = np.arccos(theta_cos)
-
-            #w_vec = np.zeros(2)
-            #w_vec[0] = v_vec[0] * np.cos(theta) - v_vec[1] * np.sin(theta)
-            #w_vec[1] = v_vec[0] * np.sin(theta) + v_vec[1] * np.cos(theta)
-
-            #self.p_m = geo.add_distance_to_lat_lon(lat_set, lon_set, w_vec[0], w_vec[1])
-
-            #u_vec_m = geo.calculate_distance_north_east(lat_hat, lon_hat, self.p_m[0], self.p_m[1])
-
-
             error_m = self.magnitude(u_vec_m) - delta # 0 når båten ligger 'delta' meter unna p_m
             error = self.magnitude(u_vec) - delta # 0 når båten ligger 'delta' meter unna wp
 
