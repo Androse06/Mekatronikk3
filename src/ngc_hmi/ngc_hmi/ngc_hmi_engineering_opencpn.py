@@ -34,7 +34,7 @@ class CompassDial(QDial):
 
         # Hide the default dial appearance
         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
-        self.setNotchesVisible(True)
+        self.setNotchesVisible(False)
 
     def resizeEvent(self, event):
         # Rescale the image on widget resize
@@ -64,6 +64,22 @@ class CompassDial(QDial):
 
         # Draw the rotated compass image
         painter.drawPixmap(compass_rect, self.compass_image)
+
+         # Draw custom notches
+        painter.setPen(QPen(Qt.white, 2))  # Set pen for notch color and thickness
+        center = rect.center()
+        radius = compass_size // 2 - 10  # Adjust radius as needed for positioning notches
+
+        # Draw notches at intervals (e.g., every 10 degrees)
+        for angle in range(0, 360, 10):
+            painter.save()
+            painter.translate(center)
+            painter.rotate(angle)
+            notch_length = 10 if angle % 30 == 0 else 5  # Longer notches at every 30 degrees
+            start = QPoint(0, -radius)
+            end = QPoint(0, -(radius - notch_length))
+            painter.drawLine(start, end)
+            painter.restore()
 
 
 class EngineeringHMI(Node):
@@ -197,7 +213,7 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
-        self.ui.Anchor_button.clicked.connect(self.load_anchor)
+        self.ui.Anchor_button.pressed.connect(self.load_anchor)
         self.ui.Anchor_button.released.connect(self.anchor_reset)
 
         if self.simulator:
@@ -372,6 +388,7 @@ class EngineeringHMI(Node):
 
     def anchor_reset(self):
         self.anchor = False
+        self.hmi_send_ros_message()
         
 
     def hmi_send_ros_message(self):
@@ -383,6 +400,7 @@ class EngineeringHMI(Node):
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         hmi_message.anchor  = False
         self.hmi_publisher.publish(hmi_message)
+        self.get_logger().info(f'anchor = {hmi_message.anchor}')
 
         if self.debug:
             self.get_logger().info(
