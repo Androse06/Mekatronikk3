@@ -1,7 +1,7 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
-from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint
-from PySide6.QtGui import QWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial
+from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect
+from PySide6.QtGui import QWindow, QPainter, QPen, QColor, QPixmap
 from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
 import sys
 import sip
@@ -17,6 +17,55 @@ import numpy as np
 import ngc_utils.math_utils as mu
 import signal
 
+
+class CompassDial(QDial):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        
+        # Load the custom compass image
+        self.original_image = QPixmap('pictures/Otter_Compass.png')  
+        
+        # Scale the compass image initially for widget size
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.AspectRatioMode.KeepAspectRatio, 
+            Qt.TransformationMode.SmoothTransformation
+        )
+
+        # Hide the default dial appearance
+        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+        self.setNotchesVisible(False)
+
+    def resizeEvent(self, event):
+        # Rescale the image on widget resize
+        self.compass_image = self.original_image.scaled(
+            self.size(), 
+            Qt.AspectRatioMode.KeepAspectRatio, 
+            Qt.TransformationMode.SmoothTransformation
+        )
+        super().resizeEvent(event)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+
+        # Center and fit the compass image on the dial
+        rect = self.rect()
+        compass_size = min(rect.width(), rect.height())
+        compass_rect = QRect(
+            (rect.width() - compass_size) // 2,
+            (rect.height() - compass_size) // 2,
+            compass_size, compass_size
+        )
+
+        # Rotate based on dial value
+        painter.translate(rect.center())
+        painter.rotate(self.value() + 180)
+        painter.translate(-rect.center())
+
+        # Draw the rotated compass image
+        painter.drawPixmap(compass_rect, self.compass_image)
+
+
 class EngineeringHMI(Node):
     def __init__(self):
         super().__init__('ngc_engineering_hmi')
@@ -28,9 +77,9 @@ class EngineeringHMI(Node):
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
 
         # Endring for otter interface
-        self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_1_feedback', self.thruster_1_sim_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_2_feedback', self.thruster_2_sim_callback, default_qos_profile)
+        #self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_1_setpoints', self.thruster_1_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_2_setpoints', self.thruster_2_sim_callback, default_qos_profile)
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
         self.create_subscription(Eta, 'eta_hat', self.eta_hat_callback, default_qos_profile)
         self.create_subscription(Nu, 'nu_hat', self.nu_hat_callback, default_qos_profile)
@@ -72,6 +121,23 @@ class EngineeringHMI(Node):
         # Create an instance of the MainWindow and show it
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
+
+       # Replace Compass_Dial in the layout
+        compass_dial = CompassDial(self.ui.centralwidget)  # use central widget as parent
+        compass_dial.setGeometry(self.ui.Compass_Dial.geometry())
+        compass_dial.setRange(0, 360)
+        compass_dial.setValue(self.ui.Compass_Dial.value())
+
+        # Remove the original Compass_Dial from the layout and add CompassDial instead
+        layout = self.ui.Compass_Dial.parentWidget().layout()
+        if layout is not None:
+            layout.replaceWidget(self.ui.Compass_Dial, compass_dial)
+        else:
+            compass_dial.setGeometry(self.ui.Compass_Dial.geometry())  # fallback if no layout
+
+        self.ui.Compass_Dial.deleteLater()  # remove original
+        self.ui.Compass_Dial = compass_dial  # replace with custom
+        
         self.window.showFullScreen()
 
         # Add a small delay to let the window finish loading and layout updating
@@ -126,21 +192,15 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
-        
-       
-        # # Connect Inputs
-        # self.ui.Lon_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        # self.ui.Lat_Input_Dp.textChanged.connect(self.retrieve_dp_input)
-        # self.ui.Lat_Input_Track.textChanged.connect(self.retrieve_track_input)
-        # self.ui.Lon_Input_Track.textChanged.connect(self.retrieve_track_input)
-        
-        # # Setter opp waypoint list
-        # self.waypoint_model = QStringListModel()
-        # self.ui.WayPoint_ListView.setModel(self.waypoint_model)
-        # self.ui.Add_WayPoint_Button.clicked.connect(self.add_waypoint)
 
+        
+        self.debug      = False
+        self.simulator  = True
 
-        self.debug = False
+        if self.simulator:
+            # Setter modus og fuel til simulator / demo
+            self.ui.Mode.setText(f'Simulator')
+            self.ui.Fuel.setText(f'100%')
 
     def exit_procedure(self):
         try:
@@ -149,7 +209,6 @@ class EngineeringHMI(Node):
             
         except Exception as e:
             self.get_logger().error(f"Exit not exiting, plis try again {e}")
-
 
 
     def embed_external_application(self, window_id):
@@ -161,7 +220,6 @@ class EngineeringHMI(Node):
     def adjust_opencpn_window(self):
         if not self.opencpn_window_id:
             return
-
 
         # Ensure layout updates and geometry calculations
         self.ui.MapPlaceHolder.updateGeometry()
@@ -193,19 +251,9 @@ class EngineeringHMI(Node):
             self.get_logger().error(f"Failed to adjust OpenCPN window position: {e}")
 
 
-
-    # def add_waypoint(self):
-    #     waypoint_strings = [f"lat = {lat: 2f}, Lon = {lon: 2f}" for lat, lon in self.coordinates]
-    #     self.waypoint_model.setStringList(waypoint_strings)
-    #     self.ui.Lat_Input_Track.clear()
-    #     self.ui.Lon_Input_Track.clear()
-    
-    # def clear_waypoint(self):
-    #     self.waypoint_model.setStringList([])
-
     # Method to handle sail throttle slider value changes
     def update_sail_throttle(self, value):
-        self.nu = float(value/10)        
+        self.nu = float(value / 10)        
         # Update the LCD display to show the current throttle
         self.ui.Sail_Throttle_LCD.display(value / 10)
 
@@ -258,16 +306,6 @@ class EngineeringHMI(Node):
 
     def set_compass_value(self, value):
         self.ui.Compass_Dial.setValue(value)
-
-    # def retrieve_dp_input(self):
-    #     self.Dp_Lon_Input = self.ui.Lon_Input_Dp.text()
-    #     self.Dp_Lat_Input = self.ui.Lat_Input_Dp.text()
-
-
-    # def retrieve_track_input(self):
-    #     self.Track_Lon_Input = self.ui.Lon_Input_Track.text()
-    #     self.Track_Lat_Input = self.ui.Lat_Input_Track.text()
-
 
 
     # Method to handle the Enable Standby button click
@@ -413,8 +451,7 @@ class EngineeringHMI(Node):
         self.fuel_cap       = msg.current_fuel_capacity
         self.ui.Mode.setText(f'{self.current_mode}')
         self.ui.Fuel.setText(f'{self.fuel_cap}%')
-        self.set_Th1_Icon(self.th1_rpm)
-        self.set_Th2_Icon(self.th2_rpm)
+    
     
     def thruster_1_sim_callback(self, msg:ThrusterSignals):
         self.sim_th1_rpm = msg.rps * 60
@@ -423,10 +460,6 @@ class EngineeringHMI(Node):
     def thruster_2_sim_callback(self, msg:ThrusterSignals):
         self.sim_th2_rpm = msg.rps * 60
         self.set_Th2_Icon(self.sim_th2_rpm)
-
-        # Setter modus og fuel til simulator / demo
-        self.ui.Mode.setText(f'Simulator')
-        self.ui.Fuel.setText(f'100%')
 
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = np.degrees(mu.mapToZero2Pi(msg.psi))
