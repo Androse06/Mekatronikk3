@@ -22,10 +22,10 @@ class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
         
-        # Load the original image
+        # Load the custom compass image
         self.original_image = QPixmap('pictures/Otter_Compass.png')  
         
-        # Initial scaling of the compass image for the widget size
+        # Scale the compass image initially for widget size
         self.compass_image = self.original_image.scaled(
             self.size(), 
             Qt.AspectRatioMode.KeepAspectRatio, 
@@ -37,7 +37,7 @@ class CompassDial(QDial):
         self.setNotchesVisible(False)
 
     def resizeEvent(self, event):
-        # Rescale the image when the widget is resized
+        # Rescale the image on widget resize
         self.compass_image = self.original_image.scaled(
             self.size(), 
             Qt.AspectRatioMode.KeepAspectRatio, 
@@ -57,14 +57,13 @@ class CompassDial(QDial):
             compass_size, compass_size
         )
 
-        # Apply rotation based on the dial value
+        # Rotate based on dial value
         painter.translate(rect.center())
         painter.rotate(self.value() + 180)
         painter.translate(-rect.center())
 
-        # Draw the rotated compass image only
+        # Draw the rotated compass image
         painter.drawPixmap(compass_rect, self.compass_image)
-
 
 
 class EngineeringHMI(Node):
@@ -123,11 +122,12 @@ class EngineeringHMI(Node):
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
 
-       # Replace the default compass dial with CompassDial
-        compass_dial_widget = CompassDial(self.window)
-        compass_dial_widget.setGeometry(self.ui.Compass_Dial.geometry())
-        self.ui.Compass_Dial = compass_dial_widget
-        self.ui.Compass_Dial.valueChanged.connect(self.update_sail_heading)  # Connect as needed
+       # Replace the default Compass_Dial with Custom CompassDial
+        compass_dial = CompassDial(self.window)
+        compass_dial.setGeometry(self.ui.Compass_Dial.geometry())
+        compass_dial.setRange(0, 360)
+        compass_dial.setValue(self.ui.Compass_Dial.value())
+        self.ui.Compass_Dial = compass_dial
         
         self.window.showFullScreen()
 

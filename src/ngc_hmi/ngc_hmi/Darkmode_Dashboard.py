@@ -306,7 +306,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy3)
         icon = QIcon()
-        icon.addFile(u"../../Grafisk/Otter/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"pictures/Gray Otter.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QSize(230, 230))
         self.pushButton.setAutoDefault(False)
