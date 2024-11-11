@@ -1002,10 +1002,10 @@ class Ui_MainWindow(object):
         font11 = QFont()
         font11.setKerning(True)
         self.gridFrame.setFont(font11)
-        self.gridFrame.setStyleSheet(u"/*background-color: rgb(204, 204, 204);*/\n"
-"/* background-color: rgb(116, 116, 116); */\n"
-"background-color: rgb(240, 240, 240);\n"
-"border-radius: 2px;")
+        self.gridFrame.setStyleSheet(u"background-color: rgb(44, 44, 44); \n"
+                                "/*background-color: rgb(116, 116, 116); */\n"
+                                "/* background-color: rgb(240, 240, 240); */\n"
+                                "border-radius: 10px;")
         self.gridFrame.setLineWidth(0)
         self.gridLayout_11 = QGridLayout(self.gridFrame)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
@@ -1018,11 +1018,11 @@ class Ui_MainWindow(object):
         font12.setBold(True)
         font12.setWeight(QFont.Weight.Bold)
         self.label_3.setFont(font12)
-        self.label_3.setStyleSheet(u"color: rgb(0, 0, 0);")
+        self.label_3.setStyleSheet(u"color: rgb(240, 240, 240);")
 
         self.gridLayout_11.addWidget(self.label_3, 0, 1, 1, 1)
 
-        self.horizontalSpacer_12 = QSpacerItem(4, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+        self.horizontalSpacer_12 = QSpacerItem(20, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.gridLayout_11.addItem(self.horizontalSpacer_12, 0, 4, 1, 1)
 
