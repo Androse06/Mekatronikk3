@@ -18,9 +18,9 @@ environmental_disturbances:
   wind_variation: False
 
 physical_parameters:
-  rho_water: 1024.0
-  gravity: 9.81
-  rho_air: 1.23
+  rho_water: 1027.0
+  gravity: 9.819
+  rho_air: 1.269
 
 otter_interface:
   ip: "192.168.53.2"                        # Wifi: 10.0.5.1, Radio: 192.168.53.2

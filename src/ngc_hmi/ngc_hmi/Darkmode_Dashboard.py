@@ -898,7 +898,7 @@ class Ui_MainWindow(object):
 "    margin: 0 -4px; /* expand outside the groove */\n"
 "}")
         self.Sail_Throttle_Slider.setMinimum(-10)
-        self.Sail_Throttle_Slider.setMaximum(25)
+        self.Sail_Throttle_Slider.setMaximum(50)
         self.Sail_Throttle_Slider.setSingleStep(1)
         self.Sail_Throttle_Slider.setPageStep(1)
         self.Sail_Throttle_Slider.setValue(0)
