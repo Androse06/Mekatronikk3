@@ -34,7 +34,7 @@ class CompassDial(QDial):
 
         # Hide the default dial appearance
         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
-        self.setNotchesVisible(False)
+        self.setNotchesVisible(True)
 
     def resizeEvent(self, event):
         # Rescale the image on widget resize
@@ -149,16 +149,16 @@ class EngineeringHMI(Node):
         self.update_timer.start(100)  # Update every 100ms
 
         # Lager Variabler
-        self.mode       = 0
-        self.route      = False
-        self.point      = False
-        self.nu         = 0
-        self.eta        = 0
-        self.th1_rpm    = 0
-        self.th2_rpm    = 0
-        self.th1_pwr    = 0
-        self.th2_pwr    = 0
-        self.fuel_cap   = 0
+        self.mode           = 0
+        self.route          = False
+        self.point          = False
+        self.nu             = 0
+        self.eta            = 0
+        self.th1_rpm        = 0
+        self.th2_rpm        = 0
+        self.th1_pwr        = 0
+        self.th2_pwr        = 0
+        self.fuel_cap       = 0
 
         self.i              = 0
         self.coordinates    = []
@@ -167,8 +167,8 @@ class EngineeringHMI(Node):
         self.dp_error       = False
         self.anchor         = False
 
-        self.debug      = False
-        self.simulator  = True
+        self.debug          = False
+        self.simulator      = True
 
 
         # Start Values
