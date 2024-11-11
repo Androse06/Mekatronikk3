@@ -1,17 +1,17 @@
 heading_control:
-  omega: 0.75  # LF viser til 1.5
-  zeta: 1.8   # LF viser til 1.0
+  omega: 1.5  # LF viser til 1.5
+  zeta: 1.0   # LF viser til 1.0
   ki_scale: 5
-  kp_scale: 15
-  kd_scale: 2
+  kp_scale: 1
+  kd_scale: 1
   ki_saturation_limit: 15  #degrees
   N_rr: 25
   linearization_point: 0.2
   
 speed_control:
-  K_p: 0.3  # LF viser til 1
-  kp_scale: 14
-  ki_scale: 8
+  K_p: 1 # LF viser til 1
+  kp_scale: 1
+  ki_scale: 5
   ki_saturation_limit: 1.25  #m/s
   X_uu: 100
 
