@@ -49,10 +49,10 @@ class CompassDial(QDial):
         painter = QPainter(self)
 
         # Draw the static notches
-        painter.setPen(QPen(Qt.white, 1))  # Set pen for notch color and thickness
+        painter.setPen(QPen(Qt.white, 2))  # Set pen for notch color and thickness
         rect = self.rect()
         center = rect.center()
-        radius = min(rect.width(), rect.height()) // 2 - 5  # Adjust radius as needed
+        radius = min(rect.width(), rect.height()) // 2 - 2  # Adjust radius as needed
 
         # Draw static notches at intervals (e.g., every 10 degrees)
         for angle in range(0, 360, 10):
