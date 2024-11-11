@@ -26,7 +26,7 @@ class CompassDial(QDial):
         super().__init__(parent)
         
         # Load the original image
-        self.original_image = QPixmap('pictures/Gray Otter.png')  
+        self.original_image = QPixmap('pictures/Otter_Compass.png')  
         
         # Initial scaling of the compass image for the widget size
         self.compass_image = self.original_image.scaled(
@@ -62,7 +62,7 @@ class CompassDial(QDial):
 
         # Apply rotation based on the dial value
         painter.translate(rect.center())
-        painter.rotate(self.value())
+        painter.rotate(self.value() + 180)
         painter.translate(-rect.center())
 
         # Draw the rotated compass image only
