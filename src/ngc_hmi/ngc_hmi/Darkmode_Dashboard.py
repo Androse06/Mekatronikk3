@@ -26,7 +26,7 @@ class CompassDial(QDial):
         super().__init__(parent)
         
         # Load the original image
-        self.original_image = QPixmap('pictures/compass_2.png')  
+        self.original_image = QPixmap('pictures/Gray Otter.png')  
         
         # Initial scaling of the compass image for the widget size
         self.compass_image = self.original_image.scaled(
