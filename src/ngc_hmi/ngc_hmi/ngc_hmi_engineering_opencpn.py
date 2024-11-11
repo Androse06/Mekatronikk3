@@ -64,9 +64,9 @@ class CompassDial(QDial):
 
         # Draw the rotated compass image
         painter.drawPixmap(compass_rect, self.compass_image)
-        
+
          # Draw custom notches
-        painter.setPen(QPen(Qt.black, 2))  # Set pen for notch color and thickness
+        painter.setPen(QPen(Qt.pink, 2))  # Set pen for notch color and thickness
         center = rect.center()
         radius = compass_size // 2 - 10  # Adjust radius as needed for positioning notches
 
