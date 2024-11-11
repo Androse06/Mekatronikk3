@@ -126,7 +126,7 @@ class Kontroller(Node):
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
             self.qi_psi  = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
-            P_ledd = K_p_psi * e_psi
+            P_ledd = K_p_psi_base * e_psi
             I_ledd = K_i_psi * self.qi_psi
             D_ledd = K_d_psi_base * e_psi_dot
 
