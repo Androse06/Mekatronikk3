@@ -77,7 +77,7 @@ class EngineeringHMI(Node):
         self.create_subscription(HMI, 'hmi', self.hmi_callback, default_qos_profile)
 
         # Endring for otter interface
-        #self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
+        self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
         self.create_subscription(ThrusterSignals, 'thruster_1_setpoints', self.thruster_1_sim_callback, default_qos_profile)
         self.create_subscription(ThrusterSignals, 'thruster_2_setpoints', self.thruster_2_sim_callback, default_qos_profile)
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
@@ -148,7 +148,7 @@ class EngineeringHMI(Node):
         self.update_timer.timeout.connect(self.adjust_opencpn_window)
         self.update_timer.start(100)  # Update every 100ms
 
-        # Lager Variabler'
+        # Lager Variabler
         self.mode       = 0
         self.route      = False
         self.point      = False
@@ -165,6 +165,10 @@ class EngineeringHMI(Node):
         self.status         = False
         self.dp_status      = False
         self.dp_error       = False
+
+        self.debug      = False
+        self.simulator  = True
+
 
         # Start Values
         self.ui.Standby_Status_Icon.setValue(int(100))
@@ -192,10 +196,8 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
-
-        
-        self.debug      = False
-        self.simulator  = True
+        self.ui.Anchor_button.clicked.connect(self.load_anchor)
+        self.ui.Anchor_button.released.connect(self.anchor_reset)
 
         if self.simulator:
             # Setter modus og fuel til simulator / demo
@@ -361,6 +363,13 @@ class EngineeringHMI(Node):
     
     def load_dp_reset(self):
         self.point = False
+
+    def load_anchor(self):
+        self.anchor = True
+        self.hmi_send_ros_message()
+
+    def anchor_reset(self):
+        self.anchor = False
         
 
     def hmi_send_ros_message(self):
@@ -451,6 +460,7 @@ class EngineeringHMI(Node):
         self.fuel_cap       = msg.current_fuel_capacity
         self.ui.Mode.setText(f'{self.current_mode}')
         self.ui.Fuel.setText(f'{self.fuel_cap}%')
+        self.simulator = False
     
     
     def thruster_1_sim_callback(self, msg:ThrusterSignals):
