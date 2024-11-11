@@ -102,16 +102,17 @@ class WaypointNode(Node):
             self.dp_init = True
 
         if msg.anchor:
-            self.waypoint = []
-            self.waypoint.append((self.eta[0], self.eta[1]))
+            wp = (self.eta[0], self.eta[1])
+            self.waypoint = wp
             if self.mode != 2:
                 self.mode_publisher(2)
 
-        if self.debug == 1:
+        if True: #self.debug == 1:
             self.get_logger().info(
                 f'callback - mode: {msg.mode}\n'
                 f'callback - route: {msg.route}\n'
                 f'callback - point: {msg.point}\n'
+                f'callback - anchor: {msg.anchor}\n'
                 f'callback - eta: {msg.eta}\n'
                 f'callback - nu: {msg.nu}'
             )
