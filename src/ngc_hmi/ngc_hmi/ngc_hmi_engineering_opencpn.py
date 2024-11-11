@@ -382,9 +382,8 @@ class EngineeringHMI(Node):
         self.point = False
 
     def load_anchor(self):
-        anchor_msg = HMI()
-        anchor_msg.anchor = True
-        self.hmi_publisher.publish(anchor_msg)
+        self.anchor = True
+        self.hmi_send_ros_message()        
 
     def anchor_reset(self):
         self.anchor = False
