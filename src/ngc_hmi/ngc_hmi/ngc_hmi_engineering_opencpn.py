@@ -78,8 +78,8 @@ class EngineeringHMI(Node):
 
         # Endring for otter interface
         #self.create_subscription(OtterStatus, 'otter_status', self.otter_status_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_1_setpoint', self.thruster_1_sim_callback, default_qos_profile)
-        self.create_subscription(ThrusterSignals, 'thruster_2_setpoint', self.thruster_2_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_1_setpoints', self.thruster_1_sim_callback, default_qos_profile)
+        self.create_subscription(ThrusterSignals, 'thruster_2_setpoints', self.thruster_2_sim_callback, default_qos_profile)
         self.create_subscription(TravelData, 'traveldata', self.travel_data_callback, default_qos_profile)
         self.create_subscription(Eta, 'eta_hat', self.eta_hat_callback, default_qos_profile)
         self.create_subscription(Nu, 'nu_hat', self.nu_hat_callback, default_qos_profile)
@@ -192,9 +192,10 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
+
         
         self.debug      = False
-        self.simulator  = False
+        self.simulator  = True
 
         if self.simulator:
             # Setter modus og fuel til simulator / demo
