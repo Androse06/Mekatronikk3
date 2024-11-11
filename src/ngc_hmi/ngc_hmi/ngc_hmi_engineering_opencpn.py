@@ -165,6 +165,7 @@ class EngineeringHMI(Node):
         self.status         = False
         self.dp_status      = False
         self.dp_error       = False
+        self.anchor         = False
 
         self.debug      = False
         self.simulator  = True
