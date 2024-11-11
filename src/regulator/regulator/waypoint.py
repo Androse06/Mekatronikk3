@@ -118,7 +118,7 @@ class WaypointNode(Node):
             
     def gpx_parsing(self, mode):
         try:
-            coordinates: list[tuple[float, float]] = []
+            coordinates: list[np.ndarray[float, float]] = []
 
             if mode == 2:
                 file_path = 'gpx_file/waypoints.gpx'
@@ -347,7 +347,7 @@ class WaypointNode(Node):
                 self.coordinates = []
                 return
 
-            waypoint: tuple[float, float] = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
+            waypoint: np.ndarray[float, float] = self.coordinates[self.i] # self.i oppdateres når båten er innenfor radiusen til waypointet (wp2).
             if self.debug >= 2:
                 self.get_logger().info(f'waypoint: {waypoint}')
 
@@ -383,23 +383,23 @@ class WaypointNode(Node):
             lon_hat: float = self.eta[1]
 
             ### Avstanden mellom båt og waypoint 2 ###
-            p_vec: tuple[float, float]  = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
+            p_vec: np.ndarray[float, float]  = geo.calculate_distance_north_east(lat_wp2, lon_wp2, lat_hat, lon_hat)
             p_distance: float           = self.magnitude(p_vec)
 
             ### Avstanden mellom wayoint 1 og 2 - a ###
-            a_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2)
+            a_vec: np.ndarray[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_wp2, lon_wp2)
 
             ### Avstanden mellom waypoint 1 og båt - b ###
-            b_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat)
+            b_vec: np.ndarray[float, float] = geo.calculate_distance_north_east(lat_wp1, lon_wp1, lat_hat, lon_hat)
 
             ### Avstanden mellom waypoint 1 og P_merket - a_merket ###
-            a_vec_m: tuple[float, float] = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
+            a_vec_m: np.ndarray[float, float] = np.dot(((np.dot(a_vec, b_vec) / np.dot(a_vec, a_vec))), a_vec)
 
             ### Koordinat til P_merket ###
-            pos_m: tuple[float, float] = geo.add_distance_to_lat_lon(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
+            pos_m: np.ndarray[float, float] = geo.add_distance_to_lat_lon(lat_wp1, lon_wp1, a_vec_m[0], a_vec_m[1])
 
             ### d_vektor; vektor mellom båt og P_merket ###
-            d_vec: tuple[float, float] = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1])
+            d_vec: np.ndarray[float, float] = geo.calculate_distance_north_east(lat_hat, lon_hat, pos_m[0], pos_m[1])
 
             ### Kryssprodukt mellom a og d for å se om båten har passert linjen ###
             d_vec_pass_check: int = np.sign(-np.cross(a_vec, d_vec))
@@ -421,7 +421,7 @@ class WaypointNode(Node):
 
             psi_d: float = psi_T - psi_L # utregnet kurs; eta_setpoint for heading
 
-            wp2_error_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            wp2_error_vec: np.ndarray[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
             wp2_error: float = self.magnitude(wp2_error_vec)
             wp1_error: float = self.magnitude(b_vec)
 
@@ -436,7 +436,7 @@ class WaypointNode(Node):
 
             self.nu_publisher(nu_dynamic)
 
-            pos_m_wp_vec: tuple[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
+            pos_m_wp_vec: np.ndarray[float, float] = geo.calculate_distance_north_east(pos_m[0], pos_m[1], waypoint_next[0], waypoint_next[1])
             pos_m_wp: float = self.magnitude(pos_m_wp_vec)
 
             ### Låser guidingen til waypoint peiling når p_merket er innenfor en meter avstand fra WP2 ###
