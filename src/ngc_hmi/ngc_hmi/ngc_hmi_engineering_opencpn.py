@@ -219,7 +219,7 @@ class EngineeringHMI(Node):
         if self.simulator:
             # Setter modus og fuel til simulator / demo
             self.ui.Mode.setText(f'Simulator')
-            self.ui.Fuel.setText(f'100%')
+            self.ui.Fuel.setText(f'420%')
 
     def exit_procedure(self):
         try:
@@ -382,8 +382,9 @@ class EngineeringHMI(Node):
         self.point = False
 
     def load_anchor(self):
-        self.anchor = True
-        self.hmi_send_ros_message()
+        anchor_msg = HMI()
+        anchor_msg.anchor = True
+        self.hmi_publisher.publish(anchor_msg)
 
     def anchor_reset(self):
         self.anchor = False
