@@ -48,29 +48,13 @@ class CompassDial(QDial):
     def paintEvent(self, event):
         painter = QPainter(self)
 
-        # Center and fit the compass image on the dial
-        rect = self.rect()
-        compass_size = min(rect.width(), rect.height())
-        compass_rect = QRect(
-            (rect.width() - compass_size) // 2,
-            (rect.height() - compass_size) // 2,
-            compass_size, compass_size
-        )
-
-        # Rotate based on dial value
-        painter.translate(rect.center())
-        painter.rotate(self.value() + 180)
-        painter.translate(-rect.center())
-
-        # Draw the rotated compass image
-        painter.drawPixmap(compass_rect, self.compass_image)
-
-         # Draw custom notches
+        # Draw the static notches
         painter.setPen(QPen(Qt.white, 2))  # Set pen for notch color and thickness
+        rect = self.rect()
         center = rect.center()
-        radius = compass_size // 2 - 10  # Adjust radius as needed for positioning notches
+        radius = min(rect.width(), rect.height()) // 2 - 10  # Adjust radius as needed
 
-        # Draw notches at intervals (e.g., every 10 degrees)
+        # Draw static notches at intervals (e.g., every 10 degrees)
         for angle in range(0, 360, 10):
             painter.save()
             painter.translate(center)
@@ -80,6 +64,18 @@ class CompassDial(QDial):
             end = QPoint(0, -(radius - notch_length))
             painter.drawLine(start, end)
             painter.restore()
+
+        # Rotate and draw the compass image
+        painter.translate(center)
+        painter.rotate(self.value() + 180)  # Rotate based on dial value
+        painter.translate(-center)
+        compass_size = min(rect.width(), rect.height())
+        compass_rect = QRect(
+            (rect.width() - compass_size) // 2,
+            (rect.height() - compass_size) // 2,
+            compass_size, compass_size
+        )
+        painter.drawPixmap(compass_rect, self.compass_image)
 
 
 class EngineeringHMI(Node):
