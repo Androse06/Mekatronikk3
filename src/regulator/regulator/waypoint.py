@@ -102,8 +102,8 @@ class WaypointNode(Node):
             self.dp_init = True
 
         if msg.anchor:
-            self.waypoint = []
-            self.waypoint.append((self.eta[0], self.eta[1]))
+            wp = (self.eta[0], self.eta[1])
+            self.waypoint = wp
             if self.mode != 2:
                 self.mode_publisher(2)
 
