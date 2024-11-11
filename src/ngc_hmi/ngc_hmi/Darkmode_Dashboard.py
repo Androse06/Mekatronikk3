@@ -898,7 +898,7 @@ class Ui_MainWindow(object):
 "    margin: 0 -4px; /* expand outside the groove */\n"
 "}")
         self.Sail_Throttle_Slider.setMinimum(-10)
-        self.Sail_Throttle_Slider.setMaximum(25)
+        self.Sail_Throttle_Slider.setMaximum(40)
         self.Sail_Throttle_Slider.setSingleStep(1)
         self.Sail_Throttle_Slider.setPageStep(1)
         self.Sail_Throttle_Slider.setValue(0)
@@ -1268,7 +1268,17 @@ class Ui_MainWindow(object):
         self.Deviation_Dp_LCD.setSmallDecimalPoint(False)
         self.Deviation_Dp_LCD.setSegmentStyle(QLCDNumber.Flat)
 
-        self.gridLayout_23.addWidget(self.Deviation_Dp_LCD, 11, 0, 1, 1, Qt.AlignHCenter)
+        self.gridLayout_23.addWidget(self.Deviation_Dp_LCD, 13, 0, 1, 1, Qt.AlignHCenter)
+
+        self.line_7 = QFrame(self.frame_6)
+        self.line_7.setObjectName(u"line_7")
+        self.line_7.setFrameShadow(QFrame.Raised)
+        self.line_7.setLineWidth(3)
+        self.line_7.setMidLineWidth(1)
+        self.line_7.setFrameShape(QFrame.HLine)
+
+        self.gridLayout_23.addWidget(self.line_7, 8, 0, 1, 1)
+
 
         self.verticalSpacer_18 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
@@ -1352,6 +1362,22 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addWidget(self.line_5, 1, 0, 1, 1)
 
+        self.Anchor_button = QPushButton(self.frame_6)
+        self.Anchor_button.setObjectName(u"Anchor_button")
+        sizePolicy1.setHeightForWidth(self.Anchor_button.sizePolicy().hasHeightForWidth())
+        self.Anchor_button.setSizePolicy(sizePolicy1)
+        self.Anchor_button.setMinimumSize(QSize(70, 25))
+        self.Anchor_button.setMaximumSize(QSize(70, 25))
+        self.Anchor_button.setFont(font)
+        self.Anchor_button.setStyleSheet(u"background-color: rgb(116, 116, 116);\n"
+"color: rgb(240, 240, 240);\n"
+"\n"
+"")
+        
+
+        self.gridLayout_23.addWidget(self.Anchor_button, 9, 0, 1, 1, Qt.AlignHCenter)
+
+
         self.verticalSpacer_22 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.gridLayout_23.addItem(self.verticalSpacer_22, 10, 0, 1, 1)
@@ -1421,4 +1447,6 @@ class Ui_MainWindow(object):
         self.Deviation_Dp_Label.setText(QCoreApplication.translate("MainWindow", u"Deviation", None))
         self.Enable_Dp_Button.setText(QCoreApplication.translate("MainWindow", u"Enable", None))
         self.Dp_Load_Button.setText(QCoreApplication.translate("MainWindow", u"Load", None))
+        self.Anchor_button.setText(QCoreApplication.translate("MainWindow", u"Anchor", None))
+
     # retranslateUi
