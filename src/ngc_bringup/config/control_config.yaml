@@ -33,7 +33,7 @@ waypoint:
     delta_tanh_var: 150
     LOS_dist: 50 # avstand fra wp i m hvor den går til line-of-sight
     nu_tanh_var: 10
-    wp_radius: 3 # radius rundt wp i m
+    wp_radius: 5 # radius rundt wp i m
 
 debug:
   waypoint: 0
