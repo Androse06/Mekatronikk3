@@ -122,12 +122,21 @@ class EngineeringHMI(Node):
         self.window = QMainWindow()
         self.ui.setupUi(self.window)
 
-       # Replace the default Compass_Dial with Custom CompassDial
-        compass_dial = CompassDial(self.window)
+       # Replace Compass_Dial in the layout
+        compass_dial = CompassDial(self.ui.centralwidget)  # use central widget as parent
         compass_dial.setGeometry(self.ui.Compass_Dial.geometry())
         compass_dial.setRange(0, 360)
         compass_dial.setValue(self.ui.Compass_Dial.value())
-        self.ui.Compass_Dial = compass_dial
+
+        # Remove the original Compass_Dial from the layout and add CompassDial instead
+        layout = self.ui.Compass_Dial.parentWidget().layout()
+        if layout is not None:
+            layout.replaceWidget(self.ui.Compass_Dial, compass_dial)
+        else:
+            compass_dial.setGeometry(self.ui.Compass_Dial.geometry())  # fallback if no layout
+
+        self.ui.Compass_Dial.deleteLater()  # remove original
+        self.ui.Compass_Dial = compass_dial  # replace with custom
         
         self.window.showFullScreen()
 
