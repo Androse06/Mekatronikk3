@@ -22,11 +22,20 @@ class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
         
-        # Load the custom compass image
-        self.original_image = QPixmap('pictures/Otter_Compass.png')  
+        # Load the static background image with the notches
+        self.background_image_original = QPixmap('pictures/CompassDial.png')
         
-        # Scale the compass image initially for widget size
-        self.compass_image = self.original_image.scaled(
+        # Load the rotating compass image (e.g., the boat)
+        self.compass_image_original = QPixmap('pictures/Otter_Compass.png')  
+        
+        # Scale the images initially
+        self.background_image = self.background_image_original.scaled(
+            self.size(),
+            Qt.AspectRatioMode.KeepAspectRatio,
+            Qt.TransformationMode.SmoothTransformation
+        )
+        
+        self.compass_image = self.compass_image_original.scaled(
             self.size(), 
             Qt.AspectRatioMode.KeepAspectRatio, 
             Qt.TransformationMode.SmoothTransformation
@@ -37,9 +46,15 @@ class CompassDial(QDial):
         self.setNotchesVisible(False)
 
     def resizeEvent(self, event):
-        # Rescale the image on widget resize
-        self.compass_image = self.original_image.scaled(
-            self.size(), 
+        # Rescale the images on widget resize
+        size = self.size()
+        self.background_image = self.background_image_original.scaled(
+            size,
+            Qt.AspectRatioMode.KeepAspectRatio,
+            Qt.TransformationMode.SmoothTransformation
+        )
+        self.compass_image = self.compass_image_original.scaled(
+            size, 
             Qt.AspectRatioMode.KeepAspectRatio, 
             Qt.TransformationMode.SmoothTransformation
         )
@@ -47,34 +62,23 @@ class CompassDial(QDial):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-
-        # Draw the static notches
-        painter.setPen(QPen(Qt.white, 2))  # Set pen for notch color and thickness
+        
         rect = self.rect()
         center = rect.center()
-        radius = min(rect.width(), rect.height()) // 2 - 2  # Adjust radius as needed
-
-        # Draw static notches at intervals (e.g., every 10 degrees)
-        for angle in range(0, 360, 10):
-            painter.save()
-            painter.translate(center)
-            painter.rotate(angle)
-            notch_length = 10 if angle % 30 == 0 else 5  # Longer notches at every 30 degrees
-            start = QPoint(0, -radius)
-            end = QPoint(0, -(radius - notch_length))
-            painter.drawLine(start, end)
-            painter.restore()
-
+        
+        # Draw the static background image with the notches
+        background_rect = self.background_image.rect()
+        background_rect.moveCenter(center)
+        painter.drawPixmap(background_rect, self.background_image)
+        
         # Rotate and draw the compass image
         painter.translate(center)
-        painter.rotate(self.value() + 180)  # Rotate based on dial value
+        painter.rotate(self.value() + 180)
         painter.translate(-center)
-        compass_size = min(rect.width(), rect.height())
-        compass_rect = QRect(
-            (rect.width() - compass_size) // 2,
-            (rect.height() - compass_size) // 2,
-            compass_size, compass_size
-        )
+        
+        # Draw the rotated compass image on top
+        compass_rect = self.compass_image.rect()
+        compass_rect.moveCenter(center)
         painter.drawPixmap(compass_rect, self.compass_image)
 
 
