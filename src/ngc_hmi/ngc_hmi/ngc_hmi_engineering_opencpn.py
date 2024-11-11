@@ -213,7 +213,7 @@ class EngineeringHMI(Node):
         self.ui.Track_Load_Button.released.connect(self.load_track_reset) 
         self.ui.Dp_Load_Button.released.connect(self.load_dp_reset)      
         self.ui.Exit_Button.clicked.connect(self.exit_procedure)
-        self.ui.Anchor_button.clicked.connect(self.load_anchor)
+        self.ui.Anchor_button.pressed.connect(self.load_anchor)
         self.ui.Anchor_button.released.connect(self.anchor_reset)
 
         if self.simulator:
