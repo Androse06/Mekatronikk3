@@ -104,7 +104,8 @@ class WaypointNode(Node):
         if msg.anchor:
             self.waypoint = []
             self.waypoint.append((self.eta[0], self.eta[1]))
-            self.mode_publisher(2)
+            if self.mode != 2:
+                self.mode_publisher(2)
 
         if self.debug == 1:
             self.get_logger().info(
