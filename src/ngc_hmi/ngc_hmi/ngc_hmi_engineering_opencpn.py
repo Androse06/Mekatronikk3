@@ -387,7 +387,6 @@ class EngineeringHMI(Node):
 
     def anchor_reset(self):
         self.anchor = False
-        self.hmi_send_ros_message()
         
 
     def hmi_send_ros_message(self):
@@ -399,7 +398,7 @@ class EngineeringHMI(Node):
         hmi_message.eta     = float(mu.mapToPiPi(np.deg2rad(self.eta))) # Convert degrees to radians and map 2 plus minus pi
         hmi_message.anchor  = self.anchor
         self.hmi_publisher.publish(hmi_message)
-        self.get_logger().info(f'anchor = {hmi_message.anchor}')
+
 
         if self.debug:
             self.get_logger().info(
