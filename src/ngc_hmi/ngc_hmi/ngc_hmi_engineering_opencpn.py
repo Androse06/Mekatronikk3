@@ -34,7 +34,7 @@ class CompassDial(QDial):
 
         # Hide the default dial appearance
         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
-        self.setNotchesVisible(True)
+        self.setNotchesVisible(False)
 
     def resizeEvent(self, event):
         # Rescale the image on widget resize
@@ -64,6 +64,22 @@ class CompassDial(QDial):
 
         # Draw the rotated compass image
         painter.drawPixmap(compass_rect, self.compass_image)
+        
+         # Draw custom notches
+        painter.setPen(QPen(Qt.black, 2))  # Set pen for notch color and thickness
+        center = rect.center()
+        radius = compass_size // 2 - 10  # Adjust radius as needed for positioning notches
+
+        # Draw notches at intervals (e.g., every 10 degrees)
+        for angle in range(0, 360, 10):
+            painter.save()
+            painter.translate(center)
+            painter.rotate(angle)
+            notch_length = 10 if angle % 30 == 0 else 5  # Longer notches at every 30 degrees
+            start = QPoint(0, -radius)
+            end = QPoint(0, -(radius - notch_length))
+            painter.drawLine(start, end)
+            painter.restore()
 
 
 class EngineeringHMI(Node):
