@@ -138,7 +138,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(14)
         font1.setBold(True)
-        font1.setWeight(75)
+        font1.setWeight(QFont.Weight.Bold)
         self.Track_Label.setFont(font1)
         self.Track_Label.setAlignment(Qt.AlignCenter)
 
@@ -211,7 +211,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(10)
         font2.setBold(True)
-        font2.setWeight(75)
+        font2.setWeight(QFont.Weight.Bold)
         self.Gloabl_Throttle1_Label.setFont(font2)
 
         self.gridLayout_12.addWidget(self.Gloabl_Throttle1_Label, 8, 2, 1, 1, Qt.AlignHCenter)
@@ -262,7 +262,7 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(8)
         font4.setBold(False)
-        font4.setWeight(50)
+        font4.setWeight(QFont.Weight.Normal)
         self.Global_Throttle1_Status.setFont(font4)
         self.Global_Throttle1_Status.setStyleSheet(u"QProgressBar {\n"
 "    color: black;                      /* Text color */\n"
@@ -361,7 +361,7 @@ class Ui_MainWindow(object):
         font5 = QFont()
         font5.setPointSize(6)
         font5.setBold(True)
-        font5.setWeight(75)
+        font5.setWeight(QFont.Weight.Bold)
         self.Gloabl_Throttle1_Label_3.setFont(font5)
         self.Gloabl_Throttle1_Label_3.setScaledContents(False)
 
@@ -850,7 +850,7 @@ class Ui_MainWindow(object):
         self.Sail_Throttle_Slider.setMinimumSize(QSize(20, 0))
         font10 = QFont()
         font10.setBold(False)
-        font10.setWeight(50)
+        font10.setWeight(QFont.Weight.Normal)
         self.Sail_Throttle_Slider.setFont(font10)
         self.Sail_Throttle_Slider.setStyleSheet(u"QSlider::handle:vertical {\n"
 "    height: 10px;\n"
@@ -976,7 +976,7 @@ class Ui_MainWindow(object):
         font12.setFamily(u"Segoe UI")
         font12.setPointSize(12)
         font12.setBold(True)
-        font12.setWeight(75)
+        font12.setWeight(QFont.Weight.Bold)
         self.label_3.setFont(font12)
         self.label_3.setStyleSheet(u"color: rgb(240, 240, 240);")
 
@@ -995,7 +995,7 @@ class Ui_MainWindow(object):
         font13 = QFont()
         font13.setFamily(u"MT Extra")
         font13.setBold(True)
-        font13.setWeight(75)
+        font13.setWeight(QFont.Weight.Bold)
         self.Exit_Button.setFont(font13)
         self.Exit_Button.setStyleSheet(u"/* Default style for the exit button with gradient background */\n"
 "QPushButton {\n"
