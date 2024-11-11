@@ -431,6 +431,7 @@ class EngineeringHMI(Node):
     def eta_hat_callback(self, msg:Eta):
         self.eta_hat = np.degrees(mu.mapToZero2Pi(msg.psi))
         self.ui.Global_Heading_LCD.display(round(self.eta_hat, 2))
+        self.ui.Compass_Dial.setValue(int(self.eta_hat) + 180)
 
     def nu_hat_callback(self, msg:Nu):
         self.nu_hat = msg.u * 1.943844
