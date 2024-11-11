@@ -42,6 +42,7 @@ class WaypointNode(Node):
         self.mode           = 0     # id for modus til step_wayopint(). 0=standby, 1=sail, 2=DP, 3=track
         self.load_route     = False # parcer waypoints.gpx når True og appender self.waypoint
         self.load_waypoint  = False # parcer routes.gpx når True og appender self.coordinates
+        self.load_anchor    = False
         self.proximity_lock = False # låser track mode på line-of-sight når True
         self.dp_init        = True
         self.dp_counter     = 0
@@ -82,6 +83,7 @@ class WaypointNode(Node):
         self.mode: int              = msg.mode  # 0 = standby, 1 = sail, 2 = position, 3 = track
         self.load_route: bool       = msg.route # for track
         self.load_waypoint: bool    = msg.point # for position
+        self.load_anchor: bool      = msg.anchor
         self.eta_psi: float         = msg.eta   # eta setpunkt
         self.nu_u: float            = msg.nu    # nu setpunkt
 
@@ -98,6 +100,11 @@ class WaypointNode(Node):
 
         if msg.mode != 2 and not self.dp_init:
             self.dp_init = True
+
+        if msg.anchor:
+            self.waypoint = []
+            self.waypoint.append((self.eta[0], self.eta[1]))
+            self.mode_publisher(2)
 
         if self.debug == 1:
             self.get_logger().info(
