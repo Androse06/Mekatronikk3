@@ -1,6 +1,6 @@
 ### Import for PyQt ###
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial
-from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect
+from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect, QSize
 from PySide6.QtGui import QWindow, QPainter, QPen, QColor, QPixmap
 from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
 import sys
@@ -45,8 +45,9 @@ class CompassDial(QDial):
 
     def updateImages(self):
         size = self.size()
-        # Increase the background image size by the scale factor
-        background_size = size * self.background_scale_factor
+
+        # Set background size relative to widget's dimensions
+        background_size = QSize(size.width() * self.background_scale_factor, size.height() * self.background_scale_factor)
         self.background_image = self.background_image_original.scaled(
             background_size,
             Qt.AspectRatioMode.KeepAspectRatio,
