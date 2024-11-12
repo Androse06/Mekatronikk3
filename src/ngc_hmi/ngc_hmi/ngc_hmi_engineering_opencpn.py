@@ -22,7 +22,7 @@ class CompassDial(QDial):
         super().__init__(parent)
         
         # Load the static background image with the notches
-        self.background_image_original = QPixmap('pictures/CompassDial.png')
+        self.background_image_original = QPixmap('pictures/compass_1.png')
         
         # Load the rotating compass image (e.g., the boat)
         self.compass_image_original = QPixmap('pictures/Otter_Compass.png')  
