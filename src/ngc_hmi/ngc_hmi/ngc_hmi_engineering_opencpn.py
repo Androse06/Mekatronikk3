@@ -25,10 +25,10 @@ class CompassDial(QDial):
         self.background_image_original = QPixmap('pictures/compass_1.png')
         
         # Load the rotating compass image (e.g., the boat)
-        self.compass_image_original = QPixmap('pictures/Otter_Compass.png')  
+        self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')  
         
         # Initial scale factor to make the background bigger
-        self.background_scale_factor = 1.7  # Adjust this factor as desired
+        self.background_scale_factor = 2.5  # Adjust this factor as desired
 
         # Scale the images initially
         self.updateImages()
