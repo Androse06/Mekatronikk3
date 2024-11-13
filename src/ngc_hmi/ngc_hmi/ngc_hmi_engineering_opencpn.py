@@ -23,10 +23,7 @@ class CompassDial(QDial):
         
         # Load the rotating compass image
         self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')
-        if self.compass_image_original.isNull():
-            QMessageBox.critical(self, "Image Load Error", "Failed to load compass image.")
-            return
-        
+       
         self.boat_scale_factor = 0.75
         self.updateImage()
         
@@ -62,7 +59,7 @@ class CompassDial(QDial):
         
         # Rotate and draw the compass image
         painter.translate(center)
-        painter.rotate(-self.value())
+        painter.rotate(self.value() + 180)
         painter.translate(-center)
         
         compass_rect = self.compass_image.rect()
@@ -71,7 +68,7 @@ class CompassDial(QDial):
         
         # Optionally, draw the notches
         # Call this if you want to show notches, but it may draw over your image
-        # super().paintEvent(event)
+        super().paintEvent(event)
 
 
 class EngineeringHMI(Node):
