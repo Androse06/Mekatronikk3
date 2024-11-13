@@ -29,11 +29,12 @@ waypoint:
     tanh_var: 10
     max_nu: 2 # kts
   track:
-    delta_max: 80 # avstanden fra p̃ til siktepunkt i m
+    delta_max: 40 # avstanden fra p̃ til siktepunkt i m
     delta_tanh_var: 150
-    LOS_dist: 50 # avstand fra wp i m hvor den går til line-of-sight
     nu_tanh_var: 10
     wp_radius: 5 # radius rundt wp i m
+    LOS_dist: 50 # avstand fra wp i m hvor den går til line-of-sight
+    LOS_toggle: False
 
 debug:
   waypoint: 0

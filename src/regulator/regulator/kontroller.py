@@ -150,8 +150,8 @@ class Kontroller(Node):
 
             tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu_setpoint[0] + K_p_u * e_u + self.qi_u
 
-            if abs(e_psi) > (np.pi/4):
-                tau_X /= (1 + e_psi**2)
+            if abs(e_psi) > (np.pi/12):
+                tau_X /= (1 + (e_psi*10)**2)
             
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()

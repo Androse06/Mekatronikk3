@@ -370,6 +370,7 @@ class WaypointNode(Node):
             LOS_dist        = self.control_config['waypoint']['track']['LOS_dist']
             nu_tanh_var     = self.control_config['waypoint']['track']['nu_tanh_var']
             wp_radius       = self.control_config['waypoint']['track']['wp_radius']
+            los_toggle      = self.control_config['waypoint']['track']['LOS_toggle']
 
             ### Waypoint 1 - WP1 ###
             lat_wp1: float = waypoint[0]
@@ -441,7 +442,7 @@ class WaypointNode(Node):
             pos_m_wp: float = self.magnitude(pos_m_wp_vec)
 
             ### Låser guidingen til waypoint peiling når p_merket er innenfor en meter avstand fra WP2 ###
-            if pos_m_wp < LOS_dist or self.proximity_lock:
+            if pos_m_wp < LOS_dist or self.proximity_lock or los_toggle:
                 psi_angle: float    = np.arctan2(-p_vec[1], -p_vec[0])
                 self.eta_publisher(psi_angle)
                 self.proximity_lock: bool = True
