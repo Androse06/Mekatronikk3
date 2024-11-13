@@ -57,7 +57,7 @@ class CompassDial(QDial):
         
         rect = self.rect()
         center = rect.center()
-        radius = min(rect.width(), rect.height()) / 2 - 2  # Adjust margin as needed
+        radius = min(rect.width(), rect.height()) / 2 + 1  # Adjust margin as needed
         
         # Draw the ring around the widget
         painter.setPen(QPen(Qt.white, 2))  # Set pen for the ring
@@ -464,21 +464,21 @@ class EngineeringHMI(Node):
 
             waypoint_strings_v2 = []
 
-            if self.last_waypoint is not None:
-                lat, lon = self.last_waypoint
-                waypoint_strings_v2.append('Last Waypoint')
+            if self.next_waypoint is not None:
+                lat, lon = self.next_waypoint
+                waypoint_strings_v2.append('     Next Waypoint')
                 waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
 
             if self.current_waypoint is not None:
                 lat, lon = self.current_waypoint
-                waypoint_strings_v2.append('Current Waypoint')
+                waypoint_strings_v2.append('     Current Waypoint')
                 waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
 
-            if self.next_waypoint is not None:
-                lat, lon = self.next_waypoint
-                waypoint_strings_v2.append('Next Waypoint')
+            if self.last_waypoint is not None:
+                lat, lon = self.last_waypoint
+                waypoint_strings_v2.append('     Last Waypoint')
                 waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
-
+            
 
             model = QStringListModel()
             model.setStringList(waypoint_strings_v2)
