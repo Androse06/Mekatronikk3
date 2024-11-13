@@ -22,15 +22,14 @@ class CompassDial(QDial):
         super().__init__(parent)
         
         # Load the rotating compass image (e.g., the boat)
-        self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')  
+        self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')
         
-        # Initial scale factor for the compass
-        self.boat_scale_factor = 0.75
+        self.boat_scale_factor = 0.75  # Adjust as necessary
 
-        # Scale the image initially
+        # Scale the compass image initially
         self.updateImage()
 
-        # Hide the default dial background but keep the notches
+        # Hide the default dial appearance but keep the notches
         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
         self.setNotchesVisible(True)
 
@@ -41,8 +40,8 @@ class CompassDial(QDial):
 
     def updateImage(self):
         size = self.size()
-
-        # Set compass size relative to widget's dimensions
+        
+        # Scale the compass image relative to the widget's dimensions
         boat_size = size * self.boat_scale_factor
         self.compass_image = self.compass_image_original.scaled(
             boat_size, 
@@ -56,7 +55,7 @@ class CompassDial(QDial):
         rect = self.rect()
         center = rect.center()
         
-        # Rotate and draw the compass image
+        # Rotate and draw the compass image (replacing the dial's appearance)
         painter.translate(center)
         painter.rotate(round((self.value() + 180), 0))
         painter.translate(-center)
@@ -65,10 +64,9 @@ class CompassDial(QDial):
         compass_rect = self.compass_image.rect()
         compass_rect.moveCenter(center)
         painter.drawPixmap(compass_rect, self.compass_image)
-
-        # Call the superclass paintEvent to draw the original dial notches
+        
+        # Draw the notches by calling the superclass paintEvent
         super().paintEvent(event)
-
 
 
 class EngineeringHMI(Node):
@@ -408,9 +406,10 @@ class EngineeringHMI(Node):
 
         self.status = msg.status
 
-        self.dp_status = msg.dp
-        self.dp_error = msg.error
-        self.ui.Deviation_Dp_LCD.display(round(self.dp_error, 2))
+        if msg.dp != 0:
+            self.dp_status = msg.dp
+            self.dp_error  = msg.error
+            self.ui.Deviation_Dp_LCD.display(round(self.dp_error, 2))
 
         if self.debug:
             self.get_logger().info(
