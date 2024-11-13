@@ -1,5 +1,5 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial, QStyleOptionSlider, QStyle
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial
 from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect, QSize
 from PySide6.QtGui import QWindow, QPainter, QPen, QColor, QPixmap
 from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
@@ -23,16 +23,16 @@ class CompassDial(QDial):
         
         # Load the rotating compass image
         self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')
-       
+
         self.boat_scale_factor = 0.75
         self.updateImage()
         
         self.setStyleSheet("background-color: transparent; border: none;")
-        self.setNotchesVisible(True)
         self.setWrapping(True)
         self.setMinimum(0)
         self.setMaximum(359)
         self.setValue(0)
+        self.setNotchesVisible(False)  # Disable default notches since we'll draw them manually
     
     def resizeEvent(self, event):
         self.updateImage()
@@ -56,6 +56,7 @@ class CompassDial(QDial):
         
         rect = self.rect()
         center = rect.center()
+        radius = min(rect.width(), rect.height()) / 2 - 10  # Adjust as needed
         
         # Rotate and draw the compass image
         painter.save()
@@ -68,25 +69,24 @@ class CompassDial(QDial):
         painter.drawPixmap(compass_rect.topLeft(), self.compass_image)
         painter.restore()
         
-        # Draw only the notches (tick marks)
-        option = QStyleOptionSlider()
-        self.initStyleOption(option)
+        # Draw notches manually
+        tick_interval = self.tickInterval() or 10  # Use dial's tick interval, default to 10
+        num_ticks = int(360 / tick_interval)
+        tick_length = 10  # Length of the notches
+        tick_color = Qt.white  # Color of the notches
         
-        # Configure to draw only tick marks
-        option.subControls = QStyle.SubControl.SC_DialTickmarks
-        option.rect = self.rect()
-        option.sliderPosition = self.value()
-        option.sliderValue = self.value()
-        option.minimum = self.minimum()
-        option.maximum = self.maximum()
-        option.tickPosition = self.tickPosition()
-        option.tickInterval = self.tickInterval()
-        option.dialWrapping = self.wrapping()
-        option.dialNotchesVisible = self.notchesVisible()
+        painter.setPen(QPen(tick_color, 2))
         
-        # Draw the tick marks using the style
-        self.style().drawComplexControl(QStyle.ComplexControl.CC_Dial, option, painter, self)
-
+        for i in range(num_ticks):
+            angle = i * tick_interval
+            painter.save()
+            painter.translate(center)
+            painter.rotate(angle)
+            painter.drawLine(
+                QPointF(0, -radius),
+                QPointF(0, -radius + tick_length)
+            )
+            painter.restore()
 
 class EngineeringHMI(Node):
     def __init__(self):
