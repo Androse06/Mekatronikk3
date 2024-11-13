@@ -21,52 +21,57 @@ class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
         
-        # Load the rotating compass image (e.g., the boat)
+        # Load the rotating compass image
         self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')
+        if self.compass_image_original.isNull():
+            QMessageBox.critical(self, "Image Load Error", "Failed to load compass image.")
+            return
         
-        self.boat_scale_factor = 0.75  # Adjust as necessary
-
-        # Scale the compass image initially
+        self.boat_scale_factor = 0.75
         self.updateImage()
-
-        # Hide the default dial appearance but keep the notches
-        self.setStyleSheet("QDial { background-color: transparent; border: none; }")
+        
+        self.setStyleSheet("background-color: transparent; border: none;")
         self.setNotchesVisible(True)
-
+        self.setWrapping(True)
+        self.setMinimum(0)
+        self.setMaximum(359)
+        self.setValue(0)
+    
     def resizeEvent(self, event):
-        # Rescale the image on widget resize
         self.updateImage()
         super().resizeEvent(event)
-
+    
     def updateImage(self):
         size = self.size()
+        min_dimension = min(size.width(), size.height())
+        scale_dimension = int(min_dimension * self.boat_scale_factor)
         
-        # Scale the compass image relative to the widget's dimensions
-        boat_size = size * self.boat_scale_factor
         self.compass_image = self.compass_image_original.scaled(
-            boat_size, 
-            Qt.AspectRatioMode.KeepAspectRatio, 
+            scale_dimension,
+            scale_dimension,
+            Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation
         )
-
+    
     def paintEvent(self, event):
         painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
         
         rect = self.rect()
         center = rect.center()
         
-        # Rotate and draw the compass image (replacing the dial's appearance)
+        # Rotate and draw the compass image
         painter.translate(center)
-        painter.rotate(round((self.value() + 180), 0))
+        painter.rotate(-self.value())
         painter.translate(-center)
         
-        # Draw the rotated compass image on top
         compass_rect = self.compass_image.rect()
         compass_rect.moveCenter(center)
-        painter.drawPixmap(compass_rect, self.compass_image)
+        painter.drawPixmap(compass_rect.topLeft(), self.compass_image)
         
-        # Draw the notches by calling the superclass paintEvent
-        super().paintEvent(event)
+        # Optionally, draw the notches
+        # Call this if you want to show notches, but it may draw over your image
+        # super().paintEvent(event)
 
 
 class EngineeringHMI(Node):
@@ -406,10 +411,12 @@ class EngineeringHMI(Node):
 
         self.status = msg.status
 
-        if msg.dp != 0:
+        if msg.dp != 0 and self.mode == 2:
             self.dp_status = msg.dp
             self.dp_error  = msg.error
             self.ui.Deviation_Dp_LCD.display(round(self.dp_error, 2))
+        else:
+            self.ui.Deviation_Dp_LCD.display(0)
 
         if self.debug:
             self.get_logger().info(
