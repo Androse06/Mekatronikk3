@@ -459,11 +459,29 @@ class EngineeringHMI(Node):
             else:
                 self.next_waypoint = None
 
-            self.waypoints = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
-            waypoint_strings = [f"Lat: {lat:.6f},   Lon:{lon:.6f}" for lat, lon in self.waypoints]
+            self.waypoints      = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
+            waypoint_strings    = [f"Lat: {lat:.6f},   Lon:{lon:.6f}" for lat, lon in self.waypoints]
+
+            waypoint_strings_v2 = []
+
+            if self.last_waypoint is not None:
+                lat, lon = self.last_waypoint
+                waypoint_strings_v2.append('Last Waypoint')
+                waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
+
+            if self.current_waypoint is not None:
+                lat, lon = self.current_waypoint
+                waypoint_strings_v2.append('Current Waypoint')
+                waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
+
+            if self.next_waypoint is not None:
+                lat, lon = self.next_waypoint
+                waypoint_strings_v2.append('Next Waypoint')
+                waypoint_strings_v2.append(f"Lat: {lat:.6f},   Lon: {lon:.6f}")
+
 
             model = QStringListModel()
-            model.setStringList(waypoint_strings)
+            model.setStringList(waypoint_strings_v2)
             self.ui.WayPoint_ListView.setModel(model)  
             
 
