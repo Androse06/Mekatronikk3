@@ -1,5 +1,5 @@
 ### Import for PyQt ###
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QDial, QStyleOptionSlider, QStyle
 from PySide6.QtCore import QStringListModel, QTimer, Qt, QProcess, QPoint, QPointF, QRect, QSize
 from PySide6.QtGui import QWindow, QPainter, QPen, QColor, QPixmap
 from .Darkmode_Dashboard import Ui_MainWindow  # Import your generated UI file
@@ -58,17 +58,34 @@ class CompassDial(QDial):
         center = rect.center()
         
         # Rotate and draw the compass image
+        painter.save()
         painter.translate(center)
-        painter.rotate(self.value() + 180)
+        painter.rotate(self.value() + 180)  # Adjust rotation as needed
         painter.translate(-center)
         
         compass_rect = self.compass_image.rect()
         compass_rect.moveCenter(center)
         painter.drawPixmap(compass_rect.topLeft(), self.compass_image)
+        painter.restore()
         
-        # Optionally, draw the notches
-        # Call this if you want to show notches, but it may draw over your image
-        super().paintEvent(event)
+        # Draw only the notches (tick marks)
+        option = QStyleOptionSlider()
+        self.initStyleOption(option)
+        
+        # Configure to draw only tick marks
+        option.subControls = QStyle.SubControl.SC_DialTickmarks
+        option.rect = self.rect()
+        option.sliderPosition = self.value()
+        option.sliderValue = self.value()
+        option.minimum = self.minimum()
+        option.maximum = self.maximum()
+        option.tickPosition = self.tickPosition()
+        option.tickInterval = self.tickInterval()
+        option.dialWrapping = self.wrapping()
+        option.dialNotchesVisible = self.notchesVisible()
+        
+        # Draw the tick marks using the style
+        self.style().drawComplexControl(QStyle.ComplexControl.CC_Dial, option, painter, self)
 
 
 class EngineeringHMI(Node):
@@ -437,7 +454,7 @@ class EngineeringHMI(Node):
             else:
                 self.next_waypoint = None
 
-            self.waypoints = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
+            self.waypoints = [wp for wp in [self.next_waypoint , self.current_waypoint, self.last_waypoint] if wp is not None]
             waypoint_strings = [f"Lat: {lat:.6f},   Lon:{lon:.6f}" for lat, lon in self.waypoints]
 
             model = QStringListModel()
