@@ -56,7 +56,7 @@ class CompassDial(QDial):
         
         rect = self.rect()
         center = rect.center()
-        radius = min(rect.width(), rect.height()) / 2 + 1.5  # Adjust margin as needed
+        radius = min(rect.width(), rect.height()) / 2 + 1  # Adjust margin as needed
         
         # Draw the ring around the widget
         painter.setPen(QPen(Qt.white, 2))  # Set pen for the ring
