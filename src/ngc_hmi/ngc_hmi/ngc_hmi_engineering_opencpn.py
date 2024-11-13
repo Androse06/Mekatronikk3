@@ -21,38 +21,28 @@ class CompassDial(QDial):
     def __init__(self, parent=None):
         super().__init__(parent)
         
-        # Load the static background image with the notches
-        self.background_image_original = QPixmap('pictures/compass_1.png')
-        
         # Load the rotating compass image (e.g., the boat)
         self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')  
         
-        # Initial scale factor to make the background bigger
-        self.background_scale_factor = 1.4  # Adjust this factor as desired¨
-        self.boat_scale_factor       = 0.75
+        # Initial scale factor for the compass
+        self.boat_scale_factor = 0.75
 
-        # Scale the images initially
-        self.updateImages()
+        # Scale the image initially
+        self.updateImage()
 
-        # Hide the default dial appearance
+        # Hide the default dial background but keep the notches
         self.setStyleSheet("QDial { background-color: transparent; border: none; }")
-        self.setNotchesVisible(False)
+        self.setNotchesVisible(True)
 
     def resizeEvent(self, event):
-        # Rescale the images on widget resize
-        self.updateImages()
+        # Rescale the image on widget resize
+        self.updateImage()
         super().resizeEvent(event)
 
-    def updateImages(self):
+    def updateImage(self):
         size = self.size()
 
-        # Set background size relative to widget's dimensions
-        background_size = QSize(size.width() * self.background_scale_factor, size.height() * self.background_scale_factor)
-        self.background_image = self.background_image_original.scaled(
-            background_size,
-            Qt.AspectRatioMode.KeepAspectRatio,
-            Qt.TransformationMode.SmoothTransformation
-        )
+        # Set compass size relative to widget's dimensions
         boat_size = size * self.boat_scale_factor
         self.compass_image = self.compass_image_original.scaled(
             boat_size, 
@@ -66,11 +56,6 @@ class CompassDial(QDial):
         rect = self.rect()
         center = rect.center()
         
-        # Draw the static background image
-        background_rect = self.background_image.rect()
-        background_rect.moveCenter(center)
-        painter.drawPixmap(background_rect, self.background_image)
-        
         # Rotate and draw the compass image
         painter.translate(center)
         painter.rotate(round((self.value() + 180), 0))
@@ -80,6 +65,9 @@ class CompassDial(QDial):
         compass_rect = self.compass_image.rect()
         compass_rect.moveCenter(center)
         painter.drawPixmap(compass_rect, self.compass_image)
+
+        # Call the superclass paintEvent to draw the original dial notches
+        super().paintEvent(event)
 
 
 
