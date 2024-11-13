@@ -467,17 +467,17 @@ class EngineeringHMI(Node):
             if self.next_waypoint is not None:
                 lat, lon = self.next_waypoint
                 waypoint_strings_v2.append('                        Next Waypoint')
-                waypoint_strings_v2.append(f"   Lat: {lat:.6f},   Lon: {lon:.6f}")
+                waypoint_strings_v2.append(f"           Lat: {lat:.6f},   Lon: {lon:.6f}")
 
             if self.current_waypoint is not None:
                 lat, lon = self.current_waypoint
                 waypoint_strings_v2.append('                        Current Waypoint')
-                waypoint_strings_v2.append(f"   Lat: {lat:.6f},   Lon: {lon:.6f}")
+                waypoint_strings_v2.append(f"           Lat: {lat:.6f},   Lon: {lon:.6f}")
 
             if self.last_waypoint is not None:
                 lat, lon = self.last_waypoint
                 waypoint_strings_v2.append('                        Last Waypoint')
-                waypoint_strings_v2.append(f"   Lat: {lat:.6f},   Lon: {lon:.6f}")
+                waypoint_strings_v2.append(f"           Lat: {lat:.6f},   Lon: {lon:.6f}")
             
 
             model = QStringListModel()
