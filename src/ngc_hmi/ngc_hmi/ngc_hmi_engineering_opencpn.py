@@ -23,16 +23,16 @@ class CompassDial(QDial):
         
         # Load the rotating compass image
         self.compass_image_original = QPixmap('pictures/Otter_Compass_v2.png')
-
+       
         self.boat_scale_factor = 0.75
         self.updateImage()
         
         self.setStyleSheet("background-color: transparent; border: none;")
+        self.setNotchesVisible(False)  # Disable default notches
         self.setWrapping(True)
         self.setMinimum(0)
         self.setMaximum(359)
         self.setValue(0)
-        self.setNotchesVisible(False)  # Disable default notches since we'll draw them manually
     
     def resizeEvent(self, event):
         self.updateImage()
@@ -56,29 +56,19 @@ class CompassDial(QDial):
         
         rect = self.rect()
         center = rect.center()
-        radius = min(rect.width(), rect.height()) / 2 - 10  # Adjust as needed
+        radius = min(rect.width(), rect.height()) / 2 + 2  # Adjust margin as needed
         
-        # Rotate and draw the compass image
-        painter.save()
-        painter.translate(center)
-        painter.rotate(self.value() + 180)  # Adjust rotation as needed
-        painter.translate(-center)
+        # Draw the ring around the widget
+        painter.setPen(QPen(Qt.white, 2))  # Set pen for the ring
+        painter.drawEllipse(center, radius, radius)
         
-        compass_rect = self.compass_image.rect()
-        compass_rect.moveCenter(center)
-        painter.drawPixmap(compass_rect.topLeft(), self.compass_image)
-        painter.restore()
-        
-        # Draw notches manually
-        tick_interval = self.tickInterval() or 10  # Use dial's tick interval, default to 10
-        num_ticks = int(360 / tick_interval)
-        tick_length = 10  # Length of the notches
-        tick_color = Qt.white  # Color of the notches
-        
+        # Draw custom notches along the ring
+        tick_interval = 30  # Degrees between notches
+        tick_length = 10    # Length of the notches
+        tick_color = Qt.white
         painter.setPen(QPen(tick_color, 2))
         
-        for i in range(num_ticks):
-            angle = i * tick_interval
+        for angle in range(0, 360, tick_interval):
             painter.save()
             painter.translate(center)
             painter.rotate(angle)
@@ -87,6 +77,18 @@ class CompassDial(QDial):
                 QPointF(0, -radius + tick_length)
             )
             painter.restore()
+        
+        # Rotate and draw the compass image
+        painter.save()
+        painter.translate(center)
+        painter.rotate(self.value() + 180)
+        painter.translate(-center)
+        
+        compass_rect = self.compass_image.rect()
+        compass_rect.moveCenter(center)
+        painter.drawPixmap(compass_rect.topLeft(), self.compass_image)
+        painter.restore()
+
 
 class EngineeringHMI(Node):
     def __init__(self):
@@ -454,7 +456,7 @@ class EngineeringHMI(Node):
             else:
                 self.next_waypoint = None
 
-            self.waypoints = [wp for wp in [self.next_waypoint , self.current_waypoint, self.last_waypoint] if wp is not None]
+            self.waypoints = [wp for wp in [self.last_waypoint, self.current_waypoint, self.next_waypoint] if wp is not None]
             waypoint_strings = [f"Lat: {lat:.6f},   Lon:{lon:.6f}" for lat, lon in self.waypoints]
 
             model = QStringListModel()
