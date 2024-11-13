@@ -113,22 +113,22 @@ class Kontroller(Node):
             zeta        = self.control_config['heading_control']['zeta']
             ki_scale    = self.control_config['heading_control']['ki_scale']
             ki_limit    = self.control_config['heading_control']['ki_saturation_limit']
-            kp_scale    = self.control_config['heading_control']['kp_scale']
-            kd_scale    = self.control_config['heading_control']['kd_scale']
+            #kp_scale    = self.control_config['heading_control']['kp_scale']
+            #kd_scale    = self.control_config['heading_control']['kd_scale']
             d_stjerne   = self.control_config['heading_control']['N_rr'] * self.control_config['heading_control']['linearization_point']
 
-            K_p_psi_base    = self.vessel_model.M[5][5]*omega**2
-            K_p_psi         = K_p_psi_base * ( 1 + ( kp_scale * e_psi**2))
-            K_d_psi_base    = 2 * zeta * omega * self.vessel_model.M[5][5] - d_stjerne
-            K_d_psi         = K_d_psi_base * ( 1 + ( kd_scale * e_psi_dot**2))
-            K_i_psi         = K_p_psi_base / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
+            K_p_psi    = self.vessel_model.M[5][5]*omega**2
+            #K_p_psi_tuned         = K_p_psi * ( 1 + ( kp_scale * e_psi**2))
+            K_d_psi    = 2 * zeta * omega * self.vessel_model.M[5][5] - d_stjerne
+            #K_d_psi_tuned         = K_d_psi * ( 1 + ( kd_scale * e_psi_dot**2))
+            K_i_psi         = K_p_psi / (abs(ki_scale) + np.rad2deg(e_psi)**2)   
 
             self.qi_psi += self.step_size*K_i_psi*mu.saturate(e_psi,-np.deg2rad(ki_limit),np.deg2rad(ki_limit))
             self.qi_psi  = mu.saturate(self.qi_psi, self.yaw_min * 0.8, self.yaw_max * 0.8)
 
-            P_ledd = K_p_psi_base * e_psi
+            P_ledd = K_p_psi * e_psi
             I_ledd = K_i_psi * self.qi_psi
-            D_ledd = K_d_psi_base * e_psi_dot
+            D_ledd = K_d_psi * e_psi_dot
 
             tau_N = P_ledd + I_ledd + D_ledd
 
@@ -141,15 +141,17 @@ class Kontroller(Node):
             K_p_nu          = self.control_config['speed_control']['K_p']
             K_p_nu_scale    = self.control_config['speed_control']['kp_scale']
 
-                  
             K_p_u_base  = self.vessel_model.M[0][0] * K_p_nu
             K_p_u       = K_p_u_base * ( 1 + ( K_p_nu_scale * e_u**2 ))
             K_i_u       = K_p_u_base / (abs(ki_scale_u) + e_u**2)
 
-            self.qi_u += self.step_size*K_i_u*mu.saturate(e_u,-ki_limit_u,ki_limit_u)
+            self.qi_u += self.step_size * K_i_u * mu.saturate(e_u,-ki_limit_u,ki_limit_u)
             self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
 
-            tau_X = X_uu*abs(self.nu_setpoint[0])*self.nu_setpoint[0] + K_p_u*e_u + self.qi_u
+            tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu_setpoint[0] + K_p_u * e_u + self.qi_u
+
+            if abs(e_psi) > (np.pi/4):
+                tau_X /= (1 + e_psi**2)
             
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()

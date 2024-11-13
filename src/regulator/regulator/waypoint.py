@@ -107,7 +107,7 @@ class WaypointNode(Node):
             if self.mode != 2:
                 self.mode_publisher(2)
 
-        if True: #self.debug == 1:
+        if self.debug == 1:
             self.get_logger().info(
                 f'callback - mode: {msg.mode}\n'
                 f'callback - route: {msg.route}\n'
