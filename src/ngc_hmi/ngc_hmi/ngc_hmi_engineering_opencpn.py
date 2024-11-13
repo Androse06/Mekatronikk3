@@ -7,6 +7,7 @@ import sys
 import sip
 import subprocess  # For running commands like xdotool (Linux)
 import time
+import math
 
 ### Import for Ros ###
 import rclpy
@@ -307,22 +308,24 @@ class EngineeringHMI(Node):
 
     def set_Th1_Icon(self, value):
         # Set the value of the progress bar
-        if value > 0:
-            self.ui.Global_Throttle1_Status.setValue(int(abs(value)))
-            self.ui.Global_Throttle1rev_Status.setValue(int(0))
-        else:
-            self.ui.Global_Throttle1_Status.setValue(int(0))
-            self.ui.Global_Throttle1rev_Status.setValue(int(abs(value)))
+        if not np.isnan(value):
+            if value > 0:
+                self.ui.Global_Throttle1_Status.setValue(int(abs(value)))
+                self.ui.Global_Throttle1rev_Status.setValue(int(0))
+            else:
+                self.ui.Global_Throttle1_Status.setValue(int(0))
+                self.ui.Global_Throttle1rev_Status.setValue(int(abs(value)))
 
 
     def set_Th2_Icon(self, value):
         # Set the value of the progress bar
-        if value > 0:
-            self.ui.Global_Throttle2_Status.setValue(int(abs(value)))
-            self.ui.Global_Throttle2rev_Status.setValue(int(0))
-        else:
-            self.ui.Global_Throttle2_Status.setValue(int(0))
-            self.ui.Global_Throttle2rev_Status.setValue(int(abs(value)))
+        if not np.isnan(value):
+            if value > 0:
+                self.ui.Global_Throttle2_Status.setValue(int(abs(value)))
+                self.ui.Global_Throttle2rev_Status.setValue(int(0))
+            else:
+                self.ui.Global_Throttle2_Status.setValue(int(0))
+                self.ui.Global_Throttle2rev_Status.setValue(int(abs(value)))
 
 
     def set_Heading_Lcd(self, value):
