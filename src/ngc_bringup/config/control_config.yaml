@@ -1,18 +1,18 @@
 heading_control:
-  omega: 0.75  # LF viser til 1.5
-  zeta: 1.8   # LF viser til 1.0
+  omega: 0.75  # LF: 1.5
+  zeta: 1.8   # LF: 1.0
   ki_scale: 5
   kp_scale: 15
   kd_scale: 2
-  ki_saturation_limit: 15  #degrees
+  ki_saturation_limit: 15  # deg
   N_rr: 25
   linearization_point: 0.2
   
 speed_control:
-  K_p: 0.3  # LF viser til 1
+  K_p: 0.3  # LF: 1
   kp_scale: 14
   ki_scale: 8
-  ki_saturation_limit: 1.25  #m/s
+  ki_saturation_limit: 1.25  # m/s
   X_uu: 35
   eta_nu_tuning: True
 
@@ -26,15 +26,15 @@ estimator:
 
 waypoint:
   dp:
-    delta: 5 # radius rundt wp i m
+    delta: 5 # m
     tanh_var: 10
     max_nu: 2 # kts
   track:
-    delta_max: 60 # avstanden fra p̃ til siktepunkt i m
+    delta_max: 60 # m
     delta_tanh_var: 150
     nu_tanh_var: 10
-    wp_radius: 5 # radius rundt wp i m
-    LOS_dist: 10 # avstand fra wp i m hvor den går til line-of-sight
+    wp_radius: 5 # m
+    LOS_dist: 10
     LOS_toggle: False
 
 debug:
