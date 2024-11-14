@@ -25,6 +25,6 @@ physical_parameters:
 otter_interface:
   ip: "192.168.53.2"                        # Wifi: 10.0.5.1, Radio: 192.168.53.2
   port: 2009
-  connection_debug_messages: True
+  connection_debug_messages: False
   log_measurements_to_csv: True
   publish_nmea_to_localhost: True
