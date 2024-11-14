@@ -460,14 +460,22 @@ class OtterUSVNode(Node):
         return data
     
     def map_rpm_to_force_moment(self, rpm_starboard, rpm_port):
+        
+        rpm_starboard = round(rpm_starboard)
+        rpm_port      = round(rpm_port)
+        
         # Saturate the input RPMs within the bounds of the dataset
         rpm_starboard = np.clip(rpm_starboard, self.rpm_values[:, 0].min(), self.rpm_values[:, 0].max())
-        rpm_port = np.clip(rpm_port, self.rpm_values[:, 1].min(), self.rpm_values[:, 1].max())
+        rpm_port      = np.clip(rpm_port, self.rpm_values[:, 1].min(), self.rpm_values[:, 1].max())
         
         # Interpolate Fx and Mz for the given RPM_starboard and RPM_port values
         fx = griddata(self.rpm_values, self.Fx_values, (rpm_starboard, rpm_port), method='linear')
         mz = griddata(self.rpm_values, self.Mz_values, (rpm_starboard, rpm_port), method='linear')
         
+        if np.isnan(fx) or np.isnan(mz):
+            fx = griddata(self.rpm_values, self.Fx_values, (rpm_starboard, rpm_port), method='nearest')
+            mz = griddata(self.rpm_values, self.Mz_values, (rpm_starboard, rpm_port), method='nearest')
+
         return np.round(fx,4), np.round(mz,4)
         
     def publish_measurements(self):
