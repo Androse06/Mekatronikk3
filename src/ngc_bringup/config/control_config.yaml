@@ -15,6 +15,7 @@ speed_control:
   ki_saturation_limit: 1.25  # m/s
   X_uu: 35
   eta_nu_tuning: True
+  eta_nu_tanh: 10
 
 estimator:
   L1: 1

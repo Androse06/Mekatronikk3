@@ -141,6 +141,7 @@ class Kontroller(Node):
             K_p_nu          = self.control_config['speed_control']['K_p']
             K_p_nu_scale    = self.control_config['speed_control']['kp_scale']
             tuning_toggle   = self.control_config['speed_control']['eta_nu_tuning']
+            tanh_konst      = self.control_config['speed_control']['eta_nu_tanh']
 
             K_p_u_base  = self.vessel_model.M[0][0] * K_p_nu
             K_p_u       = K_p_u_base * ( 1 + ( K_p_nu_scale * e_u**2 ))
@@ -151,8 +152,8 @@ class Kontroller(Node):
 
             tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu_setpoint[0] + K_p_u * e_u + self.qi_u
 
-            if abs(e_psi) > (np.pi/12) and tuning_toggle:
-                tau_X /= (1 + (e_psi*10)**2)
+            if tuning_toggle and abs(e_psi) > np.pi / 12:
+                tau_X *= np.sign(tau_X) * abs(np.tanh(e_psi / tanh_konst)) # (1 + (e_psi*10)**2)
             
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()
