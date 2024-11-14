@@ -143,9 +143,9 @@ class Kontroller(Node):
             tuning_toggle   = self.control_config['speed_control']['eta_nu_tuning']
             tanh_konst      = self.control_config['speed_control']['eta_nu_tanh']
 
-            K_p_u_base  = self.vessel_model.M[0][0] * K_p_nu
-            K_p_u       = K_p_u_base * ( 1 + ( K_p_nu_scale * e_u**2 ))
-            K_i_u       = K_p_u_base / (abs(ki_scale_u) + e_u**2)
+            K_p_u  = self.vessel_model.M[0][0] * K_p_nu
+            K_p_u       = K_p_u * ( 1 + ( K_p_nu_scale * e_u**2 ))
+            K_i_u       = K_p_u / (abs(ki_scale_u) + e_u**2)
 
             self.qi_u += self.step_size * K_i_u * mu.saturate(e_u,-ki_limit_u,ki_limit_u)
             self.qi_u = mu.saturate(self.qi_u, self.surge_min * 0.8, self.surge_max * 0.8)
@@ -153,7 +153,7 @@ class Kontroller(Node):
             tau_X = X_uu * abs(self.nu_setpoint[0]) * self.nu_setpoint[0] + K_p_u * e_u + self.qi_u
 
             if tuning_toggle and abs(e_psi) > np.pi / 12:
-                tau_X *= np.sign(tau_X) * abs(np.tanh(e_psi / tanh_konst)) # (1 + (e_psi*10)**2)
+                tau_X /= (1 + (e_psi*10)**2) #  np.sign(tau_X) * abs(np.tanh(e_psi / tanh_konst))
             
             ################## Publiser kontrollkrefter #####################
             tau_message         = Tau()
