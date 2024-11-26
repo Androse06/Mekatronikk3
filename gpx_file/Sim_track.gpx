@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="OpenCPN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd" xmlns:opencpn="http://www.opencpn.org">
+  <trk>
+    <name>Sim_track</name>
+    <extensions>
+      <opencpn:guid>2fd3096d-d3ef-446f-8a6a-95c979e75212</opencpn:guid>
+      <opencpn:viz>1</opencpn:viz>
+      <opencpn:style style="104" />
+      <gpxx:TrackExtension>
+        <gpxx:DisplayColor>DarkYellow</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="62.469666667" lon="6.240116667">
+        <time>2024-11-26T21:51:59Z</time>
+      </trkpt>
+      <trkpt lat="62.469650000" lon="6.239616667">
+        <time>2024-11-26T21:53:17Z</time>
+      </trkpt>
+      <trkpt lat="62.469716667" lon="6.239533333">
+        <time>2024-11-26T21:53:31Z</time>
+      </trkpt>
+      <trkpt lat="62.470016667" lon="6.239550000">
+        <time>2024-11-26T21:53:59Z</time>
+      </trkpt>
+      <trkpt lat="62.470050000" lon="6.239516667">
+        <time>2024-11-26T21:54:03Z</time>
+      </trkpt>
+      <trkpt lat="62.470083333" lon="6.238783333">
+        <time>2024-11-26T21:54:46Z</time>
+      </trkpt>
+      <trkpt lat="62.470050000" lon="6.238683333">
+        <time>2024-11-26T21:55:02Z</time>
+      </trkpt>
+      <trkpt lat="62.469683333" lon="6.238450000">
+        <time>2024-11-26T21:55:40Z</time>
+      </trkpt>
+      <trkpt lat="62.469650000" lon="6.238233333">
+        <time>2024-11-26T21:56:03Z</time>
+      </trkpt>
+      <trkpt lat="62.469633333" lon="6.237450000">
+        <time>2024-11-26T21:56:49Z</time>
+      </trkpt>
+      <trkpt lat="62.469800000" lon="6.237183333">
+        <time>2024-11-26T21:57:21Z</time>
+      </trkpt>
+      <trkpt lat="62.469983333" lon="6.237050000">
+        <time>2024-11-26T21:57:39Z</time>
+      </trkpt>
+      <trkpt lat="62.470033333" lon="6.237050000">
+        <time>2024-11-26T21:57:45Z</time>
+      </trkpt>
+      <trkpt lat="62.470000000" lon="6.237866667">
+        <time>2024-11-26T21:58:31Z</time>
+      </trkpt>
+      <trkpt lat="62.469866667" lon="6.239116667">
+        <time>2024-11-26T21:59:21Z</time>
+      </trkpt>
+      <trkpt lat="62.469733333" lon="6.239900000">
+        <time>2024-11-26T22:00:03Z</time>
+      </trkpt>
+      <trkpt lat="62.469766667" lon="6.239883333">
+        <time>2024-11-26T22:00:13Z</time>
+      </trkpt>
+      <trkpt lat="62.469733333" lon="6.239850000">
+        <time>2024-11-26T22:01:15Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
