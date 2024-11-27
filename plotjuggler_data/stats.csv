@@ -1,0 +1,19 @@
+Series,Current,Min,Max,Average
+Start Time,1.73272e+09
+End Time,1.79769e+308
+Current Time,1.73272e+09
+/eta_hat/lat,62.469662,62.469658,62.469669,62.469662
+/eta_hat/lon,6.240090,6.240090,6.240110,6.240099
+/eta_hat/phi,0.000113,-0.000087,0.000495,0.000146
+/eta_hat/psi,-0.000172,-0.000216,-0.000081,-0.000157
+/eta_hat/theta,0.000000,0.000000,0.000000,0.000000
+/eta_hat/z,0.000138,-0.000106,0.000603,0.000178
+/gnss_measurement_sim/cog,0.000000,0.000000,0.000000,0.000000
+/gnss_measurement_sim/lat,62.469662,62.469658,62.469666,62.469660
+/gnss_measurement_sim/lon,6.240083,6.240083,6.240109,6.240096
+/gnss_measurement_sim/sog,0.000000,0.000000,0.000000,0.000000
+/gnss_measurement_sim/valid_signal,1.000000,1.000000,1.000000,1.000000
+/heading_measurement_sim/heading,0.000270,0.000022,6.283182,2.387643
+/heading_measurement_sim/id,0.000000,0.000000,0.000000,0.000000
+/heading_measurement_sim/rot,-0.000183,-0.000363,0.000356,-0.000001
+/heading_measurement_sim/valid_signal,1.000000,1.000000,1.000000,1.000000
