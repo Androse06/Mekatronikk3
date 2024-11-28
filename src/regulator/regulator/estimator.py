@@ -39,7 +39,10 @@ class Estimator(Node):
 
         self.csvfile    = open('estimator_data.csv', 'w', newline='')
         self.csv_writer = csv.writer(self.csvfile)
-        self.csv_writer.writerow(['Latitude', 'Longitude', 'surge', 'yaw'])
+
+        with open('estimator_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(['Lat_measured', 'Lon_measured', 'lat_hat', 'lon_hat', 'yaw_measured', 'yaw_hat'])
 
         filter_active = True
 
@@ -211,7 +214,7 @@ class Estimator(Node):
     def csv_logger(self):
             with open('estimator_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv
                 csv_writer = csv.writer(csvfile)
-                data = [self.lat_hat, self.lon_hat, self.nu_hat, self.eta_hat]
+                data = [self.lat_measured, self.lon_measured, self.lat_hat, self.lon_hat, mu.mapToPiPi(self.heading_measured), float(self.eta_hat[2])]
                 csv_writer.writerow(data)
 
     def __del__(self): # lukker csv filen når programmet stopper

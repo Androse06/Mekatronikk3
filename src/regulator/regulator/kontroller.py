@@ -3,6 +3,7 @@ from rclpy.node import Node
 import numpy as np
 import os
 import yaml
+import csv
 from ngc_interfaces.msg import Eta, Nu, Tau, HMI, TauMax
 from ament_index_python.packages import get_package_share_directory
 from ngc_utils.vessel_model import VesselModel
@@ -31,6 +32,14 @@ class Kontroller(Node):
         self.control_config     = self.load_yaml_file(self.control_config_path)
 
         self.vessel_model = VesselModel(self.vessel_config)
+
+        self.csvfile    = open('kontroller_data.csv', 'w', newline='')
+        self.csv_writer = csv.writer(self.csvfile)
+        
+        with open('kontroller_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(['surge_set', 'yaw_set', 'surge_hat', 'yaw_hat', 'nu_error', 'eta_error'])
+
         
         self.step_size = self.simulation_config['simulation_settings']['step_size']
 
@@ -164,6 +173,8 @@ class Kontroller(Node):
             tau_message.pitch_m = 0.0
             tau_message.yaw_n   = mu.saturate(tau_N, self.yaw_min, self.yaw_max)
             self.tau_pub.publish(tau_message)
+            
+            self.csv_logger() # printer ut lat og lon til en csv fil
 
             ################## Debugging #####################
             self.debug = self.control_config['debug']['kontroller']
@@ -178,6 +189,19 @@ class Kontroller(Node):
                     f'Eta: {self.eta[5]}\n'
                     f'Nu: {self.nu[0]}'
                 )
+
+
+    def csv_logger(self):
+        e_psi       = mu.mapToPiPi(self.eta_setpoint[5] - self.eta[5])
+        e_u         = self.nu_setpoint[0] - self.nu[0]
+        with open('kontroller_data.csv', 'a', newline='') as csvfile: # Den appender eksisterende csv
+            csv_writer = csv.writer(csvfile)
+            data = [self.nu_setpoint[0], self.eta_setpoint[5], self.nu[0], self.eta[5], e_u, e_psi]
+            csv_writer.writerow(data)
+
+    def __del__(self): # lukker csv filen når programmet stopper
+        self.csvfile.close()
+
 
 def main(args=None):
     rclpy.init(args=args)
